@@ -1,4 +1,4 @@
-package com.lotte.orderproducts.vo;
+package com.lotte.orders.vo;
 
 public class OrderProductVO {
     int OrderPorductNo;

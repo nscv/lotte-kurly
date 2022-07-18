@@ -1,4 +1,4 @@
-package com.lotte.usercoupons.vo;
+package com.lotte.coupons.vo;
 
 public class UserCouponVO {
     int UserCouponNo;

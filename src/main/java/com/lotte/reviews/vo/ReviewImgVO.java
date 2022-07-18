@@ -1,4 +1,4 @@
-package com.lotte.reviewimgs.vo;
+package com.lotte.reviews.vo;
 
 public class ReviewImgVO {
     int ReviewImgNo;
