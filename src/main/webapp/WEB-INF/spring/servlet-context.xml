@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mvc="http://www.springframework.org/schema/mvc"
+   xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+   
+   <!-- spring MVC annotation(주석문, 지시문)을 사용하기 위한 설정 -->   
+   <context:annotation-config />
+
+   <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+     <property name="prefix" value="/WEB-INF/views/" />
+     <property name="suffix" value=".jsp"/>		
+   </bean>
+    
+   <!-- 공통 팩키지 xxx.xxx.xxx -->
+   <context:component-scan base-package="com.lotte" />
+   
+   <!-- Ajax 주석문 사용허가 -->
+   <mvc:annotation-driven />
+   
+   <!-- spring에서 처리할 수 없는 요청은 tomcat에 위임 -->
+   <mvc:default-servlet-handler/>
+         
+</beans>
+
+
+
+
+
+
+
+
+

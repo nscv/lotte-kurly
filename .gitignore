@@ -118,3 +118,7 @@ fabric.properties
 
 # ETC
 .idea
+
+# IntelliJ IDEA
+target
+**/*.properties
