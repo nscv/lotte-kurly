@@ -1,0 +1,18 @@
+package com.lotte.users.service;
+
+import com.lotte.users.dao.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService {
+
+    @Autowired
+    private UserDao dao;
+
+    public String getuser(String email) {
+        int count = dao.getuser(email);
+        System.out.println(count+"?");
+        return count>0?"YES":"NO";
+    }
+}
