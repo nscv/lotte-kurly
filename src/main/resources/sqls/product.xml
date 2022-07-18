@@ -4,12 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lotte.products.dao.ProductDao">
     <insert id="insertProducts" parameterType="com.lotte.products.dto.ProductDto">
-        INSERT INTO products(product_name, product_content, product_simple_content, product_price, product_amount, product_stock, product_category)
-        VALUES(#{product_name}, #{product_content}, #{product_simple_content}, #{product_price}, #{product_amount}, #{product_stock}, #{product_category})
+        INSERT INTO products(product_name, product_content, product_simple_content, product_price, product_amount, product_stock, product_category, product_deadline)
+        VALUES(#{productName}, #{productContent}, #{productSimpleContent}, #{productPrice}, #{productAmount}, #{productStock}, #{productCategory}, #{productDeadline})
     </insert>
     <update id="updateProducts" parameterType="com.lotte.products.dto.ProductDto">
         UPDATE products
-        SET product_stock=#{product_stock}, product_amount = product_amount+#{product_stock}
-        WHERE product_no = #{product_no}
+        SET product_stock=#{productStock}, product_amount = product_amount+#{productStock}
+        WHERE product_no = #{productNo}
     </update>
 </mapper>

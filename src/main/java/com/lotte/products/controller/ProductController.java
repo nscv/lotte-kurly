@@ -6,8 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ProductController {
@@ -17,10 +16,14 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
-
+    @RequestMapping("/admin/main")
+    public String adminMain() {
+        return "admin/adminMain";
+    }
     @ResponseBody
     @PostMapping("/insert")
     public String insertProduct(ProductDto dto) {
+        System.out.println(dto);
         try {
             service.insertProducts(dto);
         } catch (Exception e) {
@@ -31,8 +34,9 @@ public class ProductController {
     }
 
     @ResponseBody
-    @PostMapping("/update")
+    @PostMapping ("/update")
     public String updateProduct(ProductDto dto) {
+        System.out.println(dto);
         try {
             service.updateProducts(dto);
         } catch(Exception e) {

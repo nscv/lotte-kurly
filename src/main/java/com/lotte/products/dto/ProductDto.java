@@ -5,6 +5,16 @@ public class ProductDto {
     String productName;
     String productContent;
     String productSimpleContent;
+    String productDeadline;
+
+    public String getProductDeadline() {
+        return productDeadline;
+    }
+
+    public void setProductDeadline(String productDeadline) {
+        this.productDeadline = productDeadline;
+    }
+
     int productPrice;
     int productAmount;
     int productStock;
@@ -66,10 +76,11 @@ public class ProductDto {
         this.productCategory = productCategory;
     }
 
-    public ProductDto(String productName, String productContent, String productSimpleContent, int productPrice, int productAmount, int productStock, String productCategory) {
+    public ProductDto(String productName, String productContent, String productSimpleContent, String productDeadline, int productPrice, int productAmount, int productStock, String productCategory) {
         this.productName = productName;
         this.productContent = productContent;
         this.productSimpleContent = productSimpleContent;
+        this.productDeadline = productDeadline;
         this.productPrice = productPrice;
         this.productAmount = productAmount;
         this.productStock = productStock;
