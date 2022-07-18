@@ -122,3 +122,4 @@ fabric.properties
 # IntelliJ IDEA
 target
 **/*.properties
+web.xml
