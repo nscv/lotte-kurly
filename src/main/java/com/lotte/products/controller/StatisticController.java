@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/statistic")
 public class StatisticController {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
