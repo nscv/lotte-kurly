@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ProductDao {
     void insertProducts(ProductDto product);
-    void updateProduct(ProductDto product);
+    void updateProducts(ProductDto product);
 }

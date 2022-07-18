@@ -64,6 +64,21 @@ public class ProductDto {
         return productStock;
     }
 
+    @Override
+    public String toString() {
+        return "ProductDto{" +
+                "productNo=" + productNo +
+                ", productName='" + productName + '\'' +
+                ", productContent='" + productContent + '\'' +
+                ", productSimpleContent='" + productSimpleContent + '\'' +
+                ", productDeadline='" + productDeadline + '\'' +
+                ", productPrice=" + productPrice +
+                ", productAmount=" + productAmount +
+                ", productStock=" + productStock +
+                ", productCategory='" + productCategory + '\'' +
+                '}';
+    }
+
     public void setProductStock(int productStock) {
         this.productStock = productStock;
     }
@@ -76,7 +91,8 @@ public class ProductDto {
         this.productCategory = productCategory;
     }
 
-    public ProductDto(String productName, String productContent, String productSimpleContent, String productDeadline, int productPrice, int productAmount, int productStock, String productCategory) {
+    public ProductDto(int productNo, String productName, String productContent, String productSimpleContent, String productDeadline, int productPrice, int productAmount, int productStock, String productCategory) {
+        this.productNo = productNo;
         this.productName = productName;
         this.productContent = productContent;
         this.productSimpleContent = productSimpleContent;

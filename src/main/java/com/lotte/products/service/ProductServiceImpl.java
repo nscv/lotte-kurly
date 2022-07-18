@@ -18,6 +18,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void updateProducts(ProductDto dto) {
-        dao.updateProduct(dto);
+        dao.updateProducts(dto);
     }
 }

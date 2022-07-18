@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+@RequestMapping("/admin")
 @Controller
 public class ProductController {
 
@@ -16,7 +17,7 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
-    @RequestMapping("/admin/main")
+    @RequestMapping("/main")
     public String adminMain() {
         return "admin/adminMain";
     }
