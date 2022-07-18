@@ -118,3 +118,6 @@ fabric.properties
 
 # ETC
 .idea
+
+# IntelliJ IDEA
+jdbc.properties
