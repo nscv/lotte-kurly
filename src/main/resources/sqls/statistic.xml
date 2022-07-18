@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lotte.products.dao.StatisticDao">
+    <select id="selectProductCountByCategory" resultType="com.lotte.products.dto.ProductCategoryDto">
+        SELECT product_category AS productCategory, COUNT(*) AS cnt
+        FROM products
+        GROUP BY product_category;
+    </select>
+    <select id="selectPricesByGender" resultType="com.lotte.products.dto.UserGenderDto">
+        SELECT user_gender AS userGender, COUNT(*) AS cnt
+        FROM users
+        GROUP BY user_gender;
+    </select>
+    <select id="selectPricesByAge" resultType="com.lotte.products.dto.UserAgeDto">
+        SELECT
+            CASE
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 0 AND 10 THEN '0'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 10 AND 20 THEN '10'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 20 AND 30 THEN '20'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 30 AND 40 THEN '30'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 40 AND 50 THEN '40'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 50 AND 60 THEN '50'
+                ELSE '60'
+                END AS userAge,
+            COUNT(*) AS cnt
+        FROM users
+        GROUP BY userAge
+    </select>
+    <select id="selectUsersByUserGrade" resultType="com.lotte.products.dto.UserGradeDto">
+        SELECT user_grade AS userGrade, COUNT(*) AS cnt
+        FROM users
+        GROUP BY user_grade
+    </select>
+</mapper>
