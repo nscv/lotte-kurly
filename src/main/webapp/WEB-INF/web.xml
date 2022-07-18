@@ -28,7 +28,7 @@
 
   <servlet-mapping>
     <servlet-name>dispatcherServlet</servlet-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
 
   <context-param>
@@ -41,6 +41,8 @@
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+
+
 
   <!-- filter : 걸러내다 -->
   <!-- 한글 설정 -->
@@ -64,7 +66,7 @@
 
   <filter-mapping>
     <filter-name>encodingFilter</filter-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/</url-pattern>
   </filter-mapping>
 
 </web-app>
