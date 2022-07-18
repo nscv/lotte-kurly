@@ -1,4 +1,4 @@
-package com.lotte.reviewlikes.vo;
+package com.lotte.reviews.vo;
 
 public class ReviewLikeVO {
     int ReviewLikeNo;

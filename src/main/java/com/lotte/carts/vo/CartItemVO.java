@@ -1,4 +1,4 @@
-package com.lotte.cartitems.vo;
+package com.lotte.carts.vo;
 
 public class CartItemVO {
     int CartItemNo;//장바구니 아이템번호
