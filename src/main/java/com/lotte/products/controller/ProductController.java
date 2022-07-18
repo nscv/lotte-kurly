@@ -17,10 +17,6 @@ public class ProductController {
     @Autowired
     private ProductService service;
 
-    @RequestMapping("/main")
-    public String adminMain() {
-        return "admin/adminMain";
-    }
     @ResponseBody
     @PostMapping("/insert")
     public String insertProduct(ProductDto dto) {
