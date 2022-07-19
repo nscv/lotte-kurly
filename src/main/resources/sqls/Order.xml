@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lotte.orders.dao.OrderDao">
+
+    <!-- 주문 목록 조회 쿼리 -->
+    <!-- (1) 주문 목록 조회 -->
+    <select id="selectOrders" parameterType="Integer" resultType="com.lotte.orders.dto.Order">
+        SELECT order_no orderNo, order_state orderState,
+               order_created_at orderCreatedAt, order_total_price orderTotalPrice
+        FROM orders
+        WHERE user_no = #{userNo}
+    </select>
+
+    <!-- (2) 장바구니 아이템 이름 목록 조회 -->
+    <select id="selectCartItemNames" parameterType="Integer" resultType="String">
+        SELECT product_name productNames
+        FROM (SELECT product_no
+              FROM cart_items
+              WHERE order_no = #{orderNo}) cart_item_product_nos, products p
+        WHERE cart_item_product_nos.product_no = p.product_no
+    </select>
+
+</mapper>
