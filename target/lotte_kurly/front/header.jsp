@@ -6,15 +6,34 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Header</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="/front/header.css">
-
+    <link rel="stylesheet" type="text/css" href="header.css">
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+
+<%
+    String userno = "-1";
+    String isvalid = "-1";
+    Cookie[] cookies = request.getCookies() ;
+    if(cookies != null){
+        for(int i=0; i < cookies.length; i++){
+            if (cookies[i].getName().equals("userno")) {
+                userno = cookies[i].getValue();
+            } else if (cookies[i].getName().equals("isvalid")) {
+                isvalid = cookies[i].getValue();
+            }
+        }
+    }
+
+%>
 
 
 <div id="header-logo">
@@ -44,9 +63,23 @@
             <li class="menu3">
                 <a href=""> <span class="txt">주문 내역</span></a>
             </li>
+            <%
+                if(userno.equals("-1")){
+            %>
             <li class="menu4">
-                <a href=""><span class="txt">로그인 | 회원가입</span></a>
+                <a href="javascript:loginWithKakao();"><span class="txt">로그인 | 회원가입</span></a>
             </li>
+            <%
+                }else {
+            %>
+            <li class="menu4">
+                <a href="javascript:kakaoLogout();"><span class="txt">로그아웃</span></a>
+            </li>
+            <%
+                }
+            %>
+
+
             <li class="menu5">
                 <a href=""><input type="image" src="/front/images/cart.png" class="cart-btn"></a>
             </li>
@@ -54,6 +87,98 @@
     </div>
 </div>
 
+<%-- 카카오 초기화 --%>
+<script type="text/javascript">
+    Kakao.init('8c4fa2c21bc60a51d0d78927368eb06d');
+    Kakao.isInitialized();
+</script>
+
+<%-- 카카오 로그인 --%>
+<script type="text/javascript">
+    function loginWithKakao() {
+        Kakao.Auth.login({
+            success: function(authObj) {
+                Kakao.API.request({
+                    url: '/v2/user/me',
+                    success: function(response) {
+                        let email = response.kakao_account.email;
+                        $.ajax({
+                            type:"get",
+                            url:"/userdata",
+                            data:{"email": email},
+                            success:function( data ){
+                                console.log(data)
+                                setCookie("isvalid", data.substring(0,1), 60);
+                                setCookie("userno", data.substring(1), 60);
+                                alert("로그인 성공");
+                                location.href = "/";
+                            },
+                            error:function(){
+                                alert("error");
+                            }
+                        });
+                    },
+                    fail: function(error) {
+                        console.log(error);
+                    }
+                });
+            },
+            fail: function(err) {
+                alert(JSON.stringify(err))
+            },
+        })
+    }
+</script>
+
+<%-- 카카오 로그아웃 --%>
+<script type="text/javascript">
+    function kakaoLogout() {
+        if (!Kakao.Auth.getAccessToken()) {
+            alert('로그인 해주세요')
+            return
+        }
+        Kakao.Auth.logout(function() {
+            deleteCookie("isvalid");
+            deleteCookie("userno");
+            alert('정상적으로 로그아웃 되었습니다')
+            location.href = "/";
+        })
+    }
+</script>
+
+<script>
+    <%-- 쿠키값 Set --%>
+    function setCookie(cookieName, value, exdays) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + exdays);
+        var cookieValue = escape(value) + ((exdays==null) ? "" : "; expires=" +
+            exdate.toGMTString());
+        document.cookie = cookieName + "=" + cookieValue;
+    }
+
+    <%-- 쿠키값 Delete --%>
+    function deleteCookie(cookieName) {
+        var expireDate = new Date();
+        expireDate.setDate(expireDate.getDate() - 1);
+        document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+    }
+
+    <%-- 쿠키값 가져오기 --%>
+    function getCookie(cookie_name) {
+        var x, y;
+        var val = document.cookie.split(';');
+
+        for (var i = 0; i < val.length; i++) {
+            x = val[i].substr(0, val[i].indexOf('='));
+            y = val[i].substr(val[i].indexOf('=') + 1);
+            x = x.replace(/^\s+|\s+$/g, ''); // 앞과 뒤의 공백 제거하기
+
+            if (x == cookie_name) {
+                return unescape(y); // unescape로 디코딩 후 값 리턴
+            }
+        }
+    }
+</script>
 <%--    </h2>--%>
 
 <%--</div>--%>
