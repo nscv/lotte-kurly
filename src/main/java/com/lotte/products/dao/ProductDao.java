@@ -15,4 +15,5 @@ public interface ProductDao {
     List<ProductListDto>productHighList();
     void insertProducts(ProductDto product);
     void updateProducts(ProductDto product);
+    ProductListDto selectProductByProductNo(int productNo);
 }

@@ -4,10 +4,12 @@ import java.io.Serializable;
 
 public class ProductListDto implements Serializable {
 
-    int productNo;
-    String productName;
-    int productPrice;
-//    String productImgNewName;
+    private int productNo;
+    private String productName;
+    private int productPrice;
+    private String productDeadline;
+    private int productAmount;
+    private int productStock;
 
     @Override
     public String toString() {
@@ -15,9 +17,46 @@ public class ProductListDto implements Serializable {
                 "productNo=" + productNo +
                 ", productName='" + productName + '\'' +
                 ", productPrice=" + productPrice +
-//                ", productImgNewName='" + productImgNewName + '\'' +
+                ", productDeadline='" + productDeadline + '\'' +
+                ", productAmount=" + productAmount +
+                ", productStock=" + productStock +
                 '}';
     }
+
+    public int getProductAmount() {
+        return productAmount;
+    }
+
+    public void setProductAmount(int productAmount) {
+        this.productAmount = productAmount;
+    }
+
+    public int getProductStock() {
+        return productStock;
+    }
+
+    public void setProductStock(int productStock) {
+        this.productStock = productStock;
+    }
+
+    public String getProductDeadline() {
+        return productDeadline;
+    }
+
+    public void setProductDeadline(String productDeadline) {
+        this.productDeadline = productDeadline;
+    }
+
+    public ProductListDto(int productNo, String productName, int productPrice, String productDeadline, int productAmount, int productStock) {
+        this.productNo = productNo;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productDeadline = productDeadline;
+        this.productAmount = productAmount;
+        this.productStock = productStock;
+    }
+
+//    String productImgNewName;
 
     public int getProductNo() {
         return productNo;
