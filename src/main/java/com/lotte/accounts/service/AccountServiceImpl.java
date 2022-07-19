@@ -24,10 +24,6 @@ public class AccountServiceImpl implements AccountService {
         ProductListDto getProductInfo = productDao.selectProductByProductNo(productNo);
 
         boolean canBuyRemain = getProductInfo.getProductStock() >= buyCount;
-        System.out.println(getProductInfo);
-        System.out.println(canBuyRemain);
-        System.out.println(accountDao.selectAccountByUserNo(userNo));
-        System.out.println(haveEnoughAccount(productNo, userNo));
 
         return canBuyRemain && haveEnoughAccount(productNo, userNo);
     }

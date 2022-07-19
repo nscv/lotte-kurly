@@ -23,9 +23,9 @@ class AccountControllerTest {
         int buyCount = 1;
         int userNo = 5;
         assertEquals(accountService.canBuyProduct(productNo, buyCount, userNo), false);
-        productNo = 136585;
+        productNo = 6482;
         assertEquals(accountService.canBuyProduct(productNo, buyCount, userNo), true);
         buyCount = 2;
-        assertEquals(accountService.canBuyProduct(productNo, buyCount, userNo), false);
+        assertEquals(accountService.canBuyProduct(productNo, buyCount, userNo), true);
     }
 }

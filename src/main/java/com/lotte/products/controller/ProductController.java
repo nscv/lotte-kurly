@@ -21,7 +21,6 @@ public class ProductController {
 
     @PostMapping("/admin/insert")
     public String insertProduct(ProductDto dto) {
-        System.out.println(dto);
         try {
             productService.insertProducts(dto);
         } catch (Exception e) {
@@ -33,7 +32,6 @@ public class ProductController {
 
     @PostMapping ("/admin/update")
     public String updateProduct(ProductDto dto) {
-        System.out.println(dto);
         try {
             productService.updateProducts(dto);
         } catch(Exception e) {
