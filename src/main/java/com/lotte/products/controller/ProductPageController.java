@@ -22,24 +22,29 @@ public class ProductPageController {
     }
 
     @GetMapping("/productlist")
-    public String ProductList(Model model, String category){
-        List<ProductListDto> list= productService.productList();
-        for(ProductListDto d:list){
-            System.out.println(d.getProductNo()+" "+d.getProductName()+" "+d.getProductPrice());
-        }
+    public String ProductList(Model model, String category,String page){
+        List<ProductListDto> list= productService.productList(category);
         model.addAttribute("list",list);
         return "product/productlist";
     }
-    @GetMapping("/productlowlist")
+    @GetMapping("/product/lowlist")
     public String ProductLowList(Model model,String category){
         List<ProductListDto>list=productService.productLowList();
+        for(ProductListDto d:list){
+            System.out.println(d.getProductImgNewName());
+        }
         model.addAttribute("list",list);
         return"product/productlist";
     }
-    @GetMapping("/producthighlist")
+    @GetMapping("/product/highlist")
     public String ProductHighList(Model model,String category){
         List<ProductListDto>list=productService.productHighList();
         model.addAttribute("list",list);
         return"product/productlist";
     }
+    @GetMapping("/product/productdetail")
+    public String ProductDetail(){
+        return "product/productdetail";
+    }
+
 }
