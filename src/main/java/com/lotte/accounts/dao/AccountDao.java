@@ -6,4 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface AccountDao {
     AccountDto selectAccountByUserNo(int userNo);
+    void updateAccountByBuy(AccountDto accountDto);
+    void updateAccountByRefund(AccountDto accountDto);
 }

@@ -1,6 +1,8 @@
 package com.lotte.accounts.controller;
 
+import com.lotte.accounts.dto.AccountDto;
 import com.lotte.accounts.service.AccountService;
+import com.lotte.orders.dto.OrderProductsDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,9 +24,28 @@ public class AccountController {
     public String Test() {
         return "admin/axis";
     }
+
     @ResponseBody
-    @GetMapping("/canBuy")
-    public boolean canBuyProduct(int productNo, int buyCount, int userNo) {
-        return accountService.canBuyProduct(productNo, buyCount, userNo);
+    @PostMapping("/buy")
+    public boolean buy(AccountDto accountDto, OrderProductsDto orderProductsDto) {
+        try {
+            accountService.payProduct(accountDto, orderProductsDto);
+        } catch(Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    @ResponseBody
+    @PostMapping("/refund")
+    public boolean refund(AccountDto accountDto, OrderProductsDto orderProductsDto) {
+        try {
+            accountService.refundProduct(accountDto, orderProductsDto);
+        } catch(Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }

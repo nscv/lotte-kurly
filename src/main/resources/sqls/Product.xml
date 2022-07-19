@@ -16,6 +16,18 @@
         INSERT INTO products(product_name, product_content, product_simple_content, product_price, product_amount, product_stock, product_deadline)
         VALUES(#{productName}, #{productContent}, #{productSimpleContent}, #{productPrice}, #{productAmount}, #{productStock}, #{productDeadline})
     </insert>
+    <update id="buyProducts" parameterType="com.lotte.orders.dto.OrderProductsDto">
+        UPDATE products
+        SET product_stock = product_stock-#{orderCount}
+            AND product_amount = product_amount+#{orderCount}
+        WHERE product_no = #{productNo}
+    </update>
+    <update id="refundProducts" parameterType="com.lotte.orders.dto.OrderProductsDto">
+        UPDATE products
+        SET product_stock = product_stock+#{orderCount}
+            AND product_amount = product_amount-#{orderCount}
+        WHERE product_no = #{productNo}
+    </update>
     <update id="updateProducts" parameterType="com.lotte.products.dto.ProductDto">
         UPDATE products
         SET product_stock=product_stock+#{productStock}

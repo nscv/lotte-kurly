@@ -8,4 +8,16 @@
         FROM accounts
         WHERE user_no = #{userNo}
     </select>
+    <update id="updateAccountByBuy" parameterType="com.lotte.accounts.dto.AccountDto">
+        UPDATE account
+        SET account_money = account_money - #{accountMoney}
+            AND account_point = account_point + #{accountPoint}
+        WHERE user_no = #{userNo}
+    </update>
+    <update id="updateAccountByRefund" parameterType="com.lotte.accounts.dto.AccountDto">
+        UPDATE account
+        SET account_money = account_money + #{accountMoney}
+            AND account_point = account_point - #{accountPoint}
+        WHERE user_no = #{userNo}
+    </update>
 </mapper>

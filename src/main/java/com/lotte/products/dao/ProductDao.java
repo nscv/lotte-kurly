@@ -1,5 +1,6 @@
 package com.lotte.products.dao;
 
+import com.lotte.orders.dto.OrderProductsDto;
 import com.lotte.products.dto.ProductDto;
 import com.lotte.products.dto.ProductListDto;
 
@@ -13,6 +14,8 @@ public interface ProductDao {
     List<ProductListDto> productList();
     List<ProductListDto>productLowList();
     List<ProductListDto>productHighList();
+    void buyProducts(OrderProductsDto orderProductsDto);
+    void refundProducts(OrderProductsDto orderProductsDto);
     void insertProducts(ProductDto product);
     void updateProducts(ProductDto product);
     ProductListDto selectProductByProductNo(int productNo);

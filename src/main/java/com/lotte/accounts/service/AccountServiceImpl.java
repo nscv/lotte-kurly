@@ -2,6 +2,7 @@ package com.lotte.accounts.service;
 
 import com.lotte.accounts.dao.AccountDao;
 import com.lotte.accounts.dto.AccountDto;
+import com.lotte.orders.dto.OrderProductsDto;
 import com.lotte.products.dao.ProductDao;
 import com.lotte.products.dto.ProductDto;
 import com.lotte.products.dto.ProductListDto;
@@ -36,5 +37,19 @@ public class AccountServiceImpl implements AccountService {
         AccountDto getAccountInfo = accountDao.selectAccountByUserNo(userNo);
 
         return getAccountInfo.getAccountMoney() >= getProductInfo.getProductPrice();
+    }
+
+    @Override
+    public void payProduct(AccountDto accountDto, OrderProductsDto orderProductsDto) {
+        if(!this.canBuyProduct(orderProductsDto.getProductNo(), orderProductsDto.getOrderCount(), accountDto.getUserNo()))
+            return;
+        productDao.buyProducts(orderProductsDto);
+        accountDao.updateAccountByBuy(accountDto);
+    }
+
+    @Override
+    public void refundProduct(AccountDto accountDto, OrderProductsDto orderProductsDto) {
+        productDao.refundProducts(orderProductsDto);
+        accountDao.updateAccountByRefund(accountDto);
     }
 }
