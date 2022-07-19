@@ -18,22 +18,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-@Controller
+@RestController
 public class ProductController {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
-    @Autowired
-    private ProductServiceImpl service;
+    private ProductService productService;
 
-    @GetMapping("/productlist")
-    public String ProductList(Model model,String category){
-        List<ProductListDto>list=service.productList();
-        for(ProductListDto d:list){
-            System.out.println(d.getProductNo()+" "+d.getProductName()+" "+d.getProductPrice());
-        }
-        model.addAttribute("list",list);
-        return "product/productlist";
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
     @ResponseBody
@@ -41,7 +34,7 @@ public class ProductController {
     public String insertProduct(ProductDto dto) {
         System.out.println(dto);
         try {
-            service.insertProducts(dto);
+            productService.insertProducts(dto);
         } catch (Exception e) {
             e.printStackTrace();
             return "NOPE";
@@ -54,7 +47,7 @@ public class ProductController {
     public String updateProduct(ProductDto dto) {
         System.out.println(dto);
         try {
-            service.updateProducts(dto);
+            productService.updateProducts(dto);
         } catch(Exception e) {
             e.printStackTrace();
             return "NOPE";
@@ -63,4 +56,3 @@ public class ProductController {
     }
 
 }
-
