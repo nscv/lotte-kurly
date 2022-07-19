@@ -24,7 +24,7 @@ public class ProductController {
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
     @Autowired
-    private ProductServiceImpl service;check
+    private ProductServiceImpl service;
 
     @GetMapping("/productlist")
     public String ProductList(Model model,String category){

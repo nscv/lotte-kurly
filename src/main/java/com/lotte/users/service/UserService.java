@@ -13,6 +13,6 @@ public class UserService {
     public Boolean getuser(String email) {
         int count = dao.getuser(email);
         System.out.println(count+"?");
-        return count>0?True:False;
+        return count>0;
     }
 }

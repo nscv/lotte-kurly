@@ -20,8 +20,8 @@ public class UserController {
     @GetMapping("/userdata")
     public String Userdata(String email){
         logger.info("UserController Userdata()" + new Date());
-        String str = service.getuser(email);
-        System.out.println(str);
+        boolean isuser = service.getuser(email);
+        System.out.println(isuser);
         System.out.println(email);
         return "";
     }
