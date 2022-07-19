@@ -30,4 +30,16 @@ public class ProductPageController {
         model.addAttribute("list",list);
         return "product/productlist";
     }
+    @GetMapping("/productlowlist")
+    public String ProductLowList(Model model,String category){
+        List<ProductListDto>list=productService.productLowList();
+        model.addAttribute("list",list);
+        return"product/productlist";
+    }
+    @GetMapping("/producthighlist")
+    public String ProductHighList(Model model,String category){
+        List<ProductListDto>list=productService.productHighList();
+        model.addAttribute("list",list);
+        return"product/productlist";
+    }
 }

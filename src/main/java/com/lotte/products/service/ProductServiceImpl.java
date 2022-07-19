@@ -30,4 +30,10 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductListDto> productList() {
         return productDao.productList();
     }
+    public List<ProductListDto>productLowList(){
+        return productDao.productLowList();
+    }
+    public List<ProductListDto>productHighList(){
+        return productDao.productHighList();
+    }
 }
