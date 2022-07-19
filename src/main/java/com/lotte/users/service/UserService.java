@@ -10,9 +10,9 @@ public class UserService {
     @Autowired
     private UserDao dao;
 
-    public String getuser(String email) {
+    public Boolean getuser(String email) {
         int count = dao.getuser(email);
         System.out.println(count+"?");
-        return count>0?"YES":"NO";
+        return count>0?True:False;
     }
 }
