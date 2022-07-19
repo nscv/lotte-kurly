@@ -12,17 +12,45 @@
 Crawling
 
 <script type="text/javascript">
-
     $(document).ready(function() {
+        let authValue = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjYXJ0X2lkIjoiMzc0ZTMyOWMtZmYwOC00NDA2LTlhYjgtNjM0NDFmZGY4YjY1IiwiaXNfZ3Vlc3QiOnRydWUsInV1aWQiOm51bGwsIm1fbm8iOm51bGwsIm1faWQiOm51bGwsImxldmVsIjpudWxsLCJzdWIiOm51bGwsImlzcyI6Imh0dHA6Ly9ta3dlYi5hcGkua3VybHkuc2VydmljZXMvdjMvYXV0aC9ndWVzdCIsImlhdCI6MTY1ODIwNjIwMSwiZXhwIjoxNjU4MjA5ODAxLCJuYmYiOjE2NTgyMDYyMDEsImp0aSI6IkhqdDY3U1dTSE1vV2hZdHUifQ.Mq7GB-VkxgxDT-rARuTTF8yYfV4S_Ktuwlbw4FkWnW8";
+
+        //category에 데이터 삽입
+        $.ajax({
+            url:"https://api.kurly.com/v2/categories?ver=1",
+            type:"get",
+            headers: {
+                "authorization":authValue,
+            },
+            success:function(data) {
+                let categories = data.data.categories;
+
+                $.ajax({
+                    type:"post",
+                    url:"crawlingCategory",
+                    data:{"categories" : JSON.stringify(categories)},
+                    success:function (){
+                        alert("crawlingCategory 성공");
+                    },
+                    error:function (){
+                        alert("crawling crawlingCategory controller error")
+                    }
+                });
+            },
+            error:function(){
+                alert('crawlingCategory error');
+            }
+        });
+
         //product와 product_imgs 데이터 넣기
         $.ajax({
-            url:"https://api.kurly.com/v1/categories/908?page_limit=99&page_no=1&delivery_type=0&sort_type=&ver=1658197416172",
+            url:"https://api.kurly.com/v1/categories/233?page_limit=99&page_no=1&delivery_type=0&sort_type=&ver=1658206201885",
             type:"get",
-            /* 크로스오리진 에러때문에 요청이 받아오지 않을 수 있다. */
             headers: {
-                "authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjYXJ0X2lkIjoiMmQ5MjM5MmUtMjA4MC00ZGIwLWE2MjUtODQxNzIwZTU3NzEwIiwiaXNfZ3Vlc3QiOnRydWUsInV1aWQiOm51bGwsIm1fbm8iOm51bGwsIm1faWQiOm51bGwsImxldmVsIjpudWxsLCJzdWIiOm51bGwsImlzcyI6Imh0dHA6Ly9ta3dlYi5hcGkua3VybHkuc2VydmljZXMvdjMvYXV0aC9ndWVzdCIsImlhdCI6MTY1ODE5NzQxNCwiZXhwIjoxNjU4MjAxMDE0LCJuYmYiOjE2NTgxOTc0MTQsImp0aSI6IlBDdHFWSGhWejFZVHBGdTUifQ.BsmsZH1TBxue5OpiUUhuJ5yMi_tbhcQPmDVM516tghg",
+                "authorization":authValue,
             },
             success:function(data){
+                setTimeout(function() {}, 1000);
 
                 /* 받아온 데이터 json 변환 */
                 let product_category = JSON.stringify(data.data.category_no);
@@ -31,24 +59,23 @@ Crawling
                     products[i].category_no = product_category;
                 }
 
-                alert(products[1].category_no);
-
                 $.ajax({
                     type:"post",
                     url:"crawlingList",
                     data:{"products" : JSON.stringify(products)},
-                    success:function (data){
-                        alert("data save success");
+                    success:function (){
+                        alert("crawlingList 성공");
                     },
                     error:function (){
-                        alert("crawling controller error")
+                        alert("crawling crawlingList controller error")
                     }
                 });
             },
             error:function(){
-                alert('crawling error');
+                alert('crawlingList error');
             }
         });
+
     });
 
 

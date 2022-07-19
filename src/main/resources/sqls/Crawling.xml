@@ -14,4 +14,9 @@
         VALUES(#{productNo},#{productImgOriginName},#{productImgnewName})
     </insert>
 
+    <insert id="insertCategory" parameterType="com.lotte.products.dto.categoriesDto">
+        INSERT INTO categories(category_no,category_name,category_img)
+        VALUES(#{categoryNo},#{categoryName},#{categoryImg})
+    </insert>
+
 </mapper>

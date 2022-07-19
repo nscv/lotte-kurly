@@ -1,10 +1,12 @@
 package com.lotte.crawling.service;
 
 import com.lotte.crawling.dao.CrawlingDao;
+import com.lotte.crawling.dto.CrawlingCategoryDto;
 import com.lotte.crawling.dto.CrawlingDto;
 import com.lotte.products.dao.ProductDao;
 import com.lotte.products.dto.ProductDto;
 import com.lotte.products.dto.ProductImgDto;
+import com.lotte.products.dto.categoriesDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,19 @@ public class CrawlingServiceImpl implements CrawlingService{
 
     @Autowired
     private CrawlingDao dao;
+
+
+    @Override
+    public void insertCategory(List<CrawlingCategoryDto> list) {
+        for(int i=0; i<list.size(); i++){
+            int categoryNo = Integer.parseInt(list.get(i).getNo());
+            String categoryName = list.get(i).getName();
+            String categoryImg = list.get(i).getName();
+
+            categoriesDto dto = new categoriesDto(categoryNo,categoryName,categoryImg);
+            dao.insertCategory(dto);
+        }
+    }
 
     // Products 테이블 및 Product_mgs 테이블 데이터 삽입
     @Override

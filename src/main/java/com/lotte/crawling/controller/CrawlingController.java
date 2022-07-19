@@ -2,6 +2,7 @@ package com.lotte.crawling.controller;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lotte.crawling.dto.CrawlingCategoryDto;
 import com.lotte.crawling.dto.CrawlingDto;
 import com.lotte.crawling.service.CrawlingService;
 import org.slf4j.Logger;
@@ -30,17 +31,27 @@ public class CrawlingController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "crawlingCategory", method={RequestMethod.GET,RequestMethod.POST})
+    public void crawlingCategory(@RequestParam Map params) throws Exception {
+        logger.info("crawlingCategory crawling() " + new Date());
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        List<CrawlingCategoryDto> list = Arrays.asList(mapper.readValue(params.get("categories").toString(), CrawlingCategoryDto[].class));
+
+        service.insertCategory(list);
+    }
+
+    @ResponseBody
     @RequestMapping(value="crawlingList", method= {RequestMethod.GET,RequestMethod.POST})
-    public String crawling(@RequestParam Map params) throws Exception {
+    public void crawlingList(@RequestParam Map params) throws Exception {
         logger.info("CrawlingController crawling() " + new Date());
 
        ObjectMapper mapper = new ObjectMapper();
        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
        List<CrawlingDto> list = Arrays.asList(mapper.readValue(params.get("products").toString(), CrawlingDto[].class));
-       System.out.println(list.get(30).toString());
 
        service.insertProducts(list);
-
-       return "1";
     }
+
 }
