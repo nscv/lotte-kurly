@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@RequestMapping("/statistic")
 public class StatisticController {
 
-    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
+    private static final Logger logger = LoggerFactory.getLogger(StatisticController.class);
 
     private StatisticService statisticService;
 
@@ -22,16 +23,16 @@ public class StatisticController {
         this.statisticService = statisticService;
     }
 
-    @RequestMapping("/statistic/category")
+    @RequestMapping("/category")
     public List<ProductCategoryDto> productCategoryList() {
            return statisticService.getProductCountByCategory();
     }
-    @RequestMapping("/statistic/age")
+    @RequestMapping("/age")
     public List<UserAgeDto> userAgeList() {
         return statisticService.getPriceByAge();
     }
 
-    @RequestMapping("/statistic/gender")
+    @RequestMapping("/gender")
     public List<UserGenderDto> userGenderList() {
         return statisticService.getPricesByGender();
     }
