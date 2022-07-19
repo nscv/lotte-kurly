@@ -6,6 +6,11 @@ public class ProductDto {
     String productContent;
     String productSimpleContent;
     String productDeadline;
+    int productPrice;
+    int productAmount;
+    int productStock;
+    String productCategory;
+
 
     public String getProductDeadline() {
         return productDeadline;
@@ -14,11 +19,6 @@ public class ProductDto {
     public void setProductDeadline(String productDeadline) {
         this.productDeadline = productDeadline;
     }
-
-    int productPrice;
-    int productAmount;
-    int productStock;
-    String productCategory;
 
     public String getProductName() {
         return productName;

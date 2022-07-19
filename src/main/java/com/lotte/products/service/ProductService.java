@@ -9,4 +9,6 @@ public interface ProductService {
     void insertProducts(ProductDto dto);
     void updateProducts(ProductDto dto);
     public List<ProductListDto> productList();
+    public List<ProductListDto> productHighList();
+    public List<ProductListDto> productLowList();
 }

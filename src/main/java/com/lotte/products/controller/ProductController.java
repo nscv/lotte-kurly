@@ -5,8 +5,6 @@ import com.lotte.products.service.ProductService;
 import com.lotte.products.dto.ProductListDto;
 
 import com.lotte.products.service.ProductServiceImpl;
-import org.codehaus.jackson.map.util.JSONPObject;
-import org.json.JSONObject;
 import org.springframework.ui.Model;
 import org.springframework.util.ClassUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,43 +18,23 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-@Controller
+@RestController
 public class ProductController {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
-    @Autowired
-    private ProductServiceImpl service;
+    private ProductService productService;
 
-    @GetMapping("/productlist")
-    public String ProductList(Model model,String category){
-        List<ProductListDto>list=service.productList();
-        model.addAttribute("list",list);
-        return "product/productlist";
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
-    @GetMapping("/productlowlist")
-    public String ProductLowList(Model model,String category){
-        List<ProductListDto>list=service.productLowList();
-        model.addAttribute("list",list);
-        return"product/productlist";
-    }
-    @GetMapping("/producthighlist")
-    public String ProductHighList(Model model,String category){
-        List<ProductListDto>list=service.producthighList();
-        model.addAttribute("list",list);
-        return"product/productlist";
-    }
-    
-    @RequestMapping("/main")
-    public String adminMain() {
-        return "admin/adminMain";
-    }
+
     @ResponseBody
-    @PostMapping("/insert")
+    @PostMapping("/admin/insert")
     public String insertProduct(ProductDto dto) {
         System.out.println(dto);
         try {
-            service.insertProducts(dto);
+            productService.insertProducts(dto);
         } catch (Exception e) {
             e.printStackTrace();
             return "NOPE";
@@ -65,11 +43,11 @@ public class ProductController {
     }
 
     @ResponseBody
-    @PostMapping ("/update")
+    @PostMapping ("/admin/update")
     public String updateProduct(ProductDto dto) {
         System.out.println(dto);
         try {
-            service.updateProducts(dto);
+            productService.updateProducts(dto);
         } catch(Exception e) {
             e.printStackTrace();
             return "NOPE";
