@@ -24,35 +24,35 @@
 </div>
 <%--<div id="menubar">--%>
 <%--    <h2 class="menu">--%>
-        <div class="menubar-box">
-            <div class="inner-menu">
-                <%--
-                <div class="search">
-                    <form>
-                        <input type="text" label="검색어" placeholder="검색어를 입력해주세요." class="input-search">
-                        <input type="image" src="images/search.png" class="search-btn">
-                    </form>
-                </div>
-                --%>
-                <ul class="menu-item">
-                    <li class="menu1">
-                        <a href=""><span class="menu-img"></span><span class="txt">전체 카테고리</span></a>
-                    </li>
-                    <li class="menu2">
-                        <a href=""><span class="txt">베스트 상품</span></a>
-                    </li>
-                    <li class="menu3">
-                        <a href=""> <span class="txt">주문 내역</span></a>
-                    </li>
-                    <li class="menu4">
-                        <a href=""><span class="txt">로그인 | 회원가입</span></a>
-                    </li>
-                    <li class="menu5">
-                        <a href=""><input type="image" src="images/cart.png" class="cart-btn"></a>
-                    </li>
-                </ul>
-            </div>
+<div class="menubar-box">
+    <div class="inner-menu">
+        <%--
+        <div class="search">
+            <form>
+                <input type="text" label="검색어" placeholder="검색어를 입력해주세요." class="input-search">
+                <input type="image" src="images/search.png" class="search-btn">
+            </form>
         </div>
+        --%>
+        <ul class="menu-item">
+            <li class="menu1">
+                <a href=""><span class="menu-img"></span><span class="txt">전체 카테고리</span></a>
+            </li>
+            <li class="menu2">
+                <a href=""><span class="txt">베스트 상품</span></a>
+            </li>
+            <li class="menu3">
+                <a href=""> <span class="txt">주문 내역</span></a>
+            </li>
+            <li class="menu4">
+                <a href=""><span class="txt">로그인 | 회원가입</span></a>
+            </li>
+            <li class="menu5">
+                <a href=""><input type="image" src="images/cart.png" class="cart-btn"></a>
+            </li>
+        </ul>
+    </div>
+</div>
 
 <%--    </h2>--%>
 

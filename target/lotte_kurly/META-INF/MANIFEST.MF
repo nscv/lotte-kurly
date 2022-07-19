@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
 Created-By: IntelliJ IDEA
-Built-By: user
-Build-Jdk: 18.0.1
+Built-By: BTC-N21
+Build-Jdk: Oracle OpenJDK version 18.0.1
 
