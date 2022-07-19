@@ -6,12 +6,12 @@
     <select id="selectProductCountByCategory" resultType="com.lotte.products.dto.ProductCategoryDto">
         SELECT product_category AS productCategory, COUNT(*) AS cnt
         FROM products
-        GROUP BY product_category;
+        GROUP BY product_category
     </select>
     <select id="selectPricesByGender" resultType="com.lotte.products.dto.UserGenderDto">
         SELECT user_gender AS userGender, COUNT(*) AS cnt
         FROM users
-        GROUP BY user_gender;
+        GROUP BY user_gender
     </select>
     <select id="selectPricesByAge" resultType="com.lotte.products.dto.UserAgeDto">
         SELECT
