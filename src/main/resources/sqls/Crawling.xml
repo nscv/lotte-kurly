@@ -2,6 +2,16 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="text">
+<mapper namespace="com.lotte.crawling.dao.CrawlingDao">
+
+    <insert id="insertCrawProducts" parameterType="com.lotte.products.dto.ProductDto">
+        INSERT INTO products(product_no,category_no,product_name, product_content, product_simple_content, product_price, product_amount, product_stock, product_deadline)
+        VALUES(#{productNo},#{categoryNo},#{productName}, #{productContent}, #{productSimpleContent}, #{productPrice}, #{productAmount}, #{productStock}, #{productDeadline})
+    </insert>
+
+    <insert id="insertProductImg" parameterType="com.lotte.products.dto.ProductImgDto">
+        INSERT INTO product_imgs(product_no,product_img_origin_name,product_img_new_name)
+        VALUES(#{productNo},#{productImgOriginName},#{productImgnewName})
+    </insert>
 
 </mapper>
