@@ -5,6 +5,8 @@ import com.lotte.products.service.ProductService;
 import com.lotte.products.dto.ProductListDto;
 
 import com.lotte.products.service.ProductServiceImpl;
+import org.codehaus.jackson.map.util.JSONPObject;
+import org.json.JSONObject;
 import org.springframework.ui.Model;
 import org.springframework.util.ClassUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +31,20 @@ public class ProductController {
     @GetMapping("/productlist")
     public String ProductList(Model model,String category){
         List<ProductListDto>list=service.productList();
-        for(ProductListDto d:list){
-            System.out.println(d.getProductNo()+" "+d.getProductName()+" "+d.getProductPrice());
-        }
         model.addAttribute("list",list);
         return "product/productlist";
+    }
+    @GetMapping("/productlowlist")
+    public String ProductLowList(Model model,String category){
+        List<ProductListDto>list=service.productLowList();
+        model.addAttribute("list",list);
+        return"product/productlist";
+    }
+    @GetMapping("/producthighlist")
+    public String ProductHighList(Model model,String category){
+        List<ProductListDto>list=service.producthighList();
+        model.addAttribute("list",list);
+        return"product/productlist";
     }
     
     @RequestMapping("/main")

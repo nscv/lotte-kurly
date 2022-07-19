@@ -22,30 +22,23 @@
         //foodselectlist();
     });
 
-    function foodselectlist() {
+    function foodlowlist() {
         $.ajax({
-            url: "productlist",
-            type: "GET",
-            dataType: "json",
+            url: "productlowlist",
+            type: "get",
+            dataType:"json",
             error: function (xhr, status, msg) {
                 alert("상태값: " + status + "에러" + msg);
             },
             success: function (data) {
-                alert(data);
+                console.log(data);
             }
         });
     };
 
-    function foodResultList(data) {
-        $('#foodlist').empty();
-        $.each(data, function (idx, item) {
-            $('#foodlist').append(
-                '<td>' + item.list[0].name + '</td>'
-            )
-        });
-    };
 </script>
 <body>
+<jsp:include page="/front/header.jsp"></jsp:include>
 <%--
 <div>
     <td>
@@ -61,7 +54,7 @@
 <div id="container">
     <div class="goods">
         <div class="inner-title">
-            <h3 class="title">카테고리명</h3>
+            <h4 class="title">카테고리명</h4>
         </div>
         <div id="goodslist" class="goodslist-box">
             <div class="sort_menu">
@@ -77,16 +70,36 @@
                             <a class="select-review">리뷰순</a>
                         </li>
                         <li class>
-                            <a class="select-asc">낮은 가격순</a>
+                            <a href="/productlowlist" class="select-asc">낮은 가격순</a>
                         </li>
                         <li class>
-                            <a class="select-desc">높은 가격순</a>
+                            <a href="/producthighlist" class="select-desc">높은 가격순</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="list-goods">
                 <ul class="list">
+                    <c:forEach items="${list}" var="m">
+                        <li>
+                            <div class="item">
+                                <div class="thumb">
+                                    <a class="img" style="background-image: url(../../../css/product-img.png);">
+                                        <img src="../../../css/product-img.png"></a>
+                                    <div class="group-btn">
+                                        <button type="button" class="btn cart-btn"></button>
+                                    </div>
+                                </div>
+                                <div class="info">
+                                    <span class="name">${m.productName}</span>
+                                    <span class="cost">
+                                    <span class="price">${m.productPrice}</span>
+                                </span>
+                                    <span class="simple-content">여기는 간단 설명을 넣어주세요</span>
+                                </div>
+                            </div>
+                        </li>
+                    </c:forEach>
                     <li>
                         <div class="item">
                             <div class="thumb">

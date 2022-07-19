@@ -11,7 +11,7 @@
     <title>Header</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="header.css">
+    <link rel="stylesheet" type="text/css" href="/front/header.css">
 
 </head>
 <body>
@@ -19,7 +19,7 @@
 
 <div id="header-logo">
     <h1 class="logo">
-        <img src="images/lotte-kurly logo.png" class="logo-img">
+        <img src="/front/images/lotte-kurly logo.png" class="logo-img">
     </h1>
 </div>
 <%--<div id="menubar">--%>
@@ -48,7 +48,7 @@
                 <a href=""><span class="txt">로그인 | 회원가입</span></a>
             </li>
             <li class="menu5">
-                <a href=""><input type="image" src="images/cart.png" class="cart-btn"></a>
+                <a href=""><input type="image" src="/front/images/cart.png" class="cart-btn"></a>
             </li>
         </ul>
     </div>

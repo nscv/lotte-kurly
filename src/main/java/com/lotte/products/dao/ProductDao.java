@@ -11,6 +11,8 @@ import java.util.List;
 @Mapper
 public interface ProductDao {
     List<ProductListDto> productList();
+    List<ProductListDto>productLowList();
+    List<ProductListDto>productHighList();
     void insertProducts(ProductDto product);
     void updateProducts(ProductDto product);
 }
