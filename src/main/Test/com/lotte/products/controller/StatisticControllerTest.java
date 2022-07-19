@@ -24,29 +24,24 @@ public class StatisticControllerTest {
     @Test
     public void testProductCategoryList() {
         List<ProductCategoryDto> list = service.getProductCountByCategory();
-        for(ProductCategoryDto c : list)
-            System.out.println(c);
+        list.forEach(System.out::println);
     }
 
     @Test
     public void testUserAgeList() {
         List<UserAgeDto> list = service.getPriceByAge();
-        for(UserAgeDto u : list)
-            System.out.println(u);
+        list.forEach(System.out::println);
     }
 
     @Test
     public void testUserGenderList() {
         List<UserGenderDto> list = service.getPricesByGender();
-        for(UserGenderDto u : list) {
-            System.out.println(u);
-        }
+        list.forEach(System.out::println);
     }
 
     @Test
     public void testUserGradeList() {
         List<UserGradeDto> list = service.getUsersByUserGrade();
-        for(UserGradeDto u : list)
-            System.out.println(u);
+        list.forEach(System.out::println);
     }
 }
