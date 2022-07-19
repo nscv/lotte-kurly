@@ -8,8 +8,8 @@
         FROM products p
     </select>
     <insert id="insertProducts" parameterType="com.lotte.products.dto.ProductDto">
-        INSERT INTO products(product_name, product_content, product_simple_content, product_price, product_amount, product_stock, product_category, product_deadline)
-        VALUES(#{productName}, #{productContent}, #{productSimpleContent}, #{productPrice}, #{productAmount}, #{productStock}, #{productCategory}, #{productDeadline})
+        INSERT INTO products(product_name, product_content, product_simple_content, product_price, product_amount, product_stock, product_deadline)
+        VALUES(#{productName}, #{productContent}, #{productSimpleContent}, #{productPrice}, #{productAmount}, #{productStock}, #{productDeadline})
     </insert>
     <update id="updateProducts" parameterType="com.lotte.products.dto.ProductDto">
         UPDATE products
