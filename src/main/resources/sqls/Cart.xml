@@ -17,7 +17,24 @@
                      cart_item_total_price
               FROM cart_items
               WHERE cart_no = #{cartNo}) ci, product_imgs pi, products p
-        WHERE ci.product_no = pi.product_no AND pi.product_no = p.product_no;
+        WHERE ci.product_no = pi.product_no AND pi.product_no = p.product_no
 
     </select>
+
+    <!-- 새로운 장바구니 아이템 삽입 쿼리 -->
+    <insert id="insertCartItem"
+            parameterType="com.lotte.carts.dto.CreateCartItemDto">
+
+        INSERT INTO cart_items (product_no, cart_no, cart_item_count, cart_item_total_price, cart_item_state)
+        VALUES ( #{productNo}, #{cartNo}, #{cartItemCount},
+                (SELECT product_price
+                FROM products
+                WHERE product_no = #{productNo}) * #{cartItemCount}, 0)
+
+        <selectKey keyProperty="cartItemNo"
+                  resultType="Integer">
+                SELECT LAST_INSERT_ID() cartItemNo
+        </selectKey>
+
+    </insert>
 </mapper>

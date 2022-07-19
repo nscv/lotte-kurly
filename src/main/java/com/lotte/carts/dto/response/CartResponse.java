@@ -20,4 +20,23 @@ public class CartResponse {
         }
     }
 
+    /* 장바구니 아이템 추가 DTO */
+    public static class CreateCartItemDto {
+
+        private Integer cartItemNo; // 장바구니 아이템 생성 후 부여된 시퀀스 리턴
+
+        public CreateCartItemDto(Integer cartItemNo) {
+            this.cartItemNo = cartItemNo;
+        }
+
+        public Integer getCartItemNo() {
+            return cartItemNo;
+        }
+
+        public void setCartItemNo(Integer cartItemNo) {
+            this.cartItemNo = cartItemNo;
+        }
+    }
+
+
 }
