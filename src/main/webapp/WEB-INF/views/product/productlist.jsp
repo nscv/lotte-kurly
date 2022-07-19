@@ -53,9 +53,7 @@
 
 <div id="container">
     <div class="goods">
-        <div class="inner-title">
-            <h4 class="title">카테고리명</h4>
-        </div>
+
         <div id="goodslist" class="goodslist-box">
             <div class="sort_menu">
                 <div>
@@ -79,13 +77,17 @@
                 </div>
             </div>
             <div class="list-goods">
+
                 <ul class="list">
+                    <div class="inner-title">
+                        <h4 class="title">카테고리명</h4>
+                    </div>
                     <c:forEach items="${list}" var="m">
                         <li>
                             <div class="item">
                                 <div class="thumb">
-                                    <a class="img" style="background-image: url(../../../css/product-img.png);">
-                                        <img src="../../../css/product-img.png"></a>
+                                    <a class="img">
+                                        <img src="${m.productImgNewName}"></a>
                                     <div class="group-btn">
                                         <button type="button" class="btn cart-btn"></button>
                                     </div>
@@ -95,7 +97,7 @@
                                     <span class="cost">
                                     <span class="price">${m.productPrice}</span>
                                 </span>
-                                    <span class="simple-content">여기는 간단 설명을 넣어주세요</span>
+                                    <span class="simple-content">${m.productSimpleContent}</span>
                                 </div>
                             </div>
                         </li>

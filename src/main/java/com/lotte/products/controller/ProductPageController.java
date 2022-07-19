@@ -23,13 +23,16 @@ public class ProductPageController {
 
     @GetMapping("/productlist")
     public String ProductList(Model model, String category,String page){
-        List<ProductListDto> list= productService.productList();
+        List<ProductListDto> list= productService.productList(category);
         model.addAttribute("list",list);
         return "product/productlist";
     }
     @GetMapping("/product/lowlist")
     public String ProductLowList(Model model,String category){
         List<ProductListDto>list=productService.productLowList();
+        for(ProductListDto d:list){
+            System.out.println(d.getProductImgNewName());
+        }
         model.addAttribute("list",list);
         return"product/productlist";
     }

@@ -11,7 +11,6 @@ public class ProductDto {
     int productStock;
     String productCategory;
 
-
     public String getProductDeadline() {
         return productDeadline;
     }
