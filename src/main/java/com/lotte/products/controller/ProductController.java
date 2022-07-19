@@ -4,6 +4,7 @@ import com.lotte.products.dto.ProductDto;
 import com.lotte.products.service.ProductService;
 import com.lotte.products.dto.ProductListDto;
 
+import com.lotte.products.service.ProductServiceImpl;
 import org.springframework.ui.Model;
 import org.springframework.util.ClassUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class ProductController {
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
     @Autowired
-    private ProductService service;
+    private ProductServiceImpl service;check
 
     @GetMapping("/productlist")
     public String ProductList(Model model,String category){
