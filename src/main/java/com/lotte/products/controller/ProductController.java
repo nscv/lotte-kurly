@@ -17,7 +17,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-@RequestMapping("/admin")
 @Controller
 public class ProductController {
 
@@ -36,12 +35,8 @@ public class ProductController {
         return "product/productlist";
     }
 
-    @RequestMapping("/main")
-    public String adminMain() {
-        return "admin/adminMain";
-    }
     @ResponseBody
-    @PostMapping("/insert")
+    @PostMapping("/admin/insert")
     public String insertProduct(ProductDto dto) {
         System.out.println(dto);
         try {
@@ -54,7 +49,7 @@ public class ProductController {
     }
 
     @ResponseBody
-    @PostMapping ("/update")
+    @PostMapping ("/admin/update")
     public String updateProduct(ProductDto dto) {
         System.out.println(dto);
         try {
