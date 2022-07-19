@@ -1,19 +1,15 @@
 package com.lotte.carts.dto;
 
+/* 장바구니 아이템 목록 (Service -> Dao) DTO */
 /* 장바구니 목록에 표시할 데이터 (장바구니 아이템 리스트) */
 public class CartItem {
+
     private Integer cartItemNo; // 장바구니 아이템 번호
-
     private Integer productNo; // 상품 번호
-
     private String productName; // 상품 이름
-
     private String productSimpleContent; // 상품 간단 설명
-
     private String productImgNewName; // 상품 이미지
-
     private String cartItemCount; // 장바구니 아이템 개수
-
     private String cartItemTotalPrice; // 장바구니 아이템 총 가격
 
     public void setCartItemNo(Integer cartItemNo) {

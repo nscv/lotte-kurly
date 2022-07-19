@@ -34,6 +34,8 @@
 
     </insert>
 
+    <!-- 장바구니 아이템 수량 수정 쿼리 -->
+    <!-- (1) 상품 가격 조회 쿼리 -->
     <select id="selectCartItemProductPrice"
             parameterType="Integer"
             resultType="Integer">
@@ -44,6 +46,7 @@
 
     </select>
 
+    <!-- (2) 상품 가격 조회 쿼리 -->
     <update id="updateCartItemCount"
             parameterType="com.lotte.carts.dto.UpdateCartItemCount">
 

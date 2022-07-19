@@ -39,10 +39,10 @@ public class CartResponse {
         }
     }
 
+    /* 장바구니 아이템 수량 수정 DTO */
     public static class UpdateCartItemCountDto {
 
         private Integer cartItemNo;
-
         private Integer cartItemTotalPrice;
 
         public UpdateCartItemCountDto(UpdateCartItemCount uCartItemCount) {

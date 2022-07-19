@@ -2,6 +2,7 @@ package com.lotte.carts.dto;
 
 import com.lotte.carts.dto.request.CartRequest;
 
+/* 장바구니 아이템 생성 (Service -> Dao) DTO */
 public class CreateCartItem {
     private Integer cartItemNo;
     private Integer productNo;

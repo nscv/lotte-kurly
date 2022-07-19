@@ -1,8 +1,11 @@
 package com.lotte.carts.dto.request;
 
+/* 장바구니 요청 */
 public class CartRequest {
 
+    /* 장바구니 아이템 생성 요청 DTO */
     public static class CreateCartItemDto {
+
         private Integer productNo;
         private Integer cartNo;
         private Integer cartItemCount;
@@ -34,11 +37,10 @@ public class CartRequest {
         }
     }
 
-
+    /* 장바구니 아이템 개수 수정 DTO */
     public static class UpdateCartItemCountDto {
 
         private Integer cartItemCount;
-
         private Integer productNo;
 
         public Integer getCartItemCount() {

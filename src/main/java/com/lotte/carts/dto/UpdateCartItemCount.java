@@ -1,13 +1,10 @@
 package com.lotte.carts.dto;
 
-import com.lotte.carts.dto.request.CartRequest;
-
+/* 장바구니 아이템 수량 수정 (Service -> Dao) DTO */
 public class UpdateCartItemCount {
 
     private Integer cartItemNo;
-
     private Integer cartItemCount;
-
     private Integer cartItemTotalPrice;
 
     public UpdateCartItemCount(Integer cartItemNo, Integer cartItemCount, Integer productPrice) {
