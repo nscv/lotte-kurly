@@ -2,22 +2,38 @@ package com.lotte.products.service;
 
 import com.lotte.products.dao.ProductDao;
 import com.lotte.products.dto.ProductDto;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.lotte.products.dto.ProductListDto;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    @Autowired
-    private ProductDao dao;
+    private ProductDao productDao;
+
+    public ProductServiceImpl(ProductDao productDao) {
+        this.productDao = productDao;
+    }
 
     @Override
     public void insertProducts(ProductDto dto) {
-        dao.insertProducts(dto);
+        productDao.insertProducts(dto);
     }
 
     @Override
     public void updateProducts(ProductDto dto) {
-        dao.updateProducts(dto);
+        productDao.updateProducts(dto);
+    }
+
+    @Override
+    public List<ProductListDto> productList() {
+        return productDao.productList();
+    }
+    public List<ProductListDto>productLowList(){
+        return productDao.productLowList();
+    }
+    public List<ProductListDto>productHighList(){
+        return productDao.productHighList();
     }
 }

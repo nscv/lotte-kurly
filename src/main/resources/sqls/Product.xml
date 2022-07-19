@@ -8,12 +8,22 @@
         FROM products p
     </select>
     <insert id="insertProducts" parameterType="com.lotte.products.dto.ProductDto">
-        INSERT INTO products(product_name, product_content, product_simple_content, product_price, product_amount, product_stock, product_category, product_deadline)
-        VALUES(#{productName}, #{productContent}, #{productSimpleContent}, #{productPrice}, #{productAmount}, #{productStock}, #{productCategory}, #{productDeadline})
+        INSERT INTO products(product_name, product_content, product_simple_content, product_price, product_amount, product_stock, product_deadline)
+        VALUES(#{productName}, #{productContent}, #{productSimpleContent}, #{productPrice}, #{productAmount}, #{productStock}, #{productDeadline})
     </insert>
     <update id="updateProducts" parameterType="com.lotte.products.dto.ProductDto">
         UPDATE products
         SET product_stock=#{productStock}, product_amount = product_amount+#{productStock}
         WHERE product_no = #{productNo}
     </update>
+    <select id="productLowList" resultType="com.lotte.products.dto.ProductListDto">
+        SELECT p.product_no,p.product_name,p.product_price
+        FROM products p
+        order by p.product_price;
+    </select>
+    <select id="productHighList" resultType="com.lotte.products.dto.ProductListDto">
+        SELECT p.product_no,p.product_name,p.product_price
+        FROM products p
+        order by p.product_price desc ;
+    </select>
 </mapper>

@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+form {
+    display: block;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#header-logo {
+    position: relative;
+    width: 1050px;
+    height: 80px;
+    margin: 10px auto;
+}
+
+#header-logo .logo {
+    position: absolute;
+    left: 0;
+    bottom: 6px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+
+.logo-img {
+    width: 100px;
+    height: 62px;
+}
+
+.menu {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+#menubar {
+    height: 50px;
+}
+
+/*#menubar*/
+.menubar-box {
+    position: relative;
+    z-index: 300;
+    min-width: 1050px;
+    background-color: #fff;
+    letter-spacing: -0.3px;
+}
+
+/*#menubar */
+.inner-menu {
+    position: relative;
+    width: 1050px;
+    height: 56px;
+    margin: 0 auto;
+    border-top: 1px solid #E2E2E2;
+    border-bottom: 1px solid #E2E2E2;
+}
+
+.input-search {
+    width: 200px;
+    height: 36px;
+    padding: 0 60px 0 14px;
+    border: none;
+    border-radius: 18px;
+    background-color: #E2E2E2;
+    font-weight: 400;
+    font-size: 12px;
+    color: #666;
+    line-height: 16px;
+    outline: none;
+    float: left;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.search-btn {
+    /*right: 5px;*/
+    /*top: 3px;*/
+    margin-top: 15px;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.cart-btn {
+    margin: 3px 0 0 0;
+    width: 20px;
+    height: 20px;
+    /*float: left;*/
+}
+
+/*#menubar .menubar-box .inner-menu */
+.txt {
+    font-weight: 700;
+    border-bottom-style: none;
+}
+
+.menu-img {
+    float: left;
+    width: 16px;
+    height: 14px;
+    margin: 8px 0 0 60px;
+    background: url("images/menu.png") no-repeat;
+    background-size: 15px;
+}
+
+
+.menu1 a {
+    width: 230px;
+}
+
+.menu5 a {
+    width: 100px;
+}
+
+a {
+    overflow: hidden;
+    float: left;
+    width: 200px;
+    height: 55px;
+    padding: 0;
+    font-size: 16px;
+    color: #333;
+    /*line-height: 20px;*/
+    text-align: center;
+    text-decoration: none;
+}
+
