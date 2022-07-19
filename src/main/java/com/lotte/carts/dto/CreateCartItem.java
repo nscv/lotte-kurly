@@ -2,13 +2,13 @@ package com.lotte.carts.dto;
 
 import com.lotte.carts.dto.request.CartRequest;
 
-public class CreateCartItemDto {
+public class CreateCartItem {
     private Integer cartItemNo;
     private Integer productNo;
     private Integer cartNo;
     private Integer cartItemCount;
 
-    public CreateCartItemDto(CartRequest.CreateCartItemDto reqDto) {
+    public CreateCartItem(CartRequest.CreateCartItemDto reqDto) {
         this.productNo = reqDto.getProductNo();
         this.cartNo = reqDto.getCartNo();
         this.cartItemCount = reqDto.getCartItemCount();

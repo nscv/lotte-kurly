@@ -35,4 +35,26 @@ public class CartRequest {
     }
 
 
+    public static class UpdateCartItemCountDto {
+
+        private Integer cartItemCount;
+
+        private Integer productNo;
+
+        public Integer getCartItemCount() {
+            return cartItemCount;
+        }
+
+        public Integer getProductNo() {
+            return productNo;
+        }
+
+        public void setCartItemCount(Integer cartItemCount) {
+            this.cartItemCount = cartItemCount;
+        }
+
+        public void setProductNo(Integer productNo) {
+            this.productNo = productNo;
+        }
+    }
 }

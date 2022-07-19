@@ -7,7 +7,7 @@
 
     <!-- 장바구니 목록 (장바구니 아이템 목록) 조회 쿼리 -->
     <select id="selectCartItemsByCartNo"
-      resultType="com.lotte.carts.dto.CartItemDto"
+      resultType="com.lotte.carts.dto.CartItem"
       parameterType="Integer">
 
         SELECT cart_item_no cartItemNo, p.product_no productNo, product_name productName,
@@ -23,7 +23,8 @@
 
     <!-- 새로운 장바구니 아이템 삽입 쿼리 -->
     <insert id="insertCartItem"
-            parameterType="com.lotte.carts.dto.CreateCartItemDto">
+            parameterType="com.lotte.carts.dto.CreateCartItem"
+            useGeneratedKeys="true" keyProperty="cartItemNo">
 
         INSERT INTO cart_items (product_no, cart_no, cart_item_count, cart_item_total_price, cart_item_state)
         VALUES ( #{productNo}, #{cartNo}, #{cartItemCount},
@@ -31,10 +32,25 @@
                 FROM products
                 WHERE product_no = #{productNo}) * #{cartItemCount}, 0)
 
-        <selectKey keyProperty="cartItemNo"
-                  resultType="Integer">
-                SELECT LAST_INSERT_ID() cartItemNo
-        </selectKey>
-
     </insert>
+
+    <select id="selectCartItemProductPrice"
+            parameterType="Integer"
+            resultType="Integer">
+
+        SELECT product_price
+        FROM products
+        WHERE product_no = #{productNo};
+
+    </select>
+
+    <update id="updateCartItemCount"
+            parameterType="com.lotte.carts.dto.UpdateCartItemCount">
+
+        UPDATE cart_items
+        SET cart_item_count = #{cartItemCount}, cart_item_total_price = #{cartItemTotalPrice}
+        WHERE cart_item_no = #{cartItemNo}
+
+    </update>
+
 </mapper>

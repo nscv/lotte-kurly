@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,15 +24,25 @@ public class CartController {
         this.cartService = cartService;
     }
 
+    /* 장바구니 목록 (장바구니 아이템 목록) */
     @GetMapping("/carts/{cartNo}")
     public ResponseEntity<CartResponse.CartItemsDto> getCart(@PathVariable Integer cartNo) {
         logger.info("CartController.getCart(cartNo): {}", LocalDateTime.now());
         return ResponseEntity.ok(cartService.getCart(cartNo));
     }
 
+    /* 장바구니 아이템 추가 */
     @PostMapping("/cart/items")
-    public ResponseEntity<CartResponse.CreateCartItemDto> createCartItem(@RequestBody CartRequest.CreateCartItemDto dto) {
+    public ResponseEntity<CartResponse.CreateCartItemDto> createCartItem(@RequestBody CartRequest.CreateCartItemDto requestDto) {
         logger.info("CartController.createCartItem(CartRequest.CreateCartItemDto): {}", LocalDateTime.now());
-        return ResponseEntity.ok(cartService.createCartItem(dto));
+        return ResponseEntity.ok(cartService.createCartItem(requestDto));
+    }
+
+    /* 장바구니 아이템 수량 수정 */
+    @PutMapping("/cart/items/{cartItemNo}")
+    public ResponseEntity<CartResponse.UpdateCartItemCountDto> updateCartItemCount(
+        @PathVariable Integer cartItemNo,
+        @RequestBody CartRequest.UpdateCartItemCountDto requestDto) {
+        return ResponseEntity.ok(cartService.updateCartItemCount(cartItemNo, requestDto));
     }
 }

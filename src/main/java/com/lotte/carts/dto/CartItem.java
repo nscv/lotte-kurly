@@ -1,7 +1,7 @@
 package com.lotte.carts.dto;
 
 /* 장바구니 목록에 표시할 데이터 (장바구니 아이템 리스트) */
-public class CartItemDto {
+public class CartItem {
     private Integer cartItemNo; // 장바구니 아이템 번호
 
     private Integer productNo; // 상품 번호
