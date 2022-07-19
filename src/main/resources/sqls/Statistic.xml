@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lotte.products.dao.StatisticDao">
+    <select id="selectProductCountByCategory" resultType="com.lotte.products.dto.ProductCategoryDto">
+        SELECT p.product_category AS productCategory, COUNT(p.product_category) AS cnt, SUM(o.order_total_price) AS total
+        FROM products p, orders o
+        WHERE o.product_no = p.product_no
+        GROUP BY p.product_category
+    </select>
+    <select id="selectPricesByGender" resultType="com.lotte.products.dto.UserGenderDto">
+        SELECT u.user_gender AS userGender, COUNT(*) AS cnt, SUM(o.order_total_price) AS total
+        FROM users u, orders o
+        WHERE u.user_no = o.user_no
+        GROUP BY user_gender
+    </select>
+    <select id="selectPricesByAge" resultType="com.lotte.products.dto.UserAgeDto">
+        SELECT
+            CASE
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 0 AND 10 THEN '0'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 10 AND 20 THEN '10'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 20 AND 30 THEN '20'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 30 AND 40 THEN '30'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 40 AND 50 THEN '40'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 50 AND 60 THEN '50'
+                ELSE '60'
+                END AS userAge,
+            COUNT(*) AS cnt,
+            SUM(o.order_total_price) AS total
+        FROM users u, orders o
+        WHERE u.user_no = o.user_no
+        GROUP BY userAge
+    </select>
+    <select id="selectUsersByUserGrade" resultType="com.lotte.products.dto.UserGradeDto">
+        SELECT user_grade AS userGrade, COUNT(*) AS cnt
+        FROM users
+        GROUP BY user_grade
+    </select>
+</mapper>

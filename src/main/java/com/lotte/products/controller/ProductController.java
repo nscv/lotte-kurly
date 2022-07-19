@@ -35,13 +35,9 @@ public class ProductController {
         model.addAttribute("list",list);
         return "product/productlist";
     }
-    
-    @RequestMapping("/main")
-    public String adminMain() {
-        return "admin/adminMain";
-    }
+
     @ResponseBody
-    @PostMapping("/insert")
+    @PostMapping("/admin/insert")
     public String insertProduct(ProductDto dto) {
         System.out.println(dto);
         try {
@@ -54,7 +50,7 @@ public class ProductController {
     }
 
     @ResponseBody
-    @PostMapping ("/update")
+    @PostMapping ("/admin/update")
     public String updateProduct(ProductDto dto) {
         System.out.println(dto);
         try {
@@ -67,3 +63,4 @@ public class ProductController {
     }
 
 }
+
