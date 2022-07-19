@@ -1,7 +1,7 @@
 package com.lotte.carts.service;
 
 import com.lotte.carts.dao.CartDao;
-import com.lotte.carts.dto.response.CartResponseDto;
+import com.lotte.carts.dto.response.CartResponse;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,7 +13,7 @@ public class CartService {
         this.cartDao = cartDao;
     }
 
-    public CartResponseDto getCart(Integer cartNo) {
-        return new CartResponseDto(cartDao.selectCartItemsByCartNo(cartNo));
+    public CartResponse.CartItemsDto getCart(Integer cartNo) {
+        return new CartResponse.CartItemsDto(cartDao.selectCartItemsByCartNo(cartNo));
     }
 }

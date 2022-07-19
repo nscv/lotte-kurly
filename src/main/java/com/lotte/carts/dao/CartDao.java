@@ -1,12 +1,12 @@
 package com.lotte.carts.dao;
 
-import com.lotte.carts.dto.response.CartResponseDto;
+import com.lotte.carts.dto.CartItemDto;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface CartDao {
 
-    List<CartResponseDto.CartDto> selectCartItemsByCartNo(Integer cartNo);
+    List<CartItemDto> selectCartItemsByCartNo(Integer cartNo);
 
 }
