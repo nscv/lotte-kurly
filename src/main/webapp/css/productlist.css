@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+div {
+    display: block;
+}
+
+.goods {
+    width: 1050px;
+    margin: auto;
+}
+
+/*.goodslist-box {*/
+
+/*}*/
+
+.count {
+    float: left;
+}
+
+.inner-count {
+    font-size: 12px;
+    color: #333;
+    line-height: 30px;
+    /*margin-top: 2px;*/
+    margin: 0;
+    padding: 0;
+}
+
+.inner-title {
+    position: relative;
+    width: 1050px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.title {
+    padding-top: 23px;
+    font-weight: 700;
+    font-size: 28px;
+    color: #333;
+    line-height: 35px;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+.select-type {
+    padding-top: 19px;
+    height: 40px;
+}
+
+.select-type .list {
+    float: right;
+    margin-top: 0;
+}
+.select-type .list a {
+    font-size: 12px;
+    color: #999;
+    line-height: 18px;
+    letter-spacing: -.3px;
+    cursor: pointer;
+}
+
+.select-type .list a:hover {
+    font-size: 12px;
+    color: #333;
+    line-height: 18px;
+    letter-spacing: -.3px;
+    cursor: pointer;
+}
+
+.select-type .list a:focus {
+    font-size: 12px;
+    color: #333;
+    line-height: 18px;
+    letter-spacing: -.3px;
+    cursor: pointer;
+}
+
+.list-goods .list {
+    overflow: hidden;
+    width: 1070px;
+    margin-top: -10px;
+    padding: 0;
+}
+
+.list-goods li {
+    float: left;
+    width: 356px;
+    height: 682px;
+    padding: 25px 18px 0 0;
+}
+
+.list-goods .item {
+    display: block;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.list-goods .thumb {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 435px;
+    background-color: #f9f8f9;
+}
+
+.list-goods .thumb .img {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.list-goods .thumb img {
+    width: 100%;
+    vertical-align: top;
+    transition: all .5s ease-in-out;
+}
+.list-goods .thumb .btn {
+    display: block;
+    width: 45px;
+    height: 45px;
+    margin-top: 15px;
+    border: 0;
+}
+
+.list-goods .thumb .cart-btn {
+    background: url(cart-btn.png) no-repeat 50% 50%;
+    background-size: 45px 45px;
+}
+
+.list-goods .thumb .group-btn {
+    position: absolute;
+    z-index: 2;
+    right: 15px;
+    bottom: 15px;
+    width: 45px;
+}
+
+.group-btn {
+    overflow: hidden;
+    /*width: 100%;*/
+    text-align: center;
+}
+
+.group-btn .btn {
+    overflow: hidden;
+    float: left;
+    width: 150px;
+    height: 42px;
+    font-size: 13px;
+    line-height: 40px;
+    text-align: center;
+}
+
+button {
+    outline: none;
+    cursor: pointer;
+}
+
+li {
+    position: relative;
+    z-index: 2;
+    float: left;
+    padding: 0 10px 0 8px;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.list-goods .info {
+    display: block;
+    padding: 14px 10px 10px 0;
+}
+
+.list-goods .name {
+    /*display: block;*/
+    overflow: hidden;
+    max-height: 58px;
+    font-weight: 400;
+    font-size: 20px;
+    color: #333;
+    line-height: 29px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+}
+
+.list-goods .cost {
+    display: block;
+    padding-top: 7px;
+    font-size: 18px;
+    line-height: 29px;
+}
+
+.list-goods .cost .price {
+    font-weight: 800;
+    color: #333;
+}
+
+.list-goods .simple-content {
+    display: block;
+    padding-top: 11px;
+    font-size: 13px;
+    color: #999;
+    line-height: 19px;
+}
