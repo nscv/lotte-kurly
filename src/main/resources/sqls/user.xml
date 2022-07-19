@@ -7,7 +7,6 @@
     <select id="getuser" parameterType="String" resultType="Integer">
         SELECT count(*)
         FROM users
-        WHERE email
-        where user_email=#{user_email}
+        WHERE user_email=#{user_email}
     </select>
 </mapper>
