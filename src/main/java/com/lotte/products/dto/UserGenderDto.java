@@ -3,12 +3,26 @@ package com.lotte.products.dto;
 public class UserGenderDto {
     private boolean userGender;
     private int cnt;
+    private int total;
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public boolean isUserGender() {
+        return userGender;
+    }
 
     @Override
     public String toString() {
-        return "UserCategoryDto{" +
-                ", userGender=" + userGender +
+        return "UserGenderDto{" +
+                "userGender=" + userGender +
                 ", cnt=" + cnt +
+                ", total=" + total +
                 '}';
     }
 

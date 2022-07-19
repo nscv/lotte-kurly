@@ -3,12 +3,22 @@ package com.lotte.products.dto;
 public class ProductCategoryDto {
     private String productCategory;
     private int cnt;
+    private int total;
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
 
     @Override
     public String toString() {
-        return "CategoryDto{" +
+        return "ProductCategoryDto{" +
                 "productCategory='" + productCategory + '\'' +
                 ", cnt=" + cnt +
+                ", total=" + total +
                 '}';
     }
 
