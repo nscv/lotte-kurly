@@ -32,6 +32,7 @@ public class ProductPageController {
         this.categoryService=categoryService;
     }
 
+    
     @GetMapping("/list")
     public String ProductList(Model model, String category){
         List<ProductListDto> list= productService.productList(category);
@@ -41,6 +42,8 @@ public class ProductPageController {
         model.addAttribute("list",list);
         return "product/productlist";
     }
+
+
     @GetMapping("/lowlist")
     public String ProductLowList(Model model,String category){
         List<ProductListDto>list=productService.productLowList(category);
@@ -48,6 +51,7 @@ public class ProductPageController {
         model.addAttribute("category",category);
         return"product/productlist";
     }
+
     @GetMapping("/highlist")
     public String ProductHighList(Model model,String category){
         List<ProductListDto>list=productService.productHighList(category);

@@ -12,8 +12,7 @@ public class ProductDto {
     int productStock;
     String productCategory;
 
-    public ProductDto(int productNo, int
-    goryNo, String productName, String productContent, String productSimpleContent, String productDeadline, int productPrice, int productAmount, int productStock) {
+    public ProductDto(int productNo, int categoryNo, String productName, String productContent, String productSimpleContent, String productDeadline, int productPrice, int productAmount, int productStock) {
         this.productNo = productNo;
         this.categoryNo = categoryNo;
         this.productName = productName;

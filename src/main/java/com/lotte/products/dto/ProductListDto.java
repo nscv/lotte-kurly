@@ -10,6 +10,7 @@ public class ProductListDto {
     private String productDeadline;
     private int productAmount;
     private int productStock;
+
     String productImgNewName;
     String productSimpleContent;
 
