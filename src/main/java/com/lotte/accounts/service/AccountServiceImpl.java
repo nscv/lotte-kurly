@@ -25,11 +25,10 @@ public class AccountServiceImpl implements AccountService {
 
         boolean canBuyRemain = getProductInfo.getProductStock() >= buyCount;
 
-        return canBuyRemain && haveEnoughAccount(productNo, userNo);
+        return canBuyRemain && haveEnoughAccount(getProductInfo, userNo);
     }
 
-    public boolean haveEnoughAccount(int productNo, int userNo) {
-        ProductListDto getProductInfo = productDao.selectProductByProductNo(productNo);
+    public boolean haveEnoughAccount(ProductListDto getProductInfo, int userNo) {
         AccountDto getAccountInfo = accountDao.selectAccountByUserNo(userNo);
 
         return getAccountInfo.getAccountMoney() >= getProductInfo.getProductPrice();
@@ -39,13 +38,13 @@ public class AccountServiceImpl implements AccountService {
     public void payProduct(AccountDto accountDto, OrderProductsDto orderProductsDto) {
         if(!this.canBuyProduct(orderProductsDto.getProductNo(), orderProductsDto.getOrderCount(), accountDto.getUserNo()))
             return;
-        productDao.buyProducts(orderProductsDto);
+        accountDao.buyProducts(orderProductsDto);
         accountDao.updateAccountByBuy(accountDto);
     }
 
     @Override
     public void refundProduct(AccountDto accountDto, OrderProductsDto orderProductsDto) {
-        productDao.refundProducts(orderProductsDto);
+        accountDao.refundProducts(orderProductsDto);
         accountDao.updateAccountByRefund(accountDto);
     }
 }
