@@ -22,5 +22,10 @@ public class OrderController {
         return ResponseEntity.ok(orderService.getOrders(userNo));
     }
 
+<<<<<<< Updated upstream
 
+=======
+    @GetMapping("/orders/{orderNo}")
+    public ResponseEntity<OrderResponse.>
+>>>>>>> Stashed changes
 }

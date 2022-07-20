@@ -22,4 +22,12 @@
         WHERE cart_item_product_nos.product_no = p.product_no
     </select>
 
+<<<<<<< Updated upstream
+=======
+    <!-- 주문 상세 조회 쿼리 -->
+    <select id="selectOrderDetail" parameterType="Integer" resultType=" ">
+
+    </select>
+
+>>>>>>> Stashed changes
 </mapper>
