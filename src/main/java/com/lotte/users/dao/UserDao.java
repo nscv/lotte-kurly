@@ -1,5 +1,6 @@
 package com.lotte.users.dao;
 
+import com.lotte.users.dto.ProfileDto;
 import com.lotte.users.dto.UserDto;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -15,5 +16,7 @@ public interface UserDao {
 
     int getuserno(String eamil);
 
-    int addprofile(UserDto user);
+    int addprofile(ProfileDto profile);
+
+    String getbirth(int userNo);
 }

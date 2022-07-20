@@ -113,7 +113,7 @@ ul {
     width: 16px;
     height: 14px;
     margin: 8px 0 0 60px;
-    background: url("images/menu.png") no-repeat;
+    background: url("../front/images/menu.png") no-repeat;
     background-size: 15px;
 }
 

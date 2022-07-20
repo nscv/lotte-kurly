@@ -1,6 +1,7 @@
 package com.lotte.users.controller;
 
 import com.lotte.products.controller.ProductController;
+import com.lotte.users.dto.ProfileDto;
 import com.lotte.users.dto.UserDto;
 import com.lotte.users.service.UserService;
 import org.slf4j.Logger;
@@ -11,6 +12,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServlet;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 
 @Controller
@@ -24,38 +29,20 @@ public class UserController {
 
     @ResponseBody
     @GetMapping("/userdata")
-    public String Userdata(Model model, String email){
+    public String Userdata(Model model, String email) throws ParseException {
         logger.info("UserController Userdata()" + new Date());
-        boolean isuser = service.checkuser(email);
-        int userno;
-        int isvalid;
-        if(isuser){
-
-            userno = service.getuserno(email);
-            isvalid = service.checkvalid(email);
-
-        } else {
-            boolean signin = service.signin(email);
-            userno = service.getuserno(email);
-            isvalid = 0;
-            if(signin){
-                System.out.println("signin success");
-            } else {
-                System.out.println("signin fail");
-            }
-        }
-        return Integer.toString(isvalid) + Integer.toString(userno);
+        return service.checkuser(email);
     }
 
-    @GetMapping("/test")
+    @GetMapping("/profile")
     public String test() {
-        return "test";
+        return "/user/profile";
     }
 
     @PostMapping("/add-profile")
-    public String Addprofile(UserDto user){
+    public String Addprofile(ProfileDto profile){
         logger.info("UserController Addprofile()" + new Date());
-        service.addprofile(user);
-        return "/user/login";
+        service.addprofile(profile);
+        return "/index";
     }
 }

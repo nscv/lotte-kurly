@@ -35,8 +35,14 @@
 
     <update id="addprofile" parameterType="com.lotte.users.dto.UserDto">
         UPDATE users
-        SET user_nickname = #{userNickname}, user_birth =#{userBirth}, user_gender=#{userGender},  user_address=#{userAddress}, user_phone=#{userPhone}
+        SET user_nickname = #{userNickname}, user_birth =#{userBirth}, user_gender=#{userGender},  user_address=#{userAddress}, user_phone=#{userPhone}, user_valid=1
         WHERE user_no=#{userNo};
     </update>
+
+    <select id="getbirth" parameterType="Integer" resultType="String">
+        SELECT user_birth
+        FROM users
+        WHERE user_no=#{userNO};
+    </select>
 
 </mapper>
