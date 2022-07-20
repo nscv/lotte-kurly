@@ -51,7 +51,7 @@ public class ProductPageController {
 
     @GetMapping("/productdetail")
     public String ProductDetail(){
-        return "product/productdetail";
+        return "/productdetail.jsp";
     }
     // TODO: 지금은 테스트용으로 페이지랑 같이 보내지만 List 정보만 보내기
     @GetMapping("/axis")
