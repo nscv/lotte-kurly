@@ -3,11 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lotte.products.dao.StatisticDao">
+
     <select id="selectProductCountByCategory" resultType="com.lotte.products.dto.ProductCategoryDto">
-        SELECT p.product_category AS productCategory, COUNT(p.product_category) AS cnt, SUM(o.order_total_price) AS total
-        FROM products p, orders o
-        WHERE o.product_no = p.product_no
-        GROUP BY p.product_category
+        SELECT c.category_name AS categoryName, COUNT(c.category_name) AS cnt, SUM(cart_item_total_price) AS total
+        FROM categories c, cart_items cart, products p
+        WHERE p.product_no = cart.product_no
+          AND c.category_no = p.category_no
+        GROUP BY c.category_name;
     </select>
     <select id="selectPricesByGender" resultType="com.lotte.products.dto.UserGenderDto">
         SELECT u.user_gender AS userGender, COUNT(*) AS cnt, SUM(o.order_total_price) AS total
