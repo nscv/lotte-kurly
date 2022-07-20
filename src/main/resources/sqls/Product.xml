@@ -7,11 +7,13 @@
         SELECT p.product_no,p.product_name,p.product_price,pi.product_img_new_name,p.product_simple_content
         FROM products p, product_imgs pi
         where p.product_no=pi.product_no and category_no=#{productCategory}
+
     </select>
     <select id="selectProductByProductNo" resultType="com.lotte.products.dto.ProductListDto" parameterType="Integer">
         SELECT product_no, product_name, product_price, product_deadline, product_amount, product_stock
         FROM products
         WHERE product_no = #{product_no}
+
     </select>
     <insert id="insertProducts" parameterType="com.lotte.products.dto.ProductDto">
         INSERT INTO products(product_name, product_content, product_simple_content, product_price, product_amount, product_stock, product_deadline)

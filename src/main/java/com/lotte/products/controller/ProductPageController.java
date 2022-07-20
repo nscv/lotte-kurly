@@ -28,6 +28,7 @@ public class ProductPageController {
         this.statisticService = statisticService;
         this.productService = productService;
     }
+
     
     @GetMapping("/list")
     public String ProductList(Model model, String category){
@@ -35,9 +36,14 @@ public class ProductPageController {
         model.addAttribute("list",list);
         return "product/productlist";
     }
+
+
     @GetMapping("/lowlist")
     public String ProductLowList(Model model,String category){
         List<ProductListDto>list=productService.productLowList();
+        for(ProductListDto d:list){
+            System.out.println(d.getProductImgNewName());
+        }
         model.addAttribute("list",list);
         return"product/productlist";
     }
