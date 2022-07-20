@@ -1,6 +1,6 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.lotte.products.dto.UserAgeDto" %>
-<%@ page import="com.lotte.products.dto.UserGenderDto" %><%--
+<%@ page import="com.lotte.admin.dto.UserAgeDto" %>
+<%@ page import="com.lotte.admin.dto.UserGenderDto" %><%--
   Created by IntelliJ IDEA.
   User: BTC-N10
   Date: 2022-07-19

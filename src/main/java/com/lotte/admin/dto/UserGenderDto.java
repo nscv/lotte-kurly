@@ -1,4 +1,4 @@
-package com.lotte.products.dto;
+package com.lotte.admin.dto;
 
 public class UserGenderDto {
     private boolean userGender;

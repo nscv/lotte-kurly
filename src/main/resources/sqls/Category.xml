@@ -8,6 +8,5 @@
         SELECT category_name
         FROM categories
         WHERE category_no=#{categoryNo}
-
     </select>
 </mapper>

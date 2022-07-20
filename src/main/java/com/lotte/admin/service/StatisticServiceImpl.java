@@ -1,10 +1,10 @@
-package com.lotte.products.service;
+package com.lotte.admin.service;
 
-import com.lotte.products.dao.StatisticDao;
-import com.lotte.products.dto.ProductCategoryDto;
-import com.lotte.products.dto.UserAgeDto;
-import com.lotte.products.dto.UserGenderDto;
-import com.lotte.products.dto.UserGradeDto;
+import com.lotte.admin.dao.StatisticDao;
+import com.lotte.admin.dto.ProductCategoryDto;
+import com.lotte.admin.dto.UserAgeDto;
+import com.lotte.admin.dto.UserGenderDto;
+import com.lotte.admin.dto.UserGradeDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

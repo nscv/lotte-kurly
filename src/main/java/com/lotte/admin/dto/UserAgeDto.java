@@ -1,7 +1,7 @@
-package com.lotte.products.dto;
+package com.lotte.admin.dto;
 
-public class ProductCategoryDto {
-    private String categoryName;
+public class UserAgeDto {
+    private int userAge;
     private int cnt;
     private int total;
 
@@ -15,19 +15,19 @@ public class ProductCategoryDto {
 
     @Override
     public String toString() {
-        return "ProductCategoryDto{" +
-                "categoryName='" + categoryName + '\'' +
+        return "UserAgeDto{" +
+                "userAge=" + userAge +
                 ", cnt=" + cnt +
                 ", total=" + total +
                 '}';
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public int getUserAge() {
+        return userAge;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setUserAge(int userAge) {
+        this.userAge = userAge;
     }
 
     public int getCnt() {
@@ -38,8 +38,8 @@ public class ProductCategoryDto {
         this.cnt = cnt;
     }
 
-    public ProductCategoryDto(String categoryName, int cnt) {
-        this.categoryName = categoryName;
+    public UserAgeDto(int userAge, int cnt) {
+        this.userAge = userAge;
         this.cnt = cnt;
     }
 }

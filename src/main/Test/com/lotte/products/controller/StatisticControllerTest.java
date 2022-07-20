@@ -1,10 +1,10 @@
 package com.lotte.products.controller;
 
-import com.lotte.products.dto.ProductCategoryDto;
-import com.lotte.products.dto.UserAgeDto;
-import com.lotte.products.dto.UserGenderDto;
-import com.lotte.products.dto.UserGradeDto;
-import com.lotte.products.service.StatisticService;
+import com.lotte.admin.dto.ProductCategoryDto;
+import com.lotte.admin.dto.UserAgeDto;
+import com.lotte.admin.dto.UserGenderDto;
+import com.lotte.admin.dto.UserGradeDto;
+import com.lotte.admin.service.StatisticService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
