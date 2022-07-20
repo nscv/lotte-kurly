@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lotte.crawling.dto.CrawlingCategoryDto;
 import com.lotte.crawling.dto.CrawlingDto;
 import com.lotte.crawling.service.CrawlingService;
+import com.lotte.products.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,11 @@ import java.util.*;
 public class CrawlingController {
     static Logger logger = LoggerFactory.getLogger(CrawlingController.class);
 
-    @Autowired
-    private CrawlingService service;
+    private CrawlingService crawlingService;
+
+    public CrawlingController(CrawlingService crawlingService) {
+        this.crawlingService = crawlingService;
+    }
 
     @RequestMapping(value="crawlingStart", method= {RequestMethod.GET,RequestMethod.POST})
     public String crawlingStart(){
@@ -39,7 +43,7 @@ public class CrawlingController {
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         List<CrawlingCategoryDto> list = Arrays.asList(mapper.readValue(params.get("categories").toString(), CrawlingCategoryDto[].class));
 
-        service.insertCategory(list);
+        crawlingService.insertCategory(list);
     }
 
     @ResponseBody
@@ -47,11 +51,11 @@ public class CrawlingController {
     public void crawlingList(@RequestParam Map params) throws Exception {
         logger.info("CrawlingController crawling() " + new Date());
 
-       ObjectMapper mapper = new ObjectMapper();
-       mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-       List<CrawlingDto> list = Arrays.asList(mapper.readValue(params.get("products").toString(), CrawlingDto[].class));
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        List<CrawlingDto> list = Arrays.asList(mapper.readValue(params.get("products").toString(), CrawlingDto[].class));
 
-       service.insertProducts(list);
+        crawlingService.insertProducts(list);
     }
 
 }
