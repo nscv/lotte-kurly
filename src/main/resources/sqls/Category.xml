@@ -3,7 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lotte.categories.dao.CategoryDao">
-    <select id="searchCategory" resultType="">
+    <select id="searchCategory" parameterType="com.lotte.categories.dto.CategoryDto" resultType="String">
+        SELECT category_name
+        FROM categories
+        WHERE category_no=#{categoryNo}
 
     </select>
 </mapper>

@@ -7,7 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <script
         src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <html>
@@ -15,7 +14,7 @@
     <title>Title</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="css/productlist.css">
+    <link rel="stylesheet" type="text/css" href="/css/productlist.css">
 </head>
 <script>
     $(function () {
@@ -68,10 +67,10 @@
                             <a class="select-review">리뷰순</a>
                         </li>
                         <li class>
-                            <a href="/productlowlist" class="select-asc">낮은 가격순</a>
+                            <a href="/product/lowlist?category=${category}" class="select-asc">낮은 가격순</a>
                         </li>
                         <li class>
-                            <a href="/producthighlist" class="select-desc">높은 가격순</a>
+                            <a href="/product/highlist?category=${category}" class="select-desc">높은 가격순</a>
                         </li>
                     </ul>
                 </div>
@@ -80,13 +79,13 @@
 
                 <ul class="list">
                     <div class="inner-title">
-                        <h4 class="title">카테고리명</h4>
+                        <h4 class="title">${categoryName}</h4>
                     </div>
                     <c:forEach items="${list}" var="m">
                         <li>
                             <div class="item">
                                 <div class="thumb">
-                                    <a class="img">
+                                    <a class="img" href="/product/productdetail?productNo=${m.productNo}">
                                         <img src="${m.productImgNewName}"></a>
                                     <div class="group-btn">
                                         <button type="button" class="btn cart-btn"></button>
