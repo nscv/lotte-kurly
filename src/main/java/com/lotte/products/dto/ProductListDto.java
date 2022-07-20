@@ -10,6 +10,8 @@ public class ProductListDto {
     private String productDeadline;
     private int productAmount;
     private int productStock;
+    String productImgNewName;
+    String productSimpleContent;
 
     @Override
     public String toString() {
@@ -82,23 +84,26 @@ public class ProductListDto {
         this.productPrice = productPrice;
     }
 
-    public ProductListDto(int productNo, String productName, int productPrice) {
+    public ProductListDto(int productNo, String productName, int productPrice,String ProductImgNewName,String productSimpleContent) {
         this.productNo = productNo;
         this.productName = productName;
         this.productPrice = productPrice;
+        this.productImgNewName=ProductImgNewName;
+        this.productSimpleContent=productSimpleContent;
     }
-//    public String getProductImgNewName() {
-//        return productImgNewName;
-//    }
-//
-//    public void setProductImgNewName(String productImgNewName) {
-//        this.productImgNewName = productImgNewName;
-//    }
-//
-//    public ProductListDto(int productNo, String productName, int productPrice, String productImgNewName) {
-//        this.productNo = productNo;
-//        this.productName = productName;
-//        this.productPrice = productPrice;
-//        this.productImgNewName = productImgNewName;
-//    }
+    public String getProductImgNewName() {
+        return productImgNewName;
+    }
+
+    public void setProductImgNewName(String productImgNewName) {
+        this.productImgNewName = productImgNewName;
+    }
+
+    public String getProductSimpleContent() {
+        return productSimpleContent;
+    }
+
+    public void setProductSimpleContent(String productSimpleContent) {
+        this.productSimpleContent = productSimpleContent;
+    }
 }
