@@ -2,7 +2,7 @@ package com.lotte.products.dto;
 
 import java.io.Serializable;
 
-public class ProductListDto implements Serializable {
+public class ProductListDto {
 
     private int productNo;
     private String productName;
