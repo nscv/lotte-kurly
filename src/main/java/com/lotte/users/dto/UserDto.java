@@ -1,11 +1,10 @@
 package com.lotte.users.dto;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class UserDto implements Serializable {
 
-        int userNo;
+    int userNo;
     String userEmail;
     String userRole;
     String userGrade;

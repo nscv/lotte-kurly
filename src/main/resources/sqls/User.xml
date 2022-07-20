@@ -10,12 +10,12 @@
         WHERE user_email=#{userEmail}
     </select>
 
-    <insert id="signin" parameterType="String">
+    <insert id="insertuser" parameterType="String">
         INSERT INTO users(user_email)
         VALUES (#{userEmail})
     </insert>
 
-    <select id="getuser" parameterType="String" resultType="com.lotte.users.dto.UserDto">
+    <select id="selectuser" parameterType="String" resultType="com.lotte.users.dto.UserDto">
         SELECT user_no, user_email, user_role, user_grade, user_nickname, user_birth, user_gender, user_address, user_phone, user_valid
         FROM users
         WHERE user_email=#{userEmail}
@@ -27,19 +27,19 @@
         WHERE user_email=#{userEmail}
     </select>
 
-    <select id="getuserno" parameterType="String" resultType="Integer">
+    <select id="selectuserno" parameterType="String" resultType="Integer">
         SELECT user_no
         FROM users
         WHERE user_email=#{userEmail}
     </select>
 
-    <update id="addprofile" parameterType="com.lotte.users.dto.UserDto">
+    <update id="insertprofile" parameterType="com.lotte.users.dto.UserDto">
         UPDATE users
         SET user_nickname = #{userNickname}, user_birth =#{userBirth}, user_gender=#{userGender},  user_address=#{userAddress}, user_phone=#{userPhone}, user_valid=1
         WHERE user_no=#{userNo};
     </update>
 
-    <select id="getbirth" parameterType="Integer" resultType="String">
+    <select id="selectbirth" parameterType="Integer" resultType="String">
         SELECT user_birth
         FROM users
         WHERE user_no=#{userNO};

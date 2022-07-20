@@ -8,15 +8,15 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserDao {
     int checkuser(String email);
 
-    int signin(String email);
+    int insertuser(String email);
 
-    UserDto getuser(String email);
+    UserDto selectuser(String email);
 
     int checkvalid(String email);
 
-    int getuserno(String eamil);
+    int selectuserno(String eamil);
 
-    int addprofile(ProfileDto profile);
+    int insertprofile(ProfileDto profile);
 
-    String getbirth(int userNo);
+    String selectbirth(int userNo);
 }
