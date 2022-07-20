@@ -126,7 +126,7 @@ ul {
     width: 100px;
 }
 
-a {
+.menu-item a {
     overflow: hidden;
     float: left;
     width: 200px;
