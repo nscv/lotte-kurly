@@ -1,10 +1,8 @@
 package com.lotte.orders.dto.response;
 
 import com.lotte.orders.dto.Order;
-<<<<<<< Updated upstream
-=======
-import com.lotte.orders.dto.OrderCartItem;
->>>>>>> Stashed changes
+import com.lotte.orders.dto.OrderDetail;
+import com.lotte.orders.dto.OrderDetailCartItem;
 import java.util.List;
 
 /* 주문 응답 */
@@ -23,19 +21,25 @@ public class OrderResponse {
         }
     }
 
-<<<<<<< Updated upstream
-=======
     /* 주문 상세 DTO */
     public static class OrderDetailDto {
 
-        private List<OrderCartItem> orderCartItems;
+        private List<OrderDetailCartItem> orderDetailCartItems;
         private Integer orderNo;
         private Integer orderState;
-        private Integer orderCreatedAt;
-        private Integer orderAddress;
+        private String orderCreatedAt;
+        private String orderAddress;
 
-        public List<OrderCartItem> getOrderCartItems() {
-            return orderCartItems;
+        public OrderDetailDto(List<OrderDetailCartItem> orderDetailCartItems, OrderDetail orderDetail) {
+            this.orderDetailCartItems = orderDetailCartItems;
+            this.orderNo = orderDetail.getOrderNo();
+            this.orderState = orderDetail.getOrderState();
+            this.orderCreatedAt = orderDetail.getOrderCreatedAt();
+            this.orderAddress = orderDetail.getOrderAddress();
+        }
+
+        public List<OrderDetailCartItem> getOrderCartItems() {
+            return orderDetailCartItems;
         }
 
         public Integer getOrderNo() {
@@ -46,16 +50,16 @@ public class OrderResponse {
             return orderState;
         }
 
-        public Integer getOrderCreatedAt() {
+        public String getOrderCreatedAt() {
             return orderCreatedAt;
         }
 
-        public Integer getOrderAddress() {
+        public String getOrderAddress() {
             return orderAddress;
         }
 
-        public void setOrderCartItems(List<OrderCartItem> orderCartItems) {
-            this.orderCartItems = orderCartItems;
+        public void setOrderCartItems(List<OrderDetailCartItem> orderDetailCartItems) {
+            this.orderDetailCartItems = orderDetailCartItems;
         }
 
         public void setOrderNo(Integer orderNo) {
@@ -66,14 +70,13 @@ public class OrderResponse {
             this.orderState = orderState;
         }
 
-        public void setOrderCreatedAt(Integer orderCreatedAt) {
+        public void setOrderCreatedAt(String orderCreatedAt) {
             this.orderCreatedAt = orderCreatedAt;
         }
 
-        public void setOrderAddress(Integer orderAddress) {
+        public void setOrderAddress(String orderAddress) {
             this.orderAddress = orderAddress;
         }
     }
 
->>>>>>> Stashed changes
 }

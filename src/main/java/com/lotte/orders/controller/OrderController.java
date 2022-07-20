@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -22,10 +23,8 @@ public class OrderController {
         return ResponseEntity.ok(orderService.getOrders(userNo));
     }
 
-<<<<<<< Updated upstream
-
-=======
     @GetMapping("/orders/{orderNo}")
-    public ResponseEntity<OrderResponse.>
->>>>>>> Stashed changes
+    public ResponseEntity<OrderResponse.OrderDetailDto> getOrderDetail(@PathVariable Integer orderNo) {
+        return ResponseEntity.ok(orderService.getOrderDetail(orderNo));
+    }
 }
