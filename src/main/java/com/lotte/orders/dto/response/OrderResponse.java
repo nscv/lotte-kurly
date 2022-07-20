@@ -86,10 +86,13 @@ public class OrderResponse {
         private OrderUserDetail orderUserDetail;
         // TODO: 쿠폰 DTO, 결제 DTO (Figma. 주문 페이지 참고)
 
+        private Integer orderTotalPrice = 0;
+
 
         public OrderSheetDto(List<OrderCartItem> orderCartItems, OrderUserDetail orderUserDetail) {
             this.orderCartItems = orderCartItems;
             this.orderUserDetail = orderUserDetail;
+            orderCartItems.forEach(item -> orderTotalPrice += item.getCartItemTotalPrice()); // 상품 총액 계산
         }
 
         public List<OrderCartItem> getOrderCartItems() {
@@ -100,12 +103,20 @@ public class OrderResponse {
             return orderUserDetail;
         }
 
+        public Integer getOrderTotalPrice() {
+            return orderTotalPrice;
+        }
+
         public void setOrderCartItems(List<OrderCartItem> orderCartItems) {
             this.orderCartItems = orderCartItems;
         }
 
         public void setOrderUserDetail(OrderUserDetail orderUserDetail) {
             this.orderUserDetail = orderUserDetail;
+        }
+
+        public void setOrderTotalPrice(Integer orderTotalPrice) {
+            this.orderTotalPrice = orderTotalPrice;
         }
     }
 

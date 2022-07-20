@@ -50,7 +50,7 @@
     </select>
 
     <select id="selectOrderCartItemsByCartItemNos" parameterType="java.util.List" resultType="com.lotte.orders.dto.OrderCartItem">
-        SELECT product_name productName, cart_item_total_price cartItemTotalPrice,
+        SELECT p.product_no productNo, product_name productName, cart_item_total_price cartItemTotalPrice,
                 cart_item_count cartItemCount
         FROM (SELECT product_no, cart_item_total_price, cart_item_count
               FROM cart_items
