@@ -1,18 +1,10 @@
 package com.lotte.users.service;
 
-import com.lotte.users.dao.UserDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.lotte.users.dto.ProfileDto;
 
-@Service
-public class UserService {
+import java.text.ParseException;
 
-    @Autowired
-    private UserDao dao;
-
-    public Boolean getuser(String email) {
-        int count = dao.getuser(email);
-        System.out.println(count+"?");
-        return count>0;
-    }
+public interface UserService {
+    String checkuser(String email) throws ParseException;
+    int addprofile(ProfileDto profile);
 }
