@@ -4,7 +4,9 @@ import com.lotte.coupons.dao.CouponDao;
 import com.lotte.coupons.dto.UserCouponInfo;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CouponServiceImpl implements CouponService {
 
     private CouponDao couponDao;
