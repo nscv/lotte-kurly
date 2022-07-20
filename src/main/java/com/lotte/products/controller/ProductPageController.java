@@ -24,6 +24,7 @@ public class ProductPageController {
     @GetMapping("/productlist")
     public String ProductList(Model model, String category,String page){
         List<ProductListDto> list= productService.productList(category);
+
         model.addAttribute("list",list);
         return "product/productlist";
     }
