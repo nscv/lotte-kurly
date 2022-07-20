@@ -123,3 +123,4 @@ fabric.properties
 target
 **/*.properties
 web.xml
+/target/

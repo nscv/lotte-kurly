@@ -20,8 +20,11 @@ import java.util.List;
 @Service
 public class CrawlingServiceImpl implements CrawlingService{
 
-    @Autowired
-    private CrawlingDao dao;
+    private CrawlingDao crawlingDao;
+
+    public CrawlingServiceImpl(CrawlingDao crawlingDao) {
+        this.crawlingDao = crawlingDao;
+    }
 
 
     @Override
@@ -32,7 +35,7 @@ public class CrawlingServiceImpl implements CrawlingService{
             String categoryImg = list.get(i).getName();
 
             categoriesDto dto = new categoriesDto(categoryNo,categoryName,categoryImg);
-            dao.insertCategory(dto);
+            crawlingDao.insertCategory(dto);
         }
     }
 
@@ -52,6 +55,7 @@ public class CrawlingServiceImpl implements CrawlingService{
             // 랜덤값으로 넣어야 하는 유통기한, 판매량, 재고 셋팅
             int productNo = Integer.parseInt(list.get(i).getNo());
             int categoryNo = Integer.parseInt(list.get(i).getCategory_no().replace("\"",""));
+
             String productName = list.get(i).getName();
             String productContent = list.get(i).getShortdesc();
             String productSimpleContent = list.get(i).getShort_description();
@@ -63,7 +67,7 @@ public class CrawlingServiceImpl implements CrawlingService{
             // productDto 생성되면 dao에 데이터 전달해서 insert 진행
             ProductDto prdto = new ProductDto(productNo,categoryNo,productName,productContent,productSimpleContent,
                     productDeadline,productPrice,productAmount,productStock);
-            dao.insertCrawProducts(prdto);
+            crawlingDao.insertCrawProducts(prdto);
             
             // ProductImgDto 넣어야하는 값 셋팅
             String productImgOriginName = "";
@@ -71,7 +75,7 @@ public class CrawlingServiceImpl implements CrawlingService{
 
             // ProductImgDto 생성되면 dao에 데이터 전달해서 insert 진행
             ProductImgDto pidto = new ProductImgDto(productNo, productImgOriginName, productImgnewName);
-            dao.insertProductImg(pidto);
+            crawlingDao.insertProductImg(pidto);
         }
     }
 }
