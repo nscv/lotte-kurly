@@ -27,13 +27,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductListDto> productList() {
-        return productDao.productList();
+    public List<ProductListDto> productList(String category) {
+        return productDao.productList(category);
     }
-    public List<ProductListDto>productLowList(){
-        return productDao.productLowList();
+    public List<ProductListDto>productLowList(String category){
+        return productDao.productLowList(category);
     }
-    public List<ProductListDto>productHighList(){
-        return productDao.productHighList();
+    public List<ProductListDto>productHighList(String category){
+        return productDao.productHighList(category);
     }
 }

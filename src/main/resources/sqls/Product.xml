@@ -3,9 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lotte.products.dao.ProductDao">
-    <select id="productList" resultType="com.lotte.products.dto.ProductListDto">
-        SELECT p.product_no,p.product_name,p.product_price
-        FROM products p
+    <select id="productList" parameterType="com.lotte.products.dto.ProductListDto" resultType="com.lotte.products.dto.ProductListDto">
+        SELECT p.product_no,p.product_name,p.product_price,pi.product_img_new_name,p.product_simple_content
+        FROM products p, product_imgs pi
+        where p.product_no=pi.product_no and category_no=#{productCategory}
+
+    </select>
+    <select id="selectProductByProductNo" resultType="com.lotte.products.dto.ProductListDto" parameterType="Integer">
+        SELECT product_no, product_name, product_price, product_deadline, product_amount, product_stock
+        FROM products
+        WHERE product_no = #{product_no}
+
     </select>
     <insert id="insertProducts" parameterType="com.lotte.products.dto.ProductDto">
         INSERT INTO products(product_name, product_content, product_simple_content, product_price, product_amount, product_stock, product_deadline)
@@ -13,17 +21,19 @@
     </insert>
     <update id="updateProducts" parameterType="com.lotte.products.dto.ProductDto">
         UPDATE products
-        SET product_stock=#{productStock}, product_amount = product_amount+#{productStock}
+        SET product_stock=product_stock+#{productStock}
         WHERE product_no = #{productNo}
     </update>
-    <select id="productLowList" resultType="com.lotte.products.dto.ProductListDto">
-        SELECT p.product_no,p.product_name,p.product_price
-        FROM products p
-        order by p.product_price;
+    <select id="productLowList" parameterType="com.lotte.products.dto.ProductListDto" resultType="com.lotte.products.dto.ProductListDto">
+        SELECT p.product_no,p.product_name,p.product_price,pi.product_img_new_name,p.product_simple_content
+        FROM products p, product_imgs pi
+        WHERE p.product_no=pi.product_no and p.category_no=#{productCategory}
+        order by p.product_price
     </select>
-    <select id="productHighList" resultType="com.lotte.products.dto.ProductListDto">
-        SELECT p.product_no,p.product_name,p.product_price
-        FROM products p
-        order by p.product_price desc ;
+    <select id="productHighList" parameterType="com.lotte.products.dto.ProductListDto"  resultType="com.lotte.products.dto.ProductListDto">
+        SELECT p.product_no,p.product_name,p.product_price,pi.product_img_new_name,p.product_simple_content
+        FROM products p, product_imgs pi
+        WHERE p.product_no=pi.product_no and p.category_no=#{productCategory}
+        order by p.product_price desc
     </select>
 </mapper>

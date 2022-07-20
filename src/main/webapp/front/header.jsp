@@ -41,6 +41,24 @@
         <img src="/front/images/lotte-kurly logo.png" class="logo-img">
     </h1>
 </div>
+<style>
+    .items ul{
+        width: 25%;
+        text-align: center;
+        line-height: 20px;
+        height: 50px;
+        display: none;
+    }
+    .items li a {
+        display: block;
+    }
+    .menu1:hover .items ul{
+        display: block;
+    }
+    .menu1:focus .items ul{
+        display: block;
+    }
+</style>
 <%--<div id="menubar">--%>
 <%--    <h2 class="menu">--%>
 <div class="menubar-box">
@@ -56,7 +74,32 @@
         <ul class="menu-item">
             <li class="menu1">
                 <a href=""><span class="menu-img"></span><span class="txt">전체 카테고리</span></a>
+                <div class="items" style="position: absolute;flex-direction: column;top:60px;">
+                    <ul>
+                        <li><a href="/product/list?category=907">채소</a></li>
+                        <li><a href="/product/list?category=908">과일·견과·쌀</a></li>
+                        <li><a href="/product/list?category=909">수산·해산·건어물</a></li>
+                        <li><a href="/product/list?category=910">정육·계란</a></li>
+                        <li><a href="/product/list?category=911">국·반찬·메인요리</a></li>
+                        <li><a href="/product/list?category=912">샐러드·간편식</a></li>
+                        <li><a href="/product/list?category=913">면·양념·오일</a></li>
+                        <li><a href="/product/list?category=914">생수·음료·우유·커피</a></li>
+                        <li><a href="/product/list?category=249">간식·과자·떡</a></li>
+                        <li><a href="/product/list?category=915">베이커리·치즈·델리</a></li>
+                        <li><a href="/product/list?category=032">건강식품</a></li>
+                        <li><a href="/product/list?category=722">와인</a></li>
+                        <li><a href="/product/list?category=951">전통주</a></li>
+                        <li><a href="/product/list?category=918">생활용품·리빙·캠핑</a></li>
+                        <li><a href="/product/list?category=233">스킨케어·메이크업></a></li>
+                        <li><a href="/product/list?category=12">헤어·바디·구강</a></li>
+                        <li><a href="/product/list?category=916">주방용품</a></li>
+                        <li><a href="/product/list?category=85">가전제품</a></li>
+                        <li><a href="/product/list?category=991">반려동물</a></li>
+                        <li><a href="/product/list?category=919">베이비·키즈·완구</a></li>
+                    </ul>
+                </div>
             </li>
+
             <li class="menu2">
                 <a href=""><span class="txt">베스트 상품</span></a>
             </li>
@@ -84,7 +127,9 @@
                 <a href=""><input type="image" src="/front/images/cart.png" class="cart-btn"></a>
             </li>
         </ul>
+
     </div>
+
 </div>
 
 <%-- 카카오 초기화 --%>
