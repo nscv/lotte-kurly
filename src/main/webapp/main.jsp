@@ -18,6 +18,30 @@
 </head>
 <body>
 <jsp:include page="/front/header.jsp"></jsp:include>
+<jsp:include page="/front/nav.jsp"></jsp:include>
+<div class="SectionTitle css-2u0lrw e1py8bme2">
+    <div class="css-7xc07p e6oc3j93">
+        <span class="css-195c6n4 e1py8bme1">베스트 상품</span>
+    </div>
+    <p class="css-1efm9d2 e1py8bme0"></p>
+</div>
+<div class="slider">
+    <div class="im"><img src="css/product-img.png" alt=""></div>
+    <div class="im"><img src="css/product-img.png" alt=""></div>
+    <div class="im"><img src="css/product-img.png" alt=""></div>
+    <div class="im"><img src="css/product-img.png" alt=""></div>
+    <div class="im"><img src="css/product-img.png" alt=""></div>
+    <div class="im"><img src="css/product-img.png" alt=""></div>
+</div>
+
+<hr class="grey-hr">
+
+<div class="SectionTitle css-2u0lrw e1py8bme2">
+    <div class="css-7xc07p e6oc3j93">
+        <span class="css-195c6n4 e1py8bme1">할인 상품</span>
+    </div>
+    <p class="css-1efm9d2 e1py8bme0"></p>
+</div>
 <div class="slider">
     <div class="im"><img src="css/product-img.png" alt=""></div>
     <div class="im"><img src="css/product-img.png" alt=""></div>
@@ -31,7 +55,7 @@
     $( document ).ready( function() {
         $( '.slider' ).slick( {
             autoplay: true,
-            autoplaySpeed: 1000,
+            autoplaySpeed: 3000,
             slidesToShow: 3,
             slidesToScroll: 1,
         } );
