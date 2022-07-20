@@ -14,8 +14,8 @@
             width: 144px;
             height: 444px;
             position: absolute;
-            top: 150px;
-            right: 170px;
+            top: 200px;
+            right: 130px;
             background-color: #BBBDF2;
         }
 
@@ -73,23 +73,40 @@
             <div class="title">최근 본 상품</div>
             <ul class="previewAttachSpot">
                 <li>
-                    <a href="">
-                        <img src="./images/thumbnail_small.png" alt="상품 상세보기">
-                    </a>
+                    <img id="0" src="./images/thumbnail_small.png" onclick="deatailMove(this.id)">
                 </li>
                 <li>
-                    <a href="">
-                        <img src="./images/thumbnail_small.png" alt="상품 상세보기">
-                    </a>
+                    <img id="1" src="./images/thumbnail_small.png" onclick="deatailMove(this.id)">
                 </li>
                 <li>
-                    <a href="">
-                        <img src="./images/thumbnail_small.png" alt="상품 상세보기">
-                    </a>
+                    <img id="2" src="./images/thumbnail_small.png" onclick="deatailMove(this.id)">
                 </li>
             </ul>
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        var arr = localStorage.getItem('list');
+        if( arr == null) { arr = [] }
+        else {
+            arr = JSON.parse(arr);
+
+            for(let i=0; i<arr.length; i++){
+                if(i==3) break;
+                let imgsrc = arr[i].split("|")[1];
+                document.getElementById(i+"").src = imgsrc;
+            }
+        }
+
+        var currentPosition = parseInt($(".quick_banner").css("top"))
+        $(window).scroll(function () {
+            var position = $(window).scrollTop();
+            $(".quick_banner").stop().animate({"top":position+currentPosition+"px"},1000);
+        });
+    });
+
+
+</script>
 </body>
 </html>
