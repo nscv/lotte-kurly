@@ -8,7 +8,7 @@ import java.util.List;
 public interface ProductService {
     void insertProducts(ProductDto dto);
     void updateProducts(ProductDto dto);
-    public List<ProductListDto> productList();
+    public List<ProductListDto> productList(String category);
     public List<ProductListDto> productHighList();
     public List<ProductListDto> productLowList();
 }
