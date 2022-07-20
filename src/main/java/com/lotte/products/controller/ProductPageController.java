@@ -28,13 +28,10 @@ public class ProductPageController {
         this.statisticService = statisticService;
         this.productService = productService;
     }
-
+    
     @GetMapping("/list")
     public String ProductList(Model model, String category){
         List<ProductListDto> list= productService.productList(category);
-        for(ProductListDto d:list){
-            System.out.println(d.getProductNo()+" "+d.getProductName()+" "+d.getProductPrice());
-        }
         model.addAttribute("list",list);
         return "product/productlist";
     }
@@ -44,6 +41,7 @@ public class ProductPageController {
         model.addAttribute("list",list);
         return"product/productlist";
     }
+
     @GetMapping("/highlist")
     public String ProductHighList(Model model,String category){
         List<ProductListDto>list=productService.productHighList();
