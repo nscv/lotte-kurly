@@ -1,10 +1,7 @@
 package com.lotte.products.controller;
 
 import com.lotte.categories.service.CategoryService;
-import com.lotte.products.dto.ProductCategoryDto;
-import com.lotte.products.dto.ProductListDto;
-import com.lotte.products.dto.UserAgeDto;
-import com.lotte.products.dto.UserGenderDto;
+import com.lotte.products.dto.*;
 import com.lotte.products.service.ProductService;
 import com.lotte.products.service.StatisticService;
 import org.slf4j.Logger;
@@ -62,9 +59,11 @@ public class ProductPageController {
 
     @GetMapping("/productdetail")
     public String ProductDetail(Model model,String productNo){
+        List<ProductImgCategoryDto> list = productService.productImgCategorylist(productNo);
+        model.addAttribute("list",list);
         return "product/productdetail";
     }
-    // TODO: 지금은 테스트용으로 페이지랑 같이 보내지만 List 정보만 보내기
+
     @GetMapping("/axis")
     public String date(Model model) {
         // TODO: 날짜별 매출 현황 가져오기
