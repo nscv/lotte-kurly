@@ -12,6 +12,7 @@
 </head>
 <body>
 <jsp:include page="/front/header.jsp"></jsp:include>
+<jsp:include page="/front/nav.jsp"></jsp:include>
 
 </body>
 </html>

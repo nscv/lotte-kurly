@@ -38,6 +38,8 @@
 </script>
 <body>
 <jsp:include page="/front/header.jsp"></jsp:include>
+<jsp:include page="/front/nav.jsp"></jsp:include>
+
 <%--
 <div>
     <td>
@@ -86,7 +88,7 @@
                             <div class="item">
                                 <div class="thumb">
                                     <a class="img" href="/product/productdetail?productNo=${m.productNo}">
-                                        <img src="${m.productImgNewName}"></a>
+                                        <img id="${m.productNo}" src="${m.productImgNewName}" onclick="imageDataToNav(this.id)"></a>
                                     <div class="group-btn">
                                         <button type="button" class="btn cart-btn"></button>
                                     </div>
@@ -112,5 +114,24 @@
         </div>
     </div>
 </div>
+
+<script>
+    //상품 클릭할 수 있는 곳에 전부 넣기
+    function imageDataToNav(id){
+        var imgno = document.getElementById(id).alt
+        var imgsrc = document.getElementById(id).src
+
+        /* localStorage */
+        var arr = localStorage.getItem('list');
+        if( arr == null) { arr = [] } else { arr = JSON.parse(arr)};
+        var str = imgno+'|'+imgsrc;
+
+        arr.unshift(str);
+        arr = new Set(arr);
+        arr = [...arr];
+
+        localStorage.setItem('list',JSON.stringify(arr));
+    }
+</script>
 </body>
 </html>
