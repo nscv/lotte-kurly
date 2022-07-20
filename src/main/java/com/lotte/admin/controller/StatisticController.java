@@ -1,9 +1,9 @@
-package com.lotte.products.controller;
+package com.lotte.admin.controller;
 
-import com.lotte.products.dto.ProductCategoryDto;
-import com.lotte.products.dto.UserAgeDto;
-import com.lotte.products.dto.UserGenderDto;
-import com.lotte.products.service.StatisticService;
+import com.lotte.admin.dto.ProductCategoryDto;
+import com.lotte.admin.dto.UserAgeDto;
+import com.lotte.admin.dto.UserGenderDto;
+import com.lotte.admin.service.StatisticService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;

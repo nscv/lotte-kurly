@@ -1,9 +1,9 @@
-package com.lotte.products.dao;
+package com.lotte.admin.dao;
 
-import com.lotte.products.dto.ProductCategoryDto;
-import com.lotte.products.dto.UserAgeDto;
-import com.lotte.products.dto.UserGenderDto;
-import com.lotte.products.dto.UserGradeDto;
+import com.lotte.admin.dto.ProductCategoryDto;
+import com.lotte.admin.dto.UserAgeDto;
+import com.lotte.admin.dto.UserGenderDto;
+import com.lotte.admin.dto.UserGradeDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
