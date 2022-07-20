@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    color: #333333;
+}
+
+
+.slider .im img {
+    max-width: 100%;
+    height: auto;
+}
+.slider {
+    width: 1050px;
+    height: 450px;
+    margin: 0px auto;
+}
+.slider .slick-slide {
+    margin: 10px;
+}
+.slick-prev:before, .slick-next:before {
+    color: #444444;
+}

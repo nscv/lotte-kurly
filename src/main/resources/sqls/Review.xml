@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lotte.reviews.dao.ReviewDao">
+    <select id="reviewList" resultType="com.lotte.reviews.dto.ReviewDto">
+        SELECT r.review_no, r.review_rate, r.review_content, u.user_nickname
+        FROM reviews r, users u
+        WHERE r.user_no = u.user_no
+    </select>
+</mapper>
