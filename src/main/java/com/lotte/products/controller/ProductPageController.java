@@ -41,7 +41,7 @@ public class ProductPageController {
     }
     @GetMapping("/product/productdetail")
     public String ProductDetail(){
-        return "product/productdetail";
+        return "/productdetail.jsp";
     }
 
 }
