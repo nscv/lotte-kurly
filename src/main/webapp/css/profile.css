@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    color: #333333;
+}
+
+p {
+    margin: auto 0;
+}
+form{
+    width: 100%
+}
+.subject{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.box {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.input-box {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto;
+}
+
+.text-end {
+    margin: 0;
+    text-align: end;
+    font-size: xx-small;
+}
+
+.hr-solid {
+    border: 0px;
+    border-top: 2px solid #525AF2;
+}
+
+.input-text {
+    width: 80%;
+    padding-left: 10px;
+    border: 1px solid #777DF2;
+    border-radius: 5px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+.input-radio {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.input-radio input[type=radio]{
+    display: none;
+}
+.input-radio input[type=radio]+label{
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 90px;
+    border: 1px solid #777DF2;
+    border-radius: 3px;
+    line-height: 28px;
+    text-align: center;
+    font-weight:bold;
+    font-size:13px;
+}
+.input-radio input[type=radio]+label{
+    background-color: #fff;
+    color: #777DF2;
+    height: 30px;
+    width: 45%;
+}
+.input-radio input[type=radio]:checked+label{
+    background-color: #777DF2;
+    color: #fff;
+    height: 30px;
+    width: 45%;
+}
+
+.input-date{
+    width: 30%;
+    border: 1px solid #777DF2;
+    border-radius: 5px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+input::placeholder {
+    color: #777DF2;
+}
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field{
+    color: #777DF2;
+    text-align: center;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    color: #777DF2;
+    display: none;
+}
+input[type="date"]{
+    text-align:center;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus{
+    border: 3px solid #777DF2;
+}
+
+.input-button{
+    display: inline-block;
+    cursor: pointer;
+    height: 24px;
+    width: 100%;
+    background: #525AF2;
+    color: #fff;
+    border: 1px solid #525AF2;
+    border-radius: 3px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    height: 40px;
+}
+.div-button{
+    margin-top: 40px;
+}
