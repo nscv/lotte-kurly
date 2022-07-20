@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="com.lotte.products.dto.ProductCategoryDto" %><%--
+<%@ page import="com.lotte.admin.dto.ProductCategoryDto" %><%--
   Created by IntelliJ IDEA.
   User: BTC-N10
   Date: 2022-07-19

@@ -19,25 +19,4 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @PostMapping("/admin/insert")
-    public String insertProduct(ProductDto dto) {
-        try {
-            productService.insertProducts(dto);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "NOPE";
-        }
-        return "YES";
-    }
-
-    @PostMapping ("/admin/update")
-    public String updateProduct(ProductDto dto) {
-        try {
-            productService.updateProducts(dto);
-        } catch(Exception e) {
-            e.printStackTrace();
-            return "NOPE";
-        }
-        return "YES";
-    }
 }
