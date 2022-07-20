@@ -21,11 +21,15 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public boolean canBuyProduct(int productNo, int buyCount, int userNo) {
-        ProductListDto getProductInfo = productDao.selectProductByProductNo(productNo);
+        ProductListDto getProductInfo = this.getProduct(productNo);
 
         boolean canBuyRemain = getProductInfo.getProductStock() >= buyCount;
 
         return canBuyRemain && haveEnoughAccount(getProductInfo, userNo);
+    }
+
+    public ProductListDto getProduct(int productNo) {
+        return productDao.selectProductByProductNo(productNo);
     }
 
     public boolean haveEnoughAccount(ProductListDto getProductInfo, int userNo) {
