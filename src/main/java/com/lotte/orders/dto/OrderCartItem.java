@@ -1,6 +1,6 @@
 package com.lotte.orders.dto;
 
-public class OrderDetailCartItem {
+public class OrderCartItem {
 
     private String productName;
     private Integer cartItemTotalPrice;

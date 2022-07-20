@@ -22,9 +22,9 @@
         WHERE cart_item_product_nos.product_no = p.product_no
     </select>
 
-    <!-- 주문 상세 조회 쿼리 -->
+    <!-- 주문 상세 및 주문서 조회 쿼리 -->
     <!-- (1) 장바구니 아이템 목록 조회 -->
-    <select id="selectOrderCartItems" parameterType="Integer" resultType="com.lotte.orders.dto.OrderDetailCartItem">
+    <select id="selectOrderCartItems" parameterType="Integer" resultType="com.lotte.orders.dto.OrderCartItem">
         SELECT product_name productName, cart_item_total_price cartItemTotalPrice,
                 cart_item_count cartItemCount
         FROM (SELECT product_no, cart_item_total_price, cart_item_count
@@ -39,6 +39,26 @@
                order_created_at orderCreatedAt, order_address orderAddress
         FROM orders
         WHERE order_no = #{orderNo}
+    </select>
+
+    <!-- 주문 사용자 조회 쿼리 -->
+    <select id="selectOrderUserDetail" parameterType="Integer" resultType="com.lotte.orders.dto.OrderUserDetail">
+        SELECT user_nickname userNickname, user_phone userPhone,
+               user_email userEmail, user_address userAddress
+        FROM users
+        WHERE user_no = #{userNo}
+    </select>
+
+    <select id="selectOrderCartItemsByCartItemNos" parameterType="java.util.List" resultType="com.lotte.orders.dto.OrderCartItem">
+        SELECT product_name productName, cart_item_total_price cartItemTotalPrice,
+                cart_item_count cartItemCount
+        FROM (SELECT product_no, cart_item_total_price, cart_item_count
+              FROM cart_items
+              WHERE cart_item_no IN
+                            <foreach collection="list" item="orderCartItemNo" open="(" close=")" separator=",">
+                              #{orderCartItemNo}
+                            </foreach>) product_nos, products p
+        WHERE product_nos.product_no = p.product_no
     </select>
 
 </mapper>

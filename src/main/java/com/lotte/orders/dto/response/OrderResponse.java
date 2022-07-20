@@ -2,7 +2,8 @@ package com.lotte.orders.dto.response;
 
 import com.lotte.orders.dto.Order;
 import com.lotte.orders.dto.OrderDetail;
-import com.lotte.orders.dto.OrderDetailCartItem;
+import com.lotte.orders.dto.OrderCartItem;
+import com.lotte.orders.dto.OrderUserDetail;
 import java.util.List;
 
 /* 주문 응답 */
@@ -24,22 +25,22 @@ public class OrderResponse {
     /* 주문 상세 DTO */
     public static class OrderDetailDto {
 
-        private List<OrderDetailCartItem> orderDetailCartItems;
+        private List<OrderCartItem> orderCartItems;
         private Integer orderNo;
         private Integer orderState;
         private String orderCreatedAt;
         private String orderAddress;
 
-        public OrderDetailDto(List<OrderDetailCartItem> orderDetailCartItems, OrderDetail orderDetail) {
-            this.orderDetailCartItems = orderDetailCartItems;
+        public OrderDetailDto(List<OrderCartItem> orderCartItems, OrderDetail orderDetail) {
+            this.orderCartItems = orderCartItems;
             this.orderNo = orderDetail.getOrderNo();
             this.orderState = orderDetail.getOrderState();
             this.orderCreatedAt = orderDetail.getOrderCreatedAt();
             this.orderAddress = orderDetail.getOrderAddress();
         }
 
-        public List<OrderDetailCartItem> getOrderCartItems() {
-            return orderDetailCartItems;
+        public List<OrderCartItem> getOrderCartItems() {
+            return orderCartItems;
         }
 
         public Integer getOrderNo() {
@@ -58,8 +59,8 @@ public class OrderResponse {
             return orderAddress;
         }
 
-        public void setOrderCartItems(List<OrderDetailCartItem> orderDetailCartItems) {
-            this.orderDetailCartItems = orderDetailCartItems;
+        public void setOrderCartItems(List<OrderCartItem> orderCartItems) {
+            this.orderCartItems = orderCartItems;
         }
 
         public void setOrderNo(Integer orderNo) {
@@ -76,6 +77,35 @@ public class OrderResponse {
 
         public void setOrderAddress(String orderAddress) {
             this.orderAddress = orderAddress;
+        }
+    }
+
+    public static class OrderSheetDto {
+
+        private List<OrderCartItem> orderCartItems;
+        private OrderUserDetail orderUserDetail;
+        // TODO: 쿠폰 DTO, 결제 DTO (Figma. 주문 페이지 참고)
+
+
+        public OrderSheetDto(List<OrderCartItem> orderCartItems, OrderUserDetail orderUserDetail) {
+            this.orderCartItems = orderCartItems;
+            this.orderUserDetail = orderUserDetail;
+        }
+
+        public List<OrderCartItem> getOrderCartItems() {
+            return orderCartItems;
+        }
+
+        public OrderUserDetail getOrderUserDetail() {
+            return orderUserDetail;
+        }
+
+        public void setOrderCartItems(List<OrderCartItem> orderCartItems) {
+            this.orderCartItems = orderCartItems;
+        }
+
+        public void setOrderUserDetail(OrderUserDetail orderUserDetail) {
+            this.orderUserDetail = orderUserDetail;
         }
     }
 
