@@ -1,5 +1,6 @@
 package com.lotte.products.controller;
 
+import com.lotte.products.dto.ProductCategoryDto;
 import com.lotte.products.dto.ProductListDto;
 import com.lotte.products.dto.UserAgeDto;
 import com.lotte.products.dto.UserGenderDto;
@@ -76,4 +77,19 @@ public class ProductPageController {
         return "admin/age-graph";
     }
 
+    @GetMapping("/gender")
+    public String gender(Model model) {
+        List<UserGenderDto> genderList = statisticService.getPricesByGender();
+        model.addAttribute("gender", genderList);
+        return "admin/gender-graph";
+    }
+
+    // TODO: 데이터만 보낼 때 활성화하여 처리할 것
+//    @GetMapping("/gender")
+//    public String gender(Model model) {
+//        List<UserGenderDto> genderList = statisticService.getPricesByGender();
+//        genderList.forEach(System.out::println);
+//        model.addAttribute("gender", genderList);
+//        return "admin/after-render";
+//    }
 }

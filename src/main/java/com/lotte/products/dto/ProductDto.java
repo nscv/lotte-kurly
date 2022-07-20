@@ -2,6 +2,7 @@ package com.lotte.products.dto;
 
 public class ProductDto {
     int productNo;
+    int categoryNo;
     String productName;
     String productContent;
     String productSimpleContent;
@@ -10,6 +11,19 @@ public class ProductDto {
     int productAmount;
     int productStock;
     String productCategory;
+
+    public ProductDto(int productNo, int
+    goryNo, String productName, String productContent, String productSimpleContent, String productDeadline, int productPrice, int productAmount, int productStock) {
+        this.productNo = productNo;
+        this.categoryNo = categoryNo;
+        this.productName = productName;
+        this.productContent = productContent;
+        this.productSimpleContent = productSimpleContent;
+        this.productDeadline = productDeadline;
+        this.productPrice = productPrice;
+        this.productAmount = productAmount;
+        this.productStock = productStock;
+    }
 
     public String getProductDeadline() {
         return productDeadline;
@@ -67,6 +81,7 @@ public class ProductDto {
     public String toString() {
         return "ProductDto{" +
                 "productNo=" + productNo +
+                ", categoryNo=" + categoryNo +
                 ", productName='" + productName + '\'' +
                 ", productContent='" + productContent + '\'' +
                 ", productSimpleContent='" + productSimpleContent + '\'' +
