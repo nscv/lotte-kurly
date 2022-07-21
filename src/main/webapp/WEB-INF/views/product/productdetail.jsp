@@ -305,25 +305,38 @@
                 evt.currentTarget.className += " active";
             }
 
-            function reviewCall(){
+            function reviewCall() {
                 let review = document.getElementById("Review");
                 $.ajax({
-                    type:"get",
-                    url:"/reviewList",
-                    async:true,
-                    success:function (data){
+                    type: "get",
+                    url: "/reviewList",
+                    async: true,
+                    success: function (data) {
                         alert(data.list.length);
                     },
-                    error:function() {
+                    error: function () {
                         alert("review call fail");
                     }
                 });
+            }
 
-            function reviewWrite(){
+            function reviewInsert(){
                 let userNo = "10"
                 let userNickName =  document.getElementById("reviewId").innerText;
-                let title = document.getElementById("reviewTitle").innerText;
-                let reviewContent = document.getElementById("reviewContent").innerText;
+                let title = document.getElementById("reviewTitle").value;
+                let reviewContent = document.getElementById("reviewContent").value;
+                let reviewRates = document.getElementById("star");
+                let reviewRate = reviewRates.options[reviewRates.selectedIndex].value;
+
+
+                if(title == null || title.trim() == ""){
+                    alert("제목을 입력하세요.");
+                    return;
+                }
+                if(reviewContent == null || reviewContent.trim() == ""){
+                    alert("내용을 입력하세요.");
+                    return;
+                }
 
                 $.ajax({
                     type:"get",
@@ -334,7 +347,8 @@
                         "userNickName":userNickName,
                         "reviewTitle":title,
                         "reviewContent":reviewContent,
-                        "productNo":<%=dto.getProductNo()%>
+                        "productNo":<%=dto.getProductNo()%>,
+                        "reviewRate":reviewRate
                     },
                     success:function(data) {
                         alert(data);
@@ -345,7 +359,7 @@
                 });
             }
 
-            }
+
         </script>
     </div>
 </div>
