@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: nayeon
   Date: 2022/07/21
-  Time: 1:45 오후
+  Time: 4:52 오후
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -28,8 +28,8 @@
     <!-- Ajax -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
-    <link rel="stylesheet" href="/css/cart.css">
-    <script type="text/javascript" src="/js/cart.js"></script>
+    <link rel="stylesheet" href="/css/order.css">
+    <script type="text/javascript" src="/js/order.js"></script>
 
 </head>
 <body>
@@ -39,24 +39,34 @@
 <div id="container">
     <jsp:include page="/front/nav.jsp"></jsp:include>
 
-    <div class="cart-container">
-        <!-- 장바구니 목록 영역 -->
-        <div class="row">
-            <div class="col-2">전체 선택</div>
-            <div class="col-2">선택 삭제</div>
+    <div class="order-sheet-container">
+        <!-- 장바구니 상품 리스트 -->
+        <div class="row order-cart-item-list-div">
+            <h3>주문 상품</h3>
+            <hr>
         </div>
-        <hr>
 
-        <!-- 장바구니 아이템 목록 영역 (동적 생성 영역) -->
-        <div class="cart-item-list-div">
+        <!-- 주문자 정보 -->
+        <div class="row order-user-info-div">
+            <h3>주문자 정보</h3>
+            <hr>
 
-        </div>
-        <br><br>
-        <div class="cart-items-total-price row">
 
         </div>
-        <div class="row">
-            <button onclick="location.href='/order/sheet'">주문하기</button>
+
+        <!-- 배송지 정보 -->
+        <div class="row order-address-div">
+            <h3>배송 정보</h3>
+            <hr>
+
+            <div class="row">
+                <div class="col-8 order-delivery-div">
+
+                </div>
+                <div class="col-4 order-payment-div">
+
+                </div>
+            </div>
         </div>
     </div>
 </div>

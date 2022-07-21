@@ -105,7 +105,8 @@
                 <a href=""><span class="txt">베스트 상품</span></a>
             </li>
             <li class="menu3">
-                <a href="javascript:addprofile();"> <span class="txt">주문 내역</span></a>
+<%--                <a href="javascript:addprofile();"> <span class="txt">주문 내역</span></a>--%>
+                     <a href="/order/list"> <span class="txt">주문 내역</span></a>
             </li>
             <%
                 if(userno.equals("-1")){

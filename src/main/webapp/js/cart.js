@@ -14,7 +14,7 @@ function getCart() {
     success: function (response) {
       console.log(response);
 
-      let cartItemContainer = $('.cart-item-list-container');
+      let cartItemContainer = $('.cart-item-list-div');
       let cartItemsTotalPriceDiv = $('.cart-items-total-price');
 
       cartItemContainer.empty();
@@ -26,10 +26,14 @@ function getCart() {
                             <input type="checkbox" name="cart-item-checkbox">
                         </div>
                         <div class="col-2">
-                            <img src="" alt="상품 이미지"/>
+                            <a href="/product/productdetail?productNo=${cartItem.productNo}">
+                              <img src="${cartItem.productImgNewName}" alt="상품 이미지" width="50"/>
+                            </a>
                         </div>
                         <div class="col-5">
-                            <span>${cartItem.productName}</span>
+                            <a href="/product/productdetail?productNo=${cartItem.productNo}">
+                                <span>${cartItem.productName}</span>
+                            </a>
                         </div>
                         <div class="col-1">
                             <input type="text" value="${cartItem.cartItemCount}" style="width: 50px">
@@ -74,5 +78,9 @@ function getCart() {
     })
 
     return cartItemsTotalPrice;
+  }
+
+  function getOrderSheet() {
+
   }
 }
