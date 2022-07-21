@@ -68,7 +68,7 @@
 
                 <ul class="list">
                     <div class="inner-title">
-                        <h4 class="title">${categoryName}</h4>
+                        <h4 class="category-title">${categoryName}</h4>
                     </div>
                     <c:forEach items="${list}" var="m">
                         <li>
