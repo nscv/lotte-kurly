@@ -9,12 +9,13 @@
 <html>
 <head>
     <title>Footer</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<style>
-    .text-reset {
-        color: #525AF2 !important;
-    }
-</style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .text-reset {
+            color: #525AF2 !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -137,7 +138,7 @@
                     <p><i class="fas fa-home me-3"></i> 서울 송파구 올림픽로 300</p>
                     <p>
                         <i class="fas fa-envelope me-3"></i>
-                       NSCV@lottekerly.com
+                        NSCV@lottekerly.com
                     </p>
                     <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
                     <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
