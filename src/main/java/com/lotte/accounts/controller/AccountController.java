@@ -48,4 +48,10 @@ public class AccountController {
         }
         return true;
     }
+
+    @ResponseBody
+    @GetMapping("/{userNo}")
+    public AccountDto getUserAccount(@PathVariable Integer userNo) {
+        return accountService.getUserAccount(userNo);
+    }
 }
