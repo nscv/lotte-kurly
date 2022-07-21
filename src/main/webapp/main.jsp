@@ -9,8 +9,8 @@
 <html>
 <head>
     <title>Main</title>
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <%--<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>--%>
+
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="main.css">
@@ -168,11 +168,13 @@
     </div>
 </div>
 
+<jsp:include page="/front/footer.jsp"></jsp:include>
+
 <script>
     $(document).ready(function () {
         $('.slider').slick({
             autoplay: true,
-            autoplaySpeed: 3000,
+            autoplaySpeed: 2000,
             slidesToShow: 3,
             slidesToScroll: 1,
         });
