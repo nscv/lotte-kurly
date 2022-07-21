@@ -15,10 +15,10 @@
         VALUES (#{userEmail})
     </insert>
 
-    <select id="selectuser" parameterType="String" resultType="com.lotte.users.dto.UserDto">
+    <select id="selectuser" parameterType="Integer" resultType="com.lotte.users.dto.UserDto">
         SELECT user_no, user_email, user_role, user_grade, user_nickname, user_birth, user_gender, user_address, user_phone, user_valid
         FROM users
-        WHERE user_email=#{userEmail}
+        WHERE user_no=#{userNo}
     </select>
 
     <select id="checkvalid" parameterType="String" resultType="Integer">

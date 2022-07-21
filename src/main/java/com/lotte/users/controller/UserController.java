@@ -2,6 +2,7 @@ package com.lotte.users.controller;
 
 import com.lotte.products.controller.ProductController;
 import com.lotte.users.dto.ProfileDto;
+import com.lotte.users.dto.UserDto;
 import com.lotte.users.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,5 +43,16 @@ public class UserController {
         logger.info("UserController Addprofile()" + new Date());
         userService.addprofile(profile);
         return "/index";
+    }
+
+    @GetMapping("/mypage")
+    public String mypage() {
+        return "/user/mypage";
+    }
+
+    @ResponseBody
+    @GetMapping("/getuser")
+    public UserDto getuser(Model model, int userNo) {
+        return userService.getUser(userNo);
     }
 }
