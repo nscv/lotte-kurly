@@ -7,12 +7,25 @@ public class ProductListDto {
     private int productNo;
     private String productName;
     private int productPrice;
+    private int discountPrice;
     private String productDeadline;
     private int productAmount;
     private int productStock;
 
-    String productImgNewName;
-    String productSimpleContent;
+    private int pageNo;
+    private int endPageNo;
+
+    private String productImgNewName;
+    private String productSimpleContent;
+    private String category;
+    public int getEndPageNo() {
+        return endPageNo;
+    }
+
+    public void setEndPageNo(int endPageNo) {
+        this.endPageNo = endPageNo;
+    }
+
 
     @Override
     public String toString() {
@@ -85,12 +98,26 @@ public class ProductListDto {
         this.productPrice = productPrice;
     }
 
-    public ProductListDto(int productNo, String productName, int productPrice,String ProductImgNewName,String productSimpleContent) {
+    public ProductListDto(int productNo, String productName, int productPrice,String ProductImgNewName,String productSimpleContent,int discountPrice) {
         this.productNo = productNo;
         this.productName = productName;
         this.productPrice = productPrice;
         this.productImgNewName=ProductImgNewName;
         this.productSimpleContent=productSimpleContent;
+        this.discountPrice=discountPrice;
+    }
+    public ProductListDto(String category,int pageNo){
+        this.category=category;
+        this.pageNo=pageNo*30;
+        this.endPageNo=pageNo*30+30;
+    }
+
+    public int getDiscountPrice() {
+        return discountPrice;
+    }
+
+    public void setDiscountPrice(int discountPrice) {
+        this.discountPrice = discountPrice;
     }
     public String getProductImgNewName() {
         return productImgNewName;
@@ -106,5 +133,20 @@ public class ProductListDto {
 
     public void setProductSimpleContent(String productSimpleContent) {
         this.productSimpleContent = productSimpleContent;
+    }
+    public int getPageNo() {
+        return pageNo;
+    }
+
+    public void setPageNo(int pageNo) {
+        this.pageNo = pageNo;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
