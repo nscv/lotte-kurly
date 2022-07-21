@@ -25,11 +25,11 @@ public class UserServiceImpl implements UserService{
         int isValid = 0;
         if (count>0) {
             userNo = getuserno(email);
-            birth = getbirth(userNo);
-            boolean isValidBirth =  birthConfirm(birth);
-            if(isValidBirth) {
-                System.out.println("쿠폰발급");
-            }
+//            birth = getbirth(userNo);
+//            boolean isValidBirth =  birthConfirm(birth);
+//            if(isValidBirth) {
+//                System.out.println("쿠폰발급");
+//            }
             isValid = checkvalid(email);
         } else {
             boolean signin = signin(email);
@@ -49,8 +49,9 @@ public class UserServiceImpl implements UserService{
         return count>0;
     }
 
-    public UserDto getuser(String email) {
-        return dao.selectuser(email);
+    @Override
+    public UserDto getUser(int userNo) {
+        return dao.selectuser(userNo);
     }
 
     public int checkvalid(String email) {
