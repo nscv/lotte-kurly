@@ -73,13 +73,13 @@
             <div class="title">최근 본 상품</div>
             <ul class="previewAttachSpot">
                 <li>
-                    <img id="0" src="./images/thumbnail_small.png" onclick="deatailMove(this.id)">
+                    <img id="0" src="<%=request.getContextPath()%>/front/images/thumbnail_small.png" onclick="deatailMove(this.id)">
                 </li>
                 <li>
-                    <img id="1" src="./images/thumbnail_small.png" onclick="deatailMove(this.id)">
+                    <img id="1" src="<%=request.getContextPath()%>/front/images/thumbnail_small.png" onclick="deatailMove(this.id)">
                 </li>
                 <li>
-                    <img id="2" src="./images/thumbnail_small.png" onclick="deatailMove(this.id)">
+                    <img id="2" src="<%=request.getContextPath()%>/front/images/thumbnail_small.png" onclick="deatailMove(this.id)">
                 </li>
             </ul>
         </div>
