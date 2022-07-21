@@ -12,10 +12,11 @@
     <title>Header</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" type="text/css" href="header.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 <body>
 
@@ -34,7 +35,6 @@
     }
 
 %>
-
 
 <div id="header-logo">
     <h1 class="logo">
@@ -104,7 +104,7 @@
                 <a href=""><span class="txt">베스트 상품</span></a>
             </li>
             <li class="menu3">
-                <a href=""> <span class="txt">주문 내역</span></a>
+                <a href="javascript:addprofile();"> <span class="txt">주문 내역</span></a>
             </li>
             <%
                 if(userno.equals("-1")){
@@ -155,8 +155,15 @@
                                 console.log(data)
                                 setCookie("isvalid", data.substring(0,1), 60);
                                 setCookie("userno", data.substring(1), 60);
-                                alert("로그인 성공");
-                                location.href = "/";
+                                Swal.fire({
+                                    title: '로그인 성공',
+                                    text: "환영합니다.",
+                                    icon: 'warning',
+                                    confirmButtonColor: '#3085d6',
+                                    confirmButtonText: '확인',
+                                }).then((result) => {
+                                    location.href = "/";
+                                })
                             },
                             error:function(){
                                 alert("error");
@@ -198,14 +205,15 @@
         exdate.setDate(exdate.getDate() + exdays);
         var cookieValue = escape(value) + ((exdays==null) ? "" : "; expires=" +
             exdate.toGMTString());
-        document.cookie = cookieName + "=" + cookieValue;
+        var setcookie = cookieName + "=" + cookieValue + ";path=/;"
+        document.cookie = setcookie;
     }
 
     <%-- 쿠키값 Delete --%>
     function deleteCookie(cookieName) {
         var expireDate = new Date();
         expireDate.setDate(expireDate.getDate() - 1);
-        document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+        document.cookie = cookieName + "= " + ";path=/; expires=" + expireDate.toGMTString();
     }
 
     <%-- 쿠키값 가져오기 --%>
@@ -222,6 +230,39 @@
                 return unescape(y); // unescape로 디코딩 후 값 리턴
             }
         }
+    }
+</script>
+
+
+<script>
+    function addprofile() {
+        console.log('dafeafdf')
+        console.log(getCookie("userno"));
+        // document.getElementById("userNo").value = getCookie("userno");
+        // submit();
+    }
+
+    <%-- 쿠키값 가져오기 --%>
+    function getCookie(cookie_name) {
+        let cookieKey = cookie_name + "=";
+        let result = "";
+        const cookieArr = document.cookie.split(";");
+        var cookieData = document.cookie;
+        console.log('asdfawef')
+        console.log(cookieData);
+        // for(let i = 0; i < cookieArr.length; i++) {
+        //     console.log(cookieArr[i]);
+        //     console.log(i);
+        //     if(cookieArr[i][0] === " ") {
+        //         cookieArr[i] = cookieArr[i].substring(1);
+        //     }
+        //
+        //     if(cookieArr[i].indexOf(cookieKey) === 0) {
+        //         result = cookieArr[i].slice(cookieKey.length, cookieArr[i].length);
+        //         return result;
+        //     }
+        // }
+        return result;
     }
 </script>
 <%--    </h2>--%>

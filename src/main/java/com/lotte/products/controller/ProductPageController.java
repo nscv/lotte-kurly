@@ -1,7 +1,6 @@
 package com.lotte.products.controller;
 
 import com.lotte.categories.service.CategoryService;
-import com.lotte.products.dto.ProductCategoryDto;
 import com.lotte.products.dto.ProductListDto;
 import com.lotte.products.service.ProductService;
 import com.lotte.admin.service.StatisticService;
