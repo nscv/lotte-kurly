@@ -1,9 +1,6 @@
 package com.lotte.admin.dao;
 
-import com.lotte.admin.dto.ProductCategoryDto;
-import com.lotte.admin.dto.UserAgeDto;
-import com.lotte.admin.dto.UserGenderDto;
-import com.lotte.admin.dto.UserGradeDto;
+import com.lotte.admin.dto.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -14,4 +11,7 @@ public interface StatisticDao {
     List<UserGenderDto> selectPricesByGender();
     List<UserAgeDto> selectPricesByAge();
     List<UserGradeDto> selectUsersByUserGrade();
+    List<TotalOrderDto> selectTotalByDate();
+    List<TotalOrderDto> selectTotalByYear();
+    List<TotalOrderDto> selectTotalByMonth();
 }
