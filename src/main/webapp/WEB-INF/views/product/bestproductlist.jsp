@@ -45,16 +45,16 @@
                 <div class="select-type">
                     <ul class="list">
                         <li class>
-                            <a href="/product/list?amount=true&category=${category}&pageNo=0" class="select-asc">판매량 순</a>
+                            <a href="/product/bestproduct?amount=true&pageNo=0" class="select-asc">판매량 순</a>
                         </li>
                         <li class>
-                            <a href="/product/list?category=${category}&pageNo=0&discount=true" class="select-asc">할인 품목</a>
+                            <a href="/product/bestproduct?pageNo=0&discount=true" class="select-asc">할인 품목</a>
                         </li>
                         <li class>
-                            <a href="/product/list?low=true&category=${category}&pageNo=0" class="select-asc">낮은 가격순</a>
+                            <a href="/product/bestproduct?low=true&pageNo=0" class="select-asc">낮은 가격순</a>
                         </li>
                         <li class>
-                            <a href="/product/list?high=true&category=${category}&pageNo=0" class="select-desc">높은 가격순</a>
+                            <a href="/product/bestproduct?high=true&pageNo=0" class="select-desc">높은 가격순</a>
                         </li>
                     </ul>
                 </div>
@@ -63,13 +63,12 @@
 
                 <ul class="list">
                     <div class="inner-title">
-                        <h4 class="title">${categoryName}</h4>
+                        <h4 class="title">베스트 상품</h4>
                     </div>
                     <c:forEach items="${list}" var="m">
                         <li>
                             <div class="item">
                                 <div class="thumb">
-                                    <a class="img" href="/product/productdetail?productNo=${m.productNo}">
                                         <img id="${m.productNo}" src="${m.productImgNewName}" onclick="imageDataToNav(this.id)"></a>
                                     <div class="group-btn">
                                         <button type="button" class="btn cart-btn"></button>
@@ -97,14 +96,14 @@
     </div>
     <ul class="pagination">
         <li class="disabled">
-            <a href="/product/list?low=${low}&high=${high}&category=${category}&pageNo=0">
+            <a href="/product/bestproduct?low=${low}&high=${high}&pageNo=0">
                 <span>«</span>
             </a>
         </li>
         <c:forEach var="i" begin="${startPage}" end="${endPage}">
-        <li><a href="/product/list?low=${low}&high=${high}&category=${category}&pageNo=${i}">${i}</a></li>
+        <li><a href="/product/bestproduct?low=${low}&high=${high}&pageNo=${i}">${i}</a></li>
         </c:forEach>
-        <li><a href="/product/list?low=${low}&high=${high}&category=${category}&pageNo=${endPage}"><span>»</span></a></li>
+        <li><a href="/product/bestproduct?low=${low}&high=${high}&pageNo=${endPage}"><span>»</span></a></li>
     </ul>
 
 </div>
