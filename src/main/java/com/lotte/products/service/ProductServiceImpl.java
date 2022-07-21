@@ -2,6 +2,7 @@ package com.lotte.products.service;
 
 import com.lotte.products.dao.ProductDao;
 import com.lotte.products.dto.ProductDto;
+import com.lotte.products.dto.ProductImgCategoryDto;
 import com.lotte.products.dto.ProductListDto;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +34,10 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductListDto>productLowList(String category){
         return productDao.productLowList(category);
     }
+
+    @Override
+    public List<ProductImgCategoryDto> productImgCategorylist(String productNo) { return productDao.productImgCategorylist(productNo);}
+
     public List<ProductListDto>productHighList(String category){
         return productDao.productHighList(category);
     }

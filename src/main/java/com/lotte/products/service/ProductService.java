@@ -1,6 +1,7 @@
 package com.lotte.products.service;
 
 import com.lotte.products.dto.ProductDto;
+import com.lotte.products.dto.ProductImgCategoryDto;
 import com.lotte.products.dto.ProductListDto;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface ProductService {
     public List<ProductListDto> productList(String category);
     public List<ProductListDto> productHighList(String category);
     public List<ProductListDto> productLowList(String category);
+    public List<ProductImgCategoryDto> productImgCategorylist(String productNo);
 }

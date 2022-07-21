@@ -2,6 +2,7 @@ package com.lotte.products.dao;
 
 import com.lotte.orders.dto.OrderProductsDto;
 import com.lotte.products.dto.ProductDto;
+import com.lotte.products.dto.ProductImgCategoryDto;
 import com.lotte.products.dto.ProductListDto;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -14,6 +15,7 @@ public interface ProductDao {
     List<ProductListDto> productList(String category);
     List<ProductListDto>productLowList(String category);
     List<ProductListDto>productHighList(String category);
+    List<ProductImgCategoryDto>productImgCategorylist(String productNo);
     void insertProducts(ProductDto product);
     void updateProducts(ProductDto product);
     ProductListDto selectProductByProductNo(int productNo);

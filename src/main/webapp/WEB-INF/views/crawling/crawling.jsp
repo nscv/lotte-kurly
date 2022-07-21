@@ -13,12 +13,10 @@ Crawling
 
 <script type="text/javascript">
     $(document).ready(function() {
-        let authValue = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjYXJ0X2lkIjoiZDk3ZDg4ZmQtODU3Yi00MWQwLTlmMTYtYTI5MDU3YjM0ZDg0IiwiaXNfZ3Vlc3QiOnRydWUsInV1aWQiOm51bGwsIm1fbm8iOm51bGwsIm1faWQiOm51bGwsImxldmVsIjpudWxsLCJzdWIiOm51bGwsImlzcyI6Imh0dHA6Ly9ta3dlYi5hcGkua3VybHkuc2VydmljZXMvdjMvYXV0aC9yZWZyZXNoIiwiaWF0IjoxNjU4MjExOTY0LCJleHAiOjE2NTgyMTk0MTYsIm5iZiI6MTY1ODIxNTgxNiwianRpIjoiYVFING5reE1SSDUzbzloeSJ9.U2ap90Rm8l6DFanXdWHd_od0A8uztUKw1oD6qBLMGNA";
-
-        // TODO 상품 디테일 크롤링 해야 함 1800개 가능?
+        let authValue = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjYXJ0X2lkIjoiOWM1OTBlNGEtMGJmOC00ZDYyLTlhM2EtYzdmNzY2ZGVlNzUxIiwiaXNfZ3Vlc3QiOnRydWUsInV1aWQiOm51bGwsIm1fbm8iOm51bGwsIm1faWQiOm51bGwsImxldmVsIjpudWxsLCJzdWIiOm51bGwsImlzcyI6Imh0dHA6Ly9ta3dlYi5hcGkua3VybHkuc2VydmljZXMvdjMvYXV0aC9ndWVzdCIsImlhdCI6MTY1ODMwMzMwMywiZXhwIjoxNjU4MzA2OTAzLCJuYmYiOjE2NTgzMDMzMDMsImp0aSI6InM1NjRVdVlNZWdZY21WTlEifQ.tH0Wb7IGmokeAnGflIpmogC6PFZ_RajFVghuZtRBRkw";
 
         // category api 데이터 삽입
-/*        $.ajax({
+        $.ajax({
             url:"https://api.kurly.com/v2/categories?ver=1",
             type:"get",
             headers: {
@@ -42,7 +40,7 @@ Crawling
             error:function(){
                 alert('crawlingCategory error');
             }
-        });*/
+        });
 
         //product와 product_imgs api로 데이터 넣기
         $.ajax({
@@ -53,7 +51,7 @@ Crawling
             },
             success:function(data){
 
-                /* 받아온 데이터 json 변환 */
+                /!* 받아온 데이터 json 변환 *!/
                 let product_category = JSON.stringify(data.data.category_no);
                 let products = data.data.products;
                 for(let i=0; i<products.length; i++){
@@ -76,7 +74,6 @@ Crawling
                 alert('crawlingList error');
             }
         });
-
     });
 
 
