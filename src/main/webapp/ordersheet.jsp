@@ -134,44 +134,7 @@
             </p>
         </div>
 
-
-<%--        <h2 class="tit-section" id="tit-pay-info">결제 금액</h2>
-        <div class="pay-section">
-            <table class="payinfo-table">
-                <tbody>
-                <tr class="fst">
-                    <th>주문금액</th>
-                    <td>13,000원</td>
-                </tr>
-                <tr>
-                    <th class="paydetailinfo">┖ 상품 금액</th>
-                    <td>13,000원</td>
-                </tr>
-                <tr>
-                    <th class="paydetailinfo">┖ 상품 할인 금액</th>
-                    <td>6,500원</td>
-                </tr>
-                <hr>
-                <tr>
-                    <th>적립금 사용</th>
-                    <td><input type="text" class="point-input" value="" placeholder="사용할 적립금을 입력해주세요"></td>
-                </tr>
-                <hr>
-                <tr>
-                    <th>최종 결제 금액</th>
-                    <td>6,500원</td>
-                </tr>
-
-                <p class="reserve">
-                    <span class="ico">적립</span>구매 시
-                    <span class="emph">
-                        <span id="expectAmount">19</span>
-                        원 (<span class="ratio">0.3</span>%) 적립</span>
-                </p>
-
-                </tbody>
-            </table>
-        </div>--%>
+        <input type="submit" class="confirm-pay" value="결제하기">
 
     </div>
 

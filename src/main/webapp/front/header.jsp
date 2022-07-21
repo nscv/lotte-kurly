@@ -12,6 +12,7 @@
     <title>Header</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="icon" href="<%=request.getContextPath() %>/front/images/favicon.png" type="image/png" sizes="16x16">
     <%-- 카카오 로그인 --%>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
