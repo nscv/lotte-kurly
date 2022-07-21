@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
 import java.util.*;
 
 @Controller
@@ -58,4 +59,16 @@ public class CrawlingController {
         crawlingService.insertProducts(list);
     }
 
+    @RequestMapping(value="updatedetail", method= {RequestMethod.GET,RequestMethod.POST})
+    public String selectProductIds() throws IOException {
+        logger.info("CrawlingController crawlingdetail() " + new Date());
+        crawlingService.crawlingDetail();
+        return "crawling/crawlingdetail";
+    }
+
+    @RequestMapping(value="crawlingPage", method= {RequestMethod.GET,RequestMethod.POST})
+    public String crawlingPage(){
+        logger.info("CrawlingController crawlingdetail() " + new Date());
+        return "crawling/crawlingdetail";
+    }
 }
