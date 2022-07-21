@@ -103,16 +103,12 @@
     </div>
 
     <div id="Detail" class="tabcontent">
-        <div class="goods-intro">
-            <div class="pic">
-                <img src="//img-cf.kurly.com/shop/data/goodsview/20210521/gv20000184118_1.jpg">
-            </div>
+        <div class="goods_desc">
             <div class="context last">
-                <h3>
-                    <small>버터 같은 과일</small>
-                    아보카도
-                </h3>
-                <p class="words">부드럽고 고소한 아보카도 과육은 마치 싱그러운 버터를 한 입 베어 문 것 같은 착각에 빠지게 만들어요. 아주 신선하고 촉촉하면서도, 느끼하지 않아 늘 생각나곤 하는데요. 미네랄과 아미노산, 비타민 등 그 안에 담긴 영양성분만 봐도 아보카도가 왜 '슈퍼푸드'라 불리는지 단번에 알 수 있답니다. 컬리가 영양 가득한 아보카도 1개를 엄선해 문 앞까지 전해드릴게요. 크리미하게 녹아드는 담백한 아보카도로 남다른 맛과 비주얼의 요리를 만들어보세요. 익을수록 점점 껍질 색깔이 진해지니, 취향에 맞게 후숙해 녹진한 풍미를 한껏 누려봐도 좋을 거예요.</p>
+                <div class="pic">
+                    <img src="//img-cf.kurly.com/shop/data/goodsview/20220417/gv20000303336_1.jpg">
+                </div>
+                <p class="words"> </p>
             </div>
         </div>
     </div>
