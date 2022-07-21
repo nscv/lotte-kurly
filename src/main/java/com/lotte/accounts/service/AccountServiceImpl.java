@@ -58,4 +58,9 @@ public class AccountServiceImpl implements AccountService {
         accountDao.refundProducts(orderProductsDto);
         accountDao.updateAccountByRefund(accountDto);
     }
+
+    @Override
+    public AccountDto getUserAccount(Integer userNo) {
+        return accountDao.selectAccountByUserNo(userNo);
+    }
 }
