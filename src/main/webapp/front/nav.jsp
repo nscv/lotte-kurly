@@ -8,62 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/nav.css">
     <title>Title</title>
-    <style>
-        .quick_banner {
-            width: 144px;
-            height: 444px;
-            position: absolute;
-            top: 200px;
-            right: 130px;
-            background-color: #BBBDF2;
-        }
-
-        .emptyBox {
-            display: flex;
-            align-items: center;
-            margin: 32px 12px;
-            width: 80%;
-            height: 80%;
-            background-color: white;
-        }
-
-        .containerBox {
-            border: 1px solid rgba(204, 204, 204, 70);
-            margin: 0 auto;
-            width: 90%;
-            height: 90%;
-        }
-
-        .title {
-            text-align: center;
-            font-size: 15px;
-        }
-
-        .previewAttachSpot {
-            /*width: 100%;*/
-            width: 90px;
-            height: 100%;
-            list-style: none;
-            margin: auto;
-            /*padding: 15px;*/
-            padding: 0;
-        }
-
-        .previewAttachSpot li {
-            width: 70px;
-            margin: auto;
-            padding-top: 5px;
-        }
-
-        img {
-            width: 70px;
-            height: 90px;
-            margin: auto;
-        }
-
-
-    </style>
 </head>
 <body>
 
@@ -73,13 +20,13 @@
             <div class="title">최근 본 상품</div>
             <ul class="previewAttachSpot">
                 <li>
-                    <img id="0" src="./images/thumbnail_small.png" onclick="deatailMove(this.id)">
+                    <img class="recent-img" id="0" src="/front/images/thumbnail_small.png" onclick="detailMove(this.id)">
                 </li>
                 <li>
-                    <img id="1" src="./images/thumbnail_small.png" onclick="deatailMove(this.id)">
+                    <img class="recent-img" id="1" src="/front/images/thumbnail_small.png" onclick="detailMove(this.id)">
                 </li>
                 <li>
-                    <img id="2" src="./images/thumbnail_small.png" onclick="deatailMove(this.id)">
+                    <img class="recent-img" id="2" src="/front/images/thumbnail_small.png" onclick="detailMove(this.id)">
                 </li>
             </ul>
         </div>
@@ -87,18 +34,31 @@
 </div>
 <script>
     $(document).ready(function() {
+        //jsp 업로드 될 때마다 localStorage 확인 후 이미지 매칭
         var arr = localStorage.getItem('list');
-        if( arr == null) { arr = [] }
+
+        //이미지 없으면 기본 이미지 셋팅
+        if( arr == null) {
+            arr = []
+            for(let i=0; i<arr.length; i++){
+                document.getElementById(i+"").src = "/front/images/thumbnail_small.png";
+            }
+        }
+        //이미지 있으면 이미지 셋팅
         else {
             arr = JSON.parse(arr);
 
-            for(let i=0; i<arr.length; i++){
-                if(i==3) break;
-                let imgsrc = arr[i].split("|")[1];
-                document.getElementById(i+"").src = imgsrc;
+            for(let i=0; i<3; i++){
+                if(i<arr.length){
+                    let imgsrc = arr[i].split("|")[1];
+                    document.getElementById(i+"").src = imgsrc;
+                }else{
+                    document.getElementById(i+"").src = "/front/images/thumbnail_small.png";
+                }
             }
         }
 
+        //스크롤 시 오늘 본 상품 따라가기
         var currentPosition = parseInt($(".quick_banner").css("top"))
         $(window).scroll(function () {
             var position = $(window).scrollTop();
@@ -106,7 +66,32 @@
         });
     });
 
+    //오늘 본 상품 클릭하면 localStorage에 상품no:이미지 json형태로 저장 후 detail이동
+    function detailMove(id) {
+        if (document.getElementById(id).src != "http://localhost:8050/front/images/thumbnail_small.png") {
+            var arr = localStorage.getItem('list');
+            arr = JSON.parse(arr);
+            location.href = "/product/productdetail?productNo=" + arr[id].split("|")[0];
+        }
+    }
 
+    //상품 클릭하면 localStorage에 상품no:이미지 json형태로 저장 후 detail이동
+    function imageDataToNav(id){
+        var imgno = document.getElementById(id).id;
+        var imgsrc = document.getElementById(id).src
+
+        /* localStorage */
+        var arr = localStorage.getItem('list');
+        if( arr == null) { arr = [] } else { arr = JSON.parse(arr)};
+        var str = imgno+'|'+imgsrc;
+
+        arr.unshift(str);
+        arr = new Set(arr);
+        arr = [...arr];
+
+        localStorage.setItem('list',JSON.stringify(arr));
+        location.href = "/product/productdetail?productNo=" + imgno;
+    }
 </script>
 </body>
 </html>

@@ -117,6 +117,10 @@ div {
     height: 100%;
 }
 
+.product-img {
+    height: 435px;
+}
+
 .list-goods .thumb img {
     width: 100%;
     vertical-align: top;
@@ -163,8 +167,7 @@ button {
     outline: none;
     cursor: pointer;
 }
-
-li {
+.list li {
     position: relative;
     z-index: 2;
     float: left;
@@ -172,6 +175,7 @@ li {
     display: list-item;
     text-align: -webkit-match-parent;
 }
+
 
 ul {
     list-style-type: none;

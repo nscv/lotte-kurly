@@ -32,7 +32,7 @@ public class CrawlingServiceImpl implements CrawlingService{
         for(int i=0; i<list.size(); i++){
             int categoryNo = Integer.parseInt(list.get(i).getNo());
             String categoryName = list.get(i).getName();
-            String categoryImg = list.get(i).getName();
+            String categoryImg = list.get(i).getPc_icon_url();
 
             categoriesDto dto = new categoriesDto(categoryNo,categoryName,categoryImg);
             crawlingDao.insertCategory(dto);

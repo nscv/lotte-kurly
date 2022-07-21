@@ -15,11 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <style>
-        h3{
-            margin: 0px auto !important;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/profile.css">
 </head>
 <body>
 <jsp:include page="/front/header.jsp" flush="true"/>
@@ -37,26 +33,25 @@
         }
     }
 %>
-<div>
+<div class="box">
     <form action="add-profile" method="post" id="frm">
+        <p class="subject">간단 회원가입</p>
+        <p class="text-end"><span style="color: red;">*</span>필수 입력사항</p>
+        <hr class="hr-solid">
         <div>
             <input type="hidden" id="userNo" name="userNo" value="2">
         </div>
-        <div>
-            <div>
-                <p>닉네임을 입력해 주세요</p>
-                <input id="userNickname" name="userNickname" type="text" value="" placeholder="닉네임을 입력해 주세요" maxlength="50" required="required">
-            </div>
+        <div class="input-box">
+            <p>닉네임<span style="color: red;">*</span></p>
+            <input class="input-text" id="userNickname" name="userNickname" type="text" value="" placeholder="닉네임을 입력해 주세요" maxlength="50" required="required">
         </div>
-        <div>
-            <div>
-                <p>생일을 입력해 주세요</p>
-                <input id="userBirth" name="userBirth" type="date" value="" maxlength="50" required="required">
-            </div>
+        <div class="input-box">
+            <p>생일<span style="color: red;">*</span></p>
+            <input class="input-date" id="userBirth" name="userBirth" type="date" value="" maxlength="50" required="required">
         </div>
-        <div>
-            <p>성별을 입력해 주세요</p>
-            <div>
+        <div class="input-box">
+            <p>성별<span style="color: red;">*</span></p>
+            <div class="input-radio">
                 <input type="radio" id="0"
                        name="userGender" value="true" checked>
                 <label for="0">남성</label>
@@ -66,18 +61,16 @@
                 <label for="1">여성</label>
             </div>
         </div>
-        <div>
-            <div>
-                <input id="userAddress" name="userAddress" type="text" value="" placeholder="주소를 입력해 주세요" maxlength="50" required="required">
-            </div>
+        <div class="input-box">
+            <p>주소<span style="color: red;">*</span></p>
+            <input class="input-text" id="userAddress" name="userAddress" type="text" value="" placeholder="주소를 입력해 주세요" maxlength="50" required="required">
         </div>
-        <div>
-            <div>
-                <input id="userPhone" name="userPhone" type="text" value="" placeholder="전화번호를 입력해 주세요" maxlength="50" required="required">
-            </div>
+        <div class="input-box">
+            <p>전화번호<span style="color: red;">*</span></p>
+            <input class="input-text" id="userPhone" name="userPhone" type="text" value="" placeholder="전화번호를 입력해 주세요" maxlength="50" required="required">
         </div>
-        <div>
-            <button type="submit">입력완료</button>
+        <div class="div-button">
+            <button class="input-button" type="submit">입력완료</button>
         </div>
     </form>
 </div>

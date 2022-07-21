@@ -7,8 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <html>
 <head>
     <title>Title</title>
@@ -74,7 +73,7 @@
                         <li>
                             <div class="item">
                                 <div class="thumb">
-                                    <img id="${m.productNo}" src="${m.productImgNewName}" onclick="imageDataToNav(this.id)">
+                                    <img class="product-img" id="${m.productNo}" src="${m.productImgNewName}" onclick="imageDataToNav(this.id)">
                                     <div class="group-btn">
                                         <button type="button" class="btn cart-btn"></button>
                                     </div>

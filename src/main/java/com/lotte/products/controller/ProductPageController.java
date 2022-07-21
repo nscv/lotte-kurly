@@ -1,17 +1,16 @@
 package com.lotte.products.controller;
 
-import com.lotte.categories.service.CategoryService;
-import com.lotte.products.dto.ProductListDto;
-import com.lotte.products.service.ProductService;
 import com.lotte.admin.service.StatisticService;
+import com.lotte.categories.service.CategoryService;
+import com.lotte.products.dto.*;
+import com.lotte.products.service.ProductService;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
 
 @Controller
 @RequestMapping("/product")
@@ -61,5 +60,4 @@ public class ProductPageController {
     public String ProductDetail(Model model,String productNo){
         return "product/productdetail";
     }
-    // TODO: 지금은 테스트용으로 페이지랑 같이 보내지만 List 정보만 보내기
 }
