@@ -15,4 +15,4 @@ public interface ProductService {
     ProductImgCategoryDto productImgCategorylist(String productNo);
     List<ProductListDto> getAllProductList();
     String getProductDetail(String productNo);
-    }
+}
