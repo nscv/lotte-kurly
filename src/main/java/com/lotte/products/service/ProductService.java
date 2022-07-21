@@ -14,4 +14,5 @@ public interface ProductService {
     List<ProductListDto> productLowList(String category);
     ProductImgCategoryDto productImgCategorylist(String productNo);
     List<ProductListDto> getAllProductList();
+    String getProductDetail(String productNo);
 }
