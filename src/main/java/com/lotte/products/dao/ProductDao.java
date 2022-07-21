@@ -12,6 +12,7 @@ import java.util.List;
 
 @Mapper
 public interface ProductDao {
+    List<ProductListDto> selectAllProductList();
     List<ProductListDto> productList(String category);
     List<ProductListDto>productLowList(String category);
     List<ProductListDto>productHighList(String category);

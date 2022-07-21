@@ -9,7 +9,8 @@ public interface StatisticService {
     List<UserGenderDto> getPricesByGender();
     List<UserAgeDto> getPriceByAge();
     List<UserGradeDto> getUsersByUserGrade();
-    List<TotalOrderDto> getTotalByDate();
+    List<TotalOrderDto>     getTotalByDate();
     List<TotalOrderDto> getTotalByYear();
     List<TotalOrderDto> getTotalByMonth();
+    int getTotalOrders();
 }
