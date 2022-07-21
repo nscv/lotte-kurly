@@ -5,6 +5,7 @@ import com.lotte.coupons.dto.UserCouponInfo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 @Service
 public class CouponServiceImpl implements CouponService {
