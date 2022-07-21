@@ -1,21 +1,33 @@
 package com.lotte.orders.dto;
 
-import java.util.List;
-
 public class Order {
 
-    private List<String> productNames;
+    private String cartItemName;
+    private String cartItemProductImgNewName;
     private Integer orderNo;
     private Integer orderTotalPrice;
     private Integer orderState;
     private String orderCreatedAt;
 
-    public List<String> getProductNames() {
-        return productNames;
+    public void setCartItemNameAndProductImgNewName(OrderCartItemNameAndImg orderCartItemNameAndImg) {
+        this.cartItemName = orderCartItemNameAndImg.getProductName();
+        this.cartItemProductImgNewName = orderCartItemNameAndImg.getProductImgNewName();
     }
 
-    public void setProductNames(List<String> productNames) {
-        this.productNames = productNames;
+    public String getCartItemName() {
+        return cartItemName;
+    }
+
+    public void setCartItemName(String cartItemName) {
+        this.cartItemName = cartItemName;
+    }
+
+    public String getCartItemProductImgNewName() {
+        return cartItemProductImgNewName;
+    }
+
+    public void setCartItemProductImgNewName(String cartItemProductImgNewName) {
+        this.cartItemProductImgNewName = cartItemProductImgNewName;
     }
 
     public Integer getOrderNo() {

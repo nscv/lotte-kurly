@@ -108,7 +108,8 @@
                 <a href=""><span class="txt">베스트 상품</span></a>
             </li>
             <li class="menu3">
-                <a href=""> <span class="txt">주문 내역</span></a>
+<%--                <a href="javascript:addprofile();"> <span class="txt">주문 내역</span></a>--%>
+                     <a href="/order/list"> <span class="txt">주문 내역</span></a>
             </li>
             <li class="menu4">
                 <a href=""> <span class="txt">마이페이지</span></a>
@@ -128,8 +129,15 @@
             <%
                 }
             %>
+<<<<<<< HEAD
+
+
+            <li class="menu5">
+                <a href="/cart"><input type="image" src="/front/images/cart.png" class="cart-btn"></a>
+=======
             <li class="menu6">
                 <a href="" style="width: 100px;"><input type="image" src="/front/images/cart.png" class="cart-btn"></a>
+>>>>>>> origin/dev
             </li>
         </ul>
 
@@ -139,8 +147,8 @@
 
 <%-- 카카오 초기화 --%>
 <script type="text/javascript">
-    Kakao.init('8c4fa2c21bc60a51d0d78927368eb06d');
-    Kakao.isInitialized();
+    // Kakao.init('8c4fa2c21bc60a51d0d78927368eb06d');
+    // Kakao.isInitialized();
 </script>
 
 <%-- 카카오 로그인 --%>

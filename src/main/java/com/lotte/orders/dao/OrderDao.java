@@ -2,6 +2,7 @@ package com.lotte.orders.dao;
 
 import com.lotte.orders.dto.CreateOrder;
 import com.lotte.orders.dto.Order;
+import com.lotte.orders.dto.OrderCartItemNameAndImg;
 import com.lotte.orders.dto.OrderDetail;
 import com.lotte.orders.dto.OrderCartItem;
 import com.lotte.orders.dto.OrderUserDetail;
@@ -12,7 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface OrderDao {
 
-    List<String> selectCartItemNames(Integer orderNo);
+    OrderCartItemNameAndImg selectCartItemNamesAndImgs(Integer orderNo);
     List<Order> selectOrders(Integer orderNo);
 
     List<OrderCartItem> selectOrderCartItemsByOrderNo(Integer orderNo);

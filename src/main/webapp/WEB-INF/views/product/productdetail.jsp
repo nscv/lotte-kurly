@@ -9,6 +9,7 @@
 <%@ page import="java.text.DecimalFormat" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%--
+
   Created by IntelliJ IDEA.
   User: BTC-N21
   Date: 2022-07-19
