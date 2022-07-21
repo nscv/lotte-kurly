@@ -37,17 +37,19 @@
         order by p.product_price desc
     </select>
     <select id="productImgCategorylist" parameterType="String" resultType="com.lotte.products.dto.ProductImgCategoryDto">
-        SELECT DISTINCT P1.PRODUCT_NO AS PRODUCT_NO,
-                        P1.PRODUCT_NAME AS PRODUCT_NAME,
+        SELECT DISTINCT P1.PRODUCT_NO AS productNo,
+                        P1.PRODUCT_NAME AS productName,
                         CASE WHEN P1.PRODUCT_CONTENT IS NULL
-                                 THEN P1.PRODUCT_SIMPLE_CONTENT ELSE NULLIF(P1.PRODUCT_CONTENT,P1.PRODUCT_NAME) END AS PRODUCT_CONTENT,
-                        P1.PRODUCT_PRICE AS PRODUCT_PRICE,
-                        C.CATEGORY_NAME AS CATEGORY_NAME,
-                        P1.PRODUCT_DEADLINE AS PRODUCT_DEADLINE,
-                        P1.PRODUCT_STOCK AS PRODUCT_STOCK
+                                 THEN P1.PRODUCT_SIMPLE_CONTENT ELSE NULLIF(P1.PRODUCT_CONTENT,P1.PRODUCT_NAME) END AS productContent,
+                        NULLIF(P1.PRODUCT_SIMPLE_CONTENT,P1.PRODUCT_NAME) AS productSimpleContent,
+                        P1.PRODUCT_PRICE AS productPrice,
+                        C.CATEGORY_NAME AS categoryName,
+                        P1.PRODUCT_DEADLINE AS productDeadline,
+                        P1.PRODUCT_STOCK AS productStock,
+                        P2.PRODUCT_IMG_NEW_NAME AS productImgNewName
         FROM products P1
                  INNER JOIN categories C ON P1.CATEGORY_NO = C.CATEGORY_NO
-                 INNER JOIN product_imgs PI ON P1.PRODUCT_NO = PI.PRODUCT_NO
-        WHERE P1.PRODUCT_NO = #{ProductNo}
+                 INNER JOIN product_imgs P2 ON P1.PRODUCT_NO = P2.PRODUCT_NO
+        WHERE P1.PRODUCT_NO = #{productNo}
     </select>
 </mapper>

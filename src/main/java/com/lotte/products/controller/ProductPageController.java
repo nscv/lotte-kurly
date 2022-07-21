@@ -61,8 +61,8 @@ public class ProductPageController {
 
     @GetMapping("/productdetail")
     public String ProductDetail(Model model,String productNo){
-        List<ProductImgCategoryDto> list = productService.productImgCategorylist(productNo);
-        model.addAttribute("list",list);
+        ProductImgCategoryDto dto = productService.productImgCategorylist(productNo);
+        model.addAttribute("dto",dto);
         return "product/productdetail";
     }
 
