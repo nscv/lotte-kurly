@@ -37,8 +37,9 @@ div {
     letter-spacing: 0;
 }
 
-.title {
+.inner-title .category-title {
     padding-top: 23px;
+    margin-bottom: 30px;
     font-weight: 700;
     font-size: 28px;
     color: #333;
@@ -117,6 +118,10 @@ div {
     height: 100%;
 }
 
+.product-img {
+    height: 435px;
+}
+
 .list-goods .thumb img {
     width: 100%;
     vertical-align: top;
@@ -131,7 +136,7 @@ div {
 }
 
 .list-goods .thumb .cart-btn {
-    background: url(cart-btn.png) no-repeat 50% 50%;
+    background: url(../front/images/cart-btn.png) no-repeat 50% 50%;
     background-size: 45px 45px;
 }
 
@@ -163,8 +168,7 @@ button {
     outline: none;
     cursor: pointer;
 }
-
-li {
+.list li {
     position: relative;
     z-index: 2;
     float: left;
@@ -172,6 +176,7 @@ li {
     display: list-item;
     text-align: -webkit-match-parent;
 }
+
 
 ul {
     list-style-type: none;

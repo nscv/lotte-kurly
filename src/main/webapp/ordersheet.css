@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    color: #333333;
+}
+
+.tit-box {
+    overflow: hidden;
+    width: 1050px;
+    margin: 0 auto;
+    padding: 50px 0 51px;
+}
+
+.tit-box h2.tit {
+    font-weight: 700;
+    font-size: 28px;
+    color: #333;
+    line-height: 35px;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+#content {
+    min-width: 1050px;
+    padding-bottom: 60px;
+}
+
+#order_form {
+    width: 1050px;
+    margin: 0 auto;
+}
+
+.tit-section.fst {
+    padding-top: 14px;
+}
+
+.tit-section {
+    padding: 74px 0 16px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+    line-height: 29px;
+    clear: both;
+}
+
+.order-goodslist {
+    border-top: 1px solid #333;
+}
+
+.page {
+    width: 1050px;
+    margin: 0 auto;
+}
+
+.order-goodslist.on .list-product {
+    display: block;
+}
+
+.order-goodslist li {
+    overflow: hidden;
+    height: 128px;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.order-goodslist .thumb {
+    overflow: hidden;
+    float: left;
+    width: 60px;
+    height: 78px;
+    margin: 25px 20px 0 0;
+    background-color: #f4f4f4;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.order-goodslist .thumb img {
+    width: 60px;
+    height: 78px;
+}
+
+.order-goodslist .name {
+    display: table;
+    float: left;
+    width: 739px;
+    height: 100%;
+    padding-right: 20px;
+}
+
+.order-goodslist .name .inner-name {
+    display: table-cell;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
+    line-height: 24px;
+    vertical-align: middle;
+}
+
+.order-goodslist .count-product {
+    float: left;
+    width: 100px;
+    height: 100%;
+    padding-top: 52px;
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -.22px;
+}
+
+.order-goodslist .info-price {
+    display: table;
+    float: right;
+    /*width: 120px;*/
+    height: 100%;
+    padding-right: 4px;
+}
+
+.order-goodslist .info-price .num {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.order-goodslist .info-price .price {
+    display: block;
+    font-weight: 700;
+    font-size: 15px;
+    color: #000;
+    line-height: 24px;
+    white-space: nowrap;
+}
+
+.order-section {
+    overflow: hidden;
+    letter-spacing: -0.3px;
+}
+
+.goodsinfo-table {
+    border-top: 1px solid #333;
+    border-bottom: none;
+    width: 100%;
+}
+
+.data-orderer .goodsinfo-table .fst th {
+    padding-top: 19px;
+}
+
+.goodsinfo-table th {
+    width: 190px;
+    padding: 8px 0 0;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+    letter-spacing: -0.32px;
+    vertical-align: top;
+    text-align: left;
+}
+
+.data-orderer .goodsinfo-table .fst td {
+    padding-top: 19px;
+}
+
+.goodsinfo-table td {
+    position: relative;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+    vertical-align: top;
+}
+
+.addressinfo-table {
+    border-top: 1px solid #333;
+    border-bottom: none;
+    width: 100%;
+}
+
+.data-address .addressinfo-table .fst th {
+    padding-top: 19px;
+}
+
+.addressinfo-table th {
+    width: 190px;
+    padding: 8px 0 0;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+    letter-spacing: -0.32px;
+    vertical-align: top;
+    text-align: left;
+}
+
+.data-address .addressinfo-table .fst td {
+    padding-top: 19px;
+}
+
+.addressinfo-table td {
+    position: relative;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+    vertical-align: top;
+}
+
+/*.pay-section {
+    background-color: #E2E2E2;
+}*/
+
+.reserve {
+    display: block;
+}
+
+.point-input {
+    width: 70px;
+    border: 0.5px solid #2e2e2e;
+    border-radius: 3px;
+    text-align: right;
+}
+
+#orderitem_money_info {
+    /*width: 100%;*/
+    padding: 17px 16px 18px 18px;
+    background: #fafafa;
+    border: 1px solid #f2f2f2;
+}
+
+#orderitem_money_info .fst {
+    padding-top: 0;
+    padding-bottom: 4px;
+}
+
+#orderitem_money_info .tit {
+    float: left;
+    width: 96px;
+}
+
+#orderitem_money_info .price {
+    float: right;
+    width: 144px;
+    text-align: right;
+}
+
+#orderitem_money_info .sub {
+    padding-top: 8px;
+}
+
+#orderitem_money_info .amount {
+    overflow: hidden;
+    padding-top: 12px;
+    letter-spacing: -0.5px;
+}
+
+#orderitem_money_info .sub .tit {
+    padding-left: 16px;
+    background: url(https://res.kurly.com/pc/service/order/2011/ico_sub_price_dot.svg) no-repeat 0 0;
+    background-size: 16px 20px;
+}
+
+#orderitem_money_info .sub .tit, #orderitem_money_info .price .normal, #orderitem_money_info .sub .price {
+    font-weight: normal;
+    font-size: 14px;
+    color: #999;
+    line-height: 20px;
+}
+
+#orderitem_money_info .lst {
+    margin: 17px 0 0 0;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+#orderitem_money_info .lst .tit {
+    padding-top: 2px;
+}
+
+#orderitem_money_info .lst .price {
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 28px;
+}
+
+#paper_settlement, .section_orderview .tbl_type2 td .emph {
+    font-weight: 700;
+}
+
+#orderitem_money_info .lst .price .won {
+    vertical-align: 2px;
+}
+
+.reserve {
+    padding: 16px 3px 0 0;
+    font-size: 12px;
+    color: #666;
+    line-height: 16px;
+    letter-spacing: 0;
+    text-align: right;
+}
+
+ .reserve .ico {
+    display: inline-block;
+    width: 30px;
+    height: 18px;
+    margin-right: 5px;
+    border: 1px solid #ffbf01;
+    border-radius: 9px;
+    background-color: #ffbf00;
+    font-size: 10px;
+    color: #fff;
+    line-height: 15px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.reserve .emph, .tax_absolute .reserve .emph span {
+    font-weight: 700;
+    color: #666;
+}

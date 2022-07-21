@@ -2,14 +2,19 @@ package com.lotte.crawling.service;
 
 import com.lotte.crawling.dao.CrawlingDao;
 import com.lotte.crawling.dto.CrawlingCategoryDto;
+import com.lotte.crawling.dto.CrawlingDetailDto;
 import com.lotte.crawling.dto.CrawlingDto;
 import com.lotte.products.dao.ProductDao;
 import com.lotte.products.dto.ProductDto;
 import com.lotte.products.dto.ProductImgDto;
 import com.lotte.products.dto.categoriesDto;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,7 +37,7 @@ public class CrawlingServiceImpl implements CrawlingService{
         for(int i=0; i<list.size(); i++){
             int categoryNo = Integer.parseInt(list.get(i).getNo());
             String categoryName = list.get(i).getName();
-            String categoryImg = list.get(i).getName();
+            String categoryImg = list.get(i).getPc_icon_url();
 
             categoriesDto dto = new categoriesDto(categoryNo,categoryName,categoryImg);
             crawlingDao.insertCategory(dto);
@@ -77,5 +82,41 @@ public class CrawlingServiceImpl implements CrawlingService{
             ProductImgDto pidto = new ProductImgDto(productNo, productImgOriginName, productImgnewName);
             crawlingDao.insertProductImg(pidto);
         }
+    }
+
+    @Override
+    public List<Integer> selectProductIds() {
+        List<Integer> list = crawlingDao.selectProductIds();
+        return list;
+    }
+
+    @Override
+    public int updateContent(CrawlingDetailDto detail) {
+        int check = crawlingDao.updateContent(detail);
+//        System.out.println(detail);
+        return check;
+    }
+
+    @Override
+    public void crawlingDetail() throws IOException {
+        List<Integer> list = selectProductIds();
+//        System.out.print(list);
+
+        for (int i = 0; i < list.size(); i ++){
+//            System.out.println(list.get(i));
+            String detail = getDetail(list.get(i));
+            CrawlingDetailDto dto = new CrawlingDetailDto(list.get(i), detail);
+            System.out.println(list.get(i) + "번호" + updateContent(dto));
+        }
+    }
+
+    @Override
+    public String getDetail(int productNo) throws IOException {
+        Document doc = Jsoup.connect("https://www.kurly.com/shop/goods/goods_view.php?&goodsno="+ Integer.toString(productNo)).maxBodySize(0).get();
+//        System.out.println(doc);
+        Elements detail = doc.select("div.goods_wrap");
+//        System.out.println(detail.html());
+
+        return detail.html();
     }
 }

@@ -1,0 +1,402 @@
+<%@ page import="com.lotte.admin.dto.UserAgeDto" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.lotte.admin.dto.UserGenderDto" %>
+<%@ page import="com.lotte.admin.dto.ProductCategoryDto" %>
+<%@ page import="com.lotte.admin.dto.TotalOrderDto" %><%--
+  Created by IntelliJ IDEA.
+  User: BTC-N10
+  Date: 2022-07-21
+  Time: 오전 8:52
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    List<UserAgeDto> ageList = (List<UserAgeDto>)request.getAttribute("age");
+    List<UserGenderDto> genderList = (List<UserGenderDto>)request.getAttribute("gender");
+    List<ProductCategoryDto> categoryList = (List<ProductCategoryDto>)request.getAttribute("category");
+    List<TotalOrderDto> orderList = (List<TotalOrderDto>)request.getAttribute("date");
+    List<TotalOrderDto> monthList = (List<TotalOrderDto>)request.getAttribute("month");
+    List<TotalOrderDto> yearList = (List<TotalOrderDto>)request.getAttribute("year");
+%>
+<html>
+<head>
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/admin.css">
+    <script type="text/css">
+        @font-face {
+            font-family: nanum gothic;
+            font-style: normal;
+            font-weight: 400;
+            src: local('Nanum Gothic'),url(https://res.kurly.com/fonts/NanumGothic-Regular.woff2) format('woff2'),url(https://res.kurly.com/fonts/NanumGothic-Regular.woff) format('woff'),url(https://res.kurly.com/fonts/NanumGothic-Regular.otf) format('opentype')
+        }
+        #container-age {
+            height: 400px;
+        }
+
+        #container-gender {
+            height: 400px;
+        }
+        #container-category {
+            height: 400px;
+        }
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 360px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #ebebeb;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table thead tr,
+        .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+        .highcharts-figure,
+        .highcharts-data-table table {
+            min-width: 320px;
+            max-width: 800px;
+            margin: 1em auto;
+        }
+
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #ebebeb;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table td,
+        .highcharts-data-table th,
+        .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+
+        .highcharts-data-table thead tr,
+        .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row flex-nowrap" style="height: 820px;">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-kerly">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-black min-vh-100">
+                <a href="admin-list.jsp" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-black text-decoration-none">
+                    <img src="/front/images/lotte-kurly-white-logo.png" class="logo-img">
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link align-middle px-0">
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                        </a>
+                    </li>
+                    <hr class="grey-hr">
+                    <li>
+                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <img class="icon-img" src="../../../front/images/user.png"><span class="ms-1 d-none d-sm-inline titlemenu">회원 관리</span> </a>
+                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="#" class="nav-link px-0">연령별 <span class="d-none d-sm-inline"> 회원 현황</span>  </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> 성별<span class="d-none d-sm-inline"> 회원 현황</span> </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <hr class="grey-hr">
+                    <li>
+                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <img class="icon-img" src="../../../front/images/product.png"><span class="ms-1 d-none d-sm-inline titlemenu">상품 관리</span> </a>
+                        <ul class="collapse show nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="#" class="nav-link px-0"> 상품 매출<span class="d-none d-sm-inline"> 현황</span>  </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0">상품 재고 <span class="d-none d-sm-inline"> 및 등록</span> </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div style="padding: 0px;">
+            <div id="admin-header" style="height: 150px;">
+            </div>
+            <div id="admin-main" style="background-color: #E2E2E2;">
+                <div id="static-container">
+                    <table>
+                        <col width="5px"><col width="300px"><col width="5px"><col width="350px">
+                        <tr>
+                            <td style="background-color: #525AF2">
+                            </td>
+                            <td>
+                                <div id="month" style="margin: 0px; width: 150px; border: 1px solid #929292">
+                                    <%
+                                        for(TotalOrderDto month : monthList) {
+                                    %>
+                                    <%= month.getCreated_at() %>
+                                    <%=month.getTotal()%>
+                                    <%
+                                        }
+                                    %>
+                                </div>
+                            </td>
+                            <td style="background-color: #525AF2">
+                            </td>
+                            <td>
+                                <div id="year" style="margin: 0px; width: 150px; border: 1px solid rgb(28, 200, 138)">
+                                    <%
+                                        for(TotalOrderDto year : yearList) {
+                                    %>
+                                    <%= year.getCreated_at() %>
+                                    <%=year.getTotal()%>
+                                    <%
+                                        }
+                                    %>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <div id="container-date" style="margin: 50px; box-shadow: 15px 15px #bababa; border-radius: 10px;">
+                            </div>
+                        </td>
+                        <td>
+                            <div id="container-category" style="margin: 50px; box-shadow: 15px 15px #bababa; border-radius: 10px;"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="container-gender" style="margin: 50px; box-shadow: 15px 15px #bababa; border-radius: 10px;"></div>
+                        </td>
+                        <td>
+                            <div id="container-age" style="margin: 50px; box-shadow: 15px 15px #bababa; border-radius: 10px;"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+<%--    </div>--%>
+<%--</div>--%>
+<script type="text/javascript">
+    Highcharts.chart('container-date', {
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: '날짜 별 매출 현황'
+        },
+        xAxis: {
+            categories: [
+                // "07/19/2022", "07/21/2022"
+                <%
+                    for(TotalOrderDto date : orderList) {
+                %>
+                '<%=date.getCreated_at()%>',
+                <%
+                }
+                %>]
+        },
+        yAxis: {
+            title: {
+                text: '원(Won)'
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
+            }
+        },
+        series: [{
+            name: '금액',
+            data: [
+            <%
+                for(TotalOrderDto date : orderList) {
+            %>
+                <%=date.getTotal()%>,
+            <%
+            }
+            %>]
+        }]
+    });
+
+    const ageChart = Highcharts.chart('container-age', {
+        title: {
+            text: '연령 별 구매 금액'
+        },
+        xAxis: {
+            categories: [
+                <%
+                for(UserAgeDto age : ageList) {
+                %>
+                '<%=age.getUserAge()%>대',
+                <%
+                }
+                %>
+            ]
+        },
+        series: [{
+            type: 'column',
+            colorByPoint: true,
+            data: [
+                <%
+                for(UserAgeDto age : ageList) {
+                %>
+                <%=age.getTotal()%>,
+                <%
+                }
+                %>
+            ],
+            showInLegend: false
+        }]
+    });
+
+    const genderChart = Highcharts.chart('container-gender', {
+        title: {
+            text: '성별 구매 금액'
+        },
+        xAxis: {
+            categories: [
+                <%
+                for(UserGenderDto gender : genderList) {
+                %>
+                '<%=gender.getUserGender() ? "남자" : "여자"%>',
+                <%
+                }
+                %>
+            ]
+        },
+        series: [{
+            type: 'column',
+            colorByPoint: true,
+            data: [
+                <%
+                for(UserGenderDto gender : genderList) {
+                %>
+                <%=gender.getTotal()%>,
+                <%
+                }
+                %>
+            ],
+            showInLegend: false
+        }]
+    });
+    Highcharts.chart('container-category', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+        title: {
+            text: '카테고리 별<br/>구매 현황',
+            align: 'center',
+            verticalAlign: 'middle',
+            y: 60
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    accessibility: {
+        point: {
+            valueSuffix: '%'
+        }
+    },
+    plotOptions: {
+        pie: {
+            dataLabels: {
+                enabled: true,
+                distance: -50,
+                style: {
+                    fontWeight: 'bold',
+                    color: 'white'
+                }
+            },
+            startAngle: -90,
+            endAngle: 90,
+            center: ['50%', '75%'],
+            size: '110%'
+        }
+    },
+    series: [{
+        type: 'pie',
+        name: '카테고리 별 판매량',
+        innerSize: '50%',
+        data: [
+            <%
+            for(ProductCategoryDto category : categoryList) {
+            %>
+                ['<%=category.getCategoryName()%>', <%=category.getTotal()%>],
+                <%
+                }
+                %>
+            ]
+        }]
+    });
+</script>
+</body>
+</html>

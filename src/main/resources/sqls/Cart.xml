@@ -10,15 +10,21 @@
       resultType="com.lotte.carts.dto.CartItem"
       parameterType="Integer">
 
+      <![CDATA[
         SELECT cart_item_no cartItemNo, p.product_no productNo, product_name productName,
-               product_simple_content productSimpleContent, product_img_new_name productImgNewName,
-               cart_item_count cartItemCount, cart_item_total_price cartItemTotalPrice
+            product_simple_content productSimpleContent, product_img_new_name productImgNewName,
+            cart_item_count cartItemCount, cart_item_total_price cartItemTotalPrice,
+            CASE
+                    WHEN (DATEDIFF(product_deadline, NOW()) < 14)
+                    THEN (cart_item_total_price / 2)
+                    ELSE cart_item_total_price
+            END AS cartItemDiscountPrice
         FROM (SELECT cart_item_no, product_no, cart_item_count,
-                     cart_item_total_price
+              cart_item_total_price
               FROM cart_items
               WHERE cart_no = #{cartNo}) ci, product_imgs pi, products p
-        WHERE ci.product_no = pi.product_no AND pi.product_no = p.product_no
-
+        WHERE ci.product_no = pi.product_no AND pi.product_no = p.product_no;
+      ]]>
     </select>
 
     <!-- 새로운 장바구니 아이템 삽입 쿼리 -->

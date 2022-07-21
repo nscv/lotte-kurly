@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lotte.orders.dao.OrderDao">
+
+    <!-- 주문 목록 조회 쿼리 -->
+    <!-- (1) 주문 목록 조회 -->
+    <select id="selectOrders" parameterType="Integer" resultType="com.lotte.orders.dto.Order">
+        SELECT order_no orderNo, order_state orderState,
+               order_created_at orderCreatedAt, order_total_price orderTotalPrice
+        FROM orders
+        WHERE user_no = #{userNo}
+    </select>
+
+    <!-- (2) 장바구니 아이템 이름 목록 조회 -->
+    <select id="selectCartItemNamesAndImgs" parameterType="Integer" resultType="com.lotte.orders.dto.OrderCartItemNameAndImg">
+        SELECT product_name productName, product_img_new_name productImgNewName;
+        FROM (SELECT product_no
+              FROM cart_items
+              WHERE order_no = #{orderNo}) cart_item_product_nos, products p, product_imgs pi
+        WHERE cart_item_product_nos.product_no = p.product_no AND pi.product_no = p.product_no
+        LIMIT 1
+    </select>
+
+    <!-- 주문 상세 및 주문서 조회 쿼리 -->
+    <!-- (1) 장바구니 아이템 목록 조회 -->
+    <select id="selectOrderCartItems" parameterType="Integer" resultType="com.lotte.orders.dto.OrderCartItem">
+        SELECT product_name productName, cart_item_total_price cartItemTotalPrice,
+                cart_item_count cartItemCount
+        FROM (SELECT product_no, cart_item_total_price, cart_item_count
+                FROM cart_items
+                WHERE order_no = #{orderNo}) product_nos, products p
+        WHERE product_nos.product_no = p.product_no;
+    </select>
+
+    <!-- (2) 주문 정보 조회 -->
+    <select id="selectOrderDetail" parameterType="Integer" resultType="com.lotte.orders.dto.OrderDetail">
+        SELECT order_no orderNo, order_total_price orderTotalPrice, order_state orderState,
+               order_created_at orderCreatedAt, order_address orderAddress
+        FROM orders
+        WHERE order_no = #{orderNo}
+    </select>
+
+    <!-- 주문 사용자 조회 쿼리 -->
+    <select id="selectOrderUserDetail" parameterType="Integer" resultType="com.lotte.orders.dto.OrderUserDetail">
+        SELECT user_nickname userNickname, user_phone userPhone,
+               user_email userEmail, user_address userAddress
+        FROM users
+        WHERE user_no = #{userNo}
+    </select>
+
+    <select id="selectOrderCartItemsByCartItemNos" parameterType="java.util.List" resultType="com.lotte.orders.dto.OrderCartItem">
+        SELECT p.product_no productNo, product_name productName, cart_item_total_price cartItemTotalPrice,
+                cart_item_count cartItemCount
+        FROM (SELECT product_no, cart_item_total_price, cart_item_count
+              FROM cart_items
+              WHERE cart_item_no IN
+                            <foreach collection="list" item="orderCartItemNo" open="(" close=")" separator=",">
+                              #{orderCartItemNo}
+                            </foreach>) product_nos, products p
+        WHERE product_nos.product_no = p.product_no
+    </select>
+
+    <select id="selectEnoughStock" parameterType="java.util.List" resultType="com.lotte.orders.exception.NotEnoughStocks">
+
+    </select>
+
+    <select id="insertOrder">
+
+    </select>
+
+    <insert id="">
+
+    </insert>
+
+</mapper>

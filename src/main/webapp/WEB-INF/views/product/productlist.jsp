@@ -63,14 +63,13 @@
 
                 <ul class="list">
                     <div class="inner-title">
-                        <h4 class="title">${categoryName}</h4>
+                        <h4 class="category-title">${categoryName}</h4>
                     </div>
                     <c:forEach items="${list}" var="m">
                         <li>
                             <div class="item">
                                 <div class="thumb">
-                                    <a class="img" href="/product/productdetail?productNo=${m.productNo}">
-                                        <img id="${m.productNo}" src="${m.productImgNewName}" onclick="imageDataToNav(this.id)"></a>
+                                    <img class="product-img" id="${m.productNo}" src="${m.productImgNewName}" onclick="imageDataToNav(this.id)">
                                     <div class="group-btn">
                                         <button type="button" class="btn cart-btn"></button>
                                     </div>

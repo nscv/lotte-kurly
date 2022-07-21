@@ -1,9 +1,12 @@
 package com.lotte.products.controller;
 
+import com.lotte.admin.dto.ProductCategoryDto;
+import com.lotte.admin.dto.UserAgeDto;
+import com.lotte.admin.dto.UserGenderDto;
+import com.lotte.admin.service.StatisticService;
 import com.lotte.categories.service.CategoryService;
 import com.lotte.products.dto.*;
 import com.lotte.products.service.ProductService;
-import com.lotte.products.service.StatisticService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -96,7 +99,11 @@ public class ProductPageController {
 
     @GetMapping("/productdetail")
     public String ProductDetail(Model model,String productNo){
-        return "productdetail";
+        ProductImgCategoryDto dto = productService.productImgCategorylist(productNo);
+        String detail = productService.getProductDetail(dto.getProductNo());
+        model.addAttribute("dto",dto);
+        model.addAttribute("detail",detail);
+        return "product/productdetail";
     }
     // TODO: 지금은 테스트용으로 페이지랑 같이 보내지만 List 정보만 보내기
     @GetMapping("/axis")

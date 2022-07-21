@@ -19,4 +19,15 @@
         VALUES(#{categoryNo},#{categoryName},#{categoryImg})
     </insert>
 
+    <select id="selectProductIds" resultType="Integer">
+        SELECT product_no
+        FROM products
+    </select>
+
+    <update id="updateContent" parameterType="com.lotte.crawling.dto.CrawlingDetailDto">
+        UPDATE products
+        SET product_content = #{productContent}
+        WHERE product_no = #{productNo}
+</update>
+
 </mapper>

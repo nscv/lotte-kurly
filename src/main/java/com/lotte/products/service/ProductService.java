@@ -2,6 +2,7 @@ package com.lotte.products.service;
 
 import com.lotte.products.dto.ProductBestDto;
 import com.lotte.products.dto.ProductDto;
+import com.lotte.products.dto.ProductImgCategoryDto;
 import com.lotte.products.dto.ProductListDto;
 
 import java.util.List;
@@ -9,6 +10,8 @@ import java.util.List;
 public interface ProductService {
     void insertProducts(ProductDto dto);
     void updateProducts(ProductDto dto);
+    public ProductImgCategoryDto productImgCategorylist(String productNo);
+    String getProductDetail(String productNo);
     public List<ProductListDto> productList(ProductListDto productListDto);
     public List<ProductListDto> productHighList(ProductListDto productListDto);
     public List<ProductListDto> productLowList(ProductListDto productListDto);

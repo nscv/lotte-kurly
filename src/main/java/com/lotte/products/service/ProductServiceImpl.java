@@ -3,6 +3,7 @@ package com.lotte.products.service;
 import com.lotte.products.dao.ProductDao;
 import com.lotte.products.dto.ProductBestDto;
 import com.lotte.products.dto.ProductDto;
+import com.lotte.products.dto.ProductImgCategoryDto;
 import com.lotte.products.dto.ProductListDto;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +38,10 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductListDto>productHighList(ProductListDto productListDto){
         return productDao.productHighList(productListDto);
     }
+
+    @Override
+    public ProductImgCategoryDto productImgCategorylist(String productNo) { return productDao.productImgCategorylist(productNo);}
+
     public int searchEndPage(String category){
         return productDao.serarchEndPage(category);
     }
@@ -66,5 +71,10 @@ public class ProductServiceImpl implements ProductService {
     }
     public List<ProductBestDto>productBestDiscountList(ProductBestDto productBestDto){
         return productDao.productBestDiscountList(productBestDto);
+    }
+
+    @Override
+    public String getProductDetail(String productNo) {
+        return productDao.selectProductDetail(productNo);
     }
 }

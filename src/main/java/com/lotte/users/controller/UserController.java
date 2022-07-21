@@ -1,28 +1,58 @@
 package com.lotte.users.controller;
 
+import com.lotte.products.controller.ProductController;
+import com.lotte.users.dto.ProfileDto;
+import com.lotte.users.dto.UserDto;
 import com.lotte.users.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.Date;
 
 @Controller
 public class UserController {
 
-    Logger logger = LoggerFactory.getLogger(UserController.class);
-    
-    @Autowired
-    UserService service;
+    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
+
+    private UserService userService;
+
+    public UserController(UserService userService){
+        this.userService = userService;
+    }
+
+    @ResponseBody
     @GetMapping("/userdata")
-    public String Userdata(String email){
+    public String Userdata(Model model, String email) throws ParseException {
         logger.info("UserController Userdata()" + new Date());
-        boolean isuser = service.getuser(email);
-        System.out.println(isuser);
-        System.out.println(email);
-        return "";
+        return userService.checkuser(email);
+    }
+
+    @GetMapping("/profile")
+    public String test() {
+        return "/user/profile";
+    }
+
+    @PostMapping("/add-profile")
+    public String Addprofile(ProfileDto profile){
+        logger.info("UserController Addprofile()" + new Date());
+        userService.addprofile(profile);
+        return "/index";
+    }
+
+    @GetMapping("/mypage")
+    public String mypage() {
+        return "/user/mypage";
+    }
+
+    @ResponseBody
+    @GetMapping("/getuser")
+    public UserDto getuser(Model model, int userNo) {
+        return userService.getUser(userNo);
     }
 }
