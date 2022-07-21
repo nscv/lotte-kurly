@@ -1,94 +1,115 @@
 package com.lotte.products.dto;
 
 public class ProductImgCategoryDto {
-    private String ProductNo;
-    private String product_name;
-    private String product_content;
-    private String product_price;
-    private String category_name;
-    private String product_deadline;
-    private String product_stock;
+    private String productNo;
+    private String productName;
+    private String productContent;
+    private String productSimpleContent;
+    private String productPrice;
+    private String categoryName;
+    private String productDeadline;
+    private String productStock;
+    private String productImgNewName;
 
     public ProductImgCategoryDto() {
-
     }
 
-    public ProductImgCategoryDto(String productNo, String product_name, String product_content, String product_price, String category_name, String product_deadline, String product_stock) {
-        ProductNo = productNo;
-        this.product_name = product_name;
-        this.product_content = product_content;
-        this.product_price = product_price;
-        this.category_name = category_name;
-        this.product_deadline = product_deadline;
-        this.product_stock = product_stock;
+    public ProductImgCategoryDto(String productNo, String productName, String productContent, String productSimpleContent, String productPrice, String categoryName, String productDeadline, String productStock, String productImgNewName) {
+        this.productNo = productNo;
+        this.productName = productName;
+        this.productContent = productContent;
+        this.productSimpleContent = productSimpleContent;
+        this.productPrice = productPrice;
+        this.categoryName = categoryName;
+        this.productDeadline = productDeadline;
+        this.productStock = productStock;
+        this.productImgNewName = productImgNewName;
     }
 
     public String getProductNo() {
-        return ProductNo;
+        return productNo;
     }
 
     public void setProductNo(String productNo) {
-        ProductNo = productNo;
+        this.productNo = productNo;
     }
 
-    public String getProduct_name() {
-        return product_name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public String getProduct_content() {
-        return product_content;
+    public String getProductContent() {
+        return productContent;
     }
 
-    public void setProduct_content(String product_content) {
-        this.product_content = product_content;
+    public void setProductContent(String productContent) {
+        this.productContent = productContent;
     }
 
-    public String getProduct_price() {
-        return product_price;
+    public String getProductSimpleContent() {
+        return productSimpleContent;
     }
 
-    public void setProduct_price(String product_price) {
-        this.product_price = product_price;
+    public void setProductSimpleContent(String productSimpleContent) {
+        this.productSimpleContent = productSimpleContent;
     }
 
-    public String getCategory_name() {
-        return category_name;
+    public String getProductPrice() {
+        return productPrice;
     }
 
-    public void setCategory_name(String category_name) {
-        this.category_name = category_name;
+    public void setProductPrice(String productPrice) {
+        this.productPrice = productPrice;
     }
 
-    public String getProduct_deadline() {
-        return product_deadline;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setProduct_deadline(String product_deadline) {
-        this.product_deadline = product_deadline;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public String getProduct_stock() {
-        return product_stock;
+    public String getProductDeadline() {
+        return productDeadline;
     }
 
-    public void setProduct_stock(String product_stock) {
-        this.product_stock = product_stock;
+    public void setProductDeadline(String productDeadline) {
+        this.productDeadline = productDeadline;
+    }
+
+    public String getProductStock() {
+        return productStock;
+    }
+
+    public void setProductStock(String productStock) {
+        this.productStock = productStock;
+    }
+
+    public String getProductImgNewName() {
+        return productImgNewName;
+    }
+
+    public void setProductImgNewName(String productImgNewName) {
+        this.productImgNewName = productImgNewName;
     }
 
     @Override
     public String toString() {
         return "ProductImgCategoryDto{" +
-                "ProductNo='" + ProductNo + '\'' +
-                ", product_name='" + product_name + '\'' +
-                ", product_content='" + product_content + '\'' +
-                ", product_price='" + product_price + '\'' +
-                ", category_name='" + category_name + '\'' +
-                ", product_deadline='" + product_deadline + '\'' +
-                ", product_stock='" + product_stock + '\'' +
+                "productNo='" + productNo + '\'' +
+                ", productName='" + productName + '\'' +
+                ", productContent='" + productContent + '\'' +
+                ", productSimpleContent='" + productSimpleContent + '\'' +
+                ", productPrice='" + productPrice + '\'' +
+                ", categoryName='" + categoryName + '\'' +
+                ", productDeadline='" + productDeadline + '\'' +
+                ", productStock='" + productStock + '\'' +
+                ", productImgNewName='" + productImgNewName + '\'' +
                 '}';
     }
 }

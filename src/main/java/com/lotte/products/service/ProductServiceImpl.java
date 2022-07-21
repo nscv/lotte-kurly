@@ -36,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductImgCategoryDto> productImgCategorylist(String productNo) { return productDao.productImgCategorylist(productNo);}
+    public ProductImgCategoryDto productImgCategorylist(String productNo) { return productDao.productImgCategorylist(productNo);}
 
     public List<ProductListDto>productHighList(String category){
         return productDao.productHighList(category);
