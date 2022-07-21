@@ -46,4 +46,9 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductListDto>productHighList(String category){
         return productDao.productHighList(category);
     }
+
+    @Override
+    public String getProductDetail(String productNo) {
+        return productDao.selectProductDetail(productNo);
+    }
 }

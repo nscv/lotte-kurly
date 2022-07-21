@@ -56,4 +56,10 @@
                  INNER JOIN product_imgs P2 ON P1.PRODUCT_NO = P2.PRODUCT_NO
         WHERE P1.PRODUCT_NO = #{productNo}
     </select>
+
+    <select id="selectProductDetail" parameterType="String" resultType="String">
+        SELECT product_content
+        FROM products
+        WHERE product_no = #{productNo}
+    </select>
 </mapper>

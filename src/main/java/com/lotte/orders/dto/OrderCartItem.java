@@ -4,6 +4,7 @@ public class OrderCartItem {
 
     private String productNo;
     private String productName;
+    private String productNewImgName;
     private Integer cartItemTotalPrice;
     private Integer cartItemCount;
 
@@ -13,6 +14,10 @@ public class OrderCartItem {
 
     public String getProductName() {
         return productName;
+    }
+
+    public String getProductNewImgName() {
+        return productNewImgName;
     }
 
     public Integer getCartItemTotalPrice() {
@@ -29,6 +34,10 @@ public class OrderCartItem {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public void setProductNewImgName(String productNewImgName) {
+        this.productNewImgName = productNewImgName;
     }
 
     public void setCartItemTotalPrice(Integer cartItemTotalPrice) {

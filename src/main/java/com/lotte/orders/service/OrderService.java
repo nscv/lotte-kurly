@@ -3,6 +3,7 @@ package com.lotte.orders.service;
 import com.lotte.orders.dao.OrderDao;
 import com.lotte.orders.dto.CreateOrder;
 import com.lotte.orders.dto.Order;
+import com.lotte.orders.dto.OrderCartItemNameAndImg;
 import com.lotte.orders.dto.OrderDetail;
 import com.lotte.orders.dto.OrderCartItem;
 import com.lotte.orders.dto.OrderUserDetail;
@@ -28,8 +29,13 @@ public class OrderService {
 
     public OrderResponse.OrdersDto getOrders(Integer userNo) {
         List<Order> orders = orderDao.selectOrders(userNo);
-        orders.forEach(order ->
-            order.setProductNames(orderDao.selectCartItemNames(order.getOrderNo())));
+
+        for (Order order : orders) {
+            OrderCartItemNameAndImg cartItemNamesAndImg =
+                orderDao.selectCartItemNamesAndImgs(order.getOrderNo());
+
+            order.setCartItemNameAndProductImgNewName(cartItemNamesAndImg);
+        }
 
         return new OrderResponse.OrdersDto(orders);
     }
