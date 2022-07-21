@@ -85,7 +85,7 @@
                             <td><%=product.getProductName()%></td>
                             <td><%=product.getProductPrice()%></td>
                             <td><%=product.getProductAmount()%></td>
-                            <td><a class="insert-tag" href="/admin/register?productNo=<%=product.getProductNo()%>">추가</a></td>
+                            <td><a class="insert-tag" href="/admin/update?productNo=<%=product.getProductNo()%>">추가</a></td>
                         </tr>
                         <%
                             }

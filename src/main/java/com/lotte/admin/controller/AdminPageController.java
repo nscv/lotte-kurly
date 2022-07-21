@@ -35,14 +35,19 @@ public class AdminPageController {
     }
 
     @RequestMapping("/product")
-    public String productlist(Model model) {
+    public String productList(Model model) {
         model.addAttribute("product", productService.getAllProductList());
-        return "/admin/product";
+        return "/admin/product-list";
+    }
+
+    @RequestMapping("/update")
+    public String productUpdate(int productNo, Model model) {
+        return "/admin/product-update";
     }
 
     @RequestMapping("/register")
     public String registerProduct(int productNo, Model model) {
-        model.addAttribute("product", productService.)
+        model.addAttribute("product", productService.productImgCategorylist(""+productNo));
         return "/admin/product-register";
     }
 }

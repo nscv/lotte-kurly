@@ -9,7 +9,7 @@
         FROM categories c, cart_items cart, products p
         WHERE p.product_no = cart.product_no
           AND c.category_no = p.category_no
-        GROUP BY c.category_name;
+        GROUP BY c.category_name
     </select>
     <select id="selectPricesByGender" resultType="com.lotte.admin.dto.UserGenderDto">
         SELECT u.user_gender AS userGender, COUNT(*) AS cnt, SUM(o.order_total_price) AS total
@@ -43,22 +43,25 @@
         SELECT DATE_FORMAT(created_at, '%Y년%m월%d일') AS created_at, order_state, COUNT(*) AS cnt, SUM(order_total_price) AS total
         FROM orders
         GROUP BY DATE_FORMAT(created_at, '%Y년%m월%d일')
+        ORDER BY created_at ASC
     </select>
     <select id="selectTotalByYear" resultType="com.lotte.admin.dto.TotalOrderDto">
         SELECT DATE_FORMAT(created_at, '%Y') AS created_at, order_state, COUNT(*) AS cnt, SUM(order_total_price) AS total
         FROM orders
         GROUP BY DATE_FORMAT(created_at, '%Y')
         HAVING created_at = DATE_FORMAT(NOW(), '%Y')
+        ORDER BY created_at ASC
     </select>
     <select id="selectTotalByMonth" resultType="com.lotte.admin.dto.TotalOrderDto">
         SELECT DATE_FORMAT(created_at, '%m') AS created_at, order_state, COUNT(*) AS cnt, SUM(order_total_price) AS total
         FROM orders
         GROUP BY DATE_FORMAT(created_at, '%m')
         HAVING created_at = DATE_FORMAT(NOW(), '%m')
+        ORDER BY created_at ASC
     </select>
     <select id="selectTotalOrders" resultType="Integer">
         SELECT COUNT(*)
         FROM orders
-        WHERE order_state >= 2;
+        WHERE order_state >= 2
     </select>
 </mapper>
