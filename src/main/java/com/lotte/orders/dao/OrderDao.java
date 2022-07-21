@@ -13,7 +13,8 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface OrderDao {
 
-    OrderCartItemNameAndImg selectCartItemNamesAndImgs(Integer orderNo);
+    OrderCartItemNameAndImg selectCartItemNameAndImg(Integer orderNo);
+    Integer selectOrderCartItemsCount(Integer orderNo);
     List<Order> selectOrders(Integer orderNo);
 
     List<OrderCartItem> selectOrderCartItemsByOrderNo(Integer orderNo);

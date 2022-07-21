@@ -129,15 +129,9 @@
             <%
                 }
             %>
-<<<<<<< HEAD
-
 
             <li class="menu5">
-                <a href="/cart"><input type="image" src="/front/images/cart.png" class="cart-btn"></a>
-=======
-            <li class="menu6">
-                <a href="" style="width: 100px;"><input type="image" src="/front/images/cart.png" class="cart-btn"></a>
->>>>>>> origin/dev
+                <a href="/cart" style=""><input type="image" src="/front/images/cart.png" class="cart-btn"></a>
             </li>
         </ul>
 

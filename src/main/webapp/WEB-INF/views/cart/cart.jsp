@@ -28,8 +28,8 @@
     <!-- Ajax -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/cart.css">
-    <script type="text/javascript" src="/js/cart.js"></script>
 
 </head>
 <body>
@@ -60,6 +60,8 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="/js/cart.js"></script>
 
 </body>
 </html>

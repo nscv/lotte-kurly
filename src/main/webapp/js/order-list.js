@@ -1,4 +1,4 @@
-
+getOrders();
 
 
 function getOrders() {
@@ -7,7 +7,7 @@ function getOrders() {
   let cartNo = $('');
   
   $.ajax({
-    url: `/orders?userNo=${userNo}`,
+    url: `/orders?userNo=${1}`,
     type: "GET",
     success: function (response) {
       console.log(response);
@@ -22,8 +22,9 @@ function getOrders() {
 
 function makeOrderDivs(orders) {
   let orderListDiv = $('.order-list-div');
+  orderListDiv.empty();
+
   let html = "";
-  
   orders.forEach(function (order) {
       html += `<!-- 주문 리스트 -->
                 <div class="order-div">
@@ -34,7 +35,7 @@ function makeOrderDivs(orders) {
                     <!-- 주문 정보 -->
                     <!-- 주문 시간 및 상세보기 페이지 버튼 -->
                     <div class="row">
-                        <div class="col-10">${getOrderTitleName(order.productNames)}</div>
+                        <div class="col-10">${getOrderTitleName(order.cartItemProductName, order.cartItemsCount)}</div>
                         <div class="col-2">
                             <button onclick="location.href='/order/detail'">주문 상세</button>
                         </div>
@@ -57,10 +58,15 @@ function makeOrderDivs(orders) {
                         </div>
                     </div>
                 </div>`;
-  })
+  });
+
+  orderListDiv.append(html);
 }
 
 /* 000상품 외 X건 */
-function getOrderTitleName(productNames) {
-  return `${productNames[0]} 외 ${productNames.length - 1}건`;
+function getOrderTitleName(productName, cartItemsCount) {
+  if (cartItemsCount == 0) {
+    return `${productName}`;
+  }
+  return `${productName} 외 ${cartItemsCount}건`;
 }

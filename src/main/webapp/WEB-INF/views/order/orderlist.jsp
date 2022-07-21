@@ -76,6 +76,7 @@
     </div>
 </div>
 
+<script type="text/javascript" src="/js/order-list.js"></script>
 </body>
 </html>
 
