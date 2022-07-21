@@ -1,6 +1,7 @@
 package com.lotte.admin.controller;
 
 import com.lotte.admin.service.StatisticService;
+import com.lotte.products.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -14,12 +15,13 @@ public class AdminPageController {
     private static final Logger logger = LoggerFactory.getLogger(AdminPageController.class);
 
     private StatisticService statisticService;
+    private ProductService productService;
 
-    public AdminPageController(StatisticService statisticService) {
+    public AdminPageController(StatisticService statisticService, ProductService productService) {
         this.statisticService = statisticService;
+        this.productService = productService;
     }
 
-    // TODO: push 하기 전 테스트코드 지우기
     @RequestMapping("/main")
     public String main(Model model) {
         model.addAttribute("category", statisticService.getProductCountByCategory());
@@ -28,6 +30,19 @@ public class AdminPageController {
         model.addAttribute("age", statisticService.getPriceByAge());
         model.addAttribute("month", statisticService.getTotalByMonth());
         model.addAttribute("year", statisticService.getTotalByYear());
+        model.addAttribute("total", statisticService.getTotalOrders());
         return "/admin/admin-main";
+    }
+
+    @RequestMapping("/product")
+    public String productlist(Model model) {
+        model.addAttribute("product", productService.getAllProductList());
+        return "/admin/product";
+    }
+
+    @RequestMapping("/register")
+    public String registerProduct(int productNo, Model model) {
+        model.addAttribute("product", productService.)
+        return "/admin/product-register";
     }
 }

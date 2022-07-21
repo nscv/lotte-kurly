@@ -12,4 +12,5 @@ public interface StatisticService {
     List<TotalOrderDto> getTotalByDate();
     List<TotalOrderDto> getTotalByYear();
     List<TotalOrderDto> getTotalByMonth();
+    int getTotalOrders();
 }

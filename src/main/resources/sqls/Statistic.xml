@@ -20,13 +20,13 @@
     <select id="selectPricesByAge" resultType="com.lotte.admin.dto.UserAgeDto">
         SELECT
             CASE
-                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 0 AND 10 THEN '0'
-                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 10 AND 20 THEN '10'
-                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 20 AND 30 THEN '20'
-                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 30 AND 40 THEN '30'
-                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 40 AND 50 THEN '40'
-                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 50 AND 60 THEN '50'
-                ELSE '60'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 0 AND 10 THEN '10살 이하'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 10 AND 20 THEN '10대'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 20 AND 30 THEN '20대'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 30 AND 40 THEN '30대'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 40 AND 50 THEN '40대'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 50 AND 60 THEN '50대'
+                ELSE '60대'
                 END AS userAge,
             COUNT(*) AS cnt,
             SUM(o.order_total_price) AS total
@@ -55,5 +55,10 @@
         FROM orders
         GROUP BY DATE_FORMAT(created_at, '%m')
         HAVING created_at = DATE_FORMAT(NOW(), '%m')
+    </select>
+    <select id="selectTotalOrders" resultType="Integer">
+        SELECT COUNT(*)
+        FROM orders
+        WHERE order_state >= 2;
     </select>
 </mapper>

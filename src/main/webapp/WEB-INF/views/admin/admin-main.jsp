@@ -17,6 +17,7 @@
     List<TotalOrderDto> orderList = (List<TotalOrderDto>)request.getAttribute("date");
     List<TotalOrderDto> monthList = (List<TotalOrderDto>)request.getAttribute("month");
     List<TotalOrderDto> yearList = (List<TotalOrderDto>)request.getAttribute("year");
+    int total = (int)request.getAttribute("total");
 %>
 <html>
 <head>
@@ -32,11 +33,10 @@
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/admin.css">
     <script type="text/css">
-        @font-face {
-            font-family: nanum gothic;
-            font-style: normal;
-            font-weight: 400;
-            src: local('Nanum Gothic'),url(https://res.kurly.com/fonts/NanumGothic-Regular.woff2) format('woff2'),url(https://res.kurly.com/fonts/NanumGothic-Regular.woff) format('woff'),url(https://res.kurly.com/fonts/NanumGothic-Regular.otf) format('opentype')
+        @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+        body {
+            font-family: "Noto Sans KR", sans-serif;
         }
         #container-age {
             height: 400px;
@@ -179,39 +179,56 @@
             </div>
         </div>
         <div style="padding: 0px;">
-            <div id="admin-header" style="height: 150px;">
-            </div>
             <div id="admin-main" style="background-color: #E2E2E2;">
                 <div id="static-container">
-                    <table>
-                        <col width="5px"><col width="300px"><col width="5px"><col width="350px">
+                    <h2 style="padding: 40px 50px">Dashboard</h2>
+                    <table style="margin-left: 50px;">
+                        <col width="5px"><col width="465px"><col width="5px"><col width="465px"><col width="5px"><col width="465px">
                         <tr>
                             <td style="background-color: #525AF2">
                             </td>
                             <td>
-                                <div id="month" style="margin: 0px; width: 150px; border: 1px solid #929292">
+                                <div id="month" style="margin: 0px; height: 100px; width: 350px; padding: 15px 50px 30px 50px; border-radius: 0px 10px 10px 0px; background-color: white; box-shadow: 5px 5px #bababa;">
                                     <%
                                         for(TotalOrderDto month : monthList) {
                                     %>
-                                    <%= month.getCreated_at() %>
-                                    <%=month.getTotal()%>
+                                    <small>
+                                        <p style="color: #525AF2; margin: 0px; font-size: 12px;"> EARNINGS (MONTHLY)</p>
+                                        <%= month.getCreated_at() %>월 매출액<br/>
+                                    </small>
+                                    <p style="font-size: 20px;"><%=month.getTotal()%>원</p>
                                     <%
                                         }
                                     %>
                                 </div>
                             </td>
-                            <td style="background-color: #525AF2">
+                            <td style="background-color: #777DF2">
                             </td>
                             <td>
-                                <div id="year" style="margin: 0px; width: 150px; border: 1px solid rgb(28, 200, 138)">
+                                <div id="year" style="margin: 0px; height: 100px; width: 350px; padding: 15px 50px 30px 50px; border-radius: 0px 10px 10px 0px; background-color: white; box-shadow: 5px 5px #bababa;">
                                     <%
                                         for(TotalOrderDto year : yearList) {
                                     %>
-                                    <%= year.getCreated_at() %>
-                                    <%=year.getTotal()%>
+                                    <small>
+                                        <p style="color: #777DF2; margin: 0px; font-size: 12px;"> EARNINGS (ANNUAL)</p>
+                                        <%= year.getCreated_at() %>월 매출액<br/>
+                                    </small>
+                                    <p style="font-size: 20px;"><%=year.getTotal()%>원</p>
                                     <%
                                         }
                                     %>
+                                </div>
+                            </td>
+                            <td style="background-color: #BBBDF2">
+                            </td>
+                            <td>
+                                <div id="order" style="margin: 0px; height: 100px; width: 350px; padding: 15px 50px 30px 50px; border-radius: 0px 10px 10px 0px; background-color: white; box-shadow: 5px 5px #bababa;">
+
+                                    <small>
+                                        <p style="color: #BBBDF2; margin: 0px; font-size: 12px;"> EARNINGS (ANNUAL)</p>
+                                        총 주문 수<br/>
+                                    </small>
+                                    <p style="font-size: 20px;"><%=total %></p>
                                 </div>
                             </td>
                         </tr>
@@ -238,8 +255,8 @@
                 </table>
             </div>
         </div>
-<%--    </div>--%>
-<%--</div>--%>
+    </div>
+</div>
 <script type="text/javascript">
     Highcharts.chart('container-date', {
         chart: {

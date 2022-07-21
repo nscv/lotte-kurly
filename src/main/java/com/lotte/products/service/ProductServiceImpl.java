@@ -38,6 +38,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductImgCategoryDto> productImgCategorylist(String productNo) { return productDao.productImgCategorylist(productNo);}
 
+    @Override
+    public List<ProductListDto> getAllProductList() {
+        return productDao.selectAllProductList();
+    }
+
     public List<ProductListDto>productHighList(String category){
         return productDao.productHighList(category);
     }
