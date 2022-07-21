@@ -14,4 +14,5 @@ public interface StatisticDao {
     List<TotalOrderDto> selectTotalByDate();
     List<TotalOrderDto> selectTotalByYear();
     List<TotalOrderDto> selectTotalByMonth();
+    int selectTotalOrders();
 }
