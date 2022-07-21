@@ -11,6 +11,7 @@ public class CartItem {
     private String productImgNewName; // 상품 이미지
     private String cartItemCount; // 장바구니 아이템 개수
     private String cartItemTotalPrice; // 장바구니 아이템 총 가격
+    private String cartItemDiscountPrice; // 장바구니 아이템 할인된 가격
 
     public void setCartItemNo(Integer cartItemNo) {
         this.cartItemNo = cartItemNo;
@@ -40,6 +41,10 @@ public class CartItem {
         this.cartItemTotalPrice = cartItemTotalPrice;
     }
 
+    public void setCartItemDiscountPrice(String cartItemDiscountPrice) {
+        this.cartItemDiscountPrice = cartItemDiscountPrice;
+    }
+
     public Integer getCartItemNo() {
         return cartItemNo;
     }
@@ -66,5 +71,9 @@ public class CartItem {
 
     public String getCartItemTotalPrice() {
         return cartItemTotalPrice;
+    }
+
+    public String getCartItemDiscountPrice() {
+        return cartItemDiscountPrice;
     }
 }
