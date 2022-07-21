@@ -10,7 +10,7 @@ public interface UserDao {
 
     int insertuser(String email);
 
-    UserDto selectuser(String email);
+    UserDto selectuser(int userNo);
 
     int checkvalid(String email);
 

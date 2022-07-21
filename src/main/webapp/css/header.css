@@ -112,7 +112,7 @@ ul {
     float: left;
     width: 16px;
     height: 14px;
-    margin: 8px 0 0 60px;
+    margin: 8px 0 0 0px;
     background: url("../front/images/menu.png") no-repeat;
     background-size: 15px;
 }
@@ -129,7 +129,7 @@ ul {
 .menu-item a {
     overflow: hidden;
     float: left;
-    width: 200px;
+    width: 180px;
     height: 55px;
     padding: 0;
     font-size: 16px;

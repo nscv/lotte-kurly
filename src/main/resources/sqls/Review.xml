@@ -3,9 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lotte.reviews.dao.ReviewDao">
-    <select id="reviewList" resultType="com.lotte.reviews.dto.ReviewDto">
-        SELECT r.review_no, r.review_rate, r.review_content, u.user_nickname
-        FROM reviews r, users u
-        WHERE r.user_no = u.user_no
+    <select id="ReviewList" resultType="com.lotte.reviews.dto.ReviewDto">
+        SELECT R1.REVIEW_NO          AS reviewNo
+             , R1.USER_NO            AS userNo
+             , R3.USER_NICKNAME      AS userName
+             , R1.REVIEW_CONTENT     AS reviewContent
+             , R1.REVIEW_CREATED_AT  AS reviewCreated_at
+             , R1.REVIEW_MODIFIED_AT AS reviewModified_at
+             , R1.REVIEW_RATE        AS reviewRate
+             , R1.PRODUCT_NO         AS productNo
+             , R1.REVIEW_TITLE       AS reviewTitle
+             , R2.LIKES              AS likeCnt
+        FROM reviews R1
+                 INNER JOIN (SELECT REVIEW_NO, COUNT(*) AS LIKES
+                             FROM review_likes
+                             GROUP BY REVIEW_NO) R2 ON R1.REVIEW_NO = R2.REVIEW_NO
+                 INNER JOIN users R3 ON R1.USER_NO = R3.USER_NO;
     </select>
 </mapper>

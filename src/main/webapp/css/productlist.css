@@ -37,8 +37,9 @@ div {
     letter-spacing: 0;
 }
 
-.title {
+.inner-title .category-title {
     padding-top: 23px;
+    margin-bottom: 30px;
     font-weight: 700;
     font-size: 28px;
     color: #333;
@@ -135,7 +136,7 @@ div {
 }
 
 .list-goods .thumb .cart-btn {
-    background: url(cart-btn.png) no-repeat 50% 50%;
+    background: url(../front/images/cart-btn.png) no-repeat 50% 50%;
     background-size: 45px 45px;
 }
 

@@ -1,90 +1,126 @@
 package com.lotte.reviews.dto;
 
 public class ReviewDto {
-    private int review_no;
-    private int user_no;
-    private int product_no;
-    private String review_content;
-    private String review_created_at;
-    private String review_modified_at;
-    private int review_rate;
+    private int reviewNo;
+    private int userNo;
+    private String userName;
+    private String reviewContent;
+    private String reviewCreated_at;
+    private String reviewModified_at;
+    private int reviewRate;
+    private int productNo;
+    private String reviewTitle;
+    private int likeCnt;
 
-    public int getReview_no() {
-        return review_no;
+    public ReviewDto() {
     }
 
-    public void setReview_no(int review_no) {
-        this.review_no = review_no;
+    public ReviewDto(int reviewNo, int userNo, String userName, String reviewContent, String reviewCreated_at, String reviewModified_at, int reviewRate, int productNo, String reviewTitle, int likeCnt) {
+        this.reviewNo = reviewNo;
+        this.userNo = userNo;
+        this.userName = userName;
+        this.reviewContent = reviewContent;
+        this.reviewCreated_at = reviewCreated_at;
+        this.reviewModified_at = reviewModified_at;
+        this.reviewRate = reviewRate;
+        this.productNo = productNo;
+        this.reviewTitle = reviewTitle;
+        this.likeCnt = likeCnt;
     }
 
-    public int getUser_no() {
-        return user_no;
+    public int getReviewNo() {
+        return reviewNo;
     }
 
-    public void setUser_no(int user_no) {
-        this.user_no = user_no;
+    public void setReviewNo(int reviewNo) {
+        this.reviewNo = reviewNo;
     }
 
-    public int getProduct_no() {
-        return product_no;
+    public int getUserNo() {
+        return userNo;
     }
 
-    public void setProduct_no(int product_no) {
-        this.product_no = product_no;
+    public void setUserNo(int userNo) {
+        this.userNo = userNo;
     }
 
-    public String getReview_content() {
-        return review_content;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setReview_content(String review_content) {
-        this.review_content = review_content;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getReview_created_at() {
-        return review_created_at;
+    public String getReviewContent() {
+        return reviewContent;
     }
 
-    public void setReview_created_at(String review_created_at) {
-        this.review_created_at = review_created_at;
+    public void setReviewContent(String reviewContent) {
+        this.reviewContent = reviewContent;
     }
 
-    public String getReview_modified_at() {
-        return review_modified_at;
+    public String getReviewCreated_at() {
+        return reviewCreated_at;
     }
 
-    public void setReview_modified_at(String review_modified_at) {
-        this.review_modified_at = review_modified_at;
+    public void setReviewCreated_at(String reviewCreated_at) {
+        this.reviewCreated_at = reviewCreated_at;
     }
 
-    public int getReview_rate() {
-        return review_rate;
+    public String getReviewModified_at() {
+        return reviewModified_at;
     }
 
-    public void setReview_rate(int review_rate) {
-        this.review_rate = review_rate;
+    public void setReviewModified_at(String reviewModified_at) {
+        this.reviewModified_at = reviewModified_at;
     }
 
-    public ReviewDto(int review_no, int user_no, int product_no, String review_title, String review_content, String review_created_at, String review_modified_at, int review_rate) {
-        this.review_no = review_no;
-        this.user_no = user_no;
-        this.product_no = product_no;
-        this.review_content = review_content;
-        this.review_created_at = review_created_at;
-        this.review_modified_at = review_modified_at;
-        this.review_rate = review_rate;
+    public int getReviewRate() {
+        return reviewRate;
+    }
+
+    public void setReviewRate(int reviewRate) {
+        this.reviewRate = reviewRate;
+    }
+
+    public int getProductNo() {
+        return productNo;
+    }
+
+    public void setProductNo(int productNo) {
+        this.productNo = productNo;
+    }
+
+    public String getReviewTitle() {
+        return reviewTitle;
+    }
+
+    public void setReviewTitle(String reviewTitle) {
+        this.reviewTitle = reviewTitle;
+    }
+
+    public int getLikeCnt() {
+        return likeCnt;
+    }
+
+    public void setLikeCnt(int likeCnt) {
+        this.likeCnt = likeCnt;
     }
 
     @Override
     public String toString() {
         return "ReviewDto{" +
-                "review_no=" + review_no +
-                ", user_no=" + user_no +
-                ", product_no=" + product_no +
-                ", review_content='" + review_content + '\'' +
-                ", review_created_at='" + review_created_at + '\'' +
-                ", review_modified_at='" + review_modified_at + '\'' +
-                ", review_rate=" + review_rate +
+                "reviewNo=" + reviewNo +
+                ", userNo=" + userNo +
+                ", userName='" + userName + '\'' +
+                ", reviewContent='" + reviewContent + '\'' +
+                ", reviewCreated_at='" + reviewCreated_at + '\'' +
+                ", reviewModified_at='" + reviewModified_at + '\'' +
+                ", reviewRate=" + reviewRate +
+                ", productNo=" + productNo +
+                ", reviewTitle='" + reviewTitle + '\'' +
+                ", likeCnt=" + likeCnt +
                 '}';
     }
 }

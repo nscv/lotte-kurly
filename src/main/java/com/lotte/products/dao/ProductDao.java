@@ -15,8 +15,9 @@ public interface ProductDao {
     List<ProductListDto> productList(String category);
     List<ProductListDto>productLowList(String category);
     List<ProductListDto>productHighList(String category);
-    List<ProductImgCategoryDto>productImgCategorylist(String productNo);
+    ProductImgCategoryDto productImgCategorylist(String productNo);
     void insertProducts(ProductDto product);
     void updateProducts(ProductDto product);
     ProductListDto selectProductByProductNo(int productNo);
+    String selectProductDetail(String productNo);
 }
