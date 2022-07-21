@@ -19,4 +19,5 @@ public interface ProductDao {
     void insertProducts(ProductDto product);
     void updateProducts(ProductDto product);
     ProductListDto selectProductByProductNo(int productNo);
+    String selectProductDetail(String productNo);
 }
