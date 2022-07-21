@@ -1,5 +1,8 @@
 package com.lotte.products.controller;
 
+import com.lotte.admin.dto.ProductCategoryDto;
+import com.lotte.admin.dto.UserAgeDto;
+import com.lotte.admin.dto.UserGenderDto;
 import com.lotte.admin.service.StatisticService;
 import com.lotte.categories.service.CategoryService;
 import com.lotte.products.dto.*;
