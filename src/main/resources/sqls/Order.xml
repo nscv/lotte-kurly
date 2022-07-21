@@ -61,4 +61,16 @@
         WHERE product_nos.product_no = p.product_no
     </select>
 
+    <select id="selectEnoughStock" parameterType="java.util.List" resultType="com.lotte.orders.exception.NotEnoughStocks">
+
+    </select>
+
+    <select id="insertOrder">
+
+    </select>
+
+    <insert id="">
+
+    </insert>
+
 </mapper>

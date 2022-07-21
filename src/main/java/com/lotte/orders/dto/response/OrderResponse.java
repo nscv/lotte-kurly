@@ -80,6 +80,7 @@ public class OrderResponse {
         }
     }
 
+    /* 주문서 DTO */
     public static class OrderSheetDto {
 
         private List<OrderCartItem> orderCartItems;
@@ -117,6 +118,24 @@ public class OrderResponse {
 
         public void setOrderTotalPrice(Integer orderTotalPrice) {
             this.orderTotalPrice = orderTotalPrice;
+        }
+    }
+
+    /* 주문 생성 DTO */
+    public static class CreateOrderDto {
+
+        private Integer orderNo;
+
+        public CreateOrderDto(Integer orderNo) {
+            this.orderNo = orderNo;
+        }
+
+        public Integer getOrderNo() {
+            return orderNo;
+        }
+
+        public void setOrderNo(Integer orderNo) {
+            this.orderNo = orderNo;
         }
     }
 
