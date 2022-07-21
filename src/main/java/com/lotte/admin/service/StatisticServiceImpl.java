@@ -1,10 +1,7 @@
 package com.lotte.admin.service;
 
 import com.lotte.admin.dao.StatisticDao;
-import com.lotte.admin.dto.ProductCategoryDto;
-import com.lotte.admin.dto.UserAgeDto;
-import com.lotte.admin.dto.UserGenderDto;
-import com.lotte.admin.dto.UserGradeDto;
+import com.lotte.admin.dto.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,5 +33,20 @@ public class StatisticServiceImpl implements StatisticService {
     @Override
     public List<UserGradeDto> getUsersByUserGrade() {
         return statisticDao.selectUsersByUserGrade();
+    }
+
+    @Override
+    public List<TotalOrderDto> getTotalByDate() {
+        return statisticDao.selectTotalByDate();
+    }
+
+    @Override
+    public List<TotalOrderDto> getTotalByYear() {
+        return statisticDao.selectTotalByYear();
+    }
+
+    @Override
+    public List<TotalOrderDto> getTotalByMonth() {
+        return statisticDao.selectTotalByMonth();
     }
 }

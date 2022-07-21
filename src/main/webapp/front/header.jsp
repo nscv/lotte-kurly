@@ -10,13 +10,16 @@
 <html>
 <head>
     <title>Header</title>
-    <%--<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>--%>
-<%--    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">--%>
-
-<%--    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>--%>
-<%--    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>--%>
-<%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>--%>
-<%--    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>--%>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <%-- 카카오 로그인 --%>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <%-- ajax --%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <%-- sweetalert --%>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/header.css">
 </head>
 <body>
@@ -105,27 +108,28 @@
                 <a href=""><span class="txt">베스트 상품</span></a>
             </li>
             <li class="menu3">
-                <a href="javascript:addprofile();"> <span class="txt">주문 내역</span></a>
+                <a href=""> <span class="txt">주문 내역</span></a>
+            </li>
+            <li class="menu4">
+                <a href=""> <span class="txt">마이페이지</span></a>
             </li>
             <%
                 if(userno.equals("-1")){
             %>
-            <li class="menu4">
+            <li class="menu5">
                 <a href="javascript:loginWithKakao();"><span class="txt">로그인 | 회원가입</span></a>
             </li>
             <%
                 }else {
             %>
-            <li class="menu4">
+            <li class="menu5">
                 <a href="javascript:kakaoLogout();"><span class="txt">로그아웃</span></a>
             </li>
             <%
                 }
             %>
-
-
-            <li class="menu5">
-                <a href=""><input type="image" src="/front/images/cart.png" class="cart-btn"></a>
+            <li class="menu6">
+                <a href="" style="width: 100px;"><input type="image" src="/front/images/cart.png" class="cart-btn"></a>
             </li>
         </ul>
 
