@@ -58,6 +58,8 @@ public class ProductPageController {
 
     @GetMapping("/productdetail")
     public String ProductDetail(Model model,String productNo){
+        ProductImgCategoryDto dto = productService.productImgCategorylist(productNo);
+        model.addAttribute("dto",dto);
         return "product/productdetail";
     }
 }
