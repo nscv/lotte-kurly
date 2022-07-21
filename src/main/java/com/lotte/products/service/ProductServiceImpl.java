@@ -1,6 +1,7 @@
 package com.lotte.products.service;
 
 import com.lotte.products.dao.ProductDao;
+import com.lotte.products.dto.ProductBestDto;
 import com.lotte.products.dto.ProductDto;
 import com.lotte.products.dto.ProductImgCategoryDto;
 import com.lotte.products.dto.ProductListDto;
@@ -28,11 +29,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductListDto> productList(String category) {
-        return productDao.productList(category);
+    public List<ProductListDto> productList(ProductListDto productListDto) {
+        return productDao.productList(productListDto);
     }
-    public List<ProductListDto>productLowList(String category){
-        return productDao.productLowList(category);
+    public List<ProductListDto>productLowList(ProductListDto productListDto){
+        return productDao.productLowList(productListDto);
+    }
+    public List<ProductListDto>productHighList(ProductListDto productListDto){
+        return productDao.productHighList(productListDto);
     }
 
     @Override
@@ -43,8 +47,36 @@ public class ProductServiceImpl implements ProductService {
         return productDao.selectAllProductList();
     }
 
-    public List<ProductListDto>productHighList(String category){
-        return productDao.productHighList(category);
+
+    public int searchEndPage(String category){
+        return productDao.serarchEndPage(category);
+    }
+    public List<ProductListDto>productDiscountList(ProductListDto productListDto){
+        return productDao.productDiscountList(productListDto);
+    }
+
+    @Override
+    public List<ProductListDto> productAmountList(ProductListDto productListDto) {
+        return productDao.productAmountList(productListDto);
+    }
+
+    public List<ProductBestDto>productBestList(ProductBestDto productBestDto){
+        return productDao.productBestList(productBestDto);
+    }
+    public int searchBestEndPage(){
+        return productDao.searchBestEndPage();
+    }
+    public List<ProductBestDto>productBestAmountList(ProductBestDto productBestDto){
+        return productDao.productBestAmountList(productBestDto);
+    }
+    public List<ProductBestDto>productBestHighList(ProductBestDto productBestDto){
+        return productDao.productBestHighList(productBestDto);
+    }
+    public List<ProductBestDto>productBestLowList(ProductBestDto productBestDto){
+        return productDao.productBestLowList(productBestDto);
+    }
+    public List<ProductBestDto>productBestDiscountList(ProductBestDto productBestDto){
+        return productDao.productBestDiscountList(productBestDto);
     }
 
     @Override

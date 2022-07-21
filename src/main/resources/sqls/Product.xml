@@ -4,10 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lotte.products.dao.ProductDao">
     <select id="productList" parameterType="com.lotte.products.dto.ProductListDto" resultType="com.lotte.products.dto.ProductListDto">
-        SELECT p.product_no,p.product_name,p.product_price,pi.product_img_new_name,p.product_simple_content
+        SELECT p.product_no,p.product_name,p.product_price,pi.product_img_new_name,p.product_simple_content,CASE WHEN timestampdiff(day, curdate(), p.product_deadline) <![CDATA[ > ]]> 14 THEN 0
+                                                                                                                 ELSE truncate(p.product_price / 2, -2) end as discountPrice
         FROM products p, product_imgs pi
-        where p.product_no=pi.product_no and category_no=#{productCategory}
-
+        WHERE p.product_no=pi.product_no AND p.category_no=#{category}
+        LIMIT #{endPageNo} OFFSET #{pageNo}
     </select>
     <select id="selectAllProductList" resultType="com.lotte.products.dto.ProductListDto">
         SELECT product_no, product_name, product_price, product_deadline, product_amount, product_stock
@@ -29,16 +30,116 @@
         WHERE product_no = #{productNo}
     </update>
     <select id="productLowList" parameterType="com.lotte.products.dto.ProductListDto" resultType="com.lotte.products.dto.ProductListDto">
-        SELECT p.product_no,p.product_name,p.product_price,pi.product_img_new_name,p.product_simple_content
+        SELECT p.product_no,p.product_name,p.product_price,pi.product_img_new_name,p.product_simple_content,CASE WHEN timestampdiff(day, curdate(), product_deadline) > 14 THEN 0
+                                                                                                                 ELSE truncate(product_price / 2, -2) end as discountPrice
         FROM products p, product_imgs pi
-        WHERE p.product_no=pi.product_no and p.category_no=#{productCategory}
-        order by p.product_price
+        WHERE p.product_no=pi.product_no AND p.category_no=#{category}
+        ORDER BY p.product_price
+        LIMIT #{endPageNo} OFFSET #{pageNo}
     </select>
     <select id="productHighList" parameterType="com.lotte.products.dto.ProductListDto"  resultType="com.lotte.products.dto.ProductListDto">
-        SELECT p.product_no,p.product_name,p.product_price,pi.product_img_new_name,p.product_simple_content
+        SELECT p.product_no,p.product_name,p.product_price,pi.product_img_new_name,p.product_simple_content,CASE WHEN timestampdiff(day, curdate(), product_deadline) > 14 THEN 0
+                                                                                                                 ELSE truncate(product_price / 2, -2) end as discountPrice
         FROM products p, product_imgs pi
-        WHERE p.product_no=pi.product_no and p.category_no=#{productCategory}
+        WHERE p.product_no=pi.product_no and p.category_no=#{category}
         order by p.product_price desc
+        LIMIT #{endPageNo} OFFSET #{pageNo}
+    </select>
+    <select id="serarchEndPage" parameterType="String" resultType="Integer">
+        SELECT count(*)
+        FROM products
+        WHERE category_no=#{category}
+    </select>
+    <select id="productDiscountList" parameterType="com.lotte.products.dto.ProductListDto" resultType="com.lotte.products.dto.ProductListDto">
+        SELECT p.product_no,p.product_name,p.product_price,pi.product_img_new_name,p.product_simple_content,truncate(d.product_price / 2, -2)
+        FROM products p, product_imgs pi,(SELECT product_no,product_price
+                                          FROM products
+                                          WHERE timestampdiff(day,curdate(),product_deadline)<![CDATA[ < ]]>14 ) d
+        WHERE p.product_no=pi.product_no AND p.product_no=d.product_no AND p.category_no=#{category}
+        LIMIT #{endPageNo} OFFSET #{pageNo}
+    </select>
+    <select id="productAmountList" parameterType="com.lotte.products.dto.ProductListDto" resultType="com.lotte.products.dto.ProductListDto">
+        SELECT p.product_no,p.product_name,p.product_price,pi.product_img_new_name,p.product_simple_content,CASE WHEN timestampdiff(day, curdate(), product_deadline) > 14 THEN 0
+                                                                                                                 ELSE truncate(product_price / 2, -2) end as discountPrice
+        FROM products p, product_imgs pi
+        WHERE p.product_no=pi.product_no AND p.category_no=#{category}
+        ORDER BY p.product_amount desc
+        LIMIT #{endPageNo} OFFSET #{pageNo}
+    </select>
+    <select id="productBestList" parameterType="com.lotte.products.dto.ProductBestDto" resultType="com.lotte.products.dto.ProductBestDto">
+        SELECT *
+        FROM (
+                SELECT p.product_no,product_name,p.product_price,pi.product_img_new_name,p.product_simple_content, CASE WHEN timestampdiff(day,curdate(),product_deadline)>14 THEN 0
+                                                                                                                    ELSE truncate(product_price/2,-2) END discountPrice,
+                    ROW_NUMBER() OVER(PARTITION BY p.category_no ORDER BY product_amount desc) as RN
+                FROM products p, product_imgs pi
+                WHERE p.product_no=pi.product_no
+             ) RANKING
+        WHERE RANKING.RN <![CDATA[ <= ]]>5
+        LIMIT #{endPageNo} OFFSET #{pageNo}
+    </select>
+    <select id="searchBestEndPage" resultType="Integer">
+        SELECT COUNT(*)
+        FROM (
+                 SELECT p.product_no,product_name,p.product_price,pi.product_img_new_name,p.product_simple_content, CASE WHEN timestampdiff(day,curdate(),product_deadline)>14 THEN 0
+                                                                                                                         ELSE truncate(product_price/2,-2) END discountPrice,
+                        ROW_NUMBER() OVER(PARTITION BY p.category_no ORDER BY product_amount desc) as RN
+                 FROM products p, product_imgs pi
+                 WHERE p.product_no=pi.product_no
+             ) RANKING
+        WHERE RANKING.RN <![CDATA[ <= ]]>5
+    </select>
+    <select id="productBestDiscountList" parameterType="com.lotte.products.dto.ProductBestDto" resultType="com.lotte.products.dto.ProductBestDto">
+        SELECT *
+        FROM (
+                 SELECT p.product_no,product_name,p.product_price,pi.product_img_new_name,p.product_simple_content,truncate(d.product_price / 2, -2),
+                        ROW_NUMBER() OVER(PARTITION BY p.category_no ORDER BY p.product_amount desc)  RN
+                 FROM products p, product_imgs pi,(SELECT product_no,product_price
+                                                    FROM products
+                                                     WHERE timestampdiff(day,curdate(),product_deadline)<![CDATA[ < ]]>14 ) d
+                 WHERE p.product_no=pi.product_no AND p.product_no=d.product_no
+             ) RANKING
+        WHERE RANKING.RN <![CDATA[ <= ]]>5
+        LIMIT #{endPageNo} OFFSET #{pageNo}
+    </select>
+    <select id="productBestLowList" parameterType="com.lotte.products.dto.ProductBestDto" resultType="com.lotte.products.dto.ProductBestDto">
+        SELECT *
+        FROM (
+                 SELECT p.product_no,product_name,p.product_price,pi.product_img_new_name,p.product_simple_content, CASE WHEN timestampdiff(day,curdate(),product_deadline)>14 THEN 0
+                                                                                                                         ELSE truncate(product_price/2,-2) END discountPrice,
+                        ROW_NUMBER() OVER(PARTITION BY p.category_no ORDER BY product_amount desc) as RN
+                 FROM products p, product_imgs pi
+                 WHERE p.product_no=pi.product_no
+             ) RANKING
+        WHERE RANKING.RN <![CDATA[ <= ]]>5
+        ORDER BY product_price
+        LIMIT #{endPageNo} OFFSET #{pageNo}
+    </select>
+    <select id="productBestHighList" parameterType="com.lotte.products.dto.ProductBestDto" resultType="com.lotte.products.dto.ProductBestDto">
+        SELECT *
+        FROM (
+                 SELECT p.product_no,product_name,p.product_price,pi.product_img_new_name,p.product_simple_content, CASE WHEN timestampdiff(day,curdate(),product_deadline)>14 THEN 0
+                                                                                                                         ELSE truncate(product_price/2,-2) END discountPrice,
+                        ROW_NUMBER() OVER(PARTITION BY p.category_no ORDER BY product_amount desc) as RN
+                 FROM products p, product_imgs pi
+                 WHERE p.product_no=pi.product_no
+             ) RANKING
+        WHERE RANKING.RN <![CDATA[ <= ]]>5
+        ORDER BY product_price DESC
+        LIMIT #{endPageNo} OFFSET #{pageNo}
+    </select>
+    <select id="productBestAmountList" parameterType="com.lotte.products.dto.ProductBestDto" resultType="com.lotte.products.dto.ProductBestDto">
+        SELECT RANKING.product_no,RANKING.product_name,RANKING.product_price,RANKING.product_img_new_name,RANKING.product_simple_content,RANKING.discountPrice, RN
+        FROM (
+                 SELECT p.product_no,product_name,p.product_price,pi.product_img_new_name,p.product_simple_content, CASE WHEN timestampdiff(day,curdate(),product_deadline)>14 THEN 0
+                                                                                                                         ELSE truncate(product_price/2,-2) END discountPrice,
+                        ROW_NUMBER() OVER(PARTITION BY p.category_no ORDER BY product_amount desc) as RN
+                 FROM products p, product_imgs pi
+                 WHERE p.product_no=pi.product_no
+             ) RANKING, products p2
+        WHERE RANKING.RN <![CDATA[ <= ]]>5 AND RANKING.product_no = p2.product_no
+        ORDER BY p2.product_amount DESC
+        LIMIT #{endPageNo} OFFSET #{pageNo}
     </select>
     <select id="productImgCategorylist" parameterType="String" resultType="com.lotte.products.dto.ProductImgCategoryDto">
         SELECT DISTINCT P1.PRODUCT_NO AS productNo,
