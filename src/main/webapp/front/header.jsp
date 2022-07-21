@@ -125,7 +125,7 @@
 
 
             <li class="menu5">
-                <a href=""><input type="image" src="/front/images/cart.png" class="cart-btn"></a>
+                <a href="/cart"><input type="image" src="/front/images/cart.png" class="cart-btn"></a>
             </li>
         </ul>
 
@@ -135,8 +135,8 @@
 
 <%-- 카카오 초기화 --%>
 <script type="text/javascript">
-    Kakao.init('8c4fa2c21bc60a51d0d78927368eb06d');
-    Kakao.isInitialized();
+    // Kakao.init('8c4fa2c21bc60a51d0d78927368eb06d');
+    // Kakao.isInitialized();
 </script>
 
 <%-- 카카오 로그인 --%>
