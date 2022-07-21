@@ -76,6 +76,7 @@ img {
 .SectionTitle {
     width: 1050px;
     margin: auto;
+    padding-top: 10px;
 }
 
 .grey-hr {
@@ -85,47 +86,6 @@ img {
     margin-bottom: 50px;
 }
 
-.list-goods .thumb .btn {
-    display: block;
-    width: 45px;
-    height: 45px;
-    margin-top: 15px;
-    border: 0;
-}
-
-.list-goods .thumb .cart-btn {
-    background: url(cart-btn.png) no-repeat 50% 50%;
-    background-size: 45px 45px;
-}
-
-.list-goods .thumb .group-btn {
-    position: absolute;
-    z-index: 2;
-    right: 15px;
-    bottom: 15px;
-    width: 45px;
-}
-
-.group-btn {
-    overflow: hidden;
-    /*width: 100%;*/
-    text-align: center;
-}
-
-.group-btn .btn {
-    overflow: hidden;
-    float: left;
-    width: 150px;
-    height: 42px;
-    font-size: 13px;
-    line-height: 40px;
-    text-align: center;
-}
-
-button {
-    outline: none;
-    cursor: pointer;
-}
 
 
 /* 음 */
@@ -193,8 +153,8 @@ button {
 .group-btn .btn {
     overflow: hidden;
     float: left;
-    width: 150px;
-    height: 42px;
+    width: 45px;
+    height: 45px;
     font-size: 13px;
     line-height: 40px;
     text-align: center;
