@@ -12,4 +12,6 @@ public interface StatisticDao {
     List<UserAgeDto> selectPricesByAge();
     List<UserGradeDto> selectUsersByUserGrade();
     List<TotalOrderDto> selectTotalByDate();
+    List<TotalOrderDto> selectTotalByYear();
+    List<TotalOrderDto> selectTotalByMonth();
 }

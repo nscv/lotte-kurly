@@ -15,6 +15,8 @@
     List<UserGenderDto> genderList = (List<UserGenderDto>)request.getAttribute("gender");
     List<ProductCategoryDto> categoryList = (List<ProductCategoryDto>)request.getAttribute("category");
     List<TotalOrderDto> orderList = (List<TotalOrderDto>)request.getAttribute("date");
+    List<TotalOrderDto> monthList = (List<TotalOrderDto>)request.getAttribute("month");
+    List<TotalOrderDto> yearList = (List<TotalOrderDto>)request.getAttribute("year");
 %>
 <html>
 <head>
@@ -178,9 +180,43 @@
         </div>
         <div style="padding: 0px;">
             <div id="admin-header" style="height: 150px;">
-
             </div>
             <div id="admin-main" style="background-color: #E2E2E2;">
+                <div id="static-container">
+                    <table>
+                        <col width="5px"><col width="300px"><col width="5px"><col width="350px">
+                        <tr>
+                            <td style="background-color: #525AF2">
+                            </td>
+                            <td>
+                                <div id="month" style="margin: 0px; width: 150px; border: 1px solid #929292">
+                                    <%
+                                        for(TotalOrderDto month : monthList) {
+                                    %>
+                                    <%= month.getCreated_at() %>
+                                    <%=month.getTotal()%>
+                                    <%
+                                        }
+                                    %>
+                                </div>
+                            </td>
+                            <td style="background-color: #525AF2">
+                            </td>
+                            <td>
+                                <div id="year" style="margin: 0px; width: 150px; border: 1px solid rgb(28, 200, 138)">
+                                    <%
+                                        for(TotalOrderDto year : yearList) {
+                                    %>
+                                    <%= year.getCreated_at() %>
+                                    <%=year.getTotal()%>
+                                    <%
+                                        }
+                                    %>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
                 <table>
                     <tr>
                         <td>
@@ -282,7 +318,7 @@
 
     const genderChart = Highcharts.chart('container-gender', {
         title: {
-            text: '성별 별 구매 금액'
+            text: '성별 구매 금액'
         },
         xAxis: {
             categories: [

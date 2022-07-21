@@ -23,17 +23,11 @@ public class AdminPageController {
     @RequestMapping("/main")
     public String main(Model model) {
         model.addAttribute("category", statisticService.getProductCountByCategory());
-        System.out.println("CATEGORY");
-        statisticService.getProductCountByCategory().forEach(System.out::println);
-        model.addAttribute("age", statisticService.getPriceByAge());
-        System.out.println("AGE");
-        statisticService.getPriceByAge().forEach(System.out::println);
         model.addAttribute("gender", statisticService.getPricesByGender());
-        System.out.println("GENDER");
-        statisticService.getPricesByGender().forEach(System.out::println);
-        System.out.println("DATE");
-        statisticService.getTotalByDate().forEach(System.out::println);
         model.addAttribute("date", statisticService.getTotalByDate());
+        model.addAttribute("age", statisticService.getPriceByAge());
+        model.addAttribute("month", statisticService.getTotalByMonth());
+        model.addAttribute("year", statisticService.getTotalByYear());
         return "/admin/admin-main";
     }
 }

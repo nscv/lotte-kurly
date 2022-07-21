@@ -39,4 +39,14 @@ public class StatisticServiceImpl implements StatisticService {
     public List<TotalOrderDto> getTotalByDate() {
         return statisticDao.selectTotalByDate();
     }
+
+    @Override
+    public List<TotalOrderDto> getTotalByYear() {
+        return statisticDao.selectTotalByYear();
+    }
+
+    @Override
+    public List<TotalOrderDto> getTotalByMonth() {
+        return statisticDao.selectTotalByMonth();
+    }
 }
