@@ -1,7 +1,7 @@
 package com.lotte.admin.dto;
 
 public class UserAgeDto {
-    private int userAge;
+    private String userAge;
     private int cnt;
     private int total;
 
@@ -22,11 +22,11 @@ public class UserAgeDto {
                 '}';
     }
 
-    public int getUserAge() {
+    public String getUserAge() {
         return userAge;
     }
 
-    public void setUserAge(int userAge) {
+    public void setUserAge(String userAge) {
         this.userAge = userAge;
     }
 
@@ -38,7 +38,7 @@ public class UserAgeDto {
         this.cnt = cnt;
     }
 
-    public UserAgeDto(int userAge, int cnt) {
+    public UserAgeDto(String userAge, int cnt) {
         this.userAge = userAge;
         this.cnt = cnt;
     }

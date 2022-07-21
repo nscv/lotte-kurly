@@ -10,6 +10,10 @@
         WHERE p.product_no=pi.product_no AND p.category_no=#{category}
         LIMIT #{endPageNo} OFFSET #{pageNo}
     </select>
+    <select id="selectAllProductList" resultType="com.lotte.products.dto.ProductListDto">
+        SELECT product_no, product_name, product_price, product_deadline, product_amount, product_stock
+        FROM products
+    </select>
     <select id="selectProductByProductNo" resultType="com.lotte.products.dto.ProductListDto" parameterType="Integer">
         SELECT product_no, product_name, product_price, product_deadline, product_amount, product_stock
         FROM products

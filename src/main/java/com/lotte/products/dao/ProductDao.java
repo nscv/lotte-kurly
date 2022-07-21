@@ -13,6 +13,7 @@ import java.util.List;
 
 @Mapper
 public interface ProductDao {
+    List<ProductListDto> selectAllProductList();
     List<ProductListDto> productList(ProductListDto productListDto);
     List<ProductListDto>productLowList(ProductListDto productListDto);
     List<ProductListDto>productHighList(ProductListDto productListDto);

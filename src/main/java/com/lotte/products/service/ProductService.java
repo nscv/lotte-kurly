@@ -10,19 +10,20 @@ import java.util.List;
 public interface ProductService {
     void insertProducts(ProductDto dto);
     void updateProducts(ProductDto dto);
-    public ProductImgCategoryDto productImgCategorylist(String productNo);
+    ProductImgCategoryDto productImgCategorylist(String productNo);
+    List<ProductListDto> getAllProductList();
     String getProductDetail(String productNo);
-    public List<ProductListDto> productList(ProductListDto productListDto);
-    public List<ProductListDto> productHighList(ProductListDto productListDto);
-    public List<ProductListDto> productLowList(ProductListDto productListDto);
-    public int searchEndPage(String category);
+    List<ProductListDto> productList(ProductListDto productListDto);
+    List<ProductListDto> productHighList(ProductListDto productListDto);
+    List<ProductListDto> productLowList(ProductListDto productListDto);
+    int searchEndPage(String category);
     List<ProductListDto>productDiscountList(ProductListDto productListDto);
-    public List<ProductListDto> productAmountList(ProductListDto productListDto);
+    List<ProductListDto> productAmountList(ProductListDto productListDto);
 
-    public List<ProductBestDto> productBestList(ProductBestDto productBestDto);
-    public int searchBestEndPage();
-    public List<ProductBestDto>productBestAmountList(ProductBestDto productBestDto);
-    public List<ProductBestDto>productBestHighList(ProductBestDto productBestDto);
-    public List<ProductBestDto>productBestLowList(ProductBestDto productBestDto);
-    public List<ProductBestDto>productBestDiscountList(ProductBestDto productBestDto);
+    List<ProductBestDto> productBestList(ProductBestDto productBestDto);
+    int searchBestEndPage();
+    List<ProductBestDto>productBestAmountList(ProductBestDto productBestDto);
+    List<ProductBestDto>productBestHighList(ProductBestDto productBestDto);
+    List<ProductBestDto>productBestLowList(ProductBestDto productBestDto);
+    List<ProductBestDto>productBestDiscountList(ProductBestDto productBestDto);
 }
