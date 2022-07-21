@@ -2,9 +2,10 @@
     width: 144px;
     height: 444px;
     position: absolute;
-    top: 50px;
+    top: 26vh;
     right: 130px;
     background-color: #BBBDF2;
+    z-index: 999;
 }
 
 .emptyBox {
