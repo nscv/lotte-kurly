@@ -230,9 +230,19 @@
                             <textarea rows="10" cols="30" name="reviewContent" id="reviewContent"></textarea>
                         </td>
                     </tr>
+                    <th>별점</th>
+                    <td style="text-align: left;">
+                        <select id="star" name='star'>
+                            <option id = "1" value='1' selected>1</option>
+                            <option id = "2" value='2'>2</option>
+                            <option id = "3" value='3'>3</option>
+                            <option id = "4" value='4'>4</option>
+                            <option id = "5" value='5'>5</option>
+                        </select>
+                    </td>
                     <tr align="center">
                         <td colspan="2">
-                            <button type="button" id="reviewWrite" class="reviewWrite" onclick="reviewWrite()">리뷰 쓰기</button>
+                            <button type="button" id="reviewWrite" class="reviewWrite" onclick="reviewInsert();">리뷰 쓰기</button>
                         </td>
                     </tr>
                 </table>
