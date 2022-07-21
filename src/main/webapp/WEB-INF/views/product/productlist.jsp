@@ -7,54 +7,58 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <html>
 <head>
     <title>Title</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="/css/productlist.css">
-</head>
 
+    <script>
+        $(function () {
+            //foodselectlist();
+        });
+
+        function foodlowlist() {
+            $.ajax({
+                url: "productlowlist",
+                type: "get",
+                dataType:"json",
+                error: function (xhr, status, msg) {
+                    alert("상태값: " + status + "에러" + msg);
+                },
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        };
+
+    </script>
+</head>
 <body>
 <jsp:include page="/front/header.jsp"></jsp:include>
-<jsp:include page="/front/nav.jsp"></jsp:include>
-
-<%--
-<div>
-    <td>
-        <div id="select" title="경기를선택하세요">
-            <c:forEach items="${list}" var="m">
-                <div value="${m.productNo}">${m.productName},${m.productPrice}</div>
-            </c:forEach>
-        </div>
-    </td>
-</div>
---%>
-
 <div id="container">
+    <jsp:include page="/front/nav.jsp"></jsp:include>
     <div class="goods">
-
         <div id="goodslist" class="goodslist-box">
             <div class="sort_menu">
                 <div>
-                    <p class="count"><span class="inner-count"> 총 ${total}개 </span></p>
+                    <p class="count"><span class="inner-count"> 총 개 </span></p>
                 </div>
                 <div class="select-type">
                     <ul class="list">
                         <li class>
-                            <a href="/product/list?amount=true&category=${category}&pageNo=0" class="select-asc">판매량 순</a>
+                            <a class="select-sell">판매순</a>
                         </li>
                         <li class>
-                            <a href="/product/list?category=${category}&pageNo=0&discount=true" class="select-asc">할인 품목</a>
+                            <a class="select-review">리뷰순</a>
                         </li>
                         <li class>
-                            <a href="/product/list?low=true&category=${category}&pageNo=0" class="select-asc">낮은 가격순</a>
+                            <a href="/product/lowlist?category=${category}" class="select-asc">낮은 가격순</a>
                         </li>
                         <li class>
-                            <a href="/product/list?high=true&category=${category}&pageNo=0" class="select-desc">높은 가격순</a>
+                            <a href="/product/highlist?category=${category}" class="select-desc">높은 가격순</a>
                         </li>
                     </ul>
                 </div>
@@ -77,13 +81,7 @@
                                 <div class="info">
                                     <span class="name">${m.productName}</span>
                                     <span class="cost">
-                                        <c:if test="${m.discountPrice==0}">
-                                            <span class="price">${m.productPrice}</span>
-                                        </c:if>
-                                        <c:if test="${m.discountPrice!=0}">
-                                            <span style="text-decoration:line-through; color:#999999;">${m.productPrice}</span> →${m.discountPrice}
-                                        </c:if>
-
+                                    <span class="price">${m.productPrice}</span>
                                 </span>
                                     <span class="simple-content">${m.productSimpleContent}</span>
                                 </div>
@@ -92,39 +90,14 @@
                     </c:forEach>
                 </ul>
             </div>
+            <div class="pagediv">
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#"><i class="fa fa-long-arrow-right">[>]</i></a>
+            </div>
         </div>
     </div>
-    <ul class="pagination">
-        <li class="disabled">
-            <a href="/product/list?low=${low}&high=${high}&category=${category}&pageNo=0">
-                <span>«</span>
-            </a>
-        </li>
-        <c:forEach var="i" begin="${startPage}" end="${endPage}">
-        <li><a href="/product/list?low=${low}&high=${high}&category=${category}&pageNo=${i}">${i}</a></li>
-        </c:forEach>
-        <li><a href="/product/list?low=${low}&high=${high}&category=${category}&pageNo=${endPage}"><span>»</span></a></li>
-    </ul>
-
 </div>
-
-<script>
-    //상품 클릭할 수 있는 곳에 전부 넣기
-    function imageDataToNav(id){
-        var imgno = document.getElementById(id).alt
-        var imgsrc = document.getElementById(id).src
-
-        /* localStorage */
-        var arr = localStorage.getItem('list');
-        if( arr == null) { arr = [] } else { arr = JSON.parse(arr)};
-        var str = imgno+'|'+imgsrc;
-
-        arr.unshift(str);
-        arr = new Set(arr);
-        arr = [...arr];
-
-        localStorage.setItem('list',JSON.stringify(arr));
-    }
-</script>
 </body>
 </html>
