@@ -71,15 +71,20 @@
         if (document.getElementById(id).src != "http://localhost:8050/front/images/thumbnail_small.png") {
             var arr = localStorage.getItem('list');
             arr = JSON.parse(arr);
-            location.href = "/product/productdetail?productNo=" + arr[id].split("|")[0];
+            let num =  arr[id].split("|")[0];
+            arr.unshift(arr[id]);
+            arr = new Set(arr);
+            arr = [...arr];
+
+            localStorage.setItem('list',JSON.stringify(arr));
+            location.href = "/product/productdetail?productNo=" + num;
         }
     }
 
     //상품 클릭하면 localStorage에 상품no:이미지 json형태로 저장 후 detail이동
-    function imageDataToNav(id){
-        var imgno = document.getElementById(id).id;
-        var imgsrc = document.getElementById(id).src
-
+    function imageDataToNav(no){
+        var imgno = document.getElementById(no).id;
+        var imgsrc = document.getElementById(no).src
         /* localStorage */
         var arr = localStorage.getItem('list');
         if( arr == null) { arr = [] } else { arr = JSON.parse(arr)};
