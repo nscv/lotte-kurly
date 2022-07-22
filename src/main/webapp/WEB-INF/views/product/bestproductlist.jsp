@@ -66,7 +66,7 @@
                                          onclick="imageDataToNav(this.id)">
                                     <div class="group-btn">
                                         <input type="hidden" id="pid" value="${m.productNo}">
-                                        <button type="button" class="btn cart-btn" onclick="bucksubmit()"></button>
+                                        <button id="${m.productNo}" type="button" class="btn cart-btn" onclick="bucksubmit(this)"></button>
                                     </div>
                                 </div>
                                 <div class="info">
@@ -112,11 +112,11 @@
 <jsp:include page="/front/footer.jsp"></jsp:include>
 
 <script>
-  function bucksubmit(){
+  function bucksubmit(button){
     $.ajax({
           type:"post",
           url:"/cart/items",
-          data:{"productNo":$('#pid').val(),"cartNo":userNo,
+          data:{"productNo":button.id,"cartNo":userNo,
           "cartItemCount":1},
         dataType:"json",
         error:function(e){
