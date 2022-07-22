@@ -21,8 +21,8 @@
 
     </select>
     <insert id="insertProducts" parameterType="com.lotte.products.dto.ProductDto">
-        INSERT INTO products(product_name, product_content, product_simple_content, product_price, product_amount, product_stock, product_deadline)
-        VALUES(#{productName}, #{productContent}, #{productSimpleContent}, #{productPrice}, #{productAmount}, #{productStock}, #{productDeadline})
+        INSERT INTO products(product_no, product_name, product_content, product_simple_content, product_price, product_amount, product_stock, product_deadline, category_no)
+        VALUES(#{productNo}, #{productName}, #{productContent}, #{productSimpleContent}, #{productPrice}, #{productAmount}, #{productStock}, STR_TO_DATE(#{productDeadline}, '%Y-%m-%d'), #{categoryNo})
     </insert>
     <update id="updateProducts" parameterType="com.lotte.products.dto.ProductDto">
         UPDATE products
@@ -181,5 +181,9 @@
         WHERE p.product_no=pi.product_no
         ORDER BY p.product_amount desc
         LIMIT 10 OFFSET 0
+    </select>
+    <select id="selectMaxProductNo" resultType="Integer">
+        SELECT MAX(*) as productNo
+        from products
     </select>
 </mapper>

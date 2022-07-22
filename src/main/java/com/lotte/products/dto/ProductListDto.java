@@ -72,6 +72,7 @@ public class ProductListDto {
         this.productStock = productStock;
     }
 
+//    String productImgNewName;
 
     public int getProductNo() {
         return productNo;

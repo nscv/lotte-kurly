@@ -5,7 +5,7 @@ import com.lotte.products.dto.*;
 import java.util.List;
 
 public interface ProductService {
-    void insertProducts(ProductDto dto);
+    void setProduct(ProductDto dto);
     void updateProducts(ProductDto dto);
 
     List<ProductListSortDto> productList(ProductCategoryDto productCategoryDto);
@@ -27,4 +27,6 @@ public interface ProductService {
 
     List<ProductListMainDiscountDto>productMainDiscountList();
     List<ProductListMainBestDto>productMainBestList();
+
+    int getMaxProductNo();
 }

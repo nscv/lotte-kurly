@@ -28,6 +28,8 @@ public class ProductPageController {
         this.productService = productService;
         this.categoryService=categoryService;
     }
+
+    
     @GetMapping("/list")
     public String ProductList(Model model,@RequestParam(value="amount",defaultValue ="1")String amount,
                               String category,@RequestParam(value="low",defaultValue ="1") String low,
@@ -107,7 +109,6 @@ public class ProductPageController {
         model.addAttribute("list2",Bestlist);
         return "product/main";
     }
-
 
     @GetMapping("/productdetail")
     public String ProductDetail(Model model,String productNo){

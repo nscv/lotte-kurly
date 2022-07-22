@@ -16,7 +16,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void insertProducts(ProductDto dto) {
+    public void setProduct(ProductDto dto) {
+        System.out.println("SERVICE: "+dto);
         productDao.insertProducts(dto);
     }
 
@@ -93,6 +94,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductListMainBestDto> productMainBestList() {
         return productDao.productMainBestList();
+    }
+
+    @Override
+    public int getMaxProductNo() {
+        return productDao.selectMaxProductNo();
     }
 
 }
