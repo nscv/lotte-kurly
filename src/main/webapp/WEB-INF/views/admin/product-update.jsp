@@ -114,7 +114,20 @@
 </div>
 <script type="text/javascript">
     $('#updateProduct').click(function() {
-        $.post()
+        $.ajax({
+            type: 'POST',
+            url: '/admin/product/update',
+            data: {
+                productNo: <%=product.getProductNo()%>,
+                productStock: $('#productStock').val(),
+            },
+            success: function(data) {
+                window.location.href = '/admin/product'
+            },
+            error: function() {
+                alert('err');
+            }
+        })
     })
 </script>
 </body>
