@@ -139,3 +139,38 @@ ul {
     text-decoration: none;
 }
 
+.items ul{
+    width: 25%;
+    text-align: center;
+    line-height: 20px;
+    height: 50px;
+    display: none;
+}
+
+.items .item-list li {
+    width: 200px;
+    padding-left: 10px;
+    background-color: #fff;
+}
+
+.items li a {
+    text-align: left;
+    padding-left: 20px;
+    display: block;
+}
+
+.menu1:hover .items ul{
+    display: block;
+}
+
+.menu1:focus .items ul{
+    display: block;
+}
+
+.category-box {
+    display: inline-flex;
+    height: 40px;
+}
+.item-list{
+    padding: 0;
+}
