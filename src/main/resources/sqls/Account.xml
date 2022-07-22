@@ -6,7 +6,7 @@
     <update id="pay" parameterType="com.lotte.accounts.dto.request.AccountBuyRequest">
         UPDATE accounts
         SET account_money = account_money - #{orderTotalPrice}
-            AND account_point = #{orderTotalPrice} * 0.3
+            , account_point = #{orderTotalPrice} * 0.3
         WHERE user_no = #{userNo}
     </update>
     <update id="refund" parameterType="com.lotte.orders.dto.OrderProductsDto">
