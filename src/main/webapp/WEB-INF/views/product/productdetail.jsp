@@ -179,6 +179,22 @@
                             <button type="button" id="reviewWrite" class="reviewWrite" onclick="reviewInsert();">리뷰 쓰기</button>
                         </td>
                     </tr>
+                <table id="reviewListTable" class="reviewListTable" style="width: 85%; border:1px solid #939393">
+                    <thead>
+                        <th>구분</th>
+                        <th>닉네임</th>
+                        <th>제목</th>
+                        <th>내용</th>
+                        <th>생성날짜</th>
+                        <th>평점</th>
+                        <th>수정버튼</th>
+                        <th>삭제버튼</th>
+                        <th>좋아요</th>
+                    </thead>
+                    <tbody id="addReviewData">
+                    </tbody>
+                <table>
+
                 </table>
             </div>
         </div>
@@ -240,13 +256,29 @@
             }
 
             function reviewCall() {
-                let review = document.getElementById("Review");
                 $.ajax({
                     type: "get",
                     url: "/reviewList",
                     async: true,
                     success: function (data) {
-                        alert(data.list.length);
+                        let tbody = "";
+
+                        for(let i=0; i<data.list.length; i++){
+                            tbody += '<tr>'
+                            tbody += '<td>' +(i+1)+ '</td>';
+                            tbody += '<td>' +data.list[i].userName+ '</td>';
+                            tbody += '<td>' +data.list[i].reviewTitle+'</td>';
+                            tbody += '<td>' +data.list[i].reviewContent+ '</td>';
+                            tbody += '<td>' +data.list[i].reviewCreated_at+ '</td>';
+                            tbody += '<td>' +data.list[i].reviewRate+ '</td>';
+                            tbody += '<td>' +'<button type="button" id="' + data.list[i].reviewNo + '" class="reviewUpdate" onclick="reviewUpdate(this.id);">수정</button>'+ '</td>';
+                            tbody += '<td>' +'<button type="button" id="' + data.list[i].reviewNo + '" class="reviewDelete" onclick="reviewDelete(this.id);">삭제</button>'+ '</td>';
+                            tbody += '<td>' +'<button type="button" id="' + data.list[i].reviewNo + '" class="reviewLike" onclick="reviewLike(this.id);">좋아요</button>'+ '</td>';
+                            tbody += '</tr>';
+                        }
+
+                        $("#addReviewData").empty();
+                        $("#addReviewData").append(tbody);
                     },
                     error: function () {
                         alert("review call fail");
@@ -255,6 +287,7 @@
             }
 
             function reviewInsert(){
+                //id 연결되면 바꾸기 쿠키값 넣기
                 let userNo = "10"
                 let userNickName =  document.getElementById("reviewId").innerText;
                 let title = document.getElementById("reviewTitle").value;
@@ -275,7 +308,6 @@
                 $.ajax({
                     type:"get",
                     url:"/reviewInsert",
-                    dataType:"json",
                     data:{
                         "userNo":userNo,
                         "userNickName":userNickName,
@@ -284,15 +316,36 @@
                         "productNo":<%=dto.getProductNo()%>,
                         "reviewRate":reviewRate
                     },
-                    success:function(data) {
-                        alert(data);
+                    success:function() {
+                        reviewCall();
                     },
                     error:function() {
-                        alert("review insert fail");
+                        alert("review Insert Fail");
                     }
                 });
             }
 
+            function reviewUpdate(reviewno){
+
+            }
+
+            function reviewDelete(reviewno){
+                $.ajax({
+                    type:"get",
+                    url:"/reviewDelete",
+                    data:{"reviewno":reviewno},
+                    success:function () {
+                        reviewCall();
+                    },
+                    error:function () {
+                        alert("delete fail");
+                    }
+                });
+            }
+
+            function reviewLike(reviewno){
+
+            }
 
         </script>
     </div>

@@ -15,9 +15,18 @@
              , R1.REVIEW_TITLE       AS reviewTitle
              , R2.LIKES              AS likeCnt
         FROM reviews R1
-                 INNER JOIN (SELECT REVIEW_NO, COUNT(*) AS LIKES
+                 LEFT OUTER JOIN (SELECT REVIEW_NO, COUNT(*) AS LIKES
                              FROM review_likes
                              GROUP BY REVIEW_NO) R2 ON R1.REVIEW_NO = R2.REVIEW_NO
                  INNER JOIN users R3 ON R1.USER_NO = R3.USER_NO;
     </select>
+
+    <insert id="insertReview" parameterType="com.lotte.reviews.dto.ReviewInsertDto">
+        INSERT INTO reviews(user_no,review_content,review_created_at,review_modified_at,review_rate,product_no,review_title)
+        VALUES(#{userNo},#{reviewContent},#{reviewCreatedAt},#{reviewModifiedAt},#{reviewRate},#{productNo},#{reviewTitle})
+    </insert>
+
+    <delete id="deleteReview" parameterType="String">
+        DELETE FROM reviews where review_no = #{reviewno}
+    </delete>
 </mapper>
