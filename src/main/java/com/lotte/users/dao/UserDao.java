@@ -1,5 +1,6 @@
 package com.lotte.users.dao;
 
+import com.lotte.users.dto.InsertUser;
 import com.lotte.users.dto.ProfileDto;
 import com.lotte.users.dto.UserDto;
 import org.apache.ibatis.annotations.Mapper;
@@ -8,7 +9,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface UserDao {
     int checkuser(String email);
 
-    int insertuser(String email);
+    int insertuser(InsertUser iUser);
+    int insertcart(InsertUser iUser);
 
     UserDto selectuser(int userNo);
 
