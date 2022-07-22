@@ -49,6 +49,9 @@
     }
 
 %>
+<script>
+    var userNo = <%=userno%>
+</script>
 
 <div id="header-logo">
     <h1 class="logo">
