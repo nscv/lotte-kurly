@@ -70,8 +70,10 @@
  - Tool : `Intellij`
  - Infra : `EC2` `RDS`
  - Etc : `Notion`, `Git`
+
 ## 📐시스템 구조도
-![SystemStructure](https://user-images.githubusercontent.com/58438267/180404609-30674f8a-3551-4809-9572-16adff631642.png)
+
+![systemstruccture](https://user-images.githubusercontent.com/58438267/180413144-8b1182a0-25c8-4a73-a9b2-ba63b8048710.png)
 
 ## 🎇주요 화면
 
