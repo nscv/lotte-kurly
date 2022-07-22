@@ -98,19 +98,6 @@ public class ProductListDto {
         this.productPrice = productPrice;
     }
 
-    public ProductListDto(int productNo, String productName, int productPrice,String ProductImgNewName,String productSimpleContent) {
-        this.productNo = productNo;
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.productImgNewName=ProductImgNewName;
-        this.productSimpleContent=productSimpleContent;
-        this.discountPrice=discountPrice;
-    }
-    public ProductListDto(String category,int pageNo){
-        this.category=category;
-        this.pageNo=pageNo*30;
-        this.endPageNo=pageNo*30+30;
-    }
 
     public int getDiscountPrice() {
         return discountPrice;

@@ -4,8 +4,9 @@ public class OrderCartItem {
 
     private String productNo;
     private String productName;
-    private String productNewImgName;
+    private String productImgNewName;
     private Integer cartItemTotalPrice;
+    private String cartItemDiscountPrice;
     private Integer cartItemCount;
 
     public String getProductNo() {
@@ -16,12 +17,16 @@ public class OrderCartItem {
         return productName;
     }
 
-    public String getProductNewImgName() {
-        return productNewImgName;
+    public String getProductImgNewName() {
+        return productImgNewName;
     }
 
     public Integer getCartItemTotalPrice() {
         return cartItemTotalPrice;
+    }
+
+    public String getCartItemDiscountPrice() {
+        return cartItemDiscountPrice;
     }
 
     public Integer getCartItemCount() {
@@ -36,8 +41,8 @@ public class OrderCartItem {
         this.productName = productName;
     }
 
-    public void setProductNewImgName(String productNewImgName) {
-        this.productNewImgName = productNewImgName;
+    public void setProductImgNewName(String productImgNewName) {
+        this.productImgNewName = productImgNewName;
     }
 
     public void setCartItemTotalPrice(Integer cartItemTotalPrice) {
@@ -46,5 +51,9 @@ public class OrderCartItem {
 
     public void setCartItemCount(Integer cartItemCount) {
         this.cartItemCount = cartItemCount;
+    }
+
+    public void setCartItemDiscountPrice(String cartItemDiscountPrice) {
+        this.cartItemDiscountPrice = cartItemDiscountPrice;
     }
 }

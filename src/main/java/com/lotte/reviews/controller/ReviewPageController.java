@@ -19,7 +19,7 @@ import java.util.*;
 @Controller
 public class ReviewPageController {
 
-    private static final Logger logger = LoggerFactory.getLogger(ReviewController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ReviewPageController.class);
 
     private ReviewService reviewService;
 
@@ -41,16 +41,26 @@ public class ReviewPageController {
 
     @ResponseBody
     @RequestMapping(value = "reviewInsert", method = {RequestMethod.GET, RequestMethod.POST})
-    public String reviewInsert(String userNo, String userNickName, String reviewTitle, String reviewContent, String productNo, String reviewRate) {
+    public String reviewInsert(String userNo, String reviewTitle, String reviewContent, String productNo, String reviewRate) {
         logger.info("reviewInsert() " + new Date());
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
-
         ReviewInsertDto dto = new ReviewInsertDto(Integer.parseInt(userNo), reviewContent, sdf.format(timestamp),
                 sdf.format(timestamp), Integer.parseInt(reviewRate), Integer.parseInt(productNo), reviewTitle);
         System.out.println(dto.toString());
+        reviewService.insertReview(dto);
 
-        return "Review Insert Success";
+        return "Review";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "reviewDelete", method = {RequestMethod.GET, RequestMethod.POST})
+    public String reviewDelete(String reviewno) {
+        logger.info("reviewDelete() " + new Date());
+
+        reviewService.deleteReview(reviewno);
+
+        return "Review";
     }
 }

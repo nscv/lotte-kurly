@@ -2,24 +2,33 @@ package com.lotte.orders.dto;
 
 public class Order {
 
-    private String cartItemName;
+    private String cartItemProductName;
     private String cartItemProductImgNewName;
+    private Integer cartItemsCount;
     private Integer orderNo;
     private Integer orderTotalPrice;
     private Integer orderState;
     private String orderCreatedAt;
 
     public void setCartItemNameAndProductImgNewName(OrderCartItemNameAndImg orderCartItemNameAndImg) {
-        this.cartItemName = orderCartItemNameAndImg.getProductName();
+        this.cartItemProductName = orderCartItemNameAndImg.getProductName();
         this.cartItemProductImgNewName = orderCartItemNameAndImg.getProductImgNewName();
     }
 
-    public String getCartItemName() {
-        return cartItemName;
+    public Integer getCartItemsCount() {
+        return cartItemsCount;
     }
 
-    public void setCartItemName(String cartItemName) {
-        this.cartItemName = cartItemName;
+    public void setCartItemsCount(Integer cartItemsCount) {
+        this.cartItemsCount = cartItemsCount;
+    }
+
+    public String getCartItemProductName() {
+        return cartItemProductName;
+    }
+
+    public void setCartItemProductName(String cartItemProductName) {
+        this.cartItemProductName = cartItemProductName;
     }
 
     public String getCartItemProductImgNewName() {

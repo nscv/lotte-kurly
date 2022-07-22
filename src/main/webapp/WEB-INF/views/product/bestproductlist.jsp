@@ -69,7 +69,7 @@
                         <li>
                             <div class="item">
                                 <div class="thumb">
-                                        <img id="${m.productNo}" src="${m.productImgNewName}" onclick="imageDataToNav(this.id)"></a>
+                                    <img class="product-img" id="${m.productNo}" src="${m.productImgNewName}" onclick="imageDataToNav(this.id)">
                                     <div class="group-btn">
                                         <button type="button" class="btn cart-btn"></button>
                                     </div>

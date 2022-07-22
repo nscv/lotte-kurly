@@ -1,12 +1,16 @@
 package com.lotte.admin.controller;
 
 import com.lotte.admin.service.StatisticService;
+import com.lotte.categories.service.CategoryService;
+import com.lotte.products.dto.ProductDto;
 import com.lotte.products.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/admin")

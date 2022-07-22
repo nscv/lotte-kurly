@@ -28,8 +28,8 @@
     <!-- Ajax -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/cart.css">
-    <script type="text/javascript" src="/js/cart.js"></script>
 
 </head>
 <body>
@@ -48,18 +48,22 @@
         <hr>
 
         <!-- 장바구니 아이템 목록 영역 (동적 생성 영역) -->
-        <div class="cart-item-list-div">
+        <form action="/order/sheet">
+            <div class="cart-item-list-div"></div>
 
-        </div>
-        <br><br>
-        <div class="cart-items-total-price row">
+            <br><br>
+            <div class="cart-items-total-price row">
 
-        </div>
-        <div class="row">
-            <button onclick="location.href='/order/sheet'">주문하기</button>
-        </div>
+            </div>
+            <div class="row">
+                <button type="submit">주문하기</button>
+            </div>
+        </form>
+
     </div>
 </div>
+
+<script type="text/javascript" src="/js/cart.js"></script>
 
 </body>
 </html>

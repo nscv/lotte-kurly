@@ -29,8 +29,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
     <link rel="stylesheet" href="/css/order.css">
-    <script type="text/javascript" src="/js/order-list.js"></script>
-
 </head>
 <body>
 
@@ -76,6 +74,7 @@
     </div>
 </div>
 
+<script type="text/javascript" src="/js/orderlist.js"></script>
 </body>
 </html>
 

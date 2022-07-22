@@ -14,14 +14,21 @@
     </select>
 
     <!-- (2) 장바구니 아이템 이름 목록 조회 -->
-    <select id="selectCartItemNamesAndImgs" parameterType="Integer" resultType="com.lotte.orders.dto.OrderCartItemNameAndImg">
-        SELECT product_name productName, product_img_new_name productImgNewName;
+    <select id="selectCartItemNameAndImg" parameterType="Integer" resultType="com.lotte.orders.dto.OrderCartItemNameAndImg">
+        SELECT product_name productName, product_img_new_name productImgNewName
         FROM (SELECT product_no
               FROM cart_items
               WHERE order_no = #{orderNo}) cart_item_product_nos, products p, product_imgs pi
         WHERE cart_item_product_nos.product_no = p.product_no AND pi.product_no = p.product_no
         LIMIT 1
     </select>
+
+  <!-- (3) 장바구니 아이템 총 개수 조회 -->
+  <select id="selectOrderCartItemsCount" parameterType="Integer" resultType="Integer">
+    SELECT COUNT(*)
+    FROM cart_items
+    WHERE order_no = #{orderNo}
+  </select>
 
     <!-- 주문 상세 및 주문서 조회 쿼리 -->
     <!-- (1) 장바구니 아이템 목록 조회 -->
@@ -51,15 +58,22 @@
     </select>
 
     <select id="selectOrderCartItemsByCartItemNos" parameterType="java.util.List" resultType="com.lotte.orders.dto.OrderCartItem">
-        SELECT p.product_no productNo, product_name productName, cart_item_total_price cartItemTotalPrice,
-                cart_item_count cartItemCount
+
+        SELECT p.product_no productNo, product_name productName, product_img_new_name productImgNewName,
+               cart_item_total_price cartItemTotalPrice, cart_item_count cartItemCount,
+              CASE
+                WHEN (DATEDIFF(product_deadline, NOW()) <![CDATA[ < ]]> 14)
+                  THEN (cart_item_total_price / 2)
+                ELSE cart_item_total_price
+              END AS cartItemDiscountPrice
         FROM (SELECT product_no, cart_item_total_price, cart_item_count
               FROM cart_items
               WHERE cart_item_no IN
-                            <foreach collection="list" item="orderCartItemNo" open="(" close=")" separator=",">
-                              #{orderCartItemNo}
-                            </foreach>) product_nos, products p
-        WHERE product_nos.product_no = p.product_no
+                            <foreach collection="list" item="orderCartItemNos" open="(" close=")" separator=",">
+                              #{orderCartItemNos}
+                            </foreach>) product_nos, products p, product_imgs pi
+        WHERE product_nos.product_no = p.product_no AND p.product_no = pi.product_no;
+
     </select>
 
     <select id="selectEnoughStock" parameterType="java.util.List" resultType="com.lotte.orders.exception.NotEnoughStocks">

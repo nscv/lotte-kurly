@@ -1,6 +1,7 @@
 package com.lotte.accounts.controller;
 
 import com.lotte.accounts.dto.AccountDto;
+import com.lotte.accounts.dto.request.AccountBuyRequest;
 import com.lotte.accounts.service.AccountService;
 import com.lotte.orders.dto.OrderProductsDto;
 import org.springframework.stereotype.Controller;
@@ -26,10 +27,10 @@ public class AccountController {
     }
 
     @ResponseBody
-    @PostMapping("/buy")
-    public boolean buy(AccountDto accountDto, OrderProductsDto orderProductsDto) {
+    @PostMapping("/pay")
+    public boolean buy(AccountBuyRequest requestDto) {
         try {
-            accountService.payProduct(accountDto, orderProductsDto);
+            accountService.pay(requestDto);
         } catch(Exception e) {
             e.printStackTrace();
             return false;

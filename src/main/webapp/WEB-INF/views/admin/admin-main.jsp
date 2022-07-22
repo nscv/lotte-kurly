@@ -145,33 +145,33 @@
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0">
+                        <a href="/admin/main" class="nav-link align-middle px-0">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                         </a>
                     </li>
-                    <hr class="grey-hr">
-                    <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <img class="icon-img" src="../../../front/images/user.png"><span class="ms-1 d-none d-sm-inline titlemenu">회원 관리</span> </a>
-                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0">연령별 <span class="d-none d-sm-inline"> 회원 현황</span>  </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0"> 성별<span class="d-none d-sm-inline"> 회원 현황</span> </a>
-                            </li>
-                        </ul>
-                    </li>
+<%--                    <hr class="grey-hr">--%>
+<%--                    <li>--%>
+<%--                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">--%>
+<%--                            <img class="icon-img" src="../../../front/images/user.png"><span class="ms-1 d-none d-sm-inline titlemenu">회원 관리</span> </a>--%>
+<%--                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">--%>
+<%--                            <li class="w-100">--%>
+<%--                                <a href="#" class="nav-link px-0">연령별 <span class="d-none d-sm-inline"> 회원 현황</span>  </a>--%>
+<%--                            </li>--%>
+<%--                            <li>--%>
+<%--                                <a href="#" class="nav-link px-0"> 성별<span class="d-none d-sm-inline"> 회원 현황</span> </a>--%>
+<%--                            </li>--%>
+<%--                        </ul>--%>
+<%--                    </li>--%>
                     <hr class="grey-hr">
                     <li>
                         <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <img class="icon-img" src="../../../front/images/product.png"><span class="ms-1 d-none d-sm-inline titlemenu">상품 관리</span> </a>
                         <ul class="collapse show nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="#" class="nav-link px-0"> 상품 매출<span class="d-none d-sm-inline"> 현황</span>  </a>
+                                <a href="/admin/product" class="nav-link px-0"> 상품 매출<span class="d-none d-sm-inline"> 현황</span>  </a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0">상품 재고 <span class="d-none d-sm-inline"> 및 등록</span> </a>
+                                <a href="/admin/register" class="nav-link px-0">상품 재고 <span class="d-none d-sm-inline"> 및 등록</span> </a>
                             </li>
                         </ul>
                     </li>

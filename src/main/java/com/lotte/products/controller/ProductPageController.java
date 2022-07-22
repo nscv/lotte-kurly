@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/product")
@@ -33,8 +34,8 @@ public class ProductPageController {
     public String ProductList(Model model,@RequestParam(value="amount",defaultValue ="1")String amount,
                               String category,@RequestParam(value="low",defaultValue ="1") String low,
                               @RequestParam(value="high",defaultValue ="1")String high, int pageNo,@RequestParam(value="discount",defaultValue ="1")String discount){
-        ProductListDto dto=new ProductListDto(category,pageNo);
-        List<ProductListDto> list= productService.productList(dto);
+        ProductCategoryDto dto=new ProductCategoryDto(category,pageNo);
+        List<ProductListSortDto> list= productService.productList(dto);
         int total=productService.searchEndPage(category);
 
         int endPage=(total%30==0) ? total/30 : total/30+1;
@@ -57,7 +58,7 @@ public class ProductPageController {
         model.addAttribute("low",low);
         model.addAttribute("high",high);
         model.addAttribute("startPage",0);
-        model.addAttribute("endPage",endPage-1);
+        model.addAttribute("endPage",endPage);
         model.addAttribute("total",total);
         return "product/productlist";
     }
@@ -83,21 +84,21 @@ public class ProductPageController {
             list=productService.productBestHighList(dto);
         }
 
-
-    @GetMapping("/lowlist")
-    public String ProductLowList(Model model,String category){
-        List<ProductListDto>list=productService.productLowList(category);
         model.addAttribute("list",list);
-        model.addAttribute("category",category);
-        return"product/productlist";
+        model.addAttribute("startPage",0);
+        model.addAttribute("endPage",endPage-1);
+        model.addAttribute("low",low);
+        model.addAttribute("high",high);
+        model.addAttribute("total",total);
+        return"product/bestproductlist";
     }
-
-    @GetMapping("/highlist")
-    public String ProductHighList(Model model,String category){
-        List<ProductListDto>list=productService.productHighList(category);
-        model.addAttribute("list",list);
-        model.addAttribute("category",category);
-        return"product/productlist";
+    @GetMapping("/main")
+    public String ProductMain(Model model){
+        List<ProductListMainDiscountDto>Discountlist=productService.productMainDiscountList();
+        List<ProductListMainBestDto>Bestlist=productService.productMainBestList();
+        model.addAttribute("list",Discountlist);
+        model.addAttribute("list2",Bestlist);
+        return "product/main";
     }
 
     @GetMapping("/productdetail")

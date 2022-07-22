@@ -15,26 +15,6 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="/css/productlist.css">
 
-    <script>
-        $(function () {
-            //foodselectlist();
-        });
-
-        function foodlowlist() {
-            $.ajax({
-                url: "productlowlist",
-                type: "get",
-                dataType:"json",
-                error: function (xhr, status, msg) {
-                    alert("상태값: " + status + "에러" + msg);
-                },
-                success: function (data) {
-                    console.log(data);
-                }
-            });
-        };
-
-    </script>
 </head>
 <body>
 <jsp:include page="/front/header.jsp"></jsp:include>
@@ -44,21 +24,21 @@
         <div id="goodslist" class="goodslist-box">
             <div class="sort_menu">
                 <div>
-                    <p class="count"><span class="inner-count"> 총 개 </span></p>
+                    <p class="count"><span class="inner-count"> 총 ${total}개 </span></p>
                 </div>
                 <div class="select-type">
                     <ul class="list">
                         <li class>
-                            <a class="select-sell">판매순</a>
+                            <a href="/product/list?amount=true&category=${category}&pageNo=0" class="select-asc">판매량 순</a>
                         </li>
                         <li class>
-                            <a class="select-review">리뷰순</a>
+                            <a href="/product/list?category=${category}&pageNo=0&discount=true" class="select-asc">할인 품목</a>
                         </li>
                         <li class>
-                            <a href="/product/lowlist?category=${category}" class="select-asc">낮은 가격순</a>
+                            <a href="/product/list?low=true&category=${category}&pageNo=0" class="select-asc">낮은 가격순</a>
                         </li>
                         <li class>
-                            <a href="/product/highlist?category=${category}" class="select-desc">높은 가격순</a>
+                            <a href="/product/list?high=true&category=${category}&pageNo=0" class="select-desc">높은 가격순</a>
                         </li>
                     </ul>
                 </div>
