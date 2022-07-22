@@ -2,7 +2,7 @@ getOrders();
 
 
 function getOrders() {
-  
+
   $.ajax({
     url: `/orders?userNo=${userNo}`,
     type: "GET",
@@ -29,7 +29,6 @@ function makeOrderDivs(orders) {
                 <div style="display: flex; align-items: center;">
                 <h3 class="order-list-title">${order.cartItemProductName}&nbsp;&nbsp;외 ${order.cartItemsCount}&nbsp;&nbsp;종</h3>
                 <a href="javascript:{}" onclick="location.href='/order/detail?orderNo=${order.orderNo}'" class="btn continue"style="height: 30px;padding: 5px;padding-right: 10px;width: 100px;color: #fff; background: #777DF2;border-radius: 50px;text-align: end;">상세보기</a>
-<!--                <button onclick="location.href='/order/detail?orderNo=${order.orderNo}'">주문 상세</button>-->
 </div>
                 
                 <br>

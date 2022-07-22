@@ -28,6 +28,11 @@
 <%
     }
 %>
+
+<script>
+    var userNo = "<%=userno%>";
+</script>
+
 <html>
 <head>
     <title>Lotte Kurly - 주문 목록</title>
