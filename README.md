@@ -8,7 +8,6 @@
 
 ## 목차
 - [개요](https://github.com/nscv/lotte-kurly#개요)
-- [실행 방법](https://github.com/nscv/lotte-kurly#실행-방법)
 - [핵심 기능](https://github.com/nscv/lotte-kurly#핵심-기능)
 - [기술 스택](https://github.com/nscv/lotte-kurly#기술-스택)
 - [시스템 구조도](https://github.com/nscv/lotte-kurly#시스템-구조도)
