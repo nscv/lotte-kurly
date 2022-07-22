@@ -48,8 +48,7 @@ public class OrderController {
     }
 
     @PostMapping("/orders")
-    public ResponseEntity<OrderResponse.CreateOrderDto> order(
-        @RequestBody OrderRequest.CreateOrderDto requestDto) {
+    public ResponseEntity<OrderResponse.CreateOrderDto> order(OrderRequest.CreateOrderDto requestDto) {
         orderService.order(requestDto);
         return null;
     }
