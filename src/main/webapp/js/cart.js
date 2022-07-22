@@ -23,7 +23,7 @@ function getCart() {
       response.cartItems.forEach(function (cartItem, idx) {
         html += `<div class="row cart-item-div">
                         <div class="col-1 ">
-                            <input type="checkbox" name="cart-item-checkbox">
+                            <input type="checkbox" name="orderCartItemNos" value="${cartItem.cartItemNo}">
                         </div>
                         <div class="col-2">
                             <a href="/product/productdetail?productNo=${cartItem.productNo}">

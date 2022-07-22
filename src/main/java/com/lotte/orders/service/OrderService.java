@@ -31,10 +31,13 @@ public class OrderService {
         List<Order> orders = orderDao.selectOrders(userNo);
 
         for (Order order : orders) {
-            OrderCartItemNameAndImg cartItemNamesAndImg =
-                orderDao.selectCartItemNamesAndImgs(order.getOrderNo());
+            Integer orderNo = order.getOrderNo();
 
-            order.setCartItemNameAndProductImgNewName(cartItemNamesAndImg);
+            OrderCartItemNameAndImg cartItemNamesAndImg =
+                orderDao.selectCartItemNameAndImg(orderNo);
+
+            order.setCartItemNameAndProductImgNewName(cartItemNamesAndImg); // 첫 번째 장바구니 아이템 이름과 이미지
+            order.setCartItemsCount(orderDao.selectOrderCartItemsCount(orderNo) - 1); // 장바구니 아이템 총 개수
         }
 
         return new OrderResponse.OrdersDto(orders);
