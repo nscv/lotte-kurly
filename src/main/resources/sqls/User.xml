@@ -16,10 +16,10 @@
         VALUES (#{userEmail})
     </insert>
 
-    <insert id="insertcart" parameterType="Integer"
+    <insert id="insertcart" parameterType="com.lotte.users.dto.InsertUser"
       useGeneratedKeys="true" keyProperty="userNo">
         INSERT INTO carts(user_no)
-        VALUES (#{userEmail})
+        VALUES (#{userNo})
     </insert>
 
     <select id="selectuser" parameterType="Integer" resultType="com.lotte.users.dto.UserDto">
