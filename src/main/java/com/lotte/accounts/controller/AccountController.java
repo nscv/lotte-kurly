@@ -27,8 +27,8 @@ public class AccountController {
     }
 
     @ResponseBody
-    @PostMapping("/pay")
-    public boolean buy(AccountBuyRequest requestDto) {
+    @PutMapping("/pay")
+    public boolean buy(@RequestBody AccountBuyRequest requestDto) {
         try {
             accountService.pay(requestDto);
         } catch(Exception e) {

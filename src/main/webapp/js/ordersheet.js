@@ -165,10 +165,9 @@ function showPayModal(account) {
   $('#order-total-price-span').text(orderTotalPrice);
 
   let payPrice = getPayPrice(account, orderTotalPrice);
-  if(payPrice >= 0) {
-    $('#price-after-order-span').text(payPrice);
-  }
-  else {
+  $('#price-after-order-span').text(payPrice);
+
+  if(payPrice < 0) {
     payBtn.text("잔액 부족");
     payBtn.removeClass("btn-secondary");
     payBtn.addClass("btn-danger");
@@ -193,12 +192,20 @@ function pay() {
   };
 
   $.ajax({
-    url: "/account/buy",
+    url: "/account/pay",
     type: "PUT",
     contentType: "application/json",
     data: JSON.stringify(data),
     success: function (response) {
       console.log(response);
+
+      if (true) {
+
+      }
+      else {
+        alert("결제를 실패했습니다. 다시 시도해주세요.");
+      }
+
     },
     error: function (err) {
       alert("error");

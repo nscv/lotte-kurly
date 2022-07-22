@@ -1,15 +1,17 @@
 package com.lotte.accounts.dto.request;
 
+import java.math.BigDecimal;
+
 public class AccountBuyRequest {
 
-    private Integer orderTotalPrice;
+    private BigDecimal orderTotalPrice;
     private Integer userNo;
 
-    public Integer getOrderTotalPrice() {
+    public BigDecimal getOrderTotalPrice() {
         return orderTotalPrice;
     }
 
-    public void setOrderTotalPrice(Integer orderTotalPrice) {
+    public void setOrderTotalPrice(BigDecimal orderTotalPrice) {
         this.orderTotalPrice = orderTotalPrice;
     }
 
