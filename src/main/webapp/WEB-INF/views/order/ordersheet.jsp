@@ -16,13 +16,12 @@
         orderCartItemNos = Arrays.stream(orderCartItemNosStrArr)
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
-    }
-    catch (NullPointerException e) {
+    } catch (NullPointerException e) {
 %>
-        <script type="text/javascript">
-            alert('주문하실 상품을 선택해주세요.');
-            history.back();
-        </script>
+<script type="text/javascript">
+    alert('주문하실 상품을 선택해주세요.');
+    history.back();
+</script>
 <%
     }
 %>
@@ -104,21 +103,21 @@
                     <th>보내는 분</th>
                     <td class="order-user-name-td">
                         홍길동
-<%--                        <input type="hidden" name="orderer-name" value="홍길동">--%>
+                        <%--                        <input type="hidden" name="orderer-name" value="홍길동">--%>
                     </td>
                 </tr>
                 <tr>
                     <th>휴대폰</th>
                     <td class="order-user-phone-td">
                         01012345678
-<%--                        <input type="hidden" name="orderer-phone" value="01012345678">--%>
+                        <%--                        <input type="hidden" name="orderer-phone" value="01012345678">--%>
                     </td>
                 </tr>
                 <tr>
                     <th>이메일</th>
                     <td class="order-user-email-td">
-<%--                        <input type="hidden" id="email" name="orderer-email" value="gildon@lottekerly.com"--%>
-<%--                               option="regEmail">--%>
+                        <%--                        <input type="hidden" id="email" name="orderer-email" value="gildon@lottekerly.com"--%>
+                        <%--                               option="regEmail">--%>
                         gildon@lottekerly.com
                     </td>
                 </tr>
@@ -174,11 +173,13 @@
                 </dd>
             </dl>
             <p class="reserve">
-                <span class="ico">적립</span> 구매 시 <span class="emph"><span id="expectAmount">19</span> 원 (<span class="ratio">0.3</span>%) 적립</span>
+                <span class="ico">적립</span> 구매 시 <span class="emph"><span id="expectAmount">19</span> 원 (<span
+                    class="ratio">0.3</span>%) 적립</span>
             </p>
         </div>
 
-        <<input type="submit" class="confirm-pay" href="/pay/1" value="결제하기" onclick="getUserAccountInfo()"> <!-- TODO userNo -->
+        <<input type="submit" class="confirm-pay" href="/pay/1" value="결제하기" onclick="getUserAccountInfo()">
+        <!-- TODO userNo -->
 
     </div>
 
@@ -191,15 +192,33 @@
             <div class="modal-header">
                 <h5 class="modal-title">결제 정보</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                onclick="hideModal()">
+                        onclick="hideModal()">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div>계좌 잔액 <span id="account-money-span">9999</span></div>
-                <div>결제 금액 <span id="order-total-price-span">9999</span></div>
-                <div>결제 후 잔액 <span id="price-after-order-span">9999</span></div>
-
+                <table class="modal-table">
+                    <tbody>
+                    <tr class="fst">
+                        <div>
+                            <th>계좌 잔액</th>
+                            <td><span id="account-money-span">9999</span></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div>
+                            <th>결제 금액</th>
+                            <td><span id="order-total-price-span">9999</span></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div>
+                            <th>결제 후 잔액</th>
+                            <td><span id="price-after-order-span">9999</span></td>
+                        </div>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer">
                 <button id="pay-btn" type="button" class="btn btn-primary" onclick="pay()">결제하기</button>

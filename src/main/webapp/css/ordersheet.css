@@ -31,9 +31,7 @@ body {
     margin: 0 auto;
 }
 
-.tit-section.fst {
-    padding-top: 14px;
-}
+.tit-sectionc
 
 .tit-section {
     padding: 74px 0 16px;
@@ -236,7 +234,7 @@ body {
 
 #orderitem_money_info .tit {
     float: left;
-    width: 96px;
+    width: 120px;
 }
 
 #orderitem_money_info .price {
@@ -331,4 +329,65 @@ body {
     border-radius: 5px;
     margin-top: 20px;
     font-size: 16px;
+}
+
+.modal-body {
+    background-color: #f2f2f2;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.modal-header {
+    border: none;
+}
+
+.modal-footer {
+    border: none;
+}
+
+.modal-title {
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+    line-height: 29px;
+    clear: both;
+}
+
+.modal-table .fst th {
+    padding-top: 19px;
+}
+
+.modal-table th {
+    width: 190px;
+    padding: 8px 0 0;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+    letter-spacing: -0.32px;
+    vertical-align: top;
+    text-align: left;
+}
+
+.modal-table .fst td {
+    padding-top: 19px;
+}
+
+.modal-table td {
+    position: relative;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #333;
+    line-height: 24px;
+    vertical-align: top;
+}
+
+.modal-footer #pay-btn {
+    background-color: #525AF2;
+}
+
+.modal-footer .btn {
+    background-color: #929292;
+    border: none;
+    border-radius: 5px;
 }
