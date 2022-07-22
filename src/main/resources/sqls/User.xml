@@ -27,6 +27,12 @@
         WHERE user_email=#{userEmail}
     </select>
 
+    <select id="checkrole" parameterType="String" resultType="String">
+        SELECT user_role
+        FROM users
+        WHERE user_email=#{userEmail}
+    </select>
+
     <select id="selectuserno" parameterType="String" resultType="Integer">
         SELECT user_no
         FROM users

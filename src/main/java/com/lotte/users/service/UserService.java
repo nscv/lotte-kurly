@@ -7,7 +7,7 @@ import java.text.ParseException;
 
 public interface UserService {
     String checkuser(String email) throws ParseException;
-    int addprofile(ProfileDto profile);
+    void addprofile(ProfileDto profile);
 
     UserDto getUser(int userNo);
 }
