@@ -1,6 +1,34 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.lotte.products.dto.ProductListDto" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String userno = "";
+    String isvalid = "";
+    String userRole = "";
+
+    Cookie[] cookies = request.getCookies() ;
+    if(cookies != null){
+        for(int i=0; i < cookies.length; i++){
+            if (cookies[i].getName().equals("userno")) {
+                userno = cookies[i].getValue();
+            } else if (cookies[i].getName().equals("isvalid")) {
+                isvalid = cookies[i].getValue();
+            } else if(cookies[i].getName().equals("userrole")) {
+                userRole = cookies[i].getValue();
+            }
+        }
+    }
+%>
+<%
+    if(!userRole.equals("admin")) {
+%>
+<script>
+    alert("접근할 수 없는 계정입니다.");
+    location.href="/product/main";
+</script>
+<%
+    }
+%>
 <html>
 <head>
     <title>Title</title>

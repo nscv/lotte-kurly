@@ -2,7 +2,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.lotte.admin.dto.UserGenderDto" %>
 <%@ page import="com.lotte.admin.dto.ProductCategoryDto" %>
-<%@ page import="com.lotte.admin.dto.TotalOrderDto" %><%--
+<%@ page import="com.lotte.admin.dto.TotalOrderDto" %>
+<%@ page import="com.lotte.users.dao.UserDao" %><%--
   Created by IntelliJ IDEA.
   User: BTC-N10
   Date: 2022-07-21
@@ -18,6 +19,33 @@
     List<TotalOrderDto> monthList = (List<TotalOrderDto>)request.getAttribute("month");
     List<TotalOrderDto> yearList = (List<TotalOrderDto>)request.getAttribute("year");
     int total = (int)request.getAttribute("total");
+
+    String userno = "";
+    String isvalid = "";
+    String userRole = "";
+
+    Cookie[] cookies = request.getCookies() ;
+    if(cookies != null){
+        for(int i=0; i < cookies.length; i++){
+            if (cookies[i].getName().equals("userno")) {
+                userno = cookies[i].getValue();
+            } else if (cookies[i].getName().equals("isvalid")) {
+                isvalid = cookies[i].getValue();
+            } else if(cookies[i].getName().equals("userrole")) {
+                userRole = cookies[i].getValue();
+            }
+        }
+    }
+%>
+<%
+    if(!userRole.equals("admin")) {
+%>
+<script>
+    alert("접근할 수 없는 계정입니다.");
+    location.href="/product/main";
+</script>
+<%
+    }
 %>
 <html>
 <head>
