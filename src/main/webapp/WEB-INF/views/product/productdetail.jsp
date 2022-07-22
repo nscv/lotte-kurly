@@ -40,23 +40,6 @@
             }
         }
     %>
-<script>
-    function bucksubmit(){
-        $.ajax({
-            type:"post",
-            url:"/cart/items",
-            data:{"productNo":<%=dto.getProductNo()%>,"cartNo":14,//TODO
-            "cartItemCount":document.getElementById('result').innerText},
-            dataType:"json",
-            error:function(e){
-                alert(e.responseText);
-            },
-            success:function(){
-                alert("장바구니에 담겼습니다");
-            }
-        })
-    }
-</script>
 </head>
 <body>
 
@@ -427,5 +410,24 @@
     </div>
 </div>
 <jsp:include page="/front/footer.jsp"></jsp:include>
+
+<script>
+  function bucksubmit(){
+    $.ajax({
+      type:"post",
+      url:"/cart/items",
+      data:{"productNo":<%=dto.getProductNo()%>,
+        "cartNo":userNo, //TODO
+        "cartItemCount":document.getElementById('result').innerText},
+      dataType:"json",
+      error:function(e){
+        alert(e.responseText);
+      },
+      success:function(){
+        alert("장바구니에 담겼습니다");
+      }
+    })
+  }
+</script>
 </body>
 </html>

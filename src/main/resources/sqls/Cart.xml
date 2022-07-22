@@ -6,7 +6,7 @@
 <mapper namespace="com.lotte.carts.dao.CartDao">
 
     <!-- 장바구니 목록 (장바구니 아이템 목록) 조회 쿼리 -->
-    <select id="selectCartItemsByUserNo"
+    <select id="selectCartItemsByCartNo"
       resultType="com.lotte.carts.dto.CartItem"
       parameterType="Integer">
 
@@ -22,11 +22,7 @@
         FROM (SELECT cart_item_no, product_no, cart_item_count,
               cart_item_total_price
               FROM cart_items
-              WHERE cart_no = (
-                  SELECT cart_no
-                  FROM carts
-                  WHERE user_no = #{userNo}
-                  )) ci, product_imgs pi, products p
+              WHERE cart_no = #{cartNo}) ci, product_imgs pi, products p
         WHERE ci.product_no = pi.product_no AND pi.product_no = p.product_no;
       ]]>
     </select>

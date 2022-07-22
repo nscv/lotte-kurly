@@ -45,10 +45,11 @@
             </div>
             <div class="subtotal cf">
                 <ul>
-                    <li class="totalRow final"><span class="label">전체가격</span><span class="value"><div
-                            class="cart-items-total-price row">
-            </div></span></li>
-                    <li class="totalRow"><a href="#" class="btn continue">구매하기</a></li>
+                    <li class="totalRow final">
+                        <span class="label">전체가격</span>
+                        <span class="cart-items-total-price"></span>
+                    </li>
+                    <li class="totalRow"><a href="/order/sheet" class="btn continue">구매하기</a></li>
                 </ul>
             </div>
 
