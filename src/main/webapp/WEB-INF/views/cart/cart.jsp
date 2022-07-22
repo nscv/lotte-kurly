@@ -9,59 +9,76 @@
 <html>
 <head>
     <title>Lotte Kurly - 장바구니</title>
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-
-    <!-- Ajax -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/cart.css">
 
 </head>
 <body>
-
 <jsp:include page="/front/header.jsp"></jsp:include>
+<jsp:include page="/front/nav.jsp"></jsp:include>
 
-<div id="container">
-    <jsp:include page="/front/nav.jsp"></jsp:include>
 
-    <div class="cart-container">
-        <!-- 장바구니 목록 영역 -->
-        <div class="row">
-            <div class="col-2">전체 선택</div>
-            <div class="col-2">선택 삭제</div>
-        </div>
-        <hr>
-
-        <!-- 장바구니 아이템 목록 영역 (동적 생성 영역) -->
-        <form action="/order/sheet">
-            <div class="cart-item-list-div"></div>
-
-            <br><br>
-            <div class="cart-items-total-price row">
-
-            </div>
-            <div class="row">
-                <button type="submit">주문하기</button>
-            </div>
-        </form>
-
+<div class="wrap cf">
+    <h1 class="projTitle">장바구니</h1>
+    <div class="heading cf">
+        <h3>전체선택</h3>
+        <%--<a href="#" class="continue">Continue Shopping</a>--%>
     </div>
+    <form action="/order/sheet">
+    <div class="cart">
+
+        <!--    <ul class="tableHead">
+              <li class="prodHeader">Product</li>
+              <li>Quantity</li>
+              <li>Total</li>
+               <li>Remove</li>
+            </ul>-->
+        <div class="cart-item-list">
+        <ul class="cartWrap">
+
+            <div class="cart-item-list-div"></div>
+            <li class="items odd">
+
+                <div class="infoWrap">
+                    <div class="cartSection">
+                        <img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg">
+                        <p class="itemNumber">#QUE-007544-002</p>
+                        <h3>Item Name 1</h3>
+
+                        <p> <input type="text" class="qty" placeholder="3"> x $5.00</p>
+
+                        <p class="stockStatus"> In Stock</p>
+                    </div>
+
+
+                    <div class="prodTotal cartSection">
+                        <p>$15.00</p>
+                    </div>
+                    <div class="cartSection removeWrap">
+                        <a href="#" class="remove">x</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        </div>
+        <div class="subtotal cf">
+            <ul>
+                <li class="totalRow"><span class="label">Subtotal</span><span class="value">$35.00</span></li>
+
+                <li class="totalRow"><span class="label">Shipping</span><span class="value">$5.00</span></li>
+
+                <li class="totalRow"><span class="label">Tax</span><span class="value">$4.00</span></li>
+                <li class="totalRow final"><span class="label">Total</span><span class="value"><div class="cart-items-total-price row">
+
+            </div></span></li>
+                <li class="totalRow"><a href="#" class="btn continue">Checkout</a></li>
+            </ul>
+        </div>
+
+    </div></form>
 </div>
+
+<jsp:include page="/front/footer.jsp"></jsp:include>
 
 <script type="text/javascript" src="/js/cart.js"></script>
 
