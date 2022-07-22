@@ -41,22 +41,22 @@ public class CartRequest {
     public static class UpdateCartItemCountDto {
 
         private Integer cartItemCount;
-        private Integer productNo;
+        private Integer cartItemNo;
 
         public Integer getCartItemCount() {
             return cartItemCount;
         }
 
-        public Integer getProductNo() {
-            return productNo;
+        public Integer getCartItemNo() {
+            return cartItemNo;
         }
 
         public void setCartItemCount(Integer cartItemCount) {
             this.cartItemCount = cartItemCount;
         }
 
-        public void setProductNo(Integer productNo) {
-            this.productNo = productNo;
+        public void setCartItemNo(Integer productNo) {
+            this.cartItemNo = productNo;
         }
     }
 }
