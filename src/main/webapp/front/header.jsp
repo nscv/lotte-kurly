@@ -20,6 +20,8 @@
     <%-- sweetalert --%>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <%-- fontawesome --%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/header.css">
 </head>
 <body>
@@ -140,8 +142,8 @@
 
 <%-- 카카오 초기화 --%>
 <script type="text/javascript">
-    // Kakao.init('8c4fa2c21bc60a51d0d78927368eb06d');
-    // Kakao.isInitialized();
+    Kakao.init('8c4fa2c21bc60a51d0d78927368eb06d');
+    Kakao.isInitialized();
 </script>
 
 <%-- 카카오 로그인 --%>
