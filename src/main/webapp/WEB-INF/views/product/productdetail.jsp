@@ -19,6 +19,7 @@
 
 <html>
 <head>
+    <title>Lotte Kurly - 물품 상세 정보</title>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/productdetail.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <%

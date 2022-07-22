@@ -31,7 +31,7 @@
 </script>
 <html>
 <head>
-    <title>Order Sheet</title>
+    <title>Lotte Kurly - 주문서</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet"

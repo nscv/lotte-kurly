@@ -11,7 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <html>
 <head>
-    <title>Title</title>
+    <title>Lotte Kurly - 상품 목록</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="/css/productlist.css">
