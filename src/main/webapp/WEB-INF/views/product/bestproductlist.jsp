@@ -23,18 +23,6 @@
 <jsp:include page="/front/header.jsp"></jsp:include>
 <jsp:include page="/front/nav.jsp"></jsp:include>
 
-<%--
-<div>
-    <td>
-        <div id="select" title="경기를선택하세요">
-            <c:forEach items="${list}" var="m">
-                <div value="${m.productNo}">${m.productName},${m.productPrice}</div>
-            </c:forEach>
-        </div>
-    </td>
-</div>
---%>
-
 <div id="container">
     <div class="goods">
 
@@ -109,23 +97,5 @@
 
 </div>
 
-<script>
-    //상품 클릭할 수 있는 곳에 전부 넣기
-    function imageDataToNav(id){
-        var imgno = document.getElementById(id).alt
-        var imgsrc = document.getElementById(id).src
-
-        /* localStorage */
-        var arr = localStorage.getItem('list');
-        if( arr == null) { arr = [] } else { arr = JSON.parse(arr)};
-        var str = imgno+'|'+imgsrc;
-
-        arr.unshift(str);
-        arr = new Set(arr);
-        arr = [...arr];
-
-        localStorage.setItem('list',JSON.stringify(arr));
-    }
-</script>
 </body>
 </html>
