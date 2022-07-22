@@ -11,7 +11,7 @@
       parameterType="Integer">
 
       <![CDATA[
-        SELECT cart_item_no cartItemNo, p.product_no productNo, product_name productName,
+        SELECT cart_item_no cartItemNo, p.product_no productNo, product_price productPrice, product_name productName,
             product_simple_content productSimpleContent, product_img_new_name productImgNewName,
             cart_item_count cartItemCount, cart_item_total_price cartItemTotalPrice,
             CASE

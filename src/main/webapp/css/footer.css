@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
 .site-footer
 {
+    margin-top: 100px;
     background-color:#E2E2E2;
     padding:45px 10% 20px;
     font-size:15px;
@@ -35,6 +36,7 @@
 }
 .footer-links
 {
+    width: 200px;
     padding-left:0;
     list-style:none
 }

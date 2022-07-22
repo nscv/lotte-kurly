@@ -13,13 +13,9 @@
              , R1.REVIEW_RATE        AS reviewRate
              , R1.PRODUCT_NO         AS productNo
              , R1.REVIEW_TITLE       AS reviewTitle
-             , R2.LIKES              AS likeCnt
         FROM reviews R1
-                 LEFT OUTER JOIN (SELECT REVIEW_NO, COUNT(*) AS LIKES
-                             FROM review_likes
-                             GROUP BY REVIEW_NO) R2 ON R1.REVIEW_NO = R2.REVIEW_NO
                  INNER JOIN users R3 ON R1.USER_NO = R3.USER_NO
-        ORDER BY R1.REVIEW_NO DESC
+        ORDER BY R1.REVIEW_MODIFIED_AT DESC
     </select>
 
     <insert id="insertReview" parameterType="com.lotte.reviews.dto.ReviewInsertDto">
@@ -30,4 +26,9 @@
     <delete id="deleteReview" parameterType="String">
         DELETE FROM reviews where review_no = #{reviewno}
     </delete>
+
+    <update id="updateReview" parameterType="com.lotte.reviews.dto.ReviewUpdateDto">
+        UPDATE reviews set review_title=#{reviewTitle}, review_content=#{reviewContent}, review_modified_at=#{reviewModifiedAt}
+                       where review_no=#{reviewNo}
+    </update>
 </mapper>

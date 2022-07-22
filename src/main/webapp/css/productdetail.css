@@ -371,7 +371,7 @@ button {
 
 /* Style the tab */
 .tab {
-    width: 1051px;
+    width: 1050px;
     margin: auto;
     overflow: hidden;
     border: 1px solid #525AF2;
@@ -6085,4 +6085,112 @@ table.extra-information td {
 }
 
 .goods-view-form-table .opt_goods {
+}
+
+.tit-review {
+    font-size: 13px;
+    font-weight: 700;
+    padding-bottom: 5px;
+}
+
+.reviewTable {
+    width: 100%;
+    border-top: 1px solid #525AF2;
+    border-bottom: 1px solid #525AF2;
+    border-left: none;
+    border-right: none;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0 auto;
+}
+
+.reviewTable .tit {
+    font-size: 14px;
+    color: #333333;
+}
+
+#reviewTitle {
+    width: 500px;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+    border-radius: 3px;
+    background: #fff;
+    outline: none;
+    vertical-align: top;
+}
+
+#reviewContent {
+    width: 500px;
+    padding: 0 14px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+    border-radius: 3px;
+    background: #fff;
+    outline: none;
+    vertical-align: top;
+}
+
+.star-rate-box{
+    text-align: left;
+}
+
+#star {
+    cursor: pointer;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+    border-radius: 3px;
+    background: #fff;
+    outline: none;
+    vertical-align: top;
+}
+
+.reviewWrite {
+    width: 100px;
+    height: 44px;
+    background-color: #525AF2;
+    color : #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.reviewListTable {
+    width: 100%;
+    border: none;
+}
+
+.reviewListTable th {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 14px;
+}
+
+.bit-review-item tr{
+    margin: 100px;
+}
+
+.reviewListTable button {
+    border: none;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    background-color: #929292;
+    color: #fff;
+}
+
+.reviewListTable td {
+    text-align: center;
 }

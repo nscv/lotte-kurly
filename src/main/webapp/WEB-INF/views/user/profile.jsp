@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Lotte Kurly - 회원정보 입력</title>
     <!-- CSS only -->
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
@@ -34,8 +34,8 @@
     }
 %>
 <div class="box">
-    <form action="add-profile" method="post" id="frm">
-        <p class="subject">간단 회원가입</p>
+    <form action="/add-profile" method="post" id="frm">
+        <p class="subject">마이페이지</p>
         <p class="text-end"><span style="color: red;">*</span>필수 입력사항</p>
         <hr class="hr-solid">
         <div>

@@ -28,12 +28,14 @@ public class ProductPageController {
         this.productService = productService;
         this.categoryService=categoryService;
     }
+
+    
     @GetMapping("/list")
     public String ProductList(Model model,@RequestParam(value="amount",defaultValue ="1")String amount,
                               String category,@RequestParam(value="low",defaultValue ="1") String low,
                               @RequestParam(value="high",defaultValue ="1")String high, int pageNo,@RequestParam(value="discount",defaultValue ="1")String discount){
-        ProductListDto dto=new ProductListDto(category,pageNo);
-        List<ProductListDto> list= productService.productList(dto);
+        ProductCategoryDto dto=new ProductCategoryDto(category,pageNo);
+        List<ProductListSortDto> list= productService.productList(dto);
         int total=productService.searchEndPage(category);
 
         int endPage=(total%30==0) ? total/30 : total/30+1;
@@ -55,7 +57,10 @@ public class ProductPageController {
         model.addAttribute("list",list);
         model.addAttribute("low",low);
         model.addAttribute("high",high);
+        model.addAttribute("discount",discount);
         model.addAttribute("startPage",0);
+        if(discount.equals("true")){endPage=1;}
+
         model.addAttribute("endPage",endPage-1);
         model.addAttribute("total",total);
         return "product/productlist";
@@ -84,14 +89,22 @@ public class ProductPageController {
 
         model.addAttribute("list",list);
         model.addAttribute("startPage",0);
+        if(discount.equals("true")){endPage=1;}
         model.addAttribute("endPage",endPage-1);
         model.addAttribute("low",low);
         model.addAttribute("high",high);
+        model.addAttribute("discount",discount);
         model.addAttribute("total",total);
         return"product/bestproductlist";
     }
-    
-
+    @GetMapping("/main")
+    public String ProductMain(Model model){
+        List<ProductListMainDiscountDto>Discountlist=productService.productMainDiscountList();
+        List<ProductListMainBestDto>Bestlist=productService.productMainBestList();
+        model.addAttribute("list",Discountlist);
+        model.addAttribute("list2",Bestlist);
+        return "product/main";
+    }
 
     @GetMapping("/productdetail")
     public String ProductDetail(Model model,String productNo){

@@ -1,10 +1,7 @@
 package com.lotte.products.service;
 
 import com.lotte.products.dao.ProductDao;
-import com.lotte.products.dto.ProductBestDto;
-import com.lotte.products.dto.ProductDto;
-import com.lotte.products.dto.ProductImgCategoryDto;
-import com.lotte.products.dto.ProductListDto;
+import com.lotte.products.dto.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,7 +16,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void insertProducts(ProductDto dto) {
+    public void setProduct(ProductDto dto) {
         productDao.insertProducts(dto);
     }
 
@@ -29,14 +26,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductListDto> productList(ProductListDto productListDto) {
-        return productDao.productList(productListDto);
+    public List<ProductListSortDto> productList(ProductCategoryDto productCategoryDto) {
+        return productDao.productList(productCategoryDto);
     }
-    public List<ProductListDto>productLowList(ProductListDto productListDto){
-        return productDao.productLowList(productListDto);
+    public List<ProductListSortDto>productLowList(ProductCategoryDto productCategoryDto){
+        return productDao.productLowList(productCategoryDto);
     }
-    public List<ProductListDto>productHighList(ProductListDto productListDto){
-        return productDao.productHighList(productListDto);
+    public List<ProductListSortDto>productHighList(ProductCategoryDto productCategoryDto){
+        return productDao.productHighList(productCategoryDto);
     }
 
     @Override
@@ -50,13 +47,16 @@ public class ProductServiceImpl implements ProductService {
     public int searchEndPage(String category){
         return productDao.serarchEndPage(category);
     }
-    public List<ProductListDto>productDiscountList(ProductListDto productListDto){
-        return productDao.productDiscountList(productListDto);
+
+
+
+    public List<ProductListSortDto>productDiscountList(ProductCategoryDto productCategoryDto){
+        return productDao.productDiscountList(productCategoryDto);
     }
 
     @Override
-    public List<ProductListDto> productAmountList(ProductListDto productListDto) {
-        return productDao.productAmountList(productListDto);
+    public List<ProductListSortDto> productAmountList(ProductCategoryDto productCategoryDto) {
+        return productDao.productAmountList(productCategoryDto);
     }
 
     public List<ProductBestDto>productBestList(ProductBestDto productBestDto){
@@ -78,8 +78,26 @@ public class ProductServiceImpl implements ProductService {
         return productDao.productBestDiscountList(productBestDto);
     }
 
+
+
     @Override
     public String getProductDetail(String productNo) {
         return productDao.selectProductDetail(productNo);
     }
+
+    @Override
+    public List<ProductListMainDiscountDto> productMainDiscountList() {
+        return productDao.productMainDiscountList();
+    }
+
+    @Override
+    public List<ProductListMainBestDto> productMainBestList() {
+        return productDao.productMainBestList();
+    }
+
+    @Override
+    public int getMaxProductNo() {
+        return productDao.selectMaxProductNo();
+    }
+
 }

@@ -6,9 +6,31 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String userno = "-1";
+    String isvalid = "";
+    Cookie[] cookies = request.getCookies() ;
+    if(cookies != null){
+        for(int i=0; i < cookies.length; i++){
+            if (cookies[i].getName().equals("userno")) {
+                userno = cookies[i].getValue();
+            }
+        }
+    }
+%>
+<%
+    if(userno.equals("-1")) {
+%>
+<script>
+    alert("로그인이 필요합니다.");
+    location.href="/product/main";
+</script>
+<%
+    }
+%>
 <html>
 <head>
-    <title>Title</title>
+    <title>Lotte Kurly - 마이페이지</title>
     <!-- CSS only -->
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
@@ -20,20 +42,6 @@
 </head>
 <body>
 <jsp:include page="/front/header.jsp" flush="true"/>
-<%
-    int userno = -1;
-    int isvalid = -1;
-    Cookie[] cookies = request.getCookies() ;
-    if(cookies != null){
-        for(int i=0; i < cookies.length; i++){
-            if (cookies[i].getName().equals("userno")) {
-                userno = Integer.parseInt(cookies[i].getValue());
-            } else if (cookies[i].getName().equals("isvalid")) {
-                isvalid = Integer.parseInt(cookies[i].getValue());
-            }
-        }
-    }
-%>
 
 <script>
     jQuery(document).ready(function() {
@@ -45,7 +53,8 @@
                 console.log(data)
             },
             error:function(){
-                alert("error");
+                $(location).attr("href","/profile")
+
             }
         });
     });

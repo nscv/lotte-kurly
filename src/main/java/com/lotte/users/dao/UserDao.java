@@ -14,9 +14,12 @@ public interface UserDao {
 
     int checkvalid(String email);
 
+    String checkrole(String email);
+
+
     int selectuserno(String eamil);
 
-    int insertprofile(ProfileDto profile);
+    void insertprofile(ProfileDto profile);
 
     String selectbirth(int userNo);
 }

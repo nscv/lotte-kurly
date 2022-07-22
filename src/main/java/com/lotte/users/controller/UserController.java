@@ -20,7 +20,7 @@ public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
 
-    private UserService userService;
+    private final UserService userService;
 
     public UserController(UserService userService){
         this.userService = userService;
@@ -42,7 +42,8 @@ public class UserController {
     public String Addprofile(ProfileDto profile){
         logger.info("UserController Addprofile()" + new Date());
         userService.addprofile(profile);
-        return "/index";
+
+        return "redirect:product/main";
     }
 
     @GetMapping("/mypage")

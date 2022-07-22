@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lotte.crawling.dto.CrawlingCategoryDto;
 import com.lotte.reviews.dto.ReviewDto;
 import com.lotte.reviews.dto.ReviewInsertDto;
+import com.lotte.reviews.dto.ReviewUpdateDto;
 import com.lotte.reviews.service.ReviewService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,10 +49,22 @@ public class ReviewPageController {
 
         ReviewInsertDto dto = new ReviewInsertDto(Integer.parseInt(userNo), reviewContent, sdf.format(timestamp),
                 sdf.format(timestamp), Integer.parseInt(reviewRate), Integer.parseInt(productNo), reviewTitle);
-        System.out.println(dto.toString());
         reviewService.insertReview(dto);
 
         return "Review";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "reviewUpdate", method = {RequestMethod.GET, RequestMethod.POST})
+    public String reviewUpdate(String id, String updateTitle, String updateContent) {
+        logger.info("reviewUpdate() " + new Date());
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
+        ReviewUpdateDto dto = new ReviewUpdateDto(Integer.parseInt(id),updateTitle,updateContent,sdf.format(timestamp));
+        reviewService.updateReview(dto);
+
+        return "ReviewUpdate";
     }
 
     @ResponseBody
@@ -61,6 +74,6 @@ public class ReviewPageController {
 
         reviewService.deleteReview(reviewno);
 
-        return "Review";
+        return "ReviewDelete";
     }
 }
