@@ -7,12 +7,24 @@ import com.lotte.products.dto.ProductListDto;
 import java.util.List;
 
 public interface ProductService {
-    void insertProducts(ProductDto dto);
+    void setProduct(ProductDto dto);
     void updateProducts(ProductDto dto);
-    List<ProductListDto> productList(String category);
-    List<ProductListDto> productHighList(String category);
-    List<ProductListDto> productLowList(String category);
+
+    List<ProductListDto> productList(ProductListDto productListDto);
+    List<ProductListDto> productHighList(ProductListDto productListDto);
+    List<ProductListDto> productLowList(ProductListDto productListDto);
     ProductImgCategoryDto productImgCategorylist(String productNo);
     List<ProductListDto> getAllProductList();
     String getProductDetail(String productNo);
+    int searchEndPage(String category);
+    List<ProductListDto>productDiscountList(ProductListDto productListDto);
+    List<ProductListDto> productAmountList(ProductListDto productListDto);
+
+    List<ProductBestDto> productBestList(ProductBestDto productBestDto);
+    int searchBestEndPage();
+    List<ProductBestDto>productBestAmountList(ProductBestDto productBestDto);
+    List<ProductBestDto>productBestHighList(ProductBestDto productBestDto);
+    List<ProductBestDto>productBestLowList(ProductBestDto productBestDto);
+    List<ProductBestDto>productBestDiscountList(ProductBestDto productBestDto);
+    int getMaxProductNo();
 }

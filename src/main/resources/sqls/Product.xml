@@ -17,7 +17,6 @@
         SELECT product_no, product_name, product_price, product_deadline, product_amount, product_stock
         FROM products
         WHERE product_no = #{product_no}
-
     </select>
     <insert id="insertProducts" parameterType="com.lotte.products.dto.ProductDto">
         INSERT INTO products(product_name, product_content, product_simple_content, product_price, product_amount, product_stock, product_deadline)
@@ -61,5 +60,9 @@
         SELECT product_content
         FROM products
         WHERE product_no = #{productNo}
+    </select>
+    <select id="selectMaxProductNo" resultType="Integer">
+        SELECT count(*)
+        from PRODUCTS
     </select>
 </mapper>

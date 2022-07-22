@@ -1,8 +1,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.lotte.products.dto.ProductListDto" %>
+<%@ page import="com.lotte.products.dto.ProductImgCategoryDto" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    ProductListDto product = (ProductListDto) request.getAttribute("product");
+    ProductImgCategoryDto product = (ProductImgCategoryDto) request.getAttribute("product");
 %>
 <html>
 <head>
@@ -66,7 +67,7 @@
             <h2 style="margin-bottom: 30px;">상품 등록</h2>
             <div id="product-list" style="background-color: white; width: 1370px; height: 600px;">
                 <div id="product-table" style="padding: 55px; overflow-y: scroll; height: 100%;">
-                    <table class="table table-hover" style="text-align: center;">
+                    <table class="table" style="text-align: center;">
                         <col width="100px"><col width="100px"><col width="100px"><col width="100px"><col width="100px">
                         <tr>
                             <th>상품 번호</th>

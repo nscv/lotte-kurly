@@ -24,6 +24,22 @@ public class ProductDto {
         this.productStock = productStock;
     }
 
+    public int getProductNo() {
+        return productNo;
+    }
+
+    public void setProductNo(int productNo) {
+        this.productNo = productNo;
+    }
+
+    public int getCategoryNo() {
+        return categoryNo;
+    }
+
+    public void setCategoryNo(int categoryNo) {
+        this.categoryNo = categoryNo;
+    }
+
     public String getProductDeadline() {
         return productDeadline;
     }

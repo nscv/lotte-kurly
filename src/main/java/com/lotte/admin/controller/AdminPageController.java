@@ -16,10 +16,12 @@ public class AdminPageController {
 
     private StatisticService statisticService;
     private ProductService productService;
+    private CategoryService categoryService;
 
-    public AdminPageController(StatisticService statisticService, ProductService productService) {
+    public AdminPageController(StatisticService statisticService, ProductService productService, CategoryService categoryService) {
         this.statisticService = statisticService;
         this.productService = productService;
+        this.categoryService = categoryService;
     }
 
     @RequestMapping("/main")
@@ -41,13 +43,21 @@ public class AdminPageController {
     }
 
     @RequestMapping("/update")
-    public String productUpdate(int productNo, Model model) {
+    public String productUpdate(String productNo, Model model) {
+        model.addAttribute("product", productService.productImgCategorylist(productNo));
         return "/admin/product-update";
     }
 
     @RequestMapping("/register")
-    public String registerProduct(int productNo, Model model) {
-        model.addAttribute("product", productService.productImgCategorylist(""+productNo));
+    public String registerProduct(Model model) {
         return "/admin/product-register";
+    }
+
+    @RequestMapping(value="/set/product", method = {RequestMethod.POST, RequestMethod.GET})
+    public String setProduct(@RequestBody ProductDto dto) {
+        System.out.println(dto);
+        dto.setProductNo(productService.getMaxProductNo()+1);
+        productService.setProduct(dto);
+        return "/admin/product-list";
     }
 }

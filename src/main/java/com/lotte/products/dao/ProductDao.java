@@ -21,4 +21,16 @@ public interface ProductDao {
     void updateProducts(ProductDto product);
     ProductListDto selectProductByProductNo(int productNo);
     String selectProductDetail(String productNo);
+
+    int serarchEndPage(String category);
+
+    List<ProductListDto>productDiscountList(ProductListDto productListDto);
+    List<ProductListDto>productAmountList(ProductListDto productListDto);
+    List<ProductBestDto>productBestList(ProductBestDto productBestDto);
+    int searchBestEndPage();
+    List<ProductBestDto>productBestAmountList(ProductBestDto productBestDto);
+    List<ProductBestDto>productBestHighList(ProductBestDto productBestDto);
+    List<ProductBestDto>productBestLowList(ProductBestDto productBestDto);
+    List<ProductBestDto>productBestDiscountList(ProductBestDto productBestDto);
+    int selectMaxProductNo();
 }

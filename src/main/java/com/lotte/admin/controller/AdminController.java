@@ -44,7 +44,7 @@ public class AdminController {
     @PostMapping("/product/insert")
     public boolean insertProduct(ProductDto dto) {
         try {
-            productService.insertProducts(dto);
+            productService.setProduct(dto);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
