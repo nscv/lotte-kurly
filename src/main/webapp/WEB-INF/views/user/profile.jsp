@@ -34,8 +34,8 @@
     }
 %>
 <div class="box">
-    <form action="add-profile" method="post" id="frm">
-        <p class="subject">간단 회원가입</p>
+    <form action="/add-profile" method="post" id="frm">
+        <p class="subject">마이페이지</p>
         <p class="text-end"><span style="color: red;">*</span>필수 입력사항</p>
         <hr class="hr-solid">
         <div>
