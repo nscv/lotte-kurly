@@ -10,7 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
-    <title>Main</title>
+    <title>Lotte Kurly</title>
     <%--<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>--%>
 
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>

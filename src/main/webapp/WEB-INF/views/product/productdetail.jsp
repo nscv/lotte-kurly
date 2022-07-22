@@ -19,12 +19,26 @@
 
 <html>
 <head>
+    <title>Lotte Kurly - 물품 상세 정보</title>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/productdetail.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <%
         ProductImgCategoryDto dto = (ProductImgCategoryDto)request.getAttribute("dto");
         String detail = (String)request.getAttribute("detail");
         DecimalFormat formatter = new DecimalFormat("###,###");
+
+        String userno = "-1";
+        String isvalid = "-1";
+        Cookie[] cookies = request.getCookies() ;
+        if(cookies != null){
+            for(int i=0; i < cookies.length; i++){
+                if (cookies[i].getName().equals("userno")) {
+                    userno = cookies[i].getValue();
+                } else if (cookies[i].getName().equals("isvalid")) {
+                    isvalid = cookies[i].getValue();
+                }
+            }
+        }
     %>
 <script>
     function bucksubmit(){
@@ -190,6 +204,7 @@
                             <button type="button" id="reviewWrite" class="reviewWrite" onclick="reviewInsert();">리뷰 쓰기</button>
                         </td>
                     </tr>
+                </table>
                 <table id="reviewListTable" class="reviewListTable">
                     <thead>
                         <th>구분</th>
@@ -200,12 +215,9 @@
                         <th>평점</th>
                         <th>수정버튼</th>
                         <th>삭제버튼</th>
-                        <th>좋아요</th>
                     </thead>
                     <tbody id="addReviewData">
                     </tbody>
-                <table>
-
                 </table>
             </div>
         </div>
@@ -267,6 +279,7 @@
             }
 
             function reviewCall() {
+                let productno = <%=dto.getProductNo()%>;
                 $.ajax({
                     type: "get",
                     url: "/reviewList",
@@ -276,7 +289,8 @@
                         let num = data.list.length;
 
                         for(let i=0; i<data.list.length; i++){
-
+                            if(productno != data.list[i].productNo) continue;
+                            if(data.list[i].userName == null || data.list[i].userName.trim()) data.list[i].userName = "Nickname not registered";
                             tbody += '<tr id=tr'+ data.list[i].reviewNo +' class="bit-review-item" style="height: 44px;">';
                             tbody += '<td>' +num+ '</td>';
                             tbody += '<td>' +data.list[i].userName+ '</td>';
@@ -284,9 +298,8 @@
                             tbody += '<td id=content'+ data.list[i].reviewNo +'>' +data.list[i].reviewContent+ '</td>';
                             tbody += '<td>' +data.list[i].reviewModified_at+ '</td>';
                             tbody += '<td>' +data.list[i].reviewRate+ '</td>';
-                            tbody += '<td>' +'<button type="button" id=' + data.list[i].reviewNo + ' class=update'+ data.list[i].reviewNo +' onclick="reviewUpdate(this.id);">수정</button>'+ '</td>';
-                            tbody += '<td>' +'<button type="button" id=' + data.list[i].reviewNo + ' class="reviewDelete" onclick="reviewDelete(this.id);">삭제</button>'+ '</td>';
-                            tbody += '<td>' +'<button type="button" id=like' + data.list[i].reviewNo + ' class="reviewLike" onclick="reviewLike(this.id);">좋아요</button>'+ '</td>';
+                            tbody += '<td>' +'<button type="button" name="'+ data.list[i].userNo +'" + id=' + data.list[i].reviewNo + ' class=update'+ data.list[i].reviewNo +' onclick="reviewUpdate(this.id,this.name);">수정</button>'+ '</td>';
+                            tbody += '<td>' +'<button type="button" name="'+ data.list[i].userNo +'" + id=' + data.list[i].reviewNo + ' class="reviewDelete" onclick="reviewDelete(this.id,this.name);">삭제</button>'+ '</td>';
                             tbody += '</tr>';
                             num--;
                         }
@@ -303,12 +316,17 @@
 
             function reviewInsert(){
                 //id 연결되면 바꾸기 쿠키값 넣기
-                let userNo = "10"
+
+                let cookieuserNo = <%=userno%>;
                 let title = document.getElementById("reviewTitle").value;
                 let reviewContent = document.getElementById("reviewContent").value;
                 let reviewRates = document.getElementById("star");
                 let reviewRate = reviewRates.options[reviewRates.selectedIndex].value;
 
+                if(cookieuserNo == "-1" || cookieuserNo == null){
+                    alert("로그인 해주세요.");
+                    return;
+                }
                 if(title == null || title.trim() == ""){
                     alert("제목을 입력하세요.");
                     return;
@@ -322,13 +340,16 @@
                     type:"get",
                     url:"/reviewInsert",
                     data:{
-                        "userNo":userNo,
+                        "userNo":cookieuserNo,
                         "reviewTitle":title,
                         "reviewContent":reviewContent,
                         "productNo":<%=dto.getProductNo()%>,
                         "reviewRate":reviewRate
                     },
                     success:function() {
+                        alert("리뷰가 작성됐습니다.");
+                        $('#reviewTitle').val('');
+                        $('#reviewContent').val('');
                         reviewCall();
                     },
                     error:function() {
@@ -337,11 +358,16 @@
                 });
             }
 
-            function reviewUpdate(reviewno){
+            function reviewUpdate(reviewno,usernum){
+                let cookieuserNo = <%=userno%>;
                 let titleid = "#title" + reviewno;
                 let contentid =  "#content" + reviewno;
                 let updateid = ".update" + reviewno;
 
+                if(usernum != cookieuserNo){
+                    alert("리뷰 작성자가 아닙니다.");
+                    return;
+                }
                 $( titleid ).contents().unwrap().wrap( '<td><input type="text" name="reviewTitle" id=title'+ reviewno + ' size="10" style="border: 1px solid #ccc; height: 30px; font-size:14px; color: #333; line-height: 20px; border-radius: 3px; background-color: #fff; outline: none; vertical-align: top;"></td>' );
                 $( contentid ).contents().unwrap().wrap( '<td><input type="text" name="reviewContent" id=content'+ reviewno + ' size="30" style="border: 1px solid #ccc; height: 30px; font-size:14px; color: #333; line-height: 20px; border-radius: 3px; background-color: #fff; outline: none; vertical-align: top;"></td>' );
                 $( updateid ).contents().unwrap().wrap('<td><button type="button" id=' + reviewno + ' class="reviewCheck" onclick="reviewCheck(this.id);">확인</button></td>');
@@ -376,7 +402,14 @@
                 })
             }
 
-            function reviewDelete(reviewno){
+            function reviewDelete(reviewno,usernum){
+                let cookieuserNo = <%=userno%>;
+
+                if(usernum != cookieuserNo){
+                    alert("리뷰 작성자가 아닙니다.");
+                    return;
+                }
+
                 $.ajax({
                     type:"get",
                     url:"/reviewDelete",
@@ -388,10 +421,6 @@
                         alert("delete fail");
                     }
                 });
-            }
-
-            function reviewLike(reviewno){
-
             }
 
         </script>

@@ -3,10 +3,36 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     List<ProductListDto> productlist = (List<ProductListDto>)request.getAttribute("product");
+    String userno = "";
+    String isvalid = "";
+    String userRole = "";
+
+    Cookie[] cookies = request.getCookies() ;
+    if(cookies != null){
+        for(int i=0; i < cookies.length; i++){
+            if (cookies[i].getName().equals("userno")) {
+                userno = cookies[i].getValue();
+            } else if (cookies[i].getName().equals("isvalid")) {
+                isvalid = cookies[i].getValue();
+            } else if(cookies[i].getName().equals("userrole")) {
+                userRole = cookies[i].getValue();
+            }
+        }
+    }
+%>
+<%
+    if(!userRole.equals("admin")) {
+%>
+<script>
+    alert("접근할 수 없는 계정입니다.");
+    location.href="/product/main";
+</script>
+<%
+    }
 %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Lotte Kurly - 상품 목록(관리자)</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -25,7 +51,7 @@
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-kerly">
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-black min-vh-100">
                 <a href="/admin/main" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-black text-decoration-none">
-                    <img src="/front/images/lotte-kurly-white-logo.png" class="logo-img">
+                    <a href="/product/main"><img src="/front/images/lotte-kurly-white-logo.png" class="logo-img"></a>
                 </a>
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item">
