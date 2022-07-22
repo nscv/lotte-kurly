@@ -208,6 +208,7 @@ function pay() {
       }
       else {
         alert("결제를 실패했습니다. 다시 시도해주세요.");
+        // TODO refund
         hideModal();
       }
 
@@ -233,6 +234,13 @@ function order() {
     data: data,
     success: function (response) {
       console.log(response);
+
+      if (!response) {
+        // TODO refund
+      }
+      else {
+        location.href="/order/list";
+      }
     },
     error: function (err) {
       console.log(err);

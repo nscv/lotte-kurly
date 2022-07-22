@@ -49,8 +49,7 @@ public class OrderController {
 
     @PostMapping("/orders")
     public ResponseEntity<OrderResponse.CreateOrderDto> order(OrderRequest.CreateOrderDto requestDto) {
-        orderService.order(requestDto);
-        return null;
+        return ResponseEntity.ok(orderService.order(requestDto));
     }
 
     /* 결제 후 주문 재고가 없는 경우 예외 처리 */

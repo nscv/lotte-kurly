@@ -8,7 +8,8 @@
     <!-- (1) 주문 목록 조회 -->
     <select id="selectOrders" parameterType="Integer" resultType="com.lotte.orders.dto.Order">
         SELECT order_no orderNo, order_state orderState,
-               order_created_at orderCreatedAt, order_total_price orderTotalPrice
+               order_created_at orderCreatedAt, order_total_price orderTotalPrice,
+
         FROM orders
         WHERE user_no = #{userNo}
     </select>
