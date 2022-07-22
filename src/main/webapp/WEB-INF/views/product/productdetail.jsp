@@ -160,12 +160,12 @@
                     </tr>
                     <th class="tit">평점</th>
                     <td class="star-rate-box">
-                        <select id="star-rate" name='star-rate'>
-                            <option class="star-rate-item" id = "1" value='1' selected>1</option>
-                            <option class="star-rate-item" id = "2" value='2'>2</option>
-                            <option class="star-rate-item" id = "3" value='3'>3</option>
-                            <option class="star-rate-item" id = "4" value='4'>4</option>
-                            <option class="star-rate-item" id = "5" value='5'>5</option>
+                        <select id="star" name='star'>
+                            <option class="star-item" id = "1" value='1' selected>1</option>
+                            <option class="star-item" id = "2" value='2'>2</option>
+                            <option class="star-item" id = "3" value='3'>3</option>
+                            <option class="star-item" id = "4" value='4'>4</option>
+                            <option class="star-item" id = "5" value='5'>5</option>
                         </select>
                     </td>
                     <tr align="center">
@@ -173,7 +173,7 @@
                             <button type="button" id="reviewWrite" class="reviewWrite" onclick="reviewInsert();">리뷰 쓰기</button>
                         </td>
                     </tr>
-                <table id="reviewListTable" class="reviewListTable" style="width: 85%; border:1px solid #939393">
+                <table id="reviewListTable" class="reviewListTable">
                     <thead>
                         <th>구분</th>
                         <th>닉네임</th>
