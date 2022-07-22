@@ -1,4 +1,3 @@
-
 getCart();
 
 
@@ -17,43 +16,33 @@ function getCart() {
             let html = "";
             response.cartItems.forEach(function (cartItem, idx) {
                 html += `<li class="items odd">
-                <div class="infoWrap">
-                    <div>
-                        <input id="${idx}" type="checkbox" name="orderCartItemNos" value="${cartItem.cartItemNo}" onclick="checkSelectAll(this.id)" checked="checked">
-                    </div>
-                    <div class="cartSection" style="display: flex;">
-                        <img src="${cartItem.productImgNewName}" alt="" style="margin-left: 20px;" class="itemImg">
-                        <div class="cart-product-name"><h3>${cartItem.productName}</h3>
-                        <div style="display: flex">
-                        <div class="option">
-                            <span class="count">
-                                <button id=${idx} type="button" class="btn down on" onclick='count("minus",this.id)' value='-'>수량내리기</button>
-                                <div id="result" name="result">${cartItem.cartItemCount}</div>
-                                <button id=${idx} type="button" class="btn up on" onclick='count("plus",this.id)' value='+'>수량올리기</button>
-                            </span>
+                        <div class="infoWrap">
+                            <div>
+                                <input id="${idx}" type="checkbox" name="orderCartItemNos" value="${cartItem.cartItemNo}" onclick="checkSelectAll(this.id)" checked="checked">
+                            </div>
+                            <div class="cartSection" style="display: flex;">
+                                <img src="${cartItem.productImgNewName}" alt="" style="margin-left: 20px;" class="itemImg">
+                                <div class="cart-product-name"><h3>${cartItem.productName}</h3>
+                                    <div style="display: flex">
+                                        <div class="option">
+                                            <span class="count">
+                                            <button id=${idx} type="button" class="btn down on" onclick='count("minus",this.id)' value='-'>수량내리기</button>
+                                            <div id="result" name="result">${cartItem.cartItemCount}</div>
+                                                <button id=${idx} type="button" class="btn up on" onclick='count("plus",this.id)' value='+'>수량올리기</button>
+                                                </span>
+                                        </div>
+                                        <p style="margin: auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                        <div class="prodTotal cartSection">
+                                            <p id="basic-price" name="basic-price">${(parseInt(cartItem.cartItemDiscountPrice) / cartItem.cartItemCount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
+                                        </div>
+                                        <div class="prodTotal cartSection">
+                                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 계&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><p id="total-price" name="total-price"> ${(cartItem.cartItemCount * (parseInt(cartItem.cartItemDiscountPrice) / cartItem.cartItemCount)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p><p>원</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <p style="margin: auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    <div class="prodTotal cartSection">
-                        <p id="basic-price" name="basic-price">${(parseInt(cartItem.cartItemDiscountPrice)/cartItem.cartItemCount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
-                    </div>
-                    
-                    <div class="prodTotal cartSection">
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 계&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><p id="total-price" name="total-price"> ${(cartItem.cartItemCount * (parseInt(cartItem.cartItemDiscountPrice)/cartItem.cartItemCount)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p><p>원</p>
-                    </div>
-                        
-</div>
-                        
-                        </div>
-                        
-
-                        
-                    </div>
-                    
-<!--                    <div class="cartSection removeWrap">-->
-<!--                        <a href="#" class="remove">x</a>-->
-<!--                    </div>-->
-                </div>
-            </li>`;
+                            </li>`;
             });
 
             cartItemContainer.append(html);
