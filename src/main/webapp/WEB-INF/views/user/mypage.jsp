@@ -53,7 +53,8 @@
                 console.log(data)
             },
             error:function(){
-                alert("error");
+                $(location).attr("href","/profile")
+
             }
         });
     });

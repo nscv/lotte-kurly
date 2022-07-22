@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: user
   Date: 2022-07-18
-  Time: 오후 3:09
+ Time:  오후 3:09
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -30,6 +30,7 @@
 <%
     String userno = "-1";
     String isvalid = "-1";
+    String role = "-1";
     Cookie[] cookies = request.getCookies();
     if (cookies != null) {
         for (int i = 0; i < cookies.length; i++) {
@@ -37,6 +38,12 @@
                 userno = cookies[i].getValue();
             } else if (cookies[i].getName().equals("isvalid")) {
                 isvalid = cookies[i].getValue();
+            } else if (cookies[i].getName().equals("userrole")) {
+                if(cookies[i].getValue().equals("0")){
+                    role = "user";
+                }else{
+                    role = "admin";
+                }
             }
         }
     }
@@ -246,7 +253,9 @@
                             success: function (data) {
                                 console.log(data)
                                 setCookie("isvalid", data.substring(0, 1), 60);
-                                setCookie("userno", data.substring(1), 60);
+                                setCookie("userrole", data.substring(1, 2), 60);
+                                setCookie("userno", data.substring(2), 60);
+                                isrole
                                 Swal.fire({
                                     title: '로그인 성공',
                                     text: "환영합니다.",
