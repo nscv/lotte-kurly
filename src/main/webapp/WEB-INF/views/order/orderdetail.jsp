@@ -6,6 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+  Integer orderNo = Integer.parseInt(request.getParameter("orderNo"));
+%>
+<script>
+  var orderNo = "<%=orderNo%>"
+</script>
 <html>
 <head>
   <title>Lotte Kurly - 주문 상세 내역</title>

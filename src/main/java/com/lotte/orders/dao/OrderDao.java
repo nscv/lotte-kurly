@@ -18,7 +18,7 @@ public interface OrderDao {
     Integer selectOrderCartItemsCount(Integer orderNo);
     List<Order> selectOrders(Integer orderNo);
 
-    List<OrderCartItem> selectOrderCartItemsByOrderNo(Integer orderNo);
+    List<OrderCartItem> selectOrderCartItems(Integer orderNo);
     OrderDetail selectOrderDetail(Integer orderNo);
 
     OrderUserDetail selectOrderUserDetail(Integer userNo);

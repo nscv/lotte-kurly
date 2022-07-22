@@ -45,7 +45,7 @@ public class OrderService {
 
     public OrderResponse.OrderDetailDto getOrderDetail(Integer orderNo) {
         // 주문 목록에 있는 상품 목록 (장바구니 아이템 목록) 가져오기
-        List<OrderCartItem> orderCartItems = orderDao.selectOrderCartItemsByOrderNo(orderNo);
+        List<OrderCartItem> orderCartItems = orderDao.selectOrderCartItems(orderNo);
 
         // 주문 정보 가져오기
         OrderDetail orderDetail = orderDao.selectOrderDetail(orderNo);
