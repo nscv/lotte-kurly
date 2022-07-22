@@ -36,10 +36,10 @@
                             <img class="icon-img" src="../../../front/images/product.png"><span class="ms-1 d-none d-sm-inline titlemenu">상품 관리</span> </a>
                         <ul class="collapse show nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="/admin/product" class="nav-link px-0"> 상품 매출<span class="d-none d-sm-inline"> 현황</span>  </a>
+                                <a href="/admin/product" class="nav-link px-0"> 상품 재고 </option><span class="d-none d-sm-inline"></span>  </a>
                             </li>
                             <li>
-                                <a href="/admin/register" class="nav-link px-0">상품 재고 <span class="d-none d-sm-inline"> 및 등록</span> </a>
+                                <a href="/admin/register" class="nav-link px-0">상품 <span class="d-none d-sm-inline"> 등록</span> </a>
                             </li>
                         </ul>
                     </li>
@@ -172,8 +172,7 @@
                 productCategory: 'test'
             },
             success: function(data) {
-                alert(data);
-                // window.location.href = '/admin/product'
+                window.location.href = '/admin/product'
             },
             error: function() {
                 alert('err');

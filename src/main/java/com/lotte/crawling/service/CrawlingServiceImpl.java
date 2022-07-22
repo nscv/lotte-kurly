@@ -93,29 +93,23 @@ public class CrawlingServiceImpl implements CrawlingService{
     @Override
     public int updateContent(CrawlingDetailDto detail) {
         int check = crawlingDao.updateContent(detail);
-//        System.out.println(detail);
         return check;
     }
 
     @Override
     public void crawlingDetail() throws IOException {
         List<Integer> list = selectProductIds();
-//        System.out.print(list);
 
         for (int i = 0; i < list.size(); i ++){
-//            System.out.println(list.get(i));
             String detail = getDetail(list.get(i));
             CrawlingDetailDto dto = new CrawlingDetailDto(list.get(i), detail);
-            System.out.println(list.get(i) + "번호" + updateContent(dto));
         }
     }
 
     @Override
     public String getDetail(int productNo) throws IOException {
         Document doc = Jsoup.connect("https://www.kurly.com/shop/goods/goods_view.php?&goodsno="+ Integer.toString(productNo)).maxBodySize(0).get();
-//        System.out.println(doc);
         Elements detail = doc.select("div.goods_wrap");
-//        System.out.println(detail.html());
 
         return detail.html();
     }

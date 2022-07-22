@@ -35,8 +35,6 @@ public class ProductPageController {
                               String category,@RequestParam(value="low",defaultValue ="1") String low,
                               @RequestParam(value="high",defaultValue ="1")String high, int pageNo,@RequestParam(value="discount",defaultValue ="1")String discount){
         ProductCategoryDto dto=new ProductCategoryDto(category,pageNo);
-        System.out.println(dto.getPageNo());
-        System.out.println(dto.getEndPageNo());
         List<ProductListSortDto> list= productService.productList(dto);
         int total=productService.searchEndPage(category);
 

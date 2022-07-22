@@ -39,10 +39,10 @@
                             <img class="icon-img" src="../../../front/images/product.png"><span class="ms-1 d-none d-sm-inline titlemenu">상품 관리</span> </a>
                         <ul class="collapse show nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="/admin/product" class="nav-link px-0"> 상품 매출<span class="d-none d-sm-inline"> 현황</span>  </a>
+                                <a href="/admin/product" class="nav-link px-0"> 상품 재고 </option><span class="d-none d-sm-inline"></span>  </a>
                             </li>
                             <li>
-                                <a href="/admin/register" class="nav-link px-0">상품 재고 <span class="d-none d-sm-inline"> 및 등록</span> </a>
+                                <a href="/admin/register" class="nav-link px-0">상품 <span class="d-none d-sm-inline"> 등록</span> </a>
                             </li>
                         </ul>
                     </li>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div id="product" style="background-color: #E2E2E2; padding: 50px 100px;">
-            <h2 style="margin-bottom: 30px;">상품 재고 및 등록</h2>
+            <h2 style="margin-bottom: 30px;">상품 재고</h2>
             <div id="product-list" style="background-color: white; width: 1370px; height: 600px;">
                 <div id="product-table" style="padding: 55px; overflow-y: scroll; height: 100%;">
                     <table class="table table-hover" style="text-align: center;">
