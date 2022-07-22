@@ -45,7 +45,7 @@
         $.ajax({
             type:"post",
             url:"/cart/items",
-            data:{"productNo":<%=dto.getProductNo()%>,"cartNo":14,
+            data:{"productNo":<%=dto.getProductNo()%>,"cartNo":14,//TODO
             "cartItemCount":document.getElementById('result').innerText},
             dataType:"json",
             error:function(e){
