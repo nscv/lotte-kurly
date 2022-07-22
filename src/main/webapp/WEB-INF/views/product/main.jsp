@@ -40,7 +40,7 @@
                     <img class="product-img" id="${m.productNo}" src="${m.productImgNewName}" onclick="imageDataToNav(this.id)">
                     <div class="group-btn">
                         <input type="hidden" class="pid" value="${m.productNo}">
-                        <button type="button" class="btn cart-btn" onclick="bucksubmit()"></button>
+                        <button id="${m.productNo}" type="button" class="btn cart-btn" onclick="bucksubmit(this)"></button>
                     </div>
                 </div>
                 <div class="info">
@@ -80,7 +80,7 @@
                     <img class="product-img" id="${m.productNo}" src="${m.productImgNewName}" onclick="imageDataToNav(this.id)">
                     <div class="group-btn">
                         <input type="hidden" class="pid" value="${m.productNo}">
-                        <button type="button" class="btn cart-btn" onclick="bucksubmit(this)"></button>
+                        <button id="${m.productNo}" type="button" class="btn cart-btn" onclick="bucksubmit(this)"></button>
                     </div>
                 </div>
                 <div class="info">

@@ -23,7 +23,7 @@ function getOrderSheet() {
       printCartItems(response.orderCartItems);
       printUserInfo(response.orderUserDetail);
       printDeliveryInfo(response.orderUserDetail.userAddress);
-      printPaymentInfo(response.orderCartItems);
+      printPaymentInfo(response.orderCartItems, response.orderTotalPrice);
     },
     error: function (err) {
       console.log(err);
@@ -80,10 +80,11 @@ function printDeliveryInfo(address) {
   deliveryAddressTd.text(address);
 }
 
-function printPaymentInfo(cartItems) {
+function printPaymentInfo(cartItems, total) {
   $('#productsTotalPrice').text(makePriceFormat(getOrderPrice(cartItems)));
   $('#paper_goodsprice').text(makePriceFormat(getProductPrice(cartItems)));
   $('#special_discount_amount').text(makePriceFormat(getTotalDiscountPrice(cartItems)));
+  $('#paper_settlement').text(makePriceFormat(total));
 }
 
 function makePriceFormat(price) {
@@ -163,7 +164,7 @@ function showPayModal(account) {
   payBtn.addClass("btn-secondary");
 
   $('#account-money-span').text(account);
-  $('#order-total-price-span').text(orderTotalPrice);
+  $('#order-total-price-span').text($('#paper_settlement').text());
 
   let payPrice = getPayPrice(account, orderTotalPrice);
   $('#price-after-order-span').text(payPrice);
@@ -192,7 +193,7 @@ function pay() {
   console.log('pay btn click');
 
   let data = {
-    orderTotalPrice: orderTotalPrice,
+    orderTotalPrice: parseInt($('#paper_settlement').text().replaceAll(",","")),
     userNo: userNo // TODO userNo
   };
 

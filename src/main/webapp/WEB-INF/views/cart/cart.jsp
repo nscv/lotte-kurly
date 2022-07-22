@@ -76,7 +76,6 @@
         const checked = document.querySelectorAll('input[name="orderCartItemNos"]')
         // 현재 화면에 표시된 값
         let number = resultElement[id].innerText;
-
         // 더하기/빼기
         if (type === 'plus') {
             number = parseInt(number) + 1;
@@ -99,6 +98,26 @@
             resultElement[id].innerText = number;
             resultTotalPrice[id].innerText = (parseInt(basicPriceFormatRemove) * parseInt(number)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         }
+        const orderCartItemNos = document.getElementsByName('orderCartItemNos');
+        console.log(parseInt(orderCartItemNos[id].value))
+        console.log(parseInt(resultTotalPrice[id].innerText.replaceAll(",","")))
+        console.log(parseInt(resultElement[id].innerText))
+
+        $.ajax({
+            url: `/cart/items/`+parseInt(orderCartItemNos[id].value),
+            data:{
+                "cartItemNo":parseInt(orderCartItemNos[id].value),
+                "cartItemCount":parseInt(resultTotalPrice[id].innerText.replaceAll(",","")),
+                "cartItemTotalPrice":parseInt(resultElement[id].innerText)
+            },
+            type: "PUT",
+            success: function (response) {
+                console.log(response);
+            },
+            error: function (err) {
+                alert("수정실패");
+            }
+        })
     }
 
     function checkSelectAll(id) {

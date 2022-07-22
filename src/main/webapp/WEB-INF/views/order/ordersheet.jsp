@@ -163,7 +163,7 @@
                 <dt class="tit">적립금 사용</dt>
                 <dd class="price">
                     <span class="num pay_sum" id="paper_reserves">
-                        <input type="text" class="point-input" value="" placeholder="0"> 원</span>
+                        <input onchange="usePoint(this)" type="text" class="point-input" value="" placeholder="0"> 원</span>
                 </dd>
             </dl>
             <dl class="amount lst">
@@ -179,7 +179,7 @@
             </p>
         </div>
 
-        <<input type="submit" class="confirm-pay" value="결제하기" onclick="getUserAccountInfo()">
+        <input type="submit" class="confirm-pay" value="결제하기" onclick="getUserAccountInfo()">
         <!-- TODO userNo -->
 
     </div>
@@ -230,6 +230,16 @@
 </div>
 <jsp:include page="/front/footer.jsp"></jsp:include>
 
+<script>
+    function usePoint(obj) {
+        let computedtotal = parseInt($('#paper_goodsprice').text().replaceAll(",","")) + parseInt($('#special_discount_amount').text().replaceAll(",","")) - parseInt(obj.value)
+        $('#paper_settlement').text(makePriceFormat(computedtotal));
+    }
+    function makePriceFormat(price) {
+        return (parseInt(price) + "").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+</script>
 <script type="text/javascript" src="/js/ordersheet.js"></script>
 </body>
 </html>

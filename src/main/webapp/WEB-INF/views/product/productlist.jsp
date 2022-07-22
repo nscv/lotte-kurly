@@ -63,7 +63,7 @@
                                          onclick="imageDataToNav(this.id)">
                                     <div class="group-btn">
                                         <input type="hidden" id="pid" value="${m.productNo}">
-                                        <button type="button" class="btn cart-btn" onclick="bucksubmit(this)"></button>
+                                        <button id="${m.productNo}" type="button" class="btn cart-btn" onclick="bucksubmit(this)"></button>
                                     </div>
                                 </div>
                                 <div class="info">
@@ -112,6 +112,7 @@
 
 <script>
   function bucksubmit(button){
+      console.log(button.id)
     $.ajax({
       type:"post",
       url:"/cart/items",
