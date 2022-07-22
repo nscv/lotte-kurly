@@ -15,26 +15,6 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="/css/productlist.css">
 
-    <script>
-        $(function () {
-            //foodselectlist();
-        });
-
-        function foodlowlist() {
-            $.ajax({
-                url: "productlowlist",
-                type: "get",
-                dataType:"json",
-                error: function (xhr, status, msg) {
-                    alert("상태값: " + status + "에러" + msg);
-                },
-                success: function (data) {
-                    console.log(data);
-                }
-            });
-        };
-
-    </script>
 </head>
 <body>
 <jsp:include page="/front/header.jsp"></jsp:include>
