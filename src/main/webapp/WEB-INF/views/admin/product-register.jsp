@@ -49,10 +49,10 @@
                             <img class="icon-img" src="../../../front/images/product.png"><span class="ms-1 d-none d-sm-inline titlemenu">상품 관리</span> </a>
                         <ul class="collapse show nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                             <li class="w-100">
-                                <a href="#" class="nav-link px-0"> 상품 매출<span class="d-none d-sm-inline"> 현황</span>  </a>
+                                <a href="/admin/product" class="nav-link px-0"> 상품 매출<span class="d-none d-sm-inline"> 현황</span>  </a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0">상품 재고 <span class="d-none d-sm-inline"> 및 등록</span> </a>
+                                <a href="/admin/register" class="nav-link px-0">상품 재고 <span class="d-none d-sm-inline"> 및 등록</span> </a>
                             </li>
                         </ul>
                     </li>
@@ -138,6 +138,7 @@
                         </tr>
                         <tr>
                             <th>상품 재고</th>
+                            <td><input type="text" id="productStock" name="productStock"></td>
                         </tr>
                         </thead>
                         <tr>
@@ -154,15 +155,26 @@
 <script type="text/javascript">
 
     $('#setProduct').click(function() {
+        let dto = {
+            productNo: $("select[name=productCategory]").val(),
+            categoryNo: 0,
+            productName: $('#productName').val(),
+            productContent: $('#productContent').val(),
+            productSimpleContent: $('#productSimpleContent').val(),
+            productDeadline: $('#productDeadline').val(),
+            productPrice: $('#productPrice').val(),
+            productAmount: 0,
+            productStock: $('#productStock').val(),
+            productCategory: 'test'
+        }
+        console.dir(dto);
+        // console.dir(JSON.stringify(dto));
         $.ajax({
             type: 'POST',
             url: '/admin/set/product',
-            headers: {
-                    'Content-Type': 'application/json',
-                },
             data: {
-                productNo: $("select[name=productCategory]").val(),
-                categoryNo: 0,
+                productNo: 0,
+                categoryNo: $("select[name=productCategory]").val(),
                 productName: $('#productName').val(),
                 productContent: $('#productContent').val(),
                 productSimpleContent: $('#productSimpleContent').val(),
@@ -173,7 +185,8 @@
                 productCategory: 'test'
             },
             success: function(data) {
-                console.log(data);
+                alert(data);
+                // window.location.href = '/admin/product'
             },
             error: function() {
                 alert('err');

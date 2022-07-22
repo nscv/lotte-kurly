@@ -9,10 +9,7 @@ import com.lotte.coupons.dto.UserCouponInfo;
 import com.lotte.products.dto.ProductDto;
 import com.lotte.products.service.ProductService;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -60,6 +57,14 @@ public class AdminController {
             e.printStackTrace();
             return false;
         }
+        return true;
+    }
+    @RequestMapping(value="/set/product", method = {RequestMethod.POST, RequestMethod.GET})
+    public boolean setProduct(@ModelAttribute ProductDto dto, Model model) {
+        System.out.println(dto);
+        dto.setProductNo(productService.getMaxProductNo()+1);
+        System.out.println(dto);
+        productService.setProduct(dto);
         return true;
     }
 }

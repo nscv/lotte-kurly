@@ -8,9 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/admin")
@@ -57,11 +55,4 @@ public class AdminPageController {
         return "/admin/product-register";
     }
 
-    @RequestMapping(value="/set/product", method = {RequestMethod.POST, RequestMethod.GET})
-    public String setProduct(@RequestBody ProductDto dto) {
-        System.out.println(dto);
-        dto.setProductNo(productService.getMaxProductNo()+1);
-        productService.setProduct(dto);
-        return "/admin/product-list";
-    }
 }
