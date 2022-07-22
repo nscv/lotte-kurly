@@ -40,6 +40,23 @@
             }
         }
     %>
+<script>
+    function bucksubmit(){
+        $.ajax({
+            type:"post",
+            url:"/cart/items",
+            data:{"productNo":<%=dto.getProductNo()%>,"cartNo":14,
+            "cartItemCount":document.getElementById('result').innerText},
+            dataType:"json",
+            error:function(e){
+                alert(e.responseText);
+            },
+            success:function(){
+                alert("장바구니에 담겼습니다");
+            }
+        })
+    }
+</script>
 </head>
 <body>
 
@@ -137,7 +154,7 @@
                                 <div class="functions">
                                 </div>
                                 <div class="button-wrap">
-                                    <button type="button" class="base-button full">장바구니 담기</button>
+                                    <button type="button" class="base-button full" onclick="bucksubmit()">장바구니 담기</button>
                                 </div>
                             </div>
                         </div>
