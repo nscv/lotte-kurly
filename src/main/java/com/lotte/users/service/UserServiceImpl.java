@@ -31,6 +31,7 @@ public class UserServiceImpl implements UserService{
             userRole = checkrole(email);
             temp = userRole.equals("user") ? "0" : "1";
         } else {
+            boolean usersiginin = signin(email);
             userNo = getuserno(email);
             isValid = 0;
             userRole = "user";
