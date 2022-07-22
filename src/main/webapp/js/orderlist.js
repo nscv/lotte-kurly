@@ -15,7 +15,7 @@ function getOrders() {
       makeOrderDivs(response.orders);
     },
     error: function (err) {
-      alert("[order] order-list.js getOrders(): fail.");
+      alert("[order] orderlist.js getOrders(): fail.");
     }
   })
 }
@@ -37,7 +37,7 @@ function makeOrderDivs(orders) {
                     <div class="row">
                         <div class="col-10">${getOrderTitleName(order.cartItemProductName, order.cartItemsCount)}</div>
                         <div class="col-2">
-                            <button onclick="location.href='/order/detail'">주문 상세</button>
+                            <button onclick="location.href='/order/detail?orderNo=${order.orderNo}'">주문 상세</button>
                         </div>
                     </div>
                     <hr>
