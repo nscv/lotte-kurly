@@ -7,12 +7,13 @@
 <br/><br/>
 
 ## 목차
-- [개요](https://github.com/nscv/lotte-kurly#개요)
-- [핵심 기능](https://github.com/nscv/lotte-kurly#핵심-기능)
-- [기술 스택](https://github.com/nscv/lotte-kurly#기술-스택)
-- [시스템 구조도](https://github.com/nscv/lotte-kurly#시스템-구조도)
-- [주요 화면](https://github.com/nscv/lotte-kurly#주요-화면)
-- [팀 정보](https://github.com/nscv/lotte-kurly#팀-정보)
+- [개요](https://github.com/nscv/lotte-kurly#-개요)
+- [실행 방법](https://github.com/nscv/lotte-kurly#-실행-방법)
+- [핵심 기능](https://github.com/nscv/lotte-kurly#-핵심-기능)
+- [기술 스택](https://github.com/nscv/lotte-kurly#-기술-스택)
+- [시스템 구조도](https://github.com/nscv/lotte-kurly#-시스템-구조도)
+- [주요 화면](https://github.com/nscv/lotte-kurly#-주요-화면)
+- [팀 정보](https://github.com/nscv/lotte-kurly#-팀-정보)
 
 ## 🚩개요
 최근 물가 상승률이 가파르게 높아지면서 국민들에게 더 저렴하게 식재료를 제공하고자 버티컬 플랫폼인 마켓컬리를 카피캣으로 사용하여 구현했다.
@@ -76,6 +77,7 @@
  - Infra : `EC2` `RDS`
  - Etc : `Notion`, `Git`
 ## 📐시스템 구조도
+![SystemStructure](https://user-images.githubusercontent.com/58438267/180404609-30674f8a-3551-4809-9572-16adff631642.png)
 
 ## 🎇주요 화면
 
