@@ -18,7 +18,8 @@
                  LEFT OUTER JOIN (SELECT REVIEW_NO, COUNT(*) AS LIKES
                              FROM review_likes
                              GROUP BY REVIEW_NO) R2 ON R1.REVIEW_NO = R2.REVIEW_NO
-                 INNER JOIN users R3 ON R1.USER_NO = R3.USER_NO;
+                 INNER JOIN users R3 ON R1.USER_NO = R3.USER_NO
+        ORDER BY R1.REVIEW_NO DESC
     </select>
 
     <insert id="insertReview" parameterType="com.lotte.reviews.dto.ReviewInsertDto">

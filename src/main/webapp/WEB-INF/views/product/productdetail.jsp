@@ -147,12 +147,6 @@
                 <table class="reviewTable" style="width: 85%; border:1px solid #939393">
                     <col width="200"><col width="500">
                     <tr>
-                        <th>닉네임</th>
-                        <td style="text-align: left;">
-                            <input type="text" name="reviewId" id="reviewId" value="worhs64" size="25" readonly="readonly">
-                        </td>
-                    </tr>
-                    <tr>
                         <th>제목</th>
                         <td style="text-align: left;">
                             <input type="text" name="reviewTitle" id="reviewTitle"  size="50">
@@ -263,7 +257,7 @@
                     success: function (data) {
                         let tbody = "";
 
-                        for(let i=0; i<data.list.length; i++){
+                        for(let i=data.list.length-1; i>=0; i--){
                             tbody += '<tr>'
                             tbody += '<td>' +(i+1)+ '</td>';
                             tbody += '<td>' +data.list[i].userName+ '</td>';
@@ -289,7 +283,6 @@
             function reviewInsert(){
                 //id 연결되면 바꾸기 쿠키값 넣기
                 let userNo = "10"
-                let userNickName =  document.getElementById("reviewId").innerText;
                 let title = document.getElementById("reviewTitle").value;
                 let reviewContent = document.getElementById("reviewContent").value;
                 let reviewRates = document.getElementById("star");
@@ -310,7 +303,6 @@
                     url:"/reviewInsert",
                     data:{
                         "userNo":userNo,
-                        "userNickName":userNickName,
                         "reviewTitle":title,
                         "reviewContent":reviewContent,
                         "productNo":<%=dto.getProductNo()%>,
