@@ -31,11 +31,13 @@ public class OrderController {
         this.orderService = orderService;
     }
 
+    /* 주문 리스트 */
     @GetMapping("/orders")
     public ResponseEntity<OrderResponse.OrdersDto> getOrders(@RequestParam Integer userNo) {
         return ResponseEntity.ok(orderService.getOrders(userNo));
     }
 
+    /* 주문 상세 */
     @GetMapping("/orders/{orderNo}")
     public ResponseEntity<OrderResponse.OrderDetailDto> getOrderDetail(@PathVariable Integer orderNo) {
         return ResponseEntity.ok(orderService.getOrderDetail(orderNo));
