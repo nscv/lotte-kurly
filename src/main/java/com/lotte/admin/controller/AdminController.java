@@ -61,9 +61,7 @@ public class AdminController {
     }
     @RequestMapping(value="/set/product", method = {RequestMethod.POST, RequestMethod.GET})
     public boolean setProduct(@ModelAttribute ProductDto dto, Model model) {
-        System.out.println(dto);
         dto.setProductNo(productService.getMaxProductNo()+1);
-        System.out.println(dto);
         productService.setProduct(dto);
         return true;
     }
