@@ -426,5 +426,6 @@
         </script>
     </div>
 </div>
+<jsp:include page="/front/footer.jsp"></jsp:include>
 </body>
 </html>

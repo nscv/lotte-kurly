@@ -76,17 +76,17 @@
         </div>
         <div id="product" style="background-color: #E2E2E2; padding: 50px 100px;">
             <h2 style="margin-bottom: 30px;">상품 등록</h2>
-            <div id="product-list" style="background-color: white; width: 1370px; height: 660px;">
+            <div id="product-list" style="background-color: white; width: 1000px; height: 660px;">
                 <div id="product-table" style="padding: 55px; overflow-y: scroll; height: 100%;">
                     <table class="table table-hover" style="text-align: center;">
-                        <col width="100px"><col width="100px"><col width="100px"><col width="100px"><col width="100px">
+                        <col width="100px"><col width="100px">
                         <tr>
                             <th>상품 이름</th>
                             <td><input type="text" id="productName" name="productName"></td>
                         </tr>
                         <tr>
                             <th>상품 이미지</th>
-                            <td><input type="file" style="margin-left: 76px; "></td>
+                            <td><input type="file" class="pro-img"></td>
                         </tr>
                         <tr>
                             <th>상품 카테고리</th>

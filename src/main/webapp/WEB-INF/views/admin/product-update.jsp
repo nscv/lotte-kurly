@@ -77,11 +77,11 @@
             </div>
         </div>
         <div id="product" style="background-color: #E2E2E2; padding: 50px 100px;">
-            <h2 style="margin-bottom: 30px;">상품 등록</h2>
-            <div id="product-list" style="background-color: white; width: 1370px; height: 600px;">
+            <h2 style="margin-bottom: 30px;">상품 재고 추가</h2>
+            <div id="product-list" style="background-color: white; width: 1000px; height: 600px;">
                 <div id="product-table" style="padding: 55px; overflow-y: scroll; height: 100%;">
                     <table class="table" style="text-align: center;">
-                        <col width="100px"><col width="100px"><col width="100px"><col width="100px"><col width="100px">
+                        <col width="100px"><col width="100px">
                         <tr>
                             <th>상품 번호</th>
                             <td><%=product.getProductNo()%></td>
@@ -96,10 +96,19 @@
                         </tr>
                         <tr>
                             <th>상품 재고</th>
-                            <td><%=product.getProductStock()%></td>
+                            <td style="border:none;"><%=product.getProductStock()%></td>
                         </tr>
                         <tr>
                             <th>추가할 값</th>
+                            <td class="minusplusbtn"><div class="option">
+                                                <span class="count">
+                                                    <button type="button" class="btn down on" onclick='count("minus")'
+                                                            value='-'>수량내리기</button>
+                                                    <div id="result">1</div>
+                                                    <button type="button" class="btn up on" onclick='count("plus")'
+                                                            value='+'>수량올리기</button>
+                                                </span>
+                            </div></td>
                         </tr>
                         <tr>
                             <td colspan="2">
@@ -112,6 +121,32 @@
         </div>
     </div>
 </div>
+
+<script>
+    function count(type)  {
+        // 결과를 표시할 element
+        const resultElement = document.getElementById('result');
+
+        // 현재 화면에 표시된 값
+        let number = resultElement.innerText;
+
+        // 더하기/빼기
+        if(type === 'plus') {
+            number = parseInt(number) + 1;
+        }else if(type === 'minus')  {
+            number = parseInt(number) - 1;
+        }
+        // 결과 출력
+        if(number < 1){
+            resultElement.innerText = "1";
+        }
+        else{
+            resultElement.innerText = number;
+        }
+    }
+
+</script>
+
 <script type="text/javascript">
     $('#updateProduct').click(function() {
         $.ajax({
@@ -119,7 +154,7 @@
             url: '/admin/product/update',
             data: {
                 productNo: <%=product.getProductNo()%>,
-                productStock: $('#productStock').val(),
+                productStock: $('#result').text(),
             },
             success: function(data) {
                 window.location.href = '/admin/product'

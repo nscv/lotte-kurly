@@ -1,6 +1,7 @@
 package com.lotte.users.service;
 
 import com.lotte.users.dao.UserDao;
+import com.lotte.users.dto.InsertUser;
 import com.lotte.users.dto.ProfileDto;
 import com.lotte.users.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,20 +22,29 @@ public class UserServiceImpl implements UserService{
     public String checkuser(String email) throws ParseException {
         int count = dao.checkuser(email);
         int userNo = 0;
+        String userRole = "";
         String birth = "";
+        String temp = "";
         int isValid = 0;
         if (count>0) {
             userNo = getuserno(email);
             isValid = checkvalid(email);
+            userRole = checkrole(email);
+            temp = userRole.equals("user") ? "0" : "1";
         } else {
+            boolean usersiginin = signin(email);
             userNo = getuserno(email);
             isValid = 0;
+            userRole = "user";
+            temp = userRole.equals("user") ? "0" : "1";
         }
-        return Integer.toString(isValid) + Integer.toString(userNo);
+        return Integer.toString(isValid) + temp + Integer.toString(userNo);
     }
 
     public Boolean signin(String email) {
-        int count = dao.insertuser(email);
+        InsertUser iUser = new InsertUser(email);
+        int count = dao.insertuser(iUser);
+        dao.insertcart(iUser); // userNO 넘겨주기
         return count>0;
     }
 
@@ -51,9 +61,11 @@ public class UserServiceImpl implements UserService{
         return dao.selectuserno(email);
     }
 
+    public String checkrole(String email){ return dao.checkrole(email); }
+
     @Override
-    public int addprofile(ProfileDto profile) {
-        return dao.insertprofile(profile);
+    public void addprofile(ProfileDto profile) {
+        dao.insertprofile(profile);
     }
 
     public String getbirth(int userNo) throws ParseException {

@@ -21,7 +21,12 @@
 <div class="wrap cf">
     <h1 class="projTitle">장바구니</h1>
     <div class="heading cf">
-        <h3>전체선택</h3>
+        <input type='checkbox'
+               name='selectall'
+               value='selectall'
+               onclick='selectAll(this)'
+               checked="checked"/>
+        <p style="margin-left: 20px;">전체선택</p>
         <%--<a href="#" class="continue">Continue Shopping</a>--%>
     </div>
     <form action="/order/sheet">
@@ -40,14 +45,8 @@
             </div>
             <div class="subtotal cf">
                 <ul>
-                    <li class="totalRow"><span class="label">Subtotal</span><span class="value">$35.00</span></li>
-
-                    <li class="totalRow"><span class="label">Shipping</span><span class="value">$5.00</span></li>
-
-                    <li class="totalRow"><span class="label">Tax</span><span class="value">$4.00</span></li>
                     <li class="totalRow final"><span class="label">전체가격</span><span class="value"><div
                             class="cart-items-total-price row">
-
             </div></span></li>
                     <li class="totalRow"><a href="#" class="btn continue">구매하기</a></li>
                 </ul>
@@ -62,38 +61,92 @@
 <script type="text/javascript" src="/js/cart.js"></script>
 <script>
 
-    function count(type)  {
-    // 결과를 표시할 element
-    let basicPrice = document.getElementById('basic-price');
-    const resultElement = document.getElementById('result');
-    const resultTotalPrice = document.getElementById('total-price');
-    const reslutPoint = document.getElementById('result-point');
-    let basicPriceFormatRemove = basicPrice.innerText.replaceAll(",","");
+    function count(type, id) {
+        // 결과를 표시할 element
+        let basicPrice = document.getElementsByName('basic-price');
+        const resultElement = document.getElementsByName('result');
+        const resultTotalPrice = document.getElementsByName('total-price');
+        const totalPirce = document.getElementsByClassName('cart-items-total-price');
+        let basicPriceFormatRemove = basicPrice[id].innerText.replaceAll(",", "");
+        let totalPirceFormatRemove = totalPirce[0].innerText.replaceAll(",", "");
+        const checked = document.querySelectorAll('input[name="orderCartItemNos"]')
+        // 현재 화면에 표시된 값
+        let number = resultElement[id].innerText;
 
-    // 현재 화면에 표시된 값
-    let number = resultElement.innerText;
+        // 더하기/빼기
+        if (type === 'plus') {
+            number = parseInt(number) + 1;
+            totalPirceFormatRemove = parseInt(totalPirceFormatRemove) + parseInt(basicPriceFormatRemove);
+            if (checked[id].checked && number > 0) {
+                totalPirce[0].innerText = totalPirceFormatRemove.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+        } else if (type === 'minus') {
+            number = parseInt(number) - 1;
+            totalPirceFormatRemove = parseInt(totalPirceFormatRemove) - parseInt(basicPriceFormatRemove);
+            if (checked[id].checked && number > 0) {
+                totalPirce[0].innerText = totalPirceFormatRemove.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+        }
+        // 결과 출력
+        if (number < 1) {
+            resultElement[id].innerText = "1";
+            resultTotalPrice[id].innerText = basicPriceFormatRemove.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        } else {
+            resultElement[id].innerText = number;
+            resultTotalPrice[id].innerText = (parseInt(basicPriceFormatRemove) * parseInt(number)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+    }
 
-    // 더하기/빼기
-    if(type === 'plus') {
-    number = parseInt(number) + 1;
-    }else if(type === 'minus')  {
-    number = parseInt(number) - 1;
+    function checkSelectAll(id) {
+        let basicPrice = document.getElementsByName('basic-price');
+        let basicPriceFormatRemove = basicPrice[id].innerText.replaceAll(",", "");
+        const totalPirce = document.getElementsByClassName('cart-items-total-price');
+        let totalPirceFormatRemove = totalPirce[0].innerText.replaceAll(",", "");
+        const resultElement = document.getElementsByName('result');
+        const checked = document.querySelectorAll('input[name="orderCartItemNos"]')
+        let number = resultElement[id].innerText;
+        console.log(checked)
+        console.log(checked[id].checked)
+        if (checked[id].checked) {
+            totalPirce[0].innerText = (parseInt(totalPirceFormatRemove) + (parseInt(basicPriceFormatRemove) * parseInt(number))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        } else {
+            totalPirce[0].innerText = (parseInt(totalPirceFormatRemove) - (parseInt(basicPriceFormatRemove) * parseInt(number))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        }
+
+        // 전체 체크박스
+        const checkboxes
+            = document.querySelectorAll('input[name="orderCartItemNos"]');
+        // select all 체크박스
+        const selectAll
+            = document.querySelector('input[name="selectall"]');
+
+        if (checkboxes.length === checked.length) {
+            selectAll.checked = true;
+        } else {
+            selectAll.checked = false;
+        }
+
     }
-    // 결과 출력
-    if(number < 1){
-    resultElement.innerText = "1";
-    resultTotalPrice.innerText = basicPriceFormatRemove.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    reslutPoint.innerText = (parseInt(basicPriceFormatRemove) * 0.03).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }else if(number > stock){
-    resultElement.innerText = stock;
-    resultTotalPrice.innerText = (parseInt(basicPriceFormatRemove) * parseInt(number)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    reslutPoint.innerText = (parseInt(parseInt(basicPriceFormatRemove)*0.03) * parseInt(number)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
-    else{
-    resultElement.innerText = number;
-    resultTotalPrice.innerText = (parseInt(basicPriceFormatRemove) * parseInt(number)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    reslutPoint.innerText = (parseInt(parseInt(basicPriceFormatRemove)*0.03) * parseInt(number)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
+
+    function selectAll(selectAll) {
+        const totalPirce = document.getElementsByClassName('cart-items-total-price');
+        const productTotal = document.getElementsByName('total-price');
+        let total = 0;
+        for(let i=0; i < productTotal.length; i ++ ){
+            total = total + parseInt(productTotal[i].innerText.replaceAll(",", ""));
+
+        }
+        if(selectAll.checked){
+            totalPirce[0].innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }else{
+            totalPirce[0].innerText = "0";
+        }
+        const checkboxes
+            = document.getElementsByName('orderCartItemNos');
+
+        checkboxes.forEach((checkbox) => {
+            checkbox.checked = selectAll.checked
+        })
     }
 </script>
 </body>

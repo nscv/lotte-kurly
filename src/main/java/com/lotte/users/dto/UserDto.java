@@ -13,7 +13,7 @@ public class UserDto implements Serializable {
     boolean userGender;
     String userAddress;
     String userPhone;
-    boolean userValid;
+    int userValid;
 
     @Override
     public String toString() {
@@ -103,15 +103,15 @@ public class UserDto implements Serializable {
         this.userPhone = userPhone;
     }
 
-    public boolean isUserValid() {
+    public int isUserValid() {
         return userValid;
     }
 
-    public void setUserValid(boolean userValid) {
+    public void setUserValid(int userValid) {
         this.userValid = userValid;
     }
 
-    public UserDto(int userNo, String userEmail, String userRole, String userGrade, String userNickname, String userBirth, boolean userGender, String userAddress, String userPhone, boolean userValid) {
+    public UserDto(int userNo, String userEmail, String userRole, String userGrade, String userNickname, String userBirth, boolean userGender, String userAddress, String userPhone, int userValid) {
         this.userNo = userNo;
         this.userEmail = userEmail;
         this.userRole = userRole;
@@ -122,5 +122,12 @@ public class UserDto implements Serializable {
         this.userAddress = userAddress;
         this.userPhone = userPhone;
         this.userValid = userValid;
+    }
+    public UserDto(String userNickname, String userBirth,boolean userGender,String userAddress,String userPhone){
+        this.userNickname=userNickname;
+        this.userBirth=userBirth;
+        this.userGender=userGender;
+        this.userAddress=userAddress;
+        this.userPhone=userPhone;
     }
 }

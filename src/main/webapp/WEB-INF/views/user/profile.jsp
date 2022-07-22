@@ -34,12 +34,12 @@
     }
 %>
 <div class="box">
-    <form action="add-profile" method="post" id="frm">
-        <p class="subject">간단 회원가입</p>
+    <form action="add-profile" method="get" id="frm">
+        <p class="subject">기본정보입력</p>
         <p class="text-end"><span style="color: red;">*</span>필수 입력사항</p>
         <hr class="hr-solid">
         <div>
-            <input type="hidden" id="userNo" name="userNo" value="2">
+            <input type="hidden" id="userNo" name="userNo" value="<%=userno%>">
         </div>
         <div class="input-box">
             <p>닉네임<span style="color: red;">*</span></p>
@@ -74,7 +74,7 @@
         </div>
     </form>
 </div>
-
+<jsp:include page="/front/footer.jsp"></jsp:include>
 
 </body>
 </html>
