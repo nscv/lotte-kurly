@@ -25,10 +25,10 @@ public class CartController {
     }
 
     /* 장바구니 목록 (장바구니 아이템 목록) */
-    @GetMapping("/carts/{userNo}")
-    public ResponseEntity<CartResponse.CartItemsDto> getCart(@PathVariable Integer userNo) {
+    @GetMapping("/carts/{cartNo}")
+    public ResponseEntity<CartResponse.CartItemsDto> getCart(@PathVariable Integer cartNo) {
         logger.info("CartController.getCart(cartNo): {}", LocalDateTime.now());
-        return ResponseEntity.ok(cartService.getCart(userNo));
+        return ResponseEntity.ok(cartService.getCart(cartNo));
     }
 
     /* 장바구니 아이템 추가 */

@@ -1,13 +1,8 @@
-// FIXME - default 장바구니 아이템 모두 선택되게
 
 getCart();
 
 
 function getCart() {
-
-    // 장바구니 아이콘으로 부터 가져온 장바구니 아이디
-    let cartNo = $('');
-
     $.ajax({
         url: `/carts/${userNo}`,
         type: "GET",

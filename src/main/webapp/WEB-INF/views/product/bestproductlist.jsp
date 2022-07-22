@@ -18,23 +18,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="/css/productlist.css">
-    <script>
-        function bucksubmit(){
-            $.ajax({
-                type:"post",
-                url:"/cart/items",
-                data:{"productNo":$('#pid').val(),"cartNo":14,
-                    "cartItemCount":1},
-                dataType:"json",
-                error:function(e){
-                    alert(e.responseText);
-                },
-                success:function(){
-                    alert("장바구니에 담겼습니다");
-                }
-            })
-        }
-    </script>
+
 </head>
 
 <body>
@@ -126,5 +110,23 @@
     </div>
 </div>
 <jsp:include page="/front/footer.jsp"></jsp:include>
+
+<script>
+  function bucksubmit(){
+    $.ajax({
+          type:"post",
+          url:"/cart/items",
+          data:{"productNo":$('#pid').val(),"cartNo":userNo,
+          "cartItemCount":1},
+        dataType:"json",
+        error:function(e){
+      alert(e.responseText);
+    },
+    success:function(){
+      alert("장바구니에 담겼습니다");
+    }
+  })
+  }
+</script>
 </body>
 </html>

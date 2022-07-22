@@ -226,7 +226,7 @@
                 }
             %>
             <li class="menu6">
-                <a href="/cart" style="width: 100px;"><input type="image" src="/front/images/cart.png" class="cart-btn"></a>
+                <a href="/cart?cartNo=<%=userno%>" style="width: 100px;"><input type="image" src="/front/images/cart.png" class="cart-btn"></a>
             </li>
         </ul>
 
