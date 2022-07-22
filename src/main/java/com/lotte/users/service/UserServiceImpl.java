@@ -25,21 +25,10 @@ public class UserServiceImpl implements UserService{
         int isValid = 0;
         if (count>0) {
             userNo = getuserno(email);
-//            birth = getbirth(userNo);
-//            boolean isValidBirth =  birthConfirm(birth);
-//            if(isValidBirth) {
-//                System.out.println("쿠폰발급");
-//            }
             isValid = checkvalid(email);
         } else {
-            boolean signin = signin(email);
             userNo = getuserno(email);
             isValid = 0;
-            /*if(signin){
-                System.out.println("signin success");
-            } else {
-                System.out.println("signin fail");
-            }*/
         }
         return Integer.toString(isValid) + Integer.toString(userNo);
     }

@@ -13,11 +13,7 @@
              , R1.REVIEW_RATE        AS reviewRate
              , R1.PRODUCT_NO         AS productNo
              , R1.REVIEW_TITLE       AS reviewTitle
-             , R2.LIKES              AS likeCnt
         FROM reviews R1
-                 LEFT OUTER JOIN (SELECT REVIEW_NO, COUNT(*) AS LIKES
-                             FROM review_likes
-                             GROUP BY REVIEW_NO) R2 ON R1.REVIEW_NO = R2.REVIEW_NO
                  INNER JOIN users R3 ON R1.USER_NO = R3.USER_NO
         ORDER BY R1.REVIEW_MODIFIED_AT DESC
     </select>

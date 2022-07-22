@@ -49,7 +49,6 @@ public class ReviewPageController {
 
         ReviewInsertDto dto = new ReviewInsertDto(Integer.parseInt(userNo), reviewContent, sdf.format(timestamp),
                 sdf.format(timestamp), Integer.parseInt(reviewRate), Integer.parseInt(productNo), reviewTitle);
-        System.out.println(dto.toString());
         reviewService.insertReview(dto);
 
         return "Review";
@@ -63,7 +62,6 @@ public class ReviewPageController {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
         ReviewUpdateDto dto = new ReviewUpdateDto(Integer.parseInt(id),updateTitle,updateContent,sdf.format(timestamp));
-        System.out.println(dto.toString());
         reviewService.updateReview(dto);
 
         return "ReviewUpdate";

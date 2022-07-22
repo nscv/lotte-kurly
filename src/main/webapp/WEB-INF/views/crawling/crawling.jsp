@@ -30,7 +30,6 @@ Crawling
                     url:"crawlingCategory",
                     data:{"categories" : JSON.stringify(categories)},
                     success:function (){
-                        alert("crawlingCategory 성공");
                     },
                     error:function (){
                         alert("crawling crawlingCategory controller error")
@@ -63,7 +62,6 @@ Crawling
                     url:"crawlingList",
                     data:{"products" : JSON.stringify(products)},
                     success:function (){
-                        alert("crawlingList 성공");
                     },
                     error:function (){
                         alert("crawling crawlingList controller error")

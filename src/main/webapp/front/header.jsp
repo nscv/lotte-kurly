@@ -196,7 +196,7 @@
                 <a href="/order/list"> <span class="txt">주문 내역</span></a>
             </li>
             <li class="menu4">
-                <a href=""> <span class="txt">마이페이지</span></a>
+                <a href="/mypage"> <span class="txt">마이페이지</span></a>
             </li>
             <%
                 if (userno.equals("-1")) {

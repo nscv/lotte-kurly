@@ -17,7 +17,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void setProduct(ProductDto dto) {
-        System.out.println("SERVICE: "+dto);
         productDao.insertProducts(dto);
     }
 

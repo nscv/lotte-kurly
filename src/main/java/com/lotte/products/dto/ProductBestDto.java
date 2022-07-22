@@ -16,7 +16,7 @@ public class ProductBestDto {
     private String RN;
     public ProductBestDto(int pageNo){
         this.pageNo=pageNo*30;
-        this.endPageNo=pageNo*30+30;
+        this.endPageNo=30;
     }
     public ProductBestDto(int productNo, String productName, int productPrice, String productImgNewName, String productSimpleContent, int discountPrice, String RN) {
         this.productNo = productNo;
