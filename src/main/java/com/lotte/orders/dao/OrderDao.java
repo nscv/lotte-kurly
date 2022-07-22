@@ -9,6 +9,7 @@ import com.lotte.orders.dto.OrderUserDetail;
 import com.lotte.orders.exception.NotEnoughStocks;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface OrderDao {
@@ -24,8 +25,10 @@ public interface OrderDao {
 
     List<OrderCartItem> selectOrderCartItemsByCartItemNos(List<Integer> orderCartItemNos);
 
-    List<NotEnoughStocks> selectEnoughStock(List<Integer> productNos);
+    List<NotEnoughStocks> selectNotEnoughStock(List<Integer> productNos);
     Integer insertOrder(CreateOrder createOrder);
-    void insertOrderNoToCartItem(List<Integer> cartItemNos);
+    void insertOrderNoToCartItem(@Param("cartItemNos") List<Integer> cartItemNos
+        , @Param("orderNo") Integer orderNo);
+    void updateProductStockByOrder(List<Integer> orderCartItemNos);
 
 }

@@ -66,11 +66,10 @@ public class OrderService {
 
     public OrderResponse.CreateOrderDto order(OrderRequest.CreateOrderDto requestDto) {
 
-        List<Integer> productNos = requestDto.getCartItems().stream()
-            .map(CreateOrderDto.CartItem::getProductNo).collect(Collectors.toList());
+        List<Integer> orderCartItemNos = requestDto.getOrderCartItemNos();
 
         // 재고 확인
-        List<NotEnoughStocks> notEnoughStocks = orderDao.selectEnoughStock(productNos);
+        List<NotEnoughStocks> notEnoughStocks = orderDao.selectNotEnoughStock(orderCartItemNos);
 
 
         // 재고가 없다면 결제 취소 (Exception)
@@ -83,10 +82,11 @@ public class OrderService {
         CreateOrder createOrder = new CreateOrder(requestDto);
         orderDao.insertOrder(createOrder);
 
+        // 주문한 장바구니 아이템 개수 만큼 상품 재고에서 차감
+        orderDao.updateProductStockByOrder(orderCartItemNos);
+
         // 장바구니 아이템에 생성한 주문 번호 매핑
-        List<Integer> cartItemNos = requestDto.getCartItems().stream()
-            .map(CreateOrderDto.CartItem::getCartItemNo).collect(Collectors.toList());
-        orderDao.insertOrderNoToCartItem(cartItemNos);
+        orderDao.insertOrderNoToCartItem(orderCartItemNos, createOrder.getOrderNo());
 
         return new OrderResponse.CreateOrderDto(createOrder.getOrderNo());
     }

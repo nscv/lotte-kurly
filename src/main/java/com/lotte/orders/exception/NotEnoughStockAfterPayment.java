@@ -15,7 +15,7 @@ public class NotEnoughStockAfterPayment extends RuntimeException {
     public String toString() {
         String str = "";
         for (NotEnoughStocks stocks : notEnoughStocks) {
-            str += stocks;
+            str += stocks + "\n";
         }
 
         return str;

@@ -8,7 +8,8 @@
     <!-- (1) 주문 목록 조회 -->
     <select id="selectOrders" parameterType="Integer" resultType="com.lotte.orders.dto.Order">
         SELECT order_no orderNo, order_state orderState,
-               order_created_at orderCreatedAt, order_total_price orderTotalPrice
+               order_created_at orderCreatedAt, order_total_price orderTotalPrice,
+
         FROM orders
         WHERE user_no = #{userNo}
     </select>
@@ -76,16 +77,55 @@
 
     </select>
 
-    <select id="selectEnoughStock" parameterType="java.util.List" resultType="com.lotte.orders.exception.NotEnoughStocks">
-
+    <select id="selectNotEnoughStock" parameterType="java.util.List" resultType="com.lotte.orders.exception.NotEnoughStocks">
+      SELECT p.product_no productNo, product_stock productStock,
+            cart_item_no cartItemNo, cart_item_count cartItemCount
+      FROM (SELECT product_no, cart_item_no, cart_item_count
+            FROM cart_items
+            WHERE cart_item_no IN
+                <foreach collection="list" item="orderCartItemNos" open="(" close=")" separator=",">
+                  #{orderCartItemNos}
+                </foreach>) product_nos, products p
+      WHERE product_nos.product_no = p.product_no
+            AND product_stock <![CDATA[ < ]]> cart_item_count
     </select>
 
-    <select id="insertOrder">
+    <insert id="insertOrder"
+      parameterType="com.lotte.orders.dto.CreateOrder"
+      useGeneratedKeys="true" keyProperty="orderNo">
 
-    </select>
-
-    <insert id="">
+        INSERT INTO orders(user_no, order_address, order_total_price, order_created_at)
+        VALUES (#{userNo}, #{orderAddress}, #{orderTotalPrice}, NOW())
 
     </insert>
+
+    <update id="updateProductStockByOrder" parameterType="java.util.List" >
+      UPDATE products, cart_items
+      SET product_stock = product_stock - cart_items.cart_item_count,
+            product_amount = product_amount + cart_items.cart_item_count
+      WHERE cart_item_no IN
+          <foreach collection="list" item="orderCartItemNos" open="(" close=")" separator=",">
+            #{orderCartItemNos}
+          </foreach>
+
+<!--      FROM (-->
+<!--          SELECT product_no, cart_item_count-->
+<!--          FROM cart_items-->
+<!--          WHERE cart_item_no IN-->
+<!--              <foreach collection="list" item="orderCartItemNos" open="(" close=")" separator=",">-->
+<!--                #{orderCartItemNos}-->
+<!--              </foreach>-->
+<!--      ) ci-->
+<!--      WHERE products.product_no = ci.product_no-->
+    </update>
+
+    <update id="insertOrderNoToCartItem">
+      UPDATE cart_items
+      SET order_no = #{orderNo}
+        WHERE cart_item_no IN
+        <foreach collection="cartItemNos" item="cartItemNo" open="(" close=")" separator=",">
+          #{cartItemNo}
+        </foreach>
+    </update>
 
 </mapper>

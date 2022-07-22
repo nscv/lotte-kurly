@@ -153,7 +153,7 @@ function getUserAccountInfo() {
 function showPayModal(account) {
   let payBtn = $('#pay-btn');
 
-  $("#payment-modal").show();
+  showModal();
 
   <!-- 모달 초기 세팅 -->
   payBtn.attr('disabled', false);
@@ -173,6 +173,10 @@ function showPayModal(account) {
     payBtn.addClass("btn-danger");
     payBtn.attr('disabled', true);
   }
+}
+
+function showModal() {
+  $('#payment-modal').show();
 }
 
 function hideModal() {
@@ -200,15 +204,45 @@ function pay() {
       console.log(response);
 
       if (true) {
-
+        order(); // 결제가 완료되면 주문 진행
       }
       else {
         alert("결제를 실패했습니다. 다시 시도해주세요.");
+        // TODO refund
+        hideModal();
       }
 
     },
     error: function (err) {
       alert("error");
+      console.log(err);
+    }
+  })
+}
+
+function order() {
+  let data = {
+    orderCartItemNos: orderCartItemNos,
+    userNo: 1, // FIXME userNo,
+    orderAddress: $('.delivery-address-td').text(),
+    orderTotalPrice: orderTotalPrice
+  };
+
+  $.ajax({
+    url: `/orders`,
+    type: "POST",
+    data: data,
+    success: function (response) {
+      console.log(response);
+
+      if (!response) {
+        // TODO refund
+      }
+      else {
+        location.href="/order/list";
+      }
+    },
+    error: function (err) {
       console.log(err);
     }
   })

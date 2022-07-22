@@ -1,5 +1,6 @@
 package com.lotte.orders.dto.request;
 
+import com.lotte.carts.dto.CartItem;
 import java.util.List;
 
 /* 주문 요청 */
@@ -33,13 +34,13 @@ public class OrderRequest {
     /* 주문하기 DTO */
     public static class CreateOrderDto {
 
-        private List<CartItem> cartItems;
+        private List<Integer> orderCartItemNos;
         private Integer userNo;
         private String orderAddress;
         private String orderTotalPrice;
 
-        public List<CartItem> getCartItems() {
-            return cartItems;
+        public List<Integer> getOrderCartItemNos() {
+            return orderCartItemNos;
         }
 
         public Integer getUserNo() {
@@ -54,9 +55,8 @@ public class OrderRequest {
             return orderTotalPrice;
         }
 
-        public void setCartItems(
-            List<CartItem> cartItems) {
-            this.cartItems = cartItems;
+        public void setOrderCartItemNos(List<Integer> orderCartItemNos) {
+            this.orderCartItemNos = orderCartItemNos;
         }
 
         public void setUserNo(Integer userNo) {
@@ -69,37 +69,6 @@ public class OrderRequest {
 
         public void setOrderTotalPrice(String orderTotalPrice) {
             this.orderTotalPrice = orderTotalPrice;
-        }
-
-        public static class CartItem {
-
-            private Integer productNo;
-            private Integer cartItemNo;
-            private Integer cartItemCount;
-
-            public Integer getProductNo() {
-                return productNo;
-            }
-
-            public Integer getCartItemNo() {
-                return cartItemNo;
-            }
-
-            public Integer getCartItemCount() {
-                return cartItemCount;
-            }
-
-            public void setProductNo(Integer productNo) {
-                this.productNo = productNo;
-            }
-
-            public void setCartItemNo(Integer cartItemNo) {
-                this.cartItemNo = cartItemNo;
-            }
-
-            public void setCartItemCount(Integer cartItemCount) {
-                this.cartItemCount = cartItemCount;
-            }
         }
     }
 }
