@@ -120,7 +120,7 @@
 
     <update id="insertOrderNoToCartItem">
       UPDATE cart_items
-      SET order_no = #{orderNo}
+      SET order_no = #{orderNo}, cart_item_state = 1
         WHERE cart_item_no IN
         <foreach collection="cartItemNos" item="cartItemNo" open="(" close=")" separator=",">
           #{cartItemNo}
