@@ -1,6 +1,7 @@
 package com.lotte.users.service;
 
 import com.lotte.users.dao.UserDao;
+import com.lotte.users.dto.InsertUser;
 import com.lotte.users.dto.ProfileDto;
 import com.lotte.users.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,9 @@ public class UserServiceImpl implements UserService{
     }
 
     public Boolean signin(String email) {
-        int count = dao.insertuser(email);
+        InsertUser iUser = new InsertUser(email);
+        int count = dao.insertuser(iUser);
+        dao.insertcart(iUser); // userNO 넘겨주기
         return count>0;
     }
 

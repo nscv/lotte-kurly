@@ -10,8 +10,15 @@
         WHERE user_email=#{userEmail}
     </select>
 
-    <insert id="insertuser" parameterType="String">
+    <insert id="insertuser" parameterType="com.lotte.users.dto.InsertUser"
+      useGeneratedKeys="true" keyProperty="userNo">
         INSERT INTO users(user_email)
+        VALUES (#{userEmail})
+    </insert>
+
+    <insert id="insertcart" parameterType="Integer"
+      useGeneratedKeys="true" keyProperty="userNo">
+        INSERT INTO carts(user_no)
         VALUES (#{userEmail})
     </insert>
 
