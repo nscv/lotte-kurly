@@ -273,7 +273,7 @@
 
                         for(let i=0; i<data.list.length; i++){
                             if(productno != data.list[i].productNo) continue;
-                            if(data.list[i].userName == null || data.list[i].userName.trim()) data.list[i].userName = "Nickname not registered";
+                            if(data.list[i].userName == null || data.list[i].userName.trim()=="") data.list[i].userName = "Nickname not registered";
                             tbody += '<tr id=tr'+ data.list[i].reviewNo +' class="bit-review-item" style="height: 44px;">';
                             tbody += '<td>' +num+ '</td>';
                             tbody += '<td>' +data.list[i].userName+ '</td>';
