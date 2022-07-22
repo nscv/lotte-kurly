@@ -1,3 +1,5 @@
+var orderTotalPrice = 0;
+
 getOrderSheet();
 
 
@@ -91,19 +93,19 @@ function makePriceFormat(price) {
 
 // 할인금액 적용된 가격
 function getOrderPrice(cartItems) {
-  let totalOrderPrice = 0;
+  orderTotalPrice = 0;
   cartItems.forEach(function (cartItem) {
     let cartItemTotalPrice = parseInt(cartItem.cartItemTotalPrice);
     let cartItemDiscountPrice = parseInt(cartItem.cartItemDiscountPrice);
 
     if (cartItemTotalPrice == cartItemDiscountPrice) {
-      totalOrderPrice += cartItemTotalPrice;
+      orderTotalPrice += cartItemTotalPrice;
     }
     else {
-      totalOrderPrice += cartItemDiscountPrice;
+      orderTotalPrice += cartItemDiscountPrice;
     }
   });
-  return totalOrderPrice;
+  return orderTotalPrice;
 }
 
 function getProductPrice(cartItems) {
@@ -129,19 +131,78 @@ function getTotalDiscountPrice(cartItems) {
 }
 
 function getTotalPaymentPrice() {
-
+  //TODO totalOrderPrice - point ()
 }
 
-function pay() {
+function getUserAccountInfo() {
 
   $.ajax({
-    url: `/pay/1`,
+    url: `/account/1`,
     type: "GET",
     success: function (response) {
       console.log(response);
+
+      showPayModal(response.accountMoney);
     },
     error: function (err) {
       console.log(err);
     }
   });
+}
+
+function showPayModal(account) {
+  let payBtn = $('#pay-btn');
+
+  $("#payment-modal").show();
+
+  <!-- 모달 초기 세팅 -->
+  payBtn.attr('disabled', false);
+  payBtn.text("결제하기");
+  payBtn.removeClass("btn-danger");
+  payBtn.addClass("btn-secondary");
+
+  $('#account-money-span').text(account);
+  $('#order-total-price-span').text(orderTotalPrice);
+
+  let payPrice = getPayPrice(account, orderTotalPrice);
+  if(payPrice >= 0) {
+    $('#price-after-order-span').text(payPrice);
+  }
+  else {
+    payBtn.text("잔액 부족");
+    payBtn.removeClass("btn-secondary");
+    payBtn.addClass("btn-danger");
+    payBtn.attr('disabled', true);
+  }
+}
+
+function hideModal() {
+  $('#payment-modal').hide();
+}
+
+function getPayPrice(account, totalPrice) {
+  return account - totalPrice;
+}
+
+function pay() {
+  console.log('pay btn click');
+
+  let data = {
+    orderTotalPrice: orderTotalPrice,
+    userNo: 1 // TODO userNo
+  };
+
+  $.ajax({
+    url: "/account/buy",
+    type: "PUT",
+    contentType: "application/json",
+    data: JSON.stringify(data),
+    success: function (response) {
+      console.log(response);
+    },
+    error: function (err) {
+      alert("error");
+      console.log(err);
+    }
+  })
 }

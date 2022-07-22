@@ -178,30 +178,32 @@
             </p>
         </div>
 
-        <<input type="submit" class="confirm-pay" href="/pay/1" value="결제하기" onclick="pay()"> <!-- TODO userNo -->
+        <<input type="submit" class="confirm-pay" href="/pay/1" value="결제하기" onclick="getUserAccountInfo()"> <!-- TODO userNo -->
 
     </div>
 
 </div>
 
 <!-- 결제하기 모달 -->
-<div class="modal" tabindex="-1" role="dialog">
+<div id="payment-modal" class="modal" tabindex="-1" role="dialog" style="display: none">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">결제 정보</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                onclick="hideModal()">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
                 <div>계좌 잔액 <span id="account-money-span">9999</span></div>
                 <div>결제 금액 <span id="order-total-price-span">9999</span></div>
+                <div>결제 후 잔액 <span id="price-after-order-span">9999</span></div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">결제하기</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                <button id="pay-btn" type="button" class="btn btn-primary" onclick="pay()">결제하기</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hideModal()">취소</button>
             </div>
         </div>
     </div>

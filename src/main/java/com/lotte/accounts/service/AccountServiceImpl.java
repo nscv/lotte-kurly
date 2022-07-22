@@ -2,6 +2,7 @@ package com.lotte.accounts.service;
 
 import com.lotte.accounts.dao.AccountDao;
 import com.lotte.accounts.dto.AccountDto;
+import com.lotte.accounts.dto.request.AccountBuyRequest;
 import com.lotte.coupons.dao.CouponDao;
 import com.lotte.coupons.dto.UserCouponInfo;
 import com.lotte.orders.dto.OrderProductsDto;
@@ -24,14 +25,6 @@ public class AccountServiceImpl implements AccountService {
         this.couponDao = couponDao;
     }
 
-    @Override
-    public boolean canBuyProduct(int productNo, int buyCount, int userNo) {
-        ProductListDto getProductInfo = this.getProduct(productNo);
-
-        boolean canBuyRemain = getProductInfo.getProductStock() >= buyCount;
-
-        return canBuyRemain && haveEnoughAccount(getProductInfo, userNo);
-    }
 
     public ProductListDto getProduct(int productNo) {
         return productDao.selectProductByProductNo(productNo);
@@ -46,11 +39,8 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void payProduct(AccountDto accountDto, OrderProductsDto orderProductsDto) {
-        if(!this.canBuyProduct(orderProductsDto.getProductNo(), orderProductsDto.getOrderCount(), accountDto.getUserNo()))
-            return;
-        accountDao.buyProducts(orderProductsDto);
-        accountDao.updateAccountByBuy(accountDto);
+    public void pay(AccountBuyRequest requestDto) {
+        accountDao.pay(requestDto);
     }
 
     @Override
