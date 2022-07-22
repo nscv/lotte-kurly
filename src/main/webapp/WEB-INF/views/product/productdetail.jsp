@@ -142,30 +142,30 @@
         </div>
 
         <div id="Review" class="tabcontent" >
-            <h3>상품 후기</h3>
+            <h2 class="tit-review">PRODUCT REVIEW</h2>
             <div id="reviewAdd">
-                <table class="reviewTable" style="width: 85%; border:1px solid #939393">
-                    <col width="200"><col width="500">
+                <table class="reviewTable">
+                    <col width="180"><col width="500">
                     <tr>
-                        <th>제목</th>
+                        <th class="tit">제목</th>
                         <td style="text-align: left;">
-                            <input type="text" name="reviewTitle" id="reviewTitle"  size="50">
+                            <input type="text" name="reviewTitle" id="reviewTitle">
                         </td>
                     </tr>
                     <tr>
-                        <th>내용</th>
+                        <th class="tit">내용</th>
                         <td style="text-align: left;">
                             <textarea rows="10" cols="30" name="reviewContent" id="reviewContent"></textarea>
                         </td>
                     </tr>
-                    <th>별점</th>
-                    <td style="text-align: left;">
+                    <th class="tit">평점</th>
+                    <td class="star-rate-box">
                         <select id="star" name='star'>
-                            <option id = "1" value='1' selected>1</option>
-                            <option id = "2" value='2'>2</option>
-                            <option id = "3" value='3'>3</option>
-                            <option id = "4" value='4'>4</option>
-                            <option id = "5" value='5'>5</option>
+                            <option class="star-item" id = "1" value='1' selected>1</option>
+                            <option class="star-item" id = "2" value='2'>2</option>
+                            <option class="star-item" id = "3" value='3'>3</option>
+                            <option class="star-item" id = "4" value='4'>4</option>
+                            <option class="star-item" id = "5" value='5'>5</option>
                         </select>
                     </td>
                     <tr align="center">
@@ -173,7 +173,7 @@
                             <button type="button" id="reviewWrite" class="reviewWrite" onclick="reviewInsert();">리뷰 쓰기</button>
                         </td>
                     </tr>
-                <table id="reviewListTable" class="reviewListTable" style="width: 85%; border:1px solid #939393">
+                <table id="reviewListTable" class="reviewListTable">
                     <thead>
                         <th>구분</th>
                         <th>닉네임</th>
@@ -259,6 +259,7 @@
                         let num = data.list.length;
 
                         for(let i=0; i<data.list.length; i++){
+
                             tbody += '<tr id=tr'+ data.list[i].reviewNo +' class="bit-review-item">';
                             tbody += '<td>' +num+ '</td>';
                             tbody += '<td>' +data.list[i].userName+ '</td>';
