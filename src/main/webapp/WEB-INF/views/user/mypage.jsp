@@ -56,11 +56,13 @@
                 $('#userBirth').val(data.userBirth);
                 if(data.userGender==true){
                     $('#0').val("true");
+                    $('#0').attr("checked","checked");
                     $('#1').val("false");
                 }
                 else{
                     $('#0').val("false");
                     $('#1').val("true");
+                    $('#1').attr("checked","checked");
                 }
                 $('#userAddress').val(data.userAddress);
                 $('#userPhone').val(data.userPhone);
@@ -73,7 +75,7 @@
     });
 </script>
 <div class="box">
-    <form action="add-profile" method="post" id="frm">
+    <form action="add-profile" method="get" id="frm">
         <p class="subject">회원 정보 수정</p>
         <p class="text-end"><span style="color: red;">*</span>필수 입력사항</p>
         <hr class="hr-solid">
@@ -100,7 +102,7 @@
             <p>성별<span style="color: red;">*</span></p>
             <div class="input-radio">
                 <input type="radio" id="0"
-                       name="userGender" value="" checked>
+                       name="userGender" value="">
                 <label for="0">남성</label>
 
                 <input type="radio" id="1"
@@ -121,7 +123,7 @@
         </div>
     </form>
 </div>
-
+<jsp:include page="/front/footer.jsp"></jsp:include>
 
 </body>
 </html>
