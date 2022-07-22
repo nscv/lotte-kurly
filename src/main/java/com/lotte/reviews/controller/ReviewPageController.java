@@ -41,7 +41,7 @@ public class ReviewPageController {
 
     @ResponseBody
     @RequestMapping(value = "reviewInsert", method = {RequestMethod.GET, RequestMethod.POST})
-    public String reviewInsert(String userNo, String userNickName, String reviewTitle, String reviewContent, String productNo, String reviewRate) {
+    public String reviewInsert(String userNo, String reviewTitle, String reviewContent, String productNo, String reviewRate) {
         logger.info("reviewInsert() " + new Date());
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
