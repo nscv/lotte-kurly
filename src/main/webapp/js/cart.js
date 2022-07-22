@@ -9,7 +9,7 @@ function getCart() {
     let cartNo = $('');
 
     $.ajax({
-        url: `/carts/${15}`,
+        url: `/carts/${userNo}`,
         type: "GET",
         success: function (response) {
             console.log(response);

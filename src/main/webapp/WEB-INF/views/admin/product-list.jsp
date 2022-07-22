@@ -25,7 +25,7 @@
 %>
 <script>
     alert("접근할 수 없는 계정입니다.");
-    // location.href="/product/main";
+    location.href="/product/main";
 </script>
 <%
     }
@@ -41,6 +41,9 @@
     <style type="text/css">
         a.insert-tag:link {
             text-decoration: none;
+            color: #525AF2;
+        }
+        .insert-tag:visited {
             color: #525AF2;
         }
     </style>
@@ -77,7 +80,7 @@
         </div>
         <div id="product" style="background-color: #E2E2E2; padding: 50px 100px;">
             <h2 style="margin-bottom: 30px;">상품 재고</h2>
-            <div id="product-list" style="background-color: white; width: 1370px; height: 600px;">
+            <div id="product-list" style="background-color: white; width: 1000px; height: 600px;">
                 <div id="product-table" style="padding: 55px; overflow-y: scroll; height: 100%;">
                     <table class="table table-hover" style="text-align: center;">
                         <col width="100px"><col width="100px"><col width="100px"><col width="100px"><col width="100px">
