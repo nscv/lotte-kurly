@@ -26,7 +26,7 @@
 %>
 <script>
     alert("접근할 수 없는 계정입니다.");
-    // location.href="/product/main";
+    location.href="/product/main";
 </script>
 <%
     }
@@ -78,10 +78,10 @@
         </div>
         <div id="product" style="background-color: #E2E2E2; padding: 50px 100px;">
             <h2 style="margin-bottom: 30px;">상품 재고 추가</h2>
-            <div id="product-list" style="background-color: white; width: 1370px; height: 600px;">
+            <div id="product-list" style="background-color: white; width: 1000px; height: 600px;">
                 <div id="product-table" style="padding: 55px; overflow-y: scroll; height: 100%;">
                     <table class="table" style="text-align: center;">
-                        <col width="100px"><col width="100px"><col width="100px"><col width="100px"><col width="100px">
+                        <col width="100px"><col width="100px">
                         <tr>
                             <th>상품 번호</th>
                             <td><%=product.getProductNo()%></td>
@@ -108,7 +108,7 @@
                                                     <button type="button" class="btn up on" onclick='count("plus")'
                                                             value='+'>수량올리기</button>
                                                 </span>
-                            </td></div>
+                            </div></td>
                         </tr>
                         <tr>
                             <td colspan="2">
@@ -154,7 +154,7 @@
             url: '/admin/product/update',
             data: {
                 productNo: <%=product.getProductNo()%>,
-                productStock: $('#productStock').val(),
+                productStock: $('#result').text(),
             },
             success: function(data) {
                 window.location.href = '/admin/product'

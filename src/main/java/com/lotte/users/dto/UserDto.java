@@ -123,4 +123,11 @@ public class UserDto implements Serializable {
         this.userPhone = userPhone;
         this.userValid = userValid;
     }
+    public UserDto(String userNickname, String userBirth,boolean userGender,String userAddress,String userPhone){
+        this.userNickname=userNickname;
+        this.userBirth=userBirth;
+        this.userGender=userGender;
+        this.userAddress=userAddress;
+        this.userPhone=userPhone;
+    }
 }

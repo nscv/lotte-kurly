@@ -24,7 +24,7 @@
 %>
 <script>
     alert("접근할 수 없는 계정입니다.");
-    // location.href="/product/main";
+    location.href="/product/main";
 </script>
 <%
     }
@@ -76,10 +76,10 @@
         </div>
         <div id="product" style="background-color: #E2E2E2; padding: 50px 100px;">
             <h2 style="margin-bottom: 30px;">상품 등록</h2>
-            <div id="product-list" style="background-color: white; width: 1370px; height: 660px;">
+            <div id="product-list" style="background-color: white; width: 1000px; height: 660px;">
                 <div id="product-table" style="padding: 55px; overflow-y: scroll; height: 100%;">
                     <table class="table table-hover" style="text-align: center;">
-                        <col width="100px"><col width="100px"><col width="100px"><col width="100px"><col width="100px">
+                        <col width="100px"><col width="100px">
                         <tr>
                             <th>상품 이름</th>
                             <td><input type="text" id="productName" name="productName"></td>

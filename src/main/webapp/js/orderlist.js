@@ -7,7 +7,7 @@ function getOrders() {
   let cartNo = $('');
   
   $.ajax({
-    url: `/orders?userNo=${1}`,
+    url: `/orders?userNo=15`,
     type: "GET",
     success: function (response) {
       console.log(response);
