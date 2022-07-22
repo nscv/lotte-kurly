@@ -15,7 +15,23 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="/css/productlist.css">
-
+    <script>
+        function bucksubmit(){
+            $.ajax({
+                type:"post",
+                url:"/cart/items",
+                data:{"productNo":$('#pid').val(),"cartNo":14,//TODO
+                    "cartItemCount":1},
+                dataType:"json",
+                error:function(e){
+                    alert(e.responseText);
+                },
+                success:function(){
+                    alert("장바구니에 담겼습니다");
+                }
+            })
+        }
+    </script>
 </head>
 <body>
 <jsp:include page="/front/header.jsp"></jsp:include>
@@ -56,7 +72,8 @@
                                 <div class="thumb">
                                     <img class="product-img" id="${m.productNo}" src="${m.productImgNewName}" onclick="imageDataToNav(this.id)">
                                     <div class="group-btn">
-                                        <button type="button" class="btn cart-btn"></button>
+                                        <input type="hidden" id="pid" value="${m.productNo}">
+                                        <button type="button" class="btn cart-btn" onclick="bucksubmit()"></button>
                                     </div>
                                 </div>
                                 <div class="info">

@@ -45,7 +45,9 @@
 
 <div id="header-logo">
     <h1 class="logo">
+        <a href="/product/main">
         <img src="/front/images/lotte-kurly logo.png" class="logo-img">
+        </a>
     </h1>
 </div>
 <style>
