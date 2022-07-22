@@ -14,37 +14,63 @@ function getCart() {
     success: function (response) {
       console.log(response);
 
-      let cartItemContainer = $('.cart-item-list-div');
+      let cartItemContainer = $('.cartWrap');
       let cartItemsTotalPriceDiv = $('.cart-items-total-price');
 
       cartItemContainer.empty();
 
       let html = "";
       response.cartItems.forEach(function (cartItem, idx) {
-        html += `<div class="row cart-item-div">
-                        <div class="col-1 ">
-                            <input type="checkbox" name="orderCartItemNos" value="${cartItem.cartItemNo}">
-                        </div>
-                        <div class="col-2">
-                            <a href="/product/productdetail?productNo=${cartItem.productNo}">
-                              <img src="${cartItem.productImgNewName}" alt="상품 이미지" width="50"/>
-                            </a>
-                        </div>
-                        <div class="col-5">
-                            <a href="/product/productdetail?productNo=${cartItem.productNo}">
-                                <span>${cartItem.productName}</span>
-                            </a>
-                        </div>
-                        <div class="col-1">
-                            <input type="text" value="${cartItem.cartItemCount}" style="width: 50px">
-                        </div>
-                        <div class="col-1">
-                            <button style="width: 50px; height: 25px">수정</button>
-                        </div>
-                        <div class="col-2">
-                            ${getCartItemPrice(cartItem)}
-                        </div>
-                    </div>`;
+        html += `<li class="items odd">
+                <div class="infoWrap">
+                    <div>
+                        <input type="checkbox" name="orderCartItemNos" value="${cartItem.cartItemNo}">
+                    </div>
+                    <div class="cartSection" style="display: flex;">
+                        <img src="${cartItem.productImgNewName}" alt="" class="itemImg">
+                        <div cl><h3>${cartItem.productName}</h3></div>
+                        
+
+                        <div class="option">
+                                                <span class="count">
+                                                    <button type="button" class="btn down on" onclick='count("minus")'
+                                                            value='-'>수량내리기</button>
+                                                    <div id="result">1</div>
+                                                    <button type="button" class="btn up on" onclick='count("plus")'
+                                                            value='+'>수량올리기</button>
+                                                </span>
+                                            </div>
+                    </div>
+
+
+                    <div class="prodTotal cartSection">
+                        <p>$15.00</p>
+                    </div>
+                    <div class="cartSection removeWrap">
+                        <a href="#" class="remove">x</a>
+                    </div>
+                </div>
+            </li><li class="items odd">
+                <div class="infoWrap">
+                    <div>
+                        <input type="checkbox" name="orderCartItemNos" value="${cartItem.cartItemNo}">
+                    </div>
+                    <div class="cartSection" style="display: flex;">
+                        <img src="${cartItem.productImgNewName}" alt="" class="itemImg">
+                        <h3>${cartItem.productName}</h3>
+
+                        <p> <input type="text" class="qty" value="${cartItem.cartItemCount}"> x ${getCartItemPrice(cartItem)}</p>
+                    </div>
+
+
+                    <div class="prodTotal cartSection">
+                        <p>$15.00</p>
+                    </div>
+                    <div class="cartSection removeWrap">
+                        <a href="#" class="remove">x</a>
+                    </div>
+                </div>
+            </li>`;
       });
 
       cartItemContainer.append(html);
@@ -83,4 +109,38 @@ function getCart() {
   function getOrderSheet() {
 
   }
+
+    function count(type)  {
+        // 결과를 표시할 element
+        let basicPrice = document.getElementById('basic-price');
+        const resultElement = document.getElementById('result');
+        const resultTotalPrice = document.getElementById('total-price');
+        const reslutPoint = document.getElementById('result-point');
+        let basicPriceFormatRemove = basicPrice.innerText.replaceAll(",","");
+
+        // 현재 화면에 표시된 값
+        let number = resultElement.innerText;
+
+        // 더하기/빼기
+        if(type === 'plus') {
+            number = parseInt(number) + 1;
+        }else if(type === 'minus')  {
+            number = parseInt(number) - 1;
+        }
+        // 결과 출력
+        if(number < 1){
+            resultElement.innerText = "1";
+            resultTotalPrice.innerText = basicPriceFormatRemove.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            reslutPoint.innerText = (parseInt(basicPriceFormatRemove) * 0.03).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }else if(number > stock){
+            resultElement.innerText = stock;
+            resultTotalPrice.innerText = (parseInt(basicPriceFormatRemove) * parseInt(number)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            reslutPoint.innerText = (parseInt(parseInt(basicPriceFormatRemove)*0.03) * parseInt(number)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+        else{
+            resultElement.innerText = number;
+            resultTotalPrice.innerText = (parseInt(basicPriceFormatRemove) * parseInt(number)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            reslutPoint.innerText = (parseInt(parseInt(basicPriceFormatRemove)*0.03) * parseInt(number)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+    }
 }

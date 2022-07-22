@@ -1,5 +1,4 @@
-@import "compass/css3";
-@import "compass/reset";
+
 * {
   box-sizing: border-box;
 }
@@ -118,8 +117,9 @@ img {
   background: #fafafa;
 }
 .cart .items .infoWrap {
-  display: table;
+  display: flex;
   width: 100%;
+  align-items: center;
 }
 .cart .items .cartSection {
   display: table-cell;
@@ -366,4 +366,9 @@ a.remove:hover {
 }
 .cart-item-list {
   width: 65%;
+}
+
+.cart-product-name{
+  display: flex;
+  align-items: center;
 }
