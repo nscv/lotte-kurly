@@ -58,7 +58,7 @@ div {
     margin-top: 0;
 }
 .select-type .list a {
-    font-size: 12px;
+    font-size: 14px;
     color: #999;
     line-height: 18px;
     letter-spacing: -.3px;
@@ -66,7 +66,7 @@ div {
 }
 
 .select-type .list a:hover {
-    font-size: 12px;
+    font-size: 14px;
     color: #333;
     line-height: 18px;
     letter-spacing: -.3px;
@@ -74,7 +74,7 @@ div {
 }
 
 .select-type .list a:focus {
-    font-size: 12px;
+    font-size: 14px;
     color: #333;
     line-height: 18px;
     letter-spacing: -.3px;
@@ -88,7 +88,7 @@ div {
     padding: 0;
 }
 
-.list-goods li {
+.list-goods .goods-li {
     float: left;
     width: 356px;
     height: 682px;
@@ -168,7 +168,7 @@ button {
     outline: none;
     cursor: pointer;
 }
-.list li {
+.sort_menu .list li {
     position: relative;
     z-index: 2;
     float: left;
@@ -180,6 +180,10 @@ button {
 
 ul {
     list-style-type: none;
+}
+
+.sort_menu {
+    padding-top: 19px;
 }
 
 .list-goods .info {
@@ -220,3 +224,18 @@ ul {
     color: #999;
     line-height: 19px;
 }
+
+.pagination {
+    display: flex;
+}
+
+.page-box {
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.page-box .pagination .page-number{
+    margin-left: 10px;
+}
+

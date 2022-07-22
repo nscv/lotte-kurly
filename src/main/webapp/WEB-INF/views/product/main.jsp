@@ -10,6 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
+
     <title>Lotte Kurly</title>
     <%--<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>--%>
 

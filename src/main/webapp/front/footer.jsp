@@ -17,9 +17,9 @@
 <footer class="site-footer">
     <div class="container">
         <div class="footer-box">
-            <div style="width: 100%%;margin-right: 5%;">
+            <div style="width: 100%;margin-right: 5%;">
                 <h6>Lotte-kurly</h6>
-                <p class="text-justify">롯데컬리 사이트를 방문해 주셔서 감사합니다. 항상 <i>신선하고 믿음직한 재료와 상품으로</i>여러분들을 찾아뵙도록 노력하겠습니다.</p>
+                <p class="text-justify">롯데컬리 사이트를 방문해 주셔서 감사합니다.<br>항상 <i>신선하고 믿음직한 재료와 상품</i>으로 여러분들을 찾아뵙도록 노력하겠습니다.</p>
             </div>
 
             <div style="width: 150px">
@@ -38,10 +38,10 @@
                 </ul>
             </div>
 
-            <div style="width: 185px">
+            <div style="width: 185px; margin-left: 70px;">
                 <h6>Contact Us</h6>
                 <ul class="footer-links">
-                     <li><i class="fas fa-home me-3"></i> 서울 송파구 올림픽로 300</li>
+                    <li><i class="fas fa-home me-3"></i>서울 송파구 올림픽로 300</li>
                     <li><i class="fas fa-envelope me-3"></i>NSCV@lottekerly.com</li>
                     <li><i class="fas fa-phone me-3"></i> + 01 234 567 88</li>
                     <li><i class="fas fa-print me-3"></i> + 01 234 567 89</li>
