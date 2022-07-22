@@ -92,12 +92,10 @@ public class ProductPageController {
     }
     @GetMapping("/main")
     public String ProductMain(Model model){
-        List<ProductListDto>list=productService.productMainDiscountList();
-        System.out.println(list.size());
-        for(int i=0;i<list.size();i++){
-            System.out.println(list.get(i).toString());
-        }
-        model.addAttribute("list",list);
+        List<ProductListMainDiscountDto>Discountlist=productService.productMainDiscountList();
+        List<ProductListMainBestDto>Bestlist=productService.productMainBestList();
+        model.addAttribute("list",Discountlist);
+        model.addAttribute("list2",Bestlist);
         return "product/main";
     }
 

@@ -1,11 +1,9 @@
 package com.lotte.products.dao;
 
-import com.lotte.orders.dto.OrderProductsDto;
 import com.lotte.products.dto.*;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Mapper
@@ -31,5 +29,6 @@ public interface ProductDao {
     List<ProductBestDto>productBestLowList(ProductBestDto productBestDto);
     List<ProductBestDto>productBestDiscountList(ProductBestDto productBestDto);
 
-    List<ProductListDto>productMainDiscountList();
+    List<ProductListMainDiscountDto>productMainDiscountList();
+    List<ProductListMainBestDto>productMainBestList();
 }

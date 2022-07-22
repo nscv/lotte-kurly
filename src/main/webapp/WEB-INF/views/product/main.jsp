@@ -30,22 +30,29 @@
     </div>
     <div class="slider">
 
-        <div class="item">
-            <div class="thumb">
-                <div class="im"><img class="product-img" src="../../../css/product-img.png" alt=""></div>
-                <div class="group-btn">
-                    <button type="button" class="btn cart-btn"></button>
+        <c:forEach items="${list2}" var="m">
+            <div class="item">
+                <div class="thumb">
+                    <img class="product-img" id="${m.productNo}" src="${m.productImgNewName}" onclick="imageDataToNav(this.id)">
+                    <div class="group-btn">
+                        <button type="button" class="btn cart-btn"></button>
+                    </div>
+                </div>
+                <div class="info">
+                    <span class="name">${m.productName}</span>
+                    <span class="cost">
+                                        <c:if test="${m.discountPrice==0}">
+                                            <span class="price">${m.productPrice}</span>
+                                        </c:if>
+                                        <c:if test="${m.discountPrice!=0}">
+                                            <span style="text-decoration:line-through; color:#999999;">${m.productPrice}</span> →${m.discountPrice}
+                                        </c:if>
+
+                                </span>
+                    <span class="simple-content">${m.productSimpleContent}</span>
                 </div>
             </div>
-            <div class="info">
-                <h2>1</h2>
-                <span class="name">달달한 고구마</span>
-                <span class="cost">
-                                    <span class="price">7,800</span>
-                                </span>
-                <span class="simple-content">간식으로 먹어보세요</span>
-            </div>
-        </div>
+        </c:forEach>
 
 
 

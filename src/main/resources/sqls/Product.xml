@@ -164,13 +164,21 @@
         WHERE product_no = #{productNo}
     </select>
 
-    <select id="productMainDiscountList" resultType="com.lotte.products.dto.ProductListDto">
+    <select id="productMainDiscountList" resultType="com.lotte.products.dto.ProductListMainDiscountDto">
         SELECT p.product_no,p.product_name,p.product_price,pi.product_img_new_name,p.product_simple_content,truncate(d.product_price / 2, -2)
         FROM products p, product_imgs pi,(SELECT product_no,product_price,product_deadline
                                           FROM products
                                           WHERE timestampdiff(day,curdate(),product_deadline)<![CDATA[ < ]]>14 ) d
         WHERE p.product_no=pi.product_no AND p.product_no=d.product_no
         order by d.product_deadline
+        LIMIT 10 OFFSET 0
+    </select>
+    <select id="productMainBestList" resultType="com.lotte.products.dto.ProductListMainBestDto">
+        SELECT p.product_no , p.product_name ,p.product_price ,pi.product_img_new_name ,p.product_simple_content , CASE WHEN timestampdiff(day, curdate(), p.product_deadline) <![CDATA[ > ]]> 14 THEN 0
+                                                                                                                        ELSE truncate(p.product_price / 2, -2) end as discountPrice
+        FROM products p, product_imgs pi
+        WHERE p.product_no=pi.product_no
+        ORDER BY p.product_amount desc
         LIMIT 10 OFFSET 0
     </select>
 </mapper>

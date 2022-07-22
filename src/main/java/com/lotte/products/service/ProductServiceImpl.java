@@ -86,7 +86,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductListDto> productMainDiscountList() {
+    public List<ProductListMainDiscountDto> productMainDiscountList() {
         return productDao.productMainDiscountList();
     }
+
+    @Override
+    public List<ProductListMainBestDto> productMainBestList() {
+        return productDao.productMainBestList();
+    }
+
 }
