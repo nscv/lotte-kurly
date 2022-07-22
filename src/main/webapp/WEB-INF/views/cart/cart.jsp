@@ -9,61 +9,92 @@
 <html>
 <head>
     <title>Lotte Kurly - 장바구니</title>
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-
-    <!-- Ajax -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/cart.css">
 
 </head>
 <body>
-
 <jsp:include page="/front/header.jsp"></jsp:include>
+<jsp:include page="/front/nav.jsp"></jsp:include>
 
-<div id="container">
-    <jsp:include page="/front/nav.jsp"></jsp:include>
 
-    <div class="cart-container">
-        <!-- 장바구니 목록 영역 -->
-        <div class="row">
-            <div class="col-2">전체 선택</div>
-            <div class="col-2">선택 삭제</div>
-        </div>
-        <hr>
-
-        <!-- 장바구니 아이템 목록 영역 (동적 생성 영역) -->
-        <form action="/order/sheet">
-            <div class="cart-item-list-div"></div>
-
-            <br><br>
-            <div class="cart-items-total-price row">
-
-            </div>
-            <div class="row">
-                <button type="submit">주문하기</button>
-            </div>
-        </form>
-
+<div class="wrap cf">
+    <h1 class="projTitle">장바구니</h1>
+    <div class="heading cf">
+        <h3>전체선택</h3>
+        <%--<a href="#" class="continue">Continue Shopping</a>--%>
     </div>
+    <form action="/order/sheet">
+        <div class="cart">
+
+            <!--    <ul class="tableHead">
+                  <li class="prodHeader">Product</li>
+                  <li>Quantity</li>
+                  <li>Total</li>
+                   <li>Remove</li>
+                </ul>-->
+            <div class="cart-item-list">
+                <ul class="cartWrap">
+
+                </ul>
+            </div>
+            <div class="subtotal cf">
+                <ul>
+                    <li class="totalRow"><span class="label">Subtotal</span><span class="value">$35.00</span></li>
+
+                    <li class="totalRow"><span class="label">Shipping</span><span class="value">$5.00</span></li>
+
+                    <li class="totalRow"><span class="label">Tax</span><span class="value">$4.00</span></li>
+                    <li class="totalRow final"><span class="label">전체가격</span><span class="value"><div
+                            class="cart-items-total-price row">
+
+            </div></span></li>
+                    <li class="totalRow"><a href="#" class="btn continue">구매하기</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </form>
 </div>
 
-<script type="text/javascript" src="/js/cart.js"></script>
+<jsp:include page="/front/footer.jsp"></jsp:include>
 
+<script type="text/javascript" src="/js/cart.js"></script>
+<script>
+
+    function count(type)  {
+    // 결과를 표시할 element
+    let basicPrice = document.getElementById('basic-price');
+    const resultElement = document.getElementById('result');
+    const resultTotalPrice = document.getElementById('total-price');
+    const reslutPoint = document.getElementById('result-point');
+    let basicPriceFormatRemove = basicPrice.innerText.replaceAll(",","");
+
+    // 현재 화면에 표시된 값
+    let number = resultElement.innerText;
+
+    // 더하기/빼기
+    if(type === 'plus') {
+    number = parseInt(number) + 1;
+    }else if(type === 'minus')  {
+    number = parseInt(number) - 1;
+    }
+    // 결과 출력
+    if(number < 1){
+    resultElement.innerText = "1";
+    resultTotalPrice.innerText = basicPriceFormatRemove.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    reslutPoint.innerText = (parseInt(basicPriceFormatRemove) * 0.03).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }else if(number > stock){
+    resultElement.innerText = stock;
+    resultTotalPrice.innerText = (parseInt(basicPriceFormatRemove) * parseInt(number)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    reslutPoint.innerText = (parseInt(parseInt(basicPriceFormatRemove)*0.03) * parseInt(number)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+    else{
+    resultElement.innerText = number;
+    resultTotalPrice.innerText = (parseInt(basicPriceFormatRemove) * parseInt(number)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    reslutPoint.innerText = (parseInt(parseInt(basicPriceFormatRemove)*0.03) * parseInt(number)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+    }
+</script>
 </body>
 </html>
