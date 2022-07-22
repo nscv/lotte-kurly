@@ -55,7 +55,8 @@
     <link rel="stylesheet" type="text/css" href="/css/ordersheet.css">
 </head>
 <body>
-
+<jsp:include page="/front/header.jsp"></jsp:include>
+<jsp:include page="/front/nav.jsp"></jsp:include>
 <div class="tit-box">
     <h2 class="tit">주문서</h2>
 </div>
@@ -178,7 +179,7 @@
             </p>
         </div>
 
-        <<input type="submit" class="confirm-pay" href="/pay/1" value="결제하기" onclick="getUserAccountInfo()">
+        <<input type="submit" class="confirm-pay" value="결제하기" onclick="getUserAccountInfo()">
         <!-- TODO userNo -->
 
     </div>
@@ -227,6 +228,7 @@
         </div>
     </div>
 </div>
+<jsp:include page="/front/footer.jsp"></jsp:include>
 
 <script type="text/javascript" src="/js/ordersheet.js"></script>
 </body>

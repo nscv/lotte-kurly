@@ -2,12 +2,9 @@ getOrders();
 
 
 function getOrders() {
-
-  // 사용자 아이디
-  let cartNo = $('');
   
   $.ajax({
-    url: `/orders?userNo=15`,
+    url: `/orders?userNo=${userNo}`,
     type: "GET",
     success: function (response) {
       console.log(response);

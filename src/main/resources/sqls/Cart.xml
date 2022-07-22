@@ -22,7 +22,7 @@
         FROM (SELECT cart_item_no, product_no, cart_item_count,
               cart_item_total_price
               FROM cart_items
-              WHERE cart_no = #{cartNo}) ci, product_imgs pi, products p
+              WHERE cart_no = #{cartNo} AND cart_item_state = 0) ci, product_imgs pi, products p
         WHERE ci.product_no = pi.product_no AND pi.product_no = p.product_no;
       ]]>
     </select>
