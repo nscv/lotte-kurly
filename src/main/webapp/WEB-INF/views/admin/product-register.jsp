@@ -24,7 +24,7 @@
 %>
 <script>
     alert("접근할 수 없는 계정입니다.");
-    location.href="/product/main";
+    // location.href="/product/main";
 </script>
 <%
     }
@@ -86,7 +86,7 @@
                         </tr>
                         <tr>
                             <th>상품 이미지</th>
-                            <td><input type="file" style="margin-left: 76px; "></td>
+                            <td><input type="file" class="pro-img"></td>
                         </tr>
                         <tr>
                             <th>상품 카테고리</th>
