@@ -80,7 +80,7 @@
                     <img class="product-img" id="${m.productNo}" src="${m.productImgNewName}" onclick="imageDataToNav(this.id)">
                     <div class="group-btn">
                         <input type="hidden" class="pid" value="${m.productNo}">
-                        <button type="button" class="btn cart-btn" onclick="bucksubmit()"></button>
+                        <button type="button" class="btn cart-btn" onclick="bucksubmit(this)"></button>
                     </div>
                 </div>
                 <div class="info">
@@ -109,11 +109,11 @@
 </script>
 
 <script>
-  function bucksubmit(){
+  function bucksubmit(button){
     $.ajax({
       type:"post",
       url:"/cart/items",
-      data:{"productNo":$('.pid').val(),"cartNo":userNo, //TODO
+      data:{"productNo":button.id,"cartNo":userNo, //TODO
         "cartItemCount":1},
       dataType:"json",
       error:function(e){
