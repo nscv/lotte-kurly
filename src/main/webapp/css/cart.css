@@ -22,6 +22,7 @@ img {
 }
 .wrap {
   width: 75%;
+  min-width: 1024px;
   max-width: 960px;
   margin: 0 auto;
   padding: 5% 0;
@@ -45,7 +46,8 @@ img {
   color: #777;
 }
 .heading {
-  padding: 1em 0;
+  margin-left: 65px;
+  display: flex;
   border-bottom: 1px solid #D0D0D0;
 }
 .heading h1 {
@@ -60,7 +62,7 @@ img {
   font-size: 0.75em;
   padding: 1em;
   color: #fff;
-  background: #82ca9c;
+  background: #777DF2;
   font-weight: bold;
   border-radius: 50px;
   float: right;
@@ -83,7 +85,7 @@ img {
   transition: all 0.15s linear;
 }
 .heading a.continue:hover, .heading a.continue:focus, .heading a.continue:active {
-  background: #f69679;
+  background: #525AF2;
 }
 .heading a.continue:hover:after, .heading a.continue:focus:after, .heading a.continue:active:after {
   right: -10px;
@@ -148,13 +150,13 @@ img {
   color: #333;
 }
 .cart .items .cartSection p.stockStatus {
-  color: #82CA9C;
+  color: #777DF2;
   font-weight: bold;
   padding: 0.5em 0 0 1em;
   text-transform: uppercase;
 }
 .cart .items .cartSection p.stockStatus.out {
-  color: #F69679;
+  color: #525AF2;
 }
 .cart .items .cartSection .itemImg {
   width: 4em;
@@ -246,11 +248,11 @@ a.remove:hover {
   padding: 0.75em 0;
   border-radius: 0 1em 1em 0;
   text-align: center;
-  border: 1px solid #82ca9c;
+  border: 1px solid #777DF2;
 }
 .promoCode a.btn:hover {
-  border: 1px solid #f69679;
-  background: #f69679;
+  border: 1px solid #525AF2;
+  background: #525AF2;
 }
 .btn:link, .btn:visited {
   text-decoration: none;
@@ -259,7 +261,7 @@ a.remove:hover {
   font-size: 1em;
   padding: 1em 3em;
   color: #fff;
-  background: #82ca9c;
+  background: #777DF2;
   font-weight: bold;
   border-radius: 50px;
   float: right;
@@ -282,7 +284,7 @@ a.remove:hover {
   transition: all 0.15s linear;
 }
 .btn:hover, .btn:focus, .btn:active {
-  background: #f69679;
+  background: #525AF2;
 }
 .btn:hover:after, .btn:focus:after, .btn:active:after {
   right: -10px;
@@ -294,7 +296,7 @@ a.remove:hover {
 /* TOTAL AND CHECKOUT  */
 .subtotal {
   float: right;
-  width: 35%;
+  width: 230px;
 }
 .subtotal .totalRow {
   padding: 0.5em;
@@ -329,7 +331,7 @@ a.remove:hover {
     padding: 10% 5%;
   }
   .heading {
-    padding: 1em;
+    display: flex;
     font-size: 90%;
   }
   .cart .items .cartSection {
@@ -365,10 +367,94 @@ a.remove:hover {
   }
 }
 .cart-item-list {
-  width: 65%;
+  width: 794px;
 }
 
 .cart-product-name{
-  display: flex;
   align-items: center;
+}
+
+.option .down.on {
+  background-image: url(https://res.kurly.com/pc/ico/2010/ico_minus_on.svg);
+}
+
+.option .down {
+  background: #fff url(https://res.kurly.com/pc/ico/2010/ico_minus.svg) no-repeat 50% 50%;
+  background-size: 30px 30px;
+}
+
+.option .btn {
+  overflow: hidden;
+  float: left;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+}
+
+.option .up.on {
+  background-image: url(https://res.kurly.com/pc/ico/2010/ico_plus_on.svg);
+}
+
+.option .list .up {
+  float: right;
+  margin-left: -1px;
+  background: #fff url(https://res.kurly.com/pc/ico/2010/ico_plus.svg) no-repeat 50% 50%;
+  background-size: 30px 30px;
+}
+
+.option .list .btn {
+  overflow: hidden;
+  float: left;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+}
+.option {
+  display: flex;
+  margin: auto;
+}
+.btn:hover {
+  cursor: pointer;
+}
+
+.option .count {
+  overflow: hidden;
+  float: left;
+  width: 88px;
+  height: 30px;
+  border: 1px solid #dddfe1;
+  border-radius: 3px;
+}
+
+#result {
+  float: left;
+  width: 30px;
+  height: 30px;
+  margin-right: -1px;
+  padding: 4px 0 4px;
+  border: 0;
+  background-color: #fff;
+  font-size: 14px;
+  color: #000;
+  line-height: 18px;
+  text-align: center;
+}
+
+.option .up {
+  /*float: right;*/
+  margin-left: -1px;
+  background: #fff url(https://res.kurly.com/pc/ico/2010/ico_plus.svg) no-repeat 50% 50%;
+  background-size: 30px 30px;
+}
+.option {
+  overflow: inherit;
+}
+.cartWrap {
+  margin-left: 0px !important;
 }
