@@ -258,7 +258,6 @@
                                 setCookie("isvalid", data.substring(0, 1), 60);
                                 setCookie("userrole", data.substring(1, 2), 60);
                                 setCookie("userno", data.substring(2), 60);
-                                isrole
                                 Swal.fire({
                                     title: '로그인 성공',
                                     text: "환영합니다.",
