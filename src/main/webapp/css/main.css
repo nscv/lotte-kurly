@@ -132,7 +132,7 @@ img {
 }
 
 .thumb .cart-btn {
-    background: url(front/images/cart-btn.png) no-repeat 50% 50%;
+    background: url(../front/images/cart-btn.png) no-repeat 50% 50%;
     background-size: 45px 45px;
 }
 
