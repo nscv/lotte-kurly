@@ -34,11 +34,11 @@ function getCart() {
                         </div>
                         <p style="margin: auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                     <div class="prodTotal cartSection">
-                        <p id="basic-price" name="basic-price">${cartItem.productPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
+                        <p id="basic-price" name="basic-price">${(parseInt(cartItem.cartItemDiscountPrice)/cartItem.cartItemCount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
                     </div>
                     
                     <div class="prodTotal cartSection">
-                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 계&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><p id="total-price" name="total-price"> ${(cartItem.cartItemCount * cartItem.productPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p><p>원</p>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;총 계&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p><p id="total-price" name="total-price"> ${(cartItem.cartItemCount * (parseInt(cartItem.cartItemDiscountPrice)/cartItem.cartItemCount)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p><p>원</p>
                     </div>
                         
 </div>
