@@ -260,7 +260,7 @@
 
                         for(let i=0; i<data.list.length; i++){
 
-                            tbody += '<tr id=tr'+ data.list[i].reviewNo +' class="bit-review-item">';
+                            tbody += '<tr id=tr'+ data.list[i].reviewNo +' class="bit-review-item" style="height: 44px;">';
                             tbody += '<td>' +num+ '</td>';
                             tbody += '<td>' +data.list[i].userName+ '</td>';
                             tbody += '<td id=title'+ data.list[i].reviewNo +'>' +data.list[i].reviewTitle+'</td>';
@@ -326,8 +326,8 @@
                 let updateid = ".update" + reviewno;
                 alert($('#titleid'));
 
-                $( titleid ).contents().unwrap().wrap( '<td><input type="text" name="reviewTitle" id=title'+ reviewno + ' size="10"></td>' );
-                $( contentid ).contents().unwrap().wrap( '<td><input type="text" name="reviewContent" id=content'+ reviewno + ' size="30"></td>' );
+                $( titleid ).contents().unwrap().wrap( '<td><input type="text" name="reviewTitle" id=title'+ reviewno + ' size="10" style="border: 1px solid #ccc; height: 30px; font-size:14px; color: #333; line-height: 20px; border-radius: 3px; background-color: #fff; outline: none; vertical-align: top;"></td>' );
+                $( contentid ).contents().unwrap().wrap( '<td><input type="text" name="reviewContent" id=content'+ reviewno + ' size="30" style="border: 1px solid #ccc; height: 30px; font-size:14px; color: #333; line-height: 20px; border-radius: 3px; background-color: #fff; outline: none; vertical-align: top;"></td>' );
                 $( updateid ).contents().unwrap().wrap('<td><button type="button" id=' + reviewno + ' class="reviewCheck" onclick="reviewCheck(this.id);">확인</button></td>');
             }
 

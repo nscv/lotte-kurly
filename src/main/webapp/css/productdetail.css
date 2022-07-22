@@ -6175,3 +6175,22 @@ table.extra-information td {
     padding-bottom: 15px;
     font-size: 14px;
 }
+
+.bit-review-item tr{
+    margin: 100px;
+}
+
+.reviewListTable button {
+    border: none;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    background-color: #929292;
+    color: #fff;
+}
+
+.reviewListTable td {
+    text-align: center;
+}
