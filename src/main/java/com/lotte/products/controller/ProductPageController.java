@@ -73,8 +73,6 @@ public class ProductPageController {
                                   @RequestParam(value="high",defaultValue ="1")String high,@RequestParam(value="pageNo",defaultValue = "0") int pageNo
             ,@RequestParam(value="discount",defaultValue ="1")String discount){
         ProductBestDto dto=new ProductBestDto(pageNo);
-        System.out.println(dto.getPageNo());
-        System.out.println(dto.getEndPageNo());
         List<ProductBestDto>list=productService.productBestList(dto);
         int total=productService.searchBestEndPage();
         int endPage=(total%30==0) ? total/30 : total/30+1;
