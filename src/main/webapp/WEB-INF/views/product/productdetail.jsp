@@ -179,7 +179,7 @@
                         <th>닉네임</th>
                         <th>제목</th>
                         <th>내용</th>
-                        <th>생성날짜</th>
+                        <th>수정날짜</th>
                         <th>평점</th>
                         <th>수정버튼</th>
                         <th>삭제버튼</th>
@@ -256,23 +256,26 @@
                     async: true,
                     success: function (data) {
                         let tbody = "";
+                        let num = data.list.length;
 
-                        for(let i=data.list.length-1; i>=0; i--){
-                            tbody += '<tr>'
-                            tbody += '<td>' +(i+1)+ '</td>';
+                        for(let i=0; i<data.list.length; i++){
+                            tbody += '<tr id=tr'+ data.list[i].reviewNo +' class="bit-review-item">';
+                            tbody += '<td>' +num+ '</td>';
                             tbody += '<td>' +data.list[i].userName+ '</td>';
-                            tbody += '<td>' +data.list[i].reviewTitle+'</td>';
-                            tbody += '<td>' +data.list[i].reviewContent+ '</td>';
-                            tbody += '<td>' +data.list[i].reviewCreated_at+ '</td>';
+                            tbody += '<td id=title'+ data.list[i].reviewNo +'>' +data.list[i].reviewTitle+'</td>';
+                            tbody += '<td id=content'+ data.list[i].reviewNo +'>' +data.list[i].reviewContent+ '</td>';
+                            tbody += '<td>' +data.list[i].reviewModified_at+ '</td>';
                             tbody += '<td>' +data.list[i].reviewRate+ '</td>';
-                            tbody += '<td>' +'<button type="button" id="' + data.list[i].reviewNo + '" class="reviewUpdate" onclick="reviewUpdate(this.id);">수정</button>'+ '</td>';
-                            tbody += '<td>' +'<button type="button" id="' + data.list[i].reviewNo + '" class="reviewDelete" onclick="reviewDelete(this.id);">삭제</button>'+ '</td>';
-                            tbody += '<td>' +'<button type="button" id="' + data.list[i].reviewNo + '" class="reviewLike" onclick="reviewLike(this.id);">좋아요</button>'+ '</td>';
+                            tbody += '<td>' +'<button type="button" id=' + data.list[i].reviewNo + ' class=update'+ data.list[i].reviewNo +' onclick="reviewUpdate(this.id);">수정</button>'+ '</td>';
+                            tbody += '<td>' +'<button type="button" id=' + data.list[i].reviewNo + ' class="reviewDelete" onclick="reviewDelete(this.id);">삭제</button>'+ '</td>';
+                            tbody += '<td>' +'<button type="button" id=like' + data.list[i].reviewNo + ' class="reviewLike" onclick="reviewLike(this.id);">좋아요</button>'+ '</td>';
                             tbody += '</tr>';
+                            num--;
                         }
 
                         $("#addReviewData").empty();
                         $("#addReviewData").append(tbody);
+
                     },
                     error: function () {
                         alert("review call fail");
@@ -287,7 +290,6 @@
                 let reviewContent = document.getElementById("reviewContent").value;
                 let reviewRates = document.getElementById("star");
                 let reviewRate = reviewRates.options[reviewRates.selectedIndex].value;
-
 
                 if(title == null || title.trim() == ""){
                     alert("제목을 입력하세요.");
@@ -318,7 +320,44 @@
             }
 
             function reviewUpdate(reviewno){
+                let titleid = "#title" + reviewno;
+                let contentid =  "#content" + reviewno;
+                let updateid = ".update" + reviewno;
+                alert($('#titleid'));
 
+                $( titleid ).contents().unwrap().wrap( '<td><input type="text" name="reviewTitle" id=title'+ reviewno + ' size="10"></td>' );
+                $( contentid ).contents().unwrap().wrap( '<td><input type="text" name="reviewContent" id=content'+ reviewno + ' size="30"></td>' );
+                $( updateid ).contents().unwrap().wrap('<td><button type="button" id=' + reviewno + ' class="reviewCheck" onclick="reviewCheck(this.id);">확인</button></td>');
+            }
+
+            function reviewCheck(id){
+                let updateTitle = document.getElementById("title"+id).value;
+                let updateContent = document.getElementById("content"+id).value;
+
+                if(updateTitle == null || updateTitle.trim() == ""){
+                    alert("제목을 입력하세요.");
+                    return;
+                }
+                if(updateContent == null || updateContent.trim() == ""){
+                    alert("내용을 입력하세요.");
+                    return;
+                }
+                alert(updateTitle);
+
+                $.ajax({
+                    type:"get",
+                    url:"/reviewUpdate",
+                    data:{"id":id,
+                          "updateTitle":updateTitle,
+                          "updateContent":updateContent
+                    },
+                    success:function () {
+                        reviewCall();
+                    },
+                    error:function () {
+                        alert("update fail");
+                    }
+                })
             }
 
             function reviewDelete(reviewno){
