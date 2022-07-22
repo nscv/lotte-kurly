@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <script
         src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -78,10 +79,10 @@
                                     <span class="name">${m.productName}</span>
                                     <span class="cost">
                                         <c:if test="${m.discountPrice==0}">
-                                            <span class="price">${m.productPrice}</span>
+                                            <span class="price"><fmt:formatNumber value="${m.productPrice}" pattern="###,###"/> </span>
                                         </c:if>
                                         <c:if test="${m.discountPrice!=0}">
-                                            <span style="text-decoration:line-through; color:#999999;">${m.productPrice}</span> →${m.discountPrice}
+                                            <span style="text-decoration:line-through; color:#999999;"><fmt:formatNumber value="${m.productPrice}" pattern="###,###"/> </span> →<fmt:formatNumber value="${m.discountPrice}" pattern="###,###"/>
                                         </c:if>
 
                                 </span>
@@ -96,14 +97,14 @@
     </div>
     <ul class="pagination">
         <li class="disabled">
-            <a href="/product/bestproduct?low=${low}&high=${high}&pageNo=0">
+            <a href="/product/bestproduct?low=${low}&high=${high}&discount=${discount}&pageNo=0">
                 <span>«</span>
             </a>
         </li>
         <c:forEach var="i" begin="${startPage}" end="${endPage}">
-        <li><a href="/product/bestproduct?low=${low}&high=${high}&pageNo=${i}">${i}</a></li>
+        <li><a href="/product/bestproduct?low=${low}&high=${high}&discount=${discount}&pageNo=${i}">${i}</a></li>
         </c:forEach>
-        <li><a href="/product/bestproduct?low=${low}&high=${high}&pageNo=${endPage}"><span>»</span></a></li>
+        <li><a href="/product/bestproduct?low=${low}&high=${high}&discount=${discount}&pageNo=${endPage}"><span>»</span></a></li>
     </ul>
 
 </div>

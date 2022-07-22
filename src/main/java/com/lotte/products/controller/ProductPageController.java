@@ -33,6 +33,8 @@ public class ProductPageController {
                               String category,@RequestParam(value="low",defaultValue ="1") String low,
                               @RequestParam(value="high",defaultValue ="1")String high, int pageNo,@RequestParam(value="discount",defaultValue ="1")String discount){
         ProductCategoryDto dto=new ProductCategoryDto(category,pageNo);
+        System.out.println(dto.getPageNo());
+        System.out.println(dto.getEndPageNo());
         List<ProductListSortDto> list= productService.productList(dto);
         int total=productService.searchEndPage(category);
 
@@ -55,8 +57,11 @@ public class ProductPageController {
         model.addAttribute("list",list);
         model.addAttribute("low",low);
         model.addAttribute("high",high);
+        model.addAttribute("discount",discount);
         model.addAttribute("startPage",0);
-        model.addAttribute("endPage",endPage);
+        if(discount.equals("true")){endPage=1;}
+
+        model.addAttribute("endPage",endPage-1);
         model.addAttribute("total",total);
         return "product/productlist";
     }
@@ -66,6 +71,8 @@ public class ProductPageController {
                                   @RequestParam(value="high",defaultValue ="1")String high,@RequestParam(value="pageNo",defaultValue = "0") int pageNo
             ,@RequestParam(value="discount",defaultValue ="1")String discount){
         ProductBestDto dto=new ProductBestDto(pageNo);
+        System.out.println(dto.getPageNo());
+        System.out.println(dto.getEndPageNo());
         List<ProductBestDto>list=productService.productBestList(dto);
         int total=productService.searchBestEndPage();
         int endPage=(total%30==0) ? total/30 : total/30+1;
@@ -84,9 +91,11 @@ public class ProductPageController {
 
         model.addAttribute("list",list);
         model.addAttribute("startPage",0);
+        if(discount.equals("true")){endPage=1;}
         model.addAttribute("endPage",endPage-1);
         model.addAttribute("low",low);
         model.addAttribute("high",high);
+        model.addAttribute("discount",discount);
         model.addAttribute("total",total);
         return"product/bestproductlist";
     }
