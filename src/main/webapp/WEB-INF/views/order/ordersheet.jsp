@@ -159,13 +159,13 @@
                     원
                 </dd>
             </dl>
-            <dl class="amount">
+            <!--<dl class="amount">
                 <dt class="tit">적립금 사용</dt>
                 <dd class="price">
                     <span class="num pay_sum" id="paper_reserves">
                         <input onchange="usePoint(this)" type="text" class="point-input" value="" placeholder="0"> 원</span>
                 </dd>
-            </dl>
+            </dl>-->
             <dl class="amount lst">
                 <dt class="tit">최종 결제 금액</dt>
                 <dd class="price">
@@ -175,7 +175,7 @@
             </dl>
             <p class="reserve">
                 <span class="ico">적립</span> 구매 시 <span class="emph"><span id="expectAmount">19</span> 원 (<span
-                    class="ratio">0.3</span>%) 적립</span>
+                    class="ratio">3</span>%) 적립</span>
             </p>
         </div>
 

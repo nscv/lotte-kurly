@@ -39,10 +39,9 @@ public class CartController {
     }
 
     /* 장바구니 아이템 수량 수정 */
-    @PutMapping("/cart/items/{cartItemNo}")
+    @PutMapping("/cart/items")
     public ResponseEntity<CartResponse.UpdateCartItemCountDto> updateCartItemCount(
-        @PathVariable Integer cartItemNo,
         @RequestBody CartRequest.UpdateCartItemCountDto requestDto) {
-        return ResponseEntity.ok(cartService.updateCartItemCount(cartItemNo, requestDto));
+        return ResponseEntity.ok(cartService.updateCartItemCount(requestDto));
     }
 }

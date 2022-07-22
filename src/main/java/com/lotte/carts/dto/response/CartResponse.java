@@ -57,5 +57,13 @@ public class CartResponse {
         public Integer getCartItemTotalPrice() {
             return cartItemTotalPrice;
         }
+
+        public void setCartItemNo(Integer cartItemNo) {
+            this.cartItemNo = cartItemNo;
+        }
+
+        public void setCartItemTotalPrice(Integer cartItemTotalPrice) {
+            this.cartItemTotalPrice = cartItemTotalPrice;
+        }
     }
 }

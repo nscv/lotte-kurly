@@ -27,10 +27,11 @@ public class CartService {
         return new CartResponse.CreateCartItemDto(cCartItem.getCartItemNo());
     }
 
-    public CartResponse.UpdateCartItemCountDto updateCartItemCount(
-        Integer cartItemNo, CartRequest.UpdateCartItemCountDto requestDto) {
+    public CartResponse.UpdateCartItemCountDto updateCartItemCount(CartRequest.UpdateCartItemCountDto requestDto) {
+        Integer cartItemNo = requestDto.getCartItemNo();
+
         // 장바구니 아이템의 상품 번호로 상품 가격 조회
-        Integer productPrice = cartDao.selectCartItemProductPrice(requestDto.getProductNo());
+        Integer productPrice = cartDao.selectCartItemProductPrice(cartItemNo);
 
         // 장바구니 아이템 개수와 총 가격 수정 정보
         UpdateCartItemCount uCartItem = new UpdateCartItemCount(cartItemNo, requestDto.getCartItemCount(), productPrice);

@@ -103,14 +103,16 @@
         console.log(parseInt(resultTotalPrice[id].innerText.replaceAll(",","")))
         console.log(parseInt(resultElement[id].innerText))
 
+        let data = {
+          cartItemNo: parseInt(orderCartItemNos[id].value),
+          cartItemCount: parseInt(resultElement[id].innerText)
+        };
+
         $.ajax({
-            url: `/cart/items/`+parseInt(orderCartItemNos[id].value),
-            data:{
-                "cartItemNo":parseInt(orderCartItemNos[id].value),
-                "cartItemCount":parseInt(resultTotalPrice[id].innerText.replaceAll(",","")),
-                "cartItemTotalPrice":parseInt(resultElement[id].innerText)
-            },
+            url: "/cart/items",
             type: "PUT",
+            contentType: "application/json",
+            data: JSON.stringify(data),
             success: function (response) {
                 console.log(response);
             },

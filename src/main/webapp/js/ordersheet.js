@@ -82,6 +82,7 @@ function printDeliveryInfo(address) {
 
 function printPaymentInfo(cartItems, total) {
   $('#productsTotalPrice').text(makePriceFormat(getOrderPrice(cartItems)));
+  $('#expectAmount').text(makePriceFormat(getOrderPrice(cartItems) * 0.03));
   $('#paper_goodsprice').text(makePriceFormat(getProductPrice(cartItems)));
   $('#special_discount_amount').text(makePriceFormat(getTotalDiscountPrice(cartItems)));
   $('#paper_settlement').text(makePriceFormat(total));
@@ -163,11 +164,11 @@ function showPayModal(account) {
   payBtn.removeClass("btn-danger");
   payBtn.addClass("btn-secondary");
 
-  $('#account-money-span').text(account);
+  $('#account-money-span').text(makePriceFormat(account));
   $('#order-total-price-span').text($('#paper_settlement').text());
 
   let payPrice = getPayPrice(account, orderTotalPrice);
-  $('#price-after-order-span').text(payPrice);
+  $('#price-after-order-span').text(makePriceFormat(payPrice));
 
   if(payPrice < 0) {
     payBtn.text("잔액 부족");

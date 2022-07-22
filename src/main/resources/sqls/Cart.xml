@@ -47,8 +47,8 @@
             resultType="Integer">
 
         SELECT product_price
-        FROM products
-        WHERE product_no = #{productNo};
+        FROM products p, cart_items ci
+        WHERE p.product_no = ci.product_no AND ci.cart_item_no = #{cartItemNo};
 
     </select>
 
