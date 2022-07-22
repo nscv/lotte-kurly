@@ -20,7 +20,7 @@
     }
 %>
 <%
-    if(!userRole.equals("admin")) {
+    if(!userRole.equals("1")) {
 %>
 <script>
     alert("접근할 수 없는 계정입니다.");
