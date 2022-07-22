@@ -9,153 +9,65 @@
 <html>
 <head>
     <title>Footer</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-        .text-reset {
-            color: #525AF2 !important;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
 </head>
-<body>
+<body class="body-class">
 
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted">
-    <!-- Section: Social media -->
-    <section
-            class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-    >
-        <!-- Left -->
-        <div class="me-5 d-none d-lg-block">
-            <span>Get connected with us on social networks:</span>
-        </div>
-        <!-- Left -->
-
-        <!-- Right -->
-        <div>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-google"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="" class="me-4 text-reset">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-        <!-- Right -->
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Links  -->
-    <section class="">
-        <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
-            <div class="row mt-3">
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                    <!-- Content -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-gem me-3"></i>LOTTE Kerly
-                    </h6>
-                    <p>
-                        식품 전문 온라인 쇼핑몰입니다.
-                        <br>
-                        맛있는 하루에 투자하세요 :)
-                    </p>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Contributors
-                    </h6>
-                    <p>
-                        <a href="#!" class="text-reset">강예나</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">권나연</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">신은총</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">오재곤</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">이석원</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">최형준</a>
-                    </p>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Github
-                    </h6>
-                    <p>
-                        <a href="https://github.com/KangYena" class="text-reset">KangYena</a>
-                    </p>
-                    <p>
-                        <a href="https://github.com/hellonayeon" class="text-reset">hellonayeon</a>
-                    </p>
-                    <p>
-                        <a href="https://github.com/chd830" class="text-reset">chd830</a>
-                    </p>
-                    <p>
-                        <a href="https://github.com/gon-pick" class="text-reset">gon-pick</a>
-                    </p>
-                    <p>
-                        <a href="https://github.com/clalsw" class="text-reset">clalsw</a>
-                    </p>
-                    <p>
-                        <a href="https://github.com/choihyeongjun" class="text-reset">choihyeongjun</a>
-                    </p>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                    <!-- Links -->
-                    <h6 class="text-uppercase fw-bold mb-4">
-                        Contact
-                    </h6>
-                    <p><i class="fas fa-home me-3"></i> 서울 송파구 올림픽로 300</p>
-                    <p>
-                        <i class="fas fa-envelope me-3"></i>
-                        NSCV@lottekerly.com
-                    </p>
-                    <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                    <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
-                </div>
-                <!-- Grid column -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-box">
+            <div style="width: 100%%;margin-right: 5%;">
+                <h6>Lotte-kurly</h6>
+                <p class="text-justify">롯데컬리 사이트를 방문해 주셔서 감사합니다. 항상 <i>신선하고 믿음직한 재료와 상품으로</i>여러분들을 찾아뵙도록 노력하겠습니다.</p>
             </div>
-            <!-- Grid row -->
-        </div>
-    </section>
-    <!-- Section: Links  -->
 
-    <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2022 New Super Cucumber Voucher |
-        <a class="text-reset fw-bold" href=""> NSCV.com</a>
+            <div style="width: 150px">
+                <h6>Contribute</h6>
+                <ul class="footer-links contribute">
+                    <div style="margin-right: 15%;">
+                        <li><a href="https://github.com/KangYena">강예나</a></li>
+                        <li><a href="https://github.com/hellonayeon">권나연</a></li>
+                        <li><a href="https://github.com/chd830">신은총</a></li>
+                    </div>
+                    <div>
+                        <li><a href="https://github.com/gon-pick">오재곤</a></li>
+                        <li><a href="https://github.com/clalsw">이석원</a></li>
+                        <li><a href="https://github.com/choihyeongjun">최형준</a></li>
+                    </div>
+                </ul>
+            </div>
+
+            <div style="width: 185px">
+                <h6>Contact Us</h6>
+                <ul class="footer-links">
+                     <li><i class="fas fa-home me-3"></i> 서울 송파구 올림픽로 300</li>
+                    <li><i class="fas fa-envelope me-3"></i>NSCV@lottekerly.com</li>
+                    <li><i class="fas fa-phone me-3"></i> + 01 234 567 88</li>
+                    <li><i class="fas fa-print me-3"></i> + 01 234 567 89</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
     </div>
-    <!-- Copyright -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by
+                    <a href="#">Scanfcode</a>.
+                </p>
+            </div>
+
+            <%--<div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="social-icons">
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>--%>
+        </div>
+    </div>
 </footer>
 <!-- Footer -->
 
