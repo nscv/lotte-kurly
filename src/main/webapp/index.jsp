@@ -1,3 +1,3 @@
 <%
-    response.sendRedirect("main.jsp");
+    response.sendRedirect("/product/main");
 %>

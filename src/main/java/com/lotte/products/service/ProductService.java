@@ -25,5 +25,6 @@ public interface ProductService {
     List<ProductBestDto>productBestLowList(ProductBestDto productBestDto);
     List<ProductBestDto>productBestDiscountList(ProductBestDto productBestDto);
 
-    List<ProductListDto>productMainDiscountList();
+    List<ProductListMainDiscountDto>productMainDiscountList();
+    List<ProductListMainBestDto>productMainBestList();
 }
