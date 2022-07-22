@@ -32,6 +32,6 @@ public class ProductCategoryDto {
     public ProductCategoryDto(String category, int pageNo){
         this.category=category;
         this.pageNo=pageNo*30;
-        this.endPageNo=pageNo*30+30;
+        this.endPageNo=30;
     }
 }
