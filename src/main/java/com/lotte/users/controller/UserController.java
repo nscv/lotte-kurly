@@ -38,9 +38,14 @@ public class UserController {
         return "/user/profile";
     }
 
-    @PostMapping("/add-profile")
+    @GetMapping("/add-profile")
     public String Addprofile(ProfileDto profile){
         logger.info("UserController Addprofile()" + new Date());
+        System.out.println(profile.getUserNo());
+        System.out.println(profile.getUserAddress());
+        System.out.println(profile.getUserBirth());
+        System.out.println(profile.getUserNickname());
+        System.out.println(profile.getUserPhone());
         userService.addprofile(profile);
 
         return "redirect:product/main";

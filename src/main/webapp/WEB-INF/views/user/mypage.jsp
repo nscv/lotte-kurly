@@ -50,7 +50,20 @@
             url:"/getuser",
             data:{"userNo": <%=userno%>},
             success:function( data ){
-                console.log(data)
+                $('#userEmail').val(data.userAddress);
+                $('#userNickname').val(data.userNickname);
+                $('#userGrade').val(data.userGrade);
+                $('#userBirth').val(data.userBirth);
+                if(data.userGender==true){
+                    $('#0').val("true");
+                    $('#1').val("false");
+                }
+                else{
+                    $('#0').val("false");
+                    $('#1').val("true");
+                }
+                $('#userAddress').val(data.userAddress);
+                $('#userPhone').val(data.userPhone);
             },
             error:function(){
                 $(location).attr("href","/profile")
@@ -69,39 +82,39 @@
         </div>
         <div class="input-box">
             <p>이메일<span style="color: red;">*</span></p>
-            <input style="background-color: #e2e2e2;" class="input-text" id="userEmail" name="userEmail" type="text" value="test1@test.com" placeholder="이메일입니다." maxlength="50" required="required" readonly="readonly">
+            <input style="background-color: #e2e2e2;" class="input-text" id="userEmail" name="userEmail" type="text" value="" placeholder="이메일입니다." maxlength="50" required="required" readonly="readonly">
         </div>
         <div class="input-box">
             <p>닉네임<span style="color: red;">*</span></p>
-            <input class="input-text" id="userNickname" name="userNickname" type="text" value="test1" placeholder="닉네임을 입력해 주세요" maxlength="50" required="required">
+            <input class="input-text" id="userNickname" name="userNickname" type="text" value="" placeholder="닉네임을 입력해 주세요" maxlength="50" required="required">
         </div>
         <div class="input-box">
             <p>유저등급<span style="color: red;">*</span></p>
-            <input style="background-color: #e2e2e2;" class="input-text" id="userGrade" name="userGrade" type="text" value="골드" placeholder="등급입니다." maxlength="50" required="required" readonly="readonly">
+            <input style="background-color: #e2e2e2;" class="input-text" id="userGrade" name="userGrade" type="text" value="" placeholder="등급입니다." maxlength="50" required="required" readonly="readonly">
         </div>
         <div class="input-box">
             <p>생일<span style="color: red;">*</span></p>
-            <input class="input-date" id="userBirth" name="userBirth" type="date" value="2022-01-03" maxlength="50" required="required">
+            <input class="input-date" id="userBirth" name="userBirth" type="date" value="" maxlength="50" required="required">
         </div>
         <div class="input-box">
             <p>성별<span style="color: red;">*</span></p>
             <div class="input-radio">
                 <input type="radio" id="0"
-                       name="userGender" value="true" checked>
+                       name="userGender" value="" checked>
                 <label for="0">남성</label>
 
                 <input type="radio" id="1"
-                       name="userGender" value="false">
+                       name="userGender" value="">
                 <label for="1">여성</label>
             </div>
         </div>
         <div class="input-box">
             <p>주소<span style="color: red;">*</span></p>
-            <input class="input-text" id="userAddress" name="userAddress" type="text" value="서울시" placeholder="주소를 입력해 주세요" maxlength="50" required="required">
+            <input class="input-text" id="userAddress" name="userAddress" type="text" value="" placeholder="주소를 입력해 주세요" maxlength="50" required="required">
         </div>
         <div class="input-box">
             <p>전화번호<span style="color: red;">*</span></p>
-            <input class="input-text" id="userPhone" name="userPhone" type="text" value="010-1234-1234" placeholder="전화번호를 입력해 주세요" maxlength="50" required="required">
+            <input class="input-text" id="userPhone" name="userPhone" type="text" value="" placeholder="전화번호를 입력해 주세요" maxlength="50" required="required">
         </div>
         <div class="div-button">
             <button class="input-button" type="submit">정보수정</button>
