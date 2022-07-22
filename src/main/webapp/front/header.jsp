@@ -254,7 +254,6 @@
                             url: "/userdata",
                             data: {"email": email},
                             success: function (data) {
-                                console.log(data)
                                 setCookie("isvalid", data.substring(0, 1), 60);
                                 setCookie("userrole", data.substring(1, 2), 60);
                                 setCookie("userno", data.substring(2), 60);
@@ -265,7 +264,12 @@
                                     confirmButtonColor: '#3085d6',
                                     confirmButtonText: '확인',
                                 }).then((result) => {
-                                    location.href = "/";
+                                    console.log(data.substring(0, 1));
+                                    if(data.substring(0, 1) === "0"){
+                                        location.href = "/profile";
+                                    } else {
+                                        location.href = "/";
+                                    }
                                 })
                             },
                             error: function () {

@@ -14,6 +14,8 @@
         for(int i=0; i < cookies.length; i++){
             if (cookies[i].getName().equals("userno")) {
                 userno = cookies[i].getValue();
+            } else if (cookies[i].getName().equals("isvalid")) {
+                isvalid = cookies[i].getValue();
             }
         }
     }
@@ -24,6 +26,12 @@
 <script>
     alert("로그인이 필요합니다.");
     location.href="/product/main";
+</script>
+<%
+    } else if (isvalid.equals("0")) {
+%>
+<script>
+    location.href="/profile";
 </script>
 <%
     }
