@@ -40,9 +40,9 @@
         GROUP BY user_grade
     </select>
     <select id="selectTotalByDate" resultType="com.lotte.admin.dto.TotalOrderDto">
-        SELECT DATE_FORMAT(created_at, '%Y년%m월%d일') AS created_at, order_state, COUNT(*) AS cnt, SUM(order_total_price) AS total
+        SELECT DATE_FORMAT(created_at, '%Y/%m/%d') AS created_at, order_state, COUNT(*) AS cnt, SUM(order_total_price) AS total
         FROM orders
-        GROUP BY DATE_FORMAT(created_at, '%Y년%m월%d일')
+        GROUP BY DATE_FORMAT(created_at, '%Y/%m/%d')
         ORDER BY created_at ASC
     </select>
     <select id="selectTotalByYear" resultType="com.lotte.admin.dto.TotalOrderDto">

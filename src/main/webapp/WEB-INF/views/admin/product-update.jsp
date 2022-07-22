@@ -25,8 +25,8 @@
     if(!userRole.equals("admin")) {
 %>
 <script>
-    alert("접근할 수 없는 계정입니다.");
-    location.href="/product/main";
+    // alert("접근할 수 없는 계정입니다.");
+    // location.href="/product/main";
 </script>
 <%
     }
