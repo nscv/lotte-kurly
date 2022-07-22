@@ -324,7 +324,6 @@
                 let titleid = "#title" + reviewno;
                 let contentid =  "#content" + reviewno;
                 let updateid = ".update" + reviewno;
-                alert($('#titleid'));
 
                 $( titleid ).contents().unwrap().wrap( '<td><input type="text" name="reviewTitle" id=title'+ reviewno + ' size="10" style="border: 1px solid #ccc; height: 30px; font-size:14px; color: #333; line-height: 20px; border-radius: 3px; background-color: #fff; outline: none; vertical-align: top;"></td>' );
                 $( contentid ).contents().unwrap().wrap( '<td><input type="text" name="reviewContent" id=content'+ reviewno + ' size="30" style="border: 1px solid #ccc; height: 30px; font-size:14px; color: #333; line-height: 20px; border-radius: 3px; background-color: #fff; outline: none; vertical-align: top;"></td>' );
@@ -343,7 +342,6 @@
                     alert("내용을 입력하세요.");
                     return;
                 }
-                alert(updateTitle);
 
                 $.ajax({
                     type:"get",
