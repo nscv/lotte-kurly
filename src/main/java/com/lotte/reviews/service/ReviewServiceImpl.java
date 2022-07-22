@@ -3,6 +3,7 @@ package com.lotte.reviews.service;
 import com.lotte.reviews.dao.ReviewDao;
 import com.lotte.reviews.dto.ReviewDto;
 import com.lotte.reviews.dto.ReviewInsertDto;
+import com.lotte.reviews.dto.ReviewUpdateDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,6 +27,11 @@ public class ReviewServiceImpl implements ReviewService {
 
     public void deleteReview(String reviewno){
         reviewDao.deleteReview(reviewno);
+    }
+
+    @Override
+    public void updateReview(ReviewUpdateDto dto) {
+        reviewDao.updateReview(dto);
     }
 
 }
