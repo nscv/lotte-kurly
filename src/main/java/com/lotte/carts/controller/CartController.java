@@ -33,7 +33,7 @@ public class CartController {
 
     /* 장바구니 아이템 추가 */
     @PostMapping("/cart/items")
-    public ResponseEntity<CartResponse.CreateCartItemDto> createCartItem(@RequestBody CartRequest.CreateCartItemDto requestDto) {
+    public ResponseEntity<CartResponse.CreateCartItemDto> createCartItem(CartRequest.CreateCartItemDto requestDto) {
         logger.info("CartController.createCartItem(CartRequest.CreateCartItemDto): {}", LocalDateTime.now());
         return ResponseEntity.ok(cartService.createCartItem(requestDto));
     }
