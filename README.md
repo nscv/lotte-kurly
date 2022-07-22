@@ -21,7 +21,13 @@
 ## 💻핵심 기능
 
 ## 🔧기술 스택
-
+ - Language : `Java` `JavaScript`
+ - Library & Framework : `Spring`
+ - Database : `Mysql`
+ - Target : `Web Browser`
+ - Tool : `Intellij`
+ - Infra : `EC2` `RDS`
+ - Etc : `Notion`, `Git`
 ## 📐시스템 구조도
 
 ## 🎇주요 화면
