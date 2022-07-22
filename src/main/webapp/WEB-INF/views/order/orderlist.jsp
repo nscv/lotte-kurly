@@ -95,6 +95,7 @@
         </div>
     </div>
 </div>
+<jsp:include page="/front/footer.jsp"></jsp:include>
 
 <script type="text/javascript" src="/js/orderlist.js"></script>
 </body>

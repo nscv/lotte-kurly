@@ -29,7 +29,7 @@
         <p style="margin-left: 20px;">전체선택</p>
         <%--<a href="#" class="continue">Continue Shopping</a>--%>
     </div>
-    <form action="/order/sheet">
+    <form action="/order/sheet" id="order-sheet-form">
         <div class="cart">
 
             <!--    <ul class="tableHead">
@@ -49,7 +49,10 @@
                         <span class="label">전체가격</span>
                         <span class="cart-items-total-price"></span>
                     </li>
-                    <li class="totalRow"><a href="/order/sheet" class="btn continue">구매하기</a></li>
+                    <li class="totalRow">
+                        <a href="javascript:{}" onclick="document.getElementById('order-sheet-form').submit();"
+                           class="btn continue">구매하기</a>
+                    </li>
                 </ul>
             </div>
 

@@ -37,10 +37,11 @@ function printCartItems(cartItems) {
 
   let html = "";
   cartItems.forEach(function (cartItem) {
+    console.log(cartItem.productImgNewName);
     html += `<li>
                     <div class="thumb">
                         <a href="/product/productdetail?productNo=${cartItem.productNo}">
-                            <img src="${cartItem.productNewImgName}" alt="상품이미지">
+                            <img src=${cartItem.productImgNewName} alt="상품이미지">
                         </a>
                     </div>
                     <div class="name">
@@ -48,13 +49,13 @@ function printCartItems(cartItems) {
                     </div>
                     <div class="count-product">${cartItem.cartItemCount} 개</div>
                     <div class="info-price">
-                        <span class="num">
-                            <span class="price">${makePriceFormat(cartItem.cartItemTotalPrice)}</span>
-                        </span>
-                        <!-- FIXME 할인 가격  -->
-                        <!-- <span class="num">
-                            <span class="price">${makePriceFormat(cartItem.cartItemDiscountPrice)}</span>
+                         <!-- <span class="num">
+                             <span class="price">${makePriceFormat(cartItem.cartItemTotalPrice)}</span>
                         </span> -->
+                        <!-- 할인 가격 적용 -->
+                        <span class="num">
+                            <span class="price">${makePriceFormat(cartItem.cartItemDiscountPrice)} 원</span>
+                        </span> 
                     </div>
                 </li>`;
   });
@@ -86,7 +87,7 @@ function printPaymentInfo(cartItems) {
 }
 
 function makePriceFormat(price) {
-    return (price + "").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    return (parseInt(price) + "").replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 }
 
 
@@ -192,7 +193,7 @@ function pay() {
 
   let data = {
     orderTotalPrice: orderTotalPrice,
-    userNo: 1 // TODO userNo
+    userNo: userNo // TODO userNo
   };
 
   $.ajax({
@@ -223,7 +224,7 @@ function pay() {
 function order() {
   let data = {
     orderCartItemNos: orderCartItemNos,
-    userNo: 1, // FIXME userNo,
+    userNo: userNo, // FIXME userNo,
     orderAddress: $('.delivery-address-td').text(),
     orderTotalPrice: orderTotalPrice
   };

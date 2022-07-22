@@ -93,7 +93,7 @@
       parameterType="com.lotte.orders.dto.CreateOrder"
       useGeneratedKeys="true" keyProperty="orderNo">
 
-        INSERT INTO orders(user_no, order_address, order_total_price, order_created_at)
+        INSERT INTO orders(user_no, order_address, order_total_price, created_at)
         VALUES (#{userNo}, #{orderAddress}, #{orderTotalPrice}, NOW())
 
     </insert>
