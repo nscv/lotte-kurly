@@ -53,6 +53,35 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="/css/ordersheet.css">
+    <style>
+        li.menu1{
+            position: relative;
+            top: 13px;
+        }
+        li.menu2{
+            position: relative;
+            top: 13px;
+        }
+        li.menu3{
+             position: relative;
+             top: 13px;
+        }
+        li.menu4{
+            position: relative;
+            top: 13px;
+        }
+        li.menu5{
+            position: relative;
+            top: 13px;
+        }
+        li.menu6{
+             position: relative;
+             top: 13px;
+         }
+
+
+
+    </style>
 </head>
 <body>
 <jsp:include page="/front/header.jsp"></jsp:include>
@@ -159,13 +188,13 @@
                     원
                 </dd>
             </dl>
-            <!--<dl class="amount">
+            <dl class="amount">
                 <dt class="tit">적립금 사용</dt>
                 <dd class="price">
                     <span class="num pay_sum" id="paper_reserves">
                         <input onchange="usePoint(this)" type="text" class="point-input" value="" placeholder="0"> 원</span>
                 </dd>
-            </dl>-->
+            </dl>
             <dl class="amount lst">
                 <dt class="tit">최종 결제 금액</dt>
                 <dd class="price">
