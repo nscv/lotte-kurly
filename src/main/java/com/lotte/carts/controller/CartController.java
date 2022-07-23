@@ -2,7 +2,7 @@ package com.lotte.carts.controller;
 
 import com.lotte.carts.dto.request.CartRequest;
 import com.lotte.carts.dto.response.CartResponse;
-import com.lotte.carts.service.CartService;
+import com.lotte.carts.service.CartServiceImpl;
 import java.time.LocalDateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class CartController {
 
     private static Logger logger = LoggerFactory.getLogger(CartController.class);
-    private final CartService cartService;
+    private final CartServiceImpl cartService;
 
-    public CartController(CartService cartService) {
+    public CartController(CartServiceImpl cartService) {
         this.cartService = cartService;
     }
 
