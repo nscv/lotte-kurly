@@ -59,6 +59,14 @@
         <img src="/front/images/lotte-kurly logo.png" class="logo-img">
         </a>
     </h1>
+    <%
+        if (role.equals("admin")) {
+    %>
+        <a href="/admin/main"><span class="txt">관리자 페이지</span></a>
+    <%
+        }
+    %>
+
 </div>
 <%--<div id="menubar">--%>
 <%--    <h2 class="menu">--%>
