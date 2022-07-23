@@ -110,6 +110,13 @@
 
 <script>
   function bucksubmit(button){
+    let cookieuserNo = userNo;
+    if(cookieuserNo==null || cookieuserNo==-1) {
+      alert("로그인 후 가능합니다.");
+      return;
+    }
+
+
     $.ajax({
       type:"post",
       url:"/cart/items",
