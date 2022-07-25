@@ -82,7 +82,7 @@
         --%>
         <ul class="menu-item">
             <li class="menu1">
-                <a href=""><span class="menu-img"></span><span class="txt">전체 카테고리</span></a>
+                <a href="/product/list?category=907&pageNo=0"><span class="menu-img"></span><span class="txt">전체 카테고리</span></a>
                 <div class="items" style="position: absolute;flex-direction: column;top:60px;">
                     <ul class="item-list">
                         <li><div class="category-box"><img style="width: 25px; height: 25px"

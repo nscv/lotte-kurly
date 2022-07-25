@@ -1,4 +1,4 @@
-package com.lotte.orders.exception;
+package com.lotte.exception;
 
 public class ErrorResponse {
 

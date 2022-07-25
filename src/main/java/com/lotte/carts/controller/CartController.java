@@ -2,7 +2,8 @@ package com.lotte.carts.controller;
 
 import com.lotte.carts.dto.request.CartRequest;
 import com.lotte.carts.dto.response.CartResponse;
-import com.lotte.carts.service.CartService;
+import com.lotte.carts.service.CartServiceImpl;
+import com.lotte.exception.ErrorResponse;
 import java.time.LocalDateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,9 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class CartController {
 
     private static Logger logger = LoggerFactory.getLogger(CartController.class);
-    private final CartService cartService;
+    private final CartServiceImpl cartService;
 
-    public CartController(CartService cartService) {
+    public CartController(CartServiceImpl cartService) {
         this.cartService = cartService;
     }
 
@@ -28,6 +29,13 @@ public class CartController {
     @GetMapping("/carts/{cartNo}")
     public ResponseEntity<CartResponse.CartItemsDto> getCart(@PathVariable Integer cartNo) {
         logger.info("CartController.getCart(cartNo): {}", LocalDateTime.now());
+
+        /* 로그인 하지 않은 사용자의 경우 */
+        if (cartNo == -1) {
+            logger.info("CartController.getCart(cartNo): not assigned user.");
+            return null;
+        }
+
         return ResponseEntity.ok(cartService.getCart(cartNo));
     }
 
@@ -35,6 +43,13 @@ public class CartController {
     @PostMapping("/cart/items")
     public ResponseEntity<CartResponse.CreateCartItemDto> createCartItem(CartRequest.CreateCartItemDto requestDto) {
         logger.info("CartController.createCartItem(CartRequest.CreateCartItemDto): {}", LocalDateTime.now());
+
+        /* 로그인 하지 않은 사용자의 경우 */
+        if (requestDto.getCartNo() == -1) {
+            logger.info("CartController.createCartItem(CartRequest.CreateCartItemDto): not assigned user.");
+            return null;
+        }
+
         return ResponseEntity.ok(cartService.createCartItem(requestDto));
     }
 

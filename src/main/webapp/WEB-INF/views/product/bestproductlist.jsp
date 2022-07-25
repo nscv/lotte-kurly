@@ -113,6 +113,15 @@
 
 <script>
   function bucksubmit(button){
+
+    /* 로그인 하지 않은 사용자의 경우 */
+
+    let cookieuserNo = userNo;
+    if(cookieuserNo==null || cookieuserNo==-1) {
+      alert("로그인 후 가능합니다.");
+      return;
+    }
+
     $.ajax({
           type:"post",
           url:"/cart/items",
@@ -122,7 +131,12 @@
         error:function(e){
       alert(e.responseText);
     },
-    success:function(){
+    success:function(response){
+      if (response == "" || response == undefined) {
+        alert("장바구니는 로그인 후 이용 가능합니다.");
+        return;
+      }
+
       alert("장바구니에 담겼습니다");
     }
   })
