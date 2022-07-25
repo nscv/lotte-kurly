@@ -20,41 +20,35 @@
 ![lotte-kurly-gif](https://user-images.githubusercontent.com/43202607/180718435-0a26dcac-5019-4254-a33d-5a74047a73d9.gif)
 
 ## 설계
-* **데이터베이스 설계**
+### ERD
   <img width="1252" alt="erd" src="https://user-images.githubusercontent.com/43202607/180723548-6c14ee81-b528-4d03-aa95-91295b5125cd.png">
 
-* **화면 설계**
-  
-  <br>
-  
-  * [Figma](https://www.figma.com/file/NRqHTD39KUEqH5hZrN9Kkl/LOTTE-Kerly)
-
-  <br>
-  
-  <img width="1527" alt="ui" src="https://user-images.githubusercontent.com/43202607/180723848-90899ee7-5def-4eef-9b98-e84f968b5994.png">
+### UI &nbsp; 🔗 [Figma Link](https://www.figma.com/file/NRqHTD39KUEqH5hZrN9Kkl/LOTTE-Kerly)
+<img width="1527" alt="ui" src="https://user-images.githubusercontent.com/43202607/180723848-90899ee7-5def-4eef-9b98-e84f968b5994.png">
 
 ## 💻핵심 기능
-<details>
-<summary> 기능</summary>
-
-### 상품
+#### 상품
 - 상품 정렬(판매 많은 순, 리뷰 많은 순, 가격 내림차순/오름차순, 카테고리)
 - 페이징
 - 상품 정보 제공
 
-### 유저
+#### 유저
 - 아이디 중복
 - 비밀번호 처리
 - 카카오 소셜 로그인
 - 마이페이지 
 - 유저 정보 수정
 
-#### 주문
+#### 장바구니
 - 상품 장바구니에 담기
+
+#### 주문
+- 장바구니에서 상품 선택해 주문하기
+- 주문 정보 확인
 
 #### 결제
 - 상품 결제
- - 포인트 적립
+- 포인트 적립
  
 #### 리뷰
 - 리뷰 작성
@@ -75,8 +69,6 @@
 #### 크롤링
 - 상품 정보 크롤링
 
-</details>
-
 ## 🔧기술 스택
  - Language : `Java` `JavaScript`
  - Library & Framework : `Spring`
@@ -90,7 +82,10 @@
 
 ![systemstruccture](https://user-images.githubusercontent.com/58438267/180413144-8b1182a0-25c8-4a73-a9b2-ba63b8048710.png)
 
-## 🎇 주요기능 실행 
+## 🎇 주요기능 실행화면
+
+<details>
+<summary>주요기능 실행화면</summary>
 
 * **메인 화면**
   * `베스트 상품` 과 `할인 상품` 을 조회할 수 있습니다.
@@ -172,6 +167,7 @@
   * `상품 추가` 메뉴를 통해 사용자들에게 판매할 상품을 추가할 수 있습니다.
     <img width="1792" alt="23-admin-product-add" src="https://user-images.githubusercontent.com/43202607/180715741-1f13da8c-84fc-4a9a-b108-93e603f11c44.png">
 
+</details>
 
 ## 🌄팀 정보
 |  강예나  |  권나연  |  신은총  |  오재곤 | 이석원  |  최형준  |
