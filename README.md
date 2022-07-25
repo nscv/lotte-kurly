@@ -2,7 +2,7 @@
 <div align='center'>
   <h3></h3>
   <img src='https://user-images.githubusercontent.com/21255149/180385615-741a8077-97fc-46e4-8662-ba29513f2ee7.png' style='width: 200px;'><br/>
-  <h3><a href="https://ecshin.notion.site/b90348bc2cc7477682686093e03fc2ef">📘기능</a>| <a href="[https://www.notion.so/ecshin/dc03002ea964433da73578cf9a4cebde](https://ecshin.notion.site/dc03002ea964433da73578cf9a4cebde)">📑데이터베이스 구조</a> | <a href="https://www.figma.com/file/NRqHTD39KUEqH5hZrN9Kkl/LOTTE-Kerly?node-id=0%3A1">✏️UI</a></h3>
+  <h3><a href="https://ecshin.notion.site/b90348bc2cc7477682686093e03fc2ef"> 📘기능 </a> | <a href="[https://www.notion.so/ecshin/dc03002ea964433da73578cf9a4cebde](https://ecshin.notion.site/dc03002ea964433da73578cf9a4cebde)"> 📑데이터베이스 구조 </a> | <a href="https://www.figma.com/file/NRqHTD39KUEqH5hZrN9Kkl/LOTTE-Kerly?node-id=0%3A1"> ✏️UI </a></h3>
 </div>
 <br/><br/>
 
@@ -16,7 +16,22 @@
 - [팀 정보](https://github.com/nscv/lotte-kurly#-팀-정보)
 
 ## 🚩개요
-최근 물가 상승률이 가파르게 높아지면서 국민들에게 더 저렴하게 식재료를 제공하고자 버티컬 플랫폼인 마켓컬리를 카피캣으로 사용하여 구현했다.
+최근 물가 상승률이 가파르게 높아지면서 국민들에게 더 저렴하게 식재료를 제공하고자 버티컬 플랫폼인 마켓컬리를 카피캣으로 사용하여 구현했습니다.
+![lotte-kurly-gif](https://user-images.githubusercontent.com/43202607/180718435-0a26dcac-5019-4254-a33d-5a74047a73d9.gif)
+
+## 설계
+* **데이터베이스 설계**
+  <img width="1252" alt="erd" src="https://user-images.githubusercontent.com/43202607/180723548-6c14ee81-b528-4d03-aa95-91295b5125cd.png">
+
+* **화면 설계**
+  
+  <br>
+  
+  * [Figma](https://www.figma.com/file/NRqHTD39KUEqH5hZrN9Kkl/LOTTE-Kerly)
+
+  <br>
+  
+  <img width="1527" alt="ui" src="https://user-images.githubusercontent.com/43202607/180723848-90899ee7-5def-4eef-9b98-e84f968b5994.png">
 
 ## 💻핵심 기능
 <details>
@@ -161,6 +176,6 @@
 ## 🌄팀 정보
 |  강예나  |  권나연  |  신은총  |  오재곤 | 이석원  |  최형준  |
 | :----------: |  :--------:  |  :---------: |  :---------: | :---------: | :---------: |
-| [<img src="https://user-images.githubusercontent.com/62419355/178489222-02bfae9d-d535-4186-ae6c-737e6bfc86ad.png" width="100px" height="100px"><br/>Github](https://github.com/KangYena)| [<img src="https://user-images.githubusercontent.com/21255149/180390053-c286705b-6ddb-4ba1-8777-f3b645cb72c6.png" width="100px" height="100px"><br/>Github](https://github.com/hellonayeon) | [<img src="https://user-images.githubusercontent.com/21255149/178379443-7ead27aa-ec24-4e15-8935-750b1cafa08c.jpg" width="100px" height="100px"><br/>Github](https://github.com/chd830) | [<img src="https://user-images.githubusercontent.com/21255149/180393004-2220f426-35c8-42e6-8492-6f75c5916879.jpg" width="100px" height="100px"><br/>Github](https://github.com/gon-pick)| [<img src="https://user-images.githubusercontent.com/21255149/180430654-6be52b0d-9453-42e7-9d0c-32770969a966.jpg" width="100px" height="100px"><br/>Github](https://github.com/clalsw) | [<img src="https://user-images.githubusercontent.com/21255149/180430646-fd162fef-602d-4919-9a0c-7bd66ef6f236.jpg" width="100px" height="100px"><br/>Github](https://github.com/choihyeongjun) |
-| UI,UX / 프론트 | 상품 구매/결제<br/> 장바구니 <br/> 클라우드 | 관리자, erd설계 | 크롤링 / 리뷰 | 유저 | 상품 |
+| [<img src="https://user-images.githubusercontent.com/62419355/178489222-02bfae9d-d535-4186-ae6c-737e6bfc86ad.png" width="100px" height="100px"><br/>Github](https://github.com/KangYena)| [<img src="https://user-images.githubusercontent.com/43202607/180716695-1dc782eb-1ae2-4896-af89-5df5ca6657da.png" width="100px" height="100px"><br/>Github](https://github.com/hellonayeon/lotte-kurly) | [<img src="https://user-images.githubusercontent.com/21255149/178379443-7ead27aa-ec24-4e15-8935-750b1cafa08c.jpg" width="100px" height="100px"><br/>Github](https://github.com/chd830) | [<img src="https://user-images.githubusercontent.com/21255149/180393004-2220f426-35c8-42e6-8492-6f75c5916879.jpg" width="100px" height="100px"><br/>Github](https://github.com/gon-pick)| [<img src="https://user-images.githubusercontent.com/21255149/180430654-6be52b0d-9453-42e7-9d0c-32770969a966.jpg" width="100px" height="100px"><br/>Github](https://github.com/clalsw) | [<img src="https://user-images.githubusercontent.com/21255149/180430646-fd162fef-602d-4919-9a0c-7bd66ef6f236.jpg" width="100px" height="100px"><br/>Github](https://github.com/choihyeongjun) |
+| UI,UX / 프론트 | 상품 구매/결제<br/> 장바구니 <br/> 클라우드 | 관리자, ERD 설계 | 크롤링 / 리뷰 | 유저 | 상품 |
 
