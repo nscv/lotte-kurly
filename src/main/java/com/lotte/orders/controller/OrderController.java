@@ -2,7 +2,7 @@ package com.lotte.orders.controller;
 
 import com.lotte.orders.dto.request.OrderRequest;
 import com.lotte.orders.dto.response.OrderResponse;
-import com.lotte.orders.exception.ErrorResponse;
+import com.lotte.exception.ErrorResponse;
 import com.lotte.orders.exception.NotEnoughStockAfterPayment;
 import com.lotte.orders.service.OrderServiceImpl;
 import org.slf4j.Logger;
