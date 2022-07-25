@@ -89,7 +89,74 @@
   
   * 정렬 필터를 이용해 `판매량 순` `할인 품목` `낮은 가격순` `높은 가격순` 으로 상품을 조회할 수 있습니다.
   ![03-category2](https://user-images.githubusercontent.com/43202607/180710239-daf95005-06cb-4415-9b46-13eb6073d657.png)
+
+* **베스트 상품 조회**
+  * `베스트 상품` 메뉴를 통해 판매가 많이 된 상품들을 조회할 수 있습니다.
+    <img width="1792" alt="04-best-product" src="https://user-images.githubusercontent.com/43202607/180712681-82ba8ca8-941e-4d5d-a9ca-3b1c5213aa38.png">
+
+* **상품 상세 조회**
+  * 상품 목록에서 상품의 사진을 클릭하면 `상품 상세 정보` 를 확인할 수 있습니다.
+    <img width="1792" alt="05-product-detail" src="https://user-images.githubusercontent.com/43202607/180712707-8ee3c62c-d2aa-499e-871d-4938ebba2229.png">
+
+* **최근 본 상품 퀵바**
+    * 페이지 우측에 `최근 본 상품` 이 지속적으로 노출됩니다. 상품을 클릭 할 때마다 최신 본 상품의 최상단으로 업데이트됩니다.
+      ![19-recent-list](https://user-images.githubusercontent.com/43202607/180711844-d4dd3df1-d983-4a0f-9c15-e3e26def415c.png)
+
+* **카카오 로그인**
+  * 로그인 메뉴를 클릭하면 카카오 계정을 사용해 `회원 가입` 및 `카카오 로그인` 을 할 수 있습니다.
+    <img width="612" alt="06-kakao-login" src="https://user-images.githubusercontent.com/43202607/180713007-2ccabeb6-cbdd-4620-be6a-af28fa9a8d80.png">
   
+  * 카카오 계정을 입력한 뒤 휴대폰 인증을 하면, 사용자들 등록하고 로그인이 가능합니다.
+    <img width="1792" alt="07-login-success" src="https://user-images.githubusercontent.com/43202607/180713010-ba7b9144-a099-499d-8376-ac1310c5416e.png">
+
+* **마이페이지**
+  * `마이페이지` 메뉴를 통해 사용자 정보를 수정할 수 있습니다.
+    <img width="1792" alt="08-mypage" src="https://user-images.githubusercontent.com/43202607/180713016-03442af2-0f00-4611-aeb8-00b04b302b86.png">
+
+* **상품 후기**
+  * `상품 상세` 페이지에서 리뷰를 등록할 수 있습니다.
+    <img width="1792" alt="09-review-write" src="https://user-images.githubusercontent.com/43202607/180713599-8e93fd94-6f04-4d75-a8ee-782b3287b246.png">
+
+  * 등록한 리뷰는 수정 및 삭제가 가능합니다.
+    ![10-review-result](https://user-images.githubusercontent.com/43202607/180713825-c12b2e79-e427-42e1-a4cc-7f956817ae16.png)
+  
+* **장바구니**
+  * `상품 목록` 또는 `상품 상세보기`에서 `장바구니 상품 추가`가 가능합니다.
+    ![11-buck1](https://user-images.githubusercontent.com/43202607/180714221-921c796c-5369-409e-9d3b-f74a2c36f225.png)
+
+    ![12-buck2](https://user-images.githubusercontent.com/43202607/180714283-1c27a7c3-e84c-4f59-990e-c0716e4ad256.png)
+  
+  * `장바구니` 메뉴에서 추가한 상품을 확인 가능합니다. 장바구니의 `결제하기` 를 누르면 주문서로 이동할 수 있습니다.
+    <img width="1792" alt="13-buck3" src="https://user-images.githubusercontent.com/43202607/180714294-2e23f5b8-93fd-4312-865b-ac3a25275a7e.png">
+  
+* **주문하기**
+  * `장바구니` 에서 선택한 상품들과 주문 정보를 확인할 수 있습니다.
+    <img width="1792" alt="14-order1" src="https://user-images.githubusercontent.com/43202607/180714586-18d19c53-3ce5-49f3-94ec-262d2bbfe318.png">
+
+  * `결제하기` 를 누르면 현재 가상계좌 잔액과 주문 총 가격, 결제 후 가상계좌 잔액을 확인할 수 있습니다.
+    <img width="1792" alt="15-order2" src="https://user-images.githubusercontent.com/43202607/180714713-d601b95b-4dbe-40c5-829e-01b7dd351a0c.png">
+
+  * 결제가 완료되면 `주문 내역` 메뉴에서 주문 정보를 확인할 수 있습니다.
+    ![17-order-detail1](https://user-images.githubusercontent.com/43202607/180715261-db759f16-472d-4121-90c7-21917577ef19.png)
+  <img width="1792" alt="18-order-detail2" src="https://user-images.githubusercontent.com/43202607/180715269-774b2209-4c05-4749-80b5-a819a6be67ad.png">
+
+* **관리자 페이지**
+  * 관리자 권한이 있는 사용자는 `관리자 페이지` 에 접근할 수 있습니다.
+  ![24-admin-page-link](https://user-images.githubusercontent.com/43202607/180715708-555bf142-9210-494b-98e4-cfdb60ed2550.png)
+
+  * 관리자 메인 화면에서 `대시보드` 를 통해 서비스 이용 통계를 확인할 수 있습니다.
+    * `월,연매출` `총 주문 건수` `날짜 별 매출 현황` `카테고리 별 구매 현황` `성별 구매 금액` `연령 별 구매 금액` 을 확인할 수 있습니다.
+  <img width="1792" alt="20-admin-dashboard" src="https://user-images.githubusercontent.com/43202607/180715727-c0f8b513-d497-467b-9ef3-b5e2158a9cec.png">
+
+  * `상품 재고` 메뉴에서 상품들의 재고를 확인할 수 있습니다.
+  <img width="1792" alt="21-admin-product-list" src="https://user-images.githubusercontent.com/43202607/180715732-8f4f7769-1e96-4263-be5d-6b98aa69fa3e.png">
+
+  * `상품 재고` 의 상품 목록의 `추가` 버튼을 클릭해, 상품의 재고를 변경할 수 있습니다.
+  <img width="1792" alt="22-admin-product-update" src="https://user-images.githubusercontent.com/43202607/180715739-e54111d4-4ade-41b4-adc4-4b579782db70.png">
+
+  * `상품 추가` 메뉴를 통해 사용자들에게 판매할 상품을 추가할 수 있습니다.
+    <img width="1792" alt="23-admin-product-add" src="https://user-images.githubusercontent.com/43202607/180715741-1f13da8c-84fc-4a9a-b108-93e603f11c44.png">
+
 
 ## 🌄팀 정보
 |  강예나  |  권나연  |  신은총  |  오재곤 | 이석원  |  최형준  |
