@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lotte.users.dao.UserDao">
+    <select id="checkuser" parameterType="String" resultType="Integer">
+        SELECT count(*)
+        FROM users
+        WHERE user_email=#{userEmail}
+    </select>
+
+    <insert id="insertuser" parameterType="com.lotte.users.dto.InsertUser"
+      useGeneratedKeys="true" keyProperty="userNo">
+        INSERT INTO users(user_email)
+        VALUES (#{userEmail})
+    </insert>
+
+    <insert id="insertcart" parameterType="com.lotte.users.dto.InsertUser"
+      useGeneratedKeys="true" keyProperty="userNo">
+        INSERT INTO carts(cart_no, user_no)
+        VALUES (#{userNo}, #{userNo}) <!-- 장바구니 번호는 사용자 번호와 1대 1 매핑 -->
+    </insert>
+
+    <select id="selectuser" parameterType="Integer" resultType="com.lotte.users.dto.UserDto">
+        SELECT user_no, user_email, user_role, user_grade, user_nickname, user_birth, user_gender, user_address, user_phone, user_valid
+        FROM users
+        WHERE user_no=#{userNo}
+    </select>
+
+    <select id="checkvalid" parameterType="String" resultType="Integer">
+        SELECT user_valid
+        FROM users
+        WHERE user_email=#{userEmail}
+    </select>
+
+    <select id="checkrole" parameterType="String" resultType="String">
+        SELECT user_role
+        FROM users
+        WHERE user_email=#{userEmail}
+    </select>
+
+    <select id="selectuserno" parameterType="String" resultType="Integer">
+        SELECT user_no
+        FROM users
+        WHERE user_email=#{userEmail}
+    </select>
+
+    <update id="insertprofile" parameterType="com.lotte.users.dto.UserDto">
+        UPDATE users
+        SET user_nickname = #{userNickname}, user_birth =#{userBirth}, user_gender=#{userGender},  user_address=#{userAddress}, user_phone=#{userPhone}, user_valid=1
+        WHERE user_no=#{userNo};
+    </update>
+
+    <select id="selectbirth" parameterType="Integer" resultType="String">
+        SELECT user_birth
+        FROM users
+        WHERE user_no=#{userNO};
+    </select>
+
+</mapper>

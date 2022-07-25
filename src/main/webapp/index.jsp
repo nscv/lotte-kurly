@@ -1,5 +1,4 @@
-<html>
-<body>
-<h2>안녕하세요 롯데컬리입니다</h2>
-</body>
-</html>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%
+    response.sendRedirect("/product/main");
+%>

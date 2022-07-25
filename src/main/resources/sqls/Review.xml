@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lotte.reviews.dao.ReviewDao">
+    <select id="ReviewList" resultType="com.lotte.reviews.dto.ReviewDto">
+        SELECT R1.REVIEW_NO          AS reviewNo
+             , R1.USER_NO            AS userNo
+             , R3.USER_NICKNAME      AS userName
+             , R1.REVIEW_CONTENT     AS reviewContent
+             , R1.REVIEW_CREATED_AT  AS reviewCreated_at
+             , R1.REVIEW_MODIFIED_AT AS reviewModified_at
+             , R1.REVIEW_RATE        AS reviewRate
+             , R1.PRODUCT_NO         AS productNo
+             , R1.REVIEW_TITLE       AS reviewTitle
+        FROM reviews R1
+                 INNER JOIN users R3 ON R1.USER_NO = R3.USER_NO
+        ORDER BY R1.REVIEW_MODIFIED_AT DESC
+    </select>
+
+    <insert id="insertReview" parameterType="com.lotte.reviews.dto.ReviewInsertDto">
+        INSERT INTO reviews(user_no,review_content,review_created_at,review_modified_at,review_rate,product_no,review_title)
+        VALUES(#{userNo},#{reviewContent},#{reviewCreatedAt},#{reviewModifiedAt},#{reviewRate},#{productNo},#{reviewTitle})
+    </insert>
+
+    <delete id="deleteReview" parameterType="String">
+        DELETE FROM reviews where review_no = #{reviewno}
+    </delete>
+
+    <update id="updateReview" parameterType="com.lotte.reviews.dto.ReviewUpdateDto">
+        UPDATE reviews set review_title=#{reviewTitle}, review_content=#{reviewContent}, review_modified_at=#{reviewModifiedAt}
+                       where review_no=#{reviewNo}
+    </update>
+</mapper>

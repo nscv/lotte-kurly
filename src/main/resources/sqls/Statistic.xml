@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lotte.admin.dao.StatisticDao">
+
+    <select id="selectProductCountByCategory" resultType="com.lotte.admin.dto.ProductCategoryDto">
+        SELECT c.category_name AS categoryName, COUNT(c.category_name) AS cnt, SUM(cart_item_total_price) AS total
+        FROM categories c, cart_items cart, products p
+        WHERE p.product_no = cart.product_no
+          AND c.category_no = p.category_no
+        GROUP BY c.category_name
+    </select>
+    <select id="selectPricesByGender" resultType="com.lotte.admin.dto.UserGenderDto">
+        SELECT u.user_gender AS userGender, COUNT(*) AS cnt, SUM(o.order_total_price) AS total
+        FROM users u, orders o
+        WHERE u.user_no = o.user_no
+        GROUP BY user_gender
+    </select>
+    <select id="selectPricesByAge" resultType="com.lotte.admin.dto.UserAgeDto">
+        SELECT
+            CASE
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 0 AND 10 THEN '10살 이하'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 10 AND 20 THEN '10대'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 20 AND 30 THEN '20대'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 30 AND 40 THEN '30대'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 40 AND 50 THEN '40대'
+                WHEN TIMESTAMPDIFF(YEAR, user_birth, now()) BETWEEN 50 AND 60 THEN '50대'
+                ELSE '60대'
+                END AS userAge,
+            COUNT(*) AS cnt,
+            SUM(o.order_total_price) AS total
+        FROM users u, orders o
+        WHERE u.user_no = o.user_no
+        GROUP BY userAge
+    </select>
+    <select id="selectUsersByUserGrade" resultType="com.lotte.admin.dto.UserGradeDto">
+        SELECT user_grade AS userGrade, COUNT(*) AS cnt
+        FROM users
+        GROUP BY user_grade
+    </select>
+    <select id="selectTotalByDate" resultType="com.lotte.admin.dto.TotalOrderDto">
+        SELECT DATE_FORMAT(created_at, '%Y/%m/%d') AS created_at, order_state, COUNT(*) AS cnt, SUM(order_total_price) AS total
+        FROM orders
+        GROUP BY DATE_FORMAT(created_at, '%Y/%m/%d')
+        ORDER BY created_at ASC
+    </select>
+    <select id="selectTotalByYear" resultType="com.lotte.admin.dto.TotalOrderDto">
+        SELECT DATE_FORMAT(created_at, '%Y') AS created_at, order_state, COUNT(*) AS cnt, SUM(order_total_price) AS total
+        FROM orders
+        GROUP BY DATE_FORMAT(created_at, '%Y')
+        HAVING created_at = DATE_FORMAT(NOW(), '%Y')
+        ORDER BY created_at ASC
+    </select>
+    <select id="selectTotalByMonth" resultType="com.lotte.admin.dto.TotalOrderDto">
+        SELECT DATE_FORMAT(created_at, '%m') AS created_at, order_state, COUNT(*) AS cnt, SUM(order_total_price) AS total
+        FROM orders
+        GROUP BY DATE_FORMAT(created_at, '%m')
+        HAVING created_at = DATE_FORMAT(NOW(), '%m')
+        ORDER BY created_at ASC
+    </select>
+    <select id="selectTotalOrders" resultType="Integer">
+        SELECT COUNT(*)
+        FROM orders
+        WHERE order_state >= 2
+    </select>
+</mapper>

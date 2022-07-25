@@ -1,0 +1,18 @@
+.order-sheet-container {
+  width: 1050px;
+  margin: auto;
+}
+
+.order-list-container {
+  width: 1050px;
+  margin: auto;
+}
+.order-list-title {
+  margin-left: 3%;
+  width: 85%;
+  border-bottom: 1px solid #dadada;
+}
+.order-list-box {
+  border: 1px solid #dadada;
+  padding: 10px;
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lotte.accounts.dao.AccountDao">
+    <update id="pay" parameterType="com.lotte.accounts.dto.request.AccountBuyRequest">
+        UPDATE accounts
+        SET account_money = account_money - #{orderTotalPrice}
+            , account_point = #{orderTotalPrice} * 0.03
+        WHERE user_no = #{userNo}
+    </update>
+    <update id="refund" parameterType="com.lotte.orders.dto.OrderProductsDto">
+        UPDATE products
+        SET product_stock = product_stock+#{orderCount}
+            AND product_amount = product_amount-#{orderCount}
+        WHERE product_no = #{productNo}
+    </update>
+    <select id="selectAccountByUserNo" parameterType="Integer" resultType="com.lotte.accounts.dto.AccountDto">
+        SELECT user_no, account_money, account_point
+        FROM accounts
+        WHERE user_no = #{userNo}
+    </select>
+</mapper>

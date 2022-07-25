@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+body {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+.logo-img {
+    width: 100px;
+    height: 62px;
+    margin-left: 36px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.icon-img {
+    width: 25px;
+    height: 20px;
+}
+
+.bg-kerly {
+    background-color: #525AF2;
+}
+
+.titlemenu {
+    font-size: 14px;
+    /*color: #E2E2E2;*/
+}
+
+.nav-link {
+    color: #fff;
+}
+
+.nav-link:hover {
+    color: #fff;
+    /*font-size: 18px;*/
+}
+
+.nav-link:focus {
+    color: #fff;
+    font-size: 18px;
+}
+
+a {
+    color: #e2e2e2;
+}
+
+.grey-hr {
+    width: 180px;
+    color: #E2E2E2;
+}
+
+.count {
+    overflow: hidden;
+    float: left;
+    width: 88px;
+    height: 30px;
+    border: 1px solid #dddfe1;
+    border-radius: 3px;
+}
+
+.count .down.on {
+    background-image: url(https://res.kurly.com/pc/ico/2010/ico_minus_on.svg);
+}
+
+.count .down {
+    background: #fff url(https://res.kurly.com/pc/ico/2010/ico_minus.svg) no-repeat 50% 50%;
+    background-size: 30px 30px;
+}
+
+.count .btn {
+    overflow: hidden;
+    float: left;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+#result {
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin-right: -1px;
+    padding: 4px 0 4px;
+    border: 0;
+    background-color: #fff;
+    font-size: 14px;
+    color: #000;
+    line-height: 18px;
+    text-align: center;
+}
+
+.count .up.on {
+    background-image: url(https://res.kurly.com/pc/ico/2010/ico_plus_on.svg);
+}
+
+.count .up {
+    float: right;
+    margin-left: -1px;
+    background: #fff url(https://res.kurly.com/pc/ico/2010/ico_plus.svg) no-repeat 50% 50%;
+    background-size: 30px 30px;
+}
+
+.count .btn {
+    overflow: hidden;
+    float: left;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.minusplusbtn {
+    display: flex;
+    justify-content: center;
+    border: none;
+}
+
+#updateProduct, #setProduct {
+    border: none;
+    border-radius: 5px;
+    height: 44px;
+    background-color: #525AF2;
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.pro-img {
+    margin-left: 76px;
+}

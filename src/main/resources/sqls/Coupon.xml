@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lotte.coupons.dao.CouponDao">
+    <update id="updateUserCoupon" parameterType="com.lotte.coupons.dto.UserCouponInfo">
+        UPDATE user_coupons
+        SET user_coupon_use = 1
+        WHERE user_no = #{userNo}
+            AND coupon_no = #{coupon_no}
+    </update>
+    <select id="selectCouponByUser" parameterType="Integer" resultType="com.lotte.coupons.dto.UserCouponInfo">
+        SELECT coupons.coupon_name, u.user_no, users.coupon_no, coupons.coupon_date, u.user_birth, users.user_coupon_use
+        FROM user_coupons users, coupons coupons, users u
+        WHERE u.user_no = #{userNo}
+            AND coupons.coupon_no = users.coupon_no
+            AND u.user_no = users.user_no
+            AND users.user_coupon_use = 0
+    </select>
+</mapper>
