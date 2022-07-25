@@ -12,7 +12,7 @@
 - [시스템 구조도](https://github.com/nscv/lotte-kurly#시스템-구조도)
 - [프로젝트 설계](https://github.com/nscv/lotte-kurly#프로젝트-설계)
 - [핵심 기능](https://github.com/nscv/lotte-kurly#핵심-기능)
-- [주요기능 실행화면](https://github.com/nscv/lotte-kurly#주요기능-실행화면)
+- [주요기능 실행화면](https://github.com/nscv/lotte-kurly#-주요기능-실행화면)
 - [팀 정보](https://github.com/nscv/lotte-kurly#팀-정보)
 
 ## 🚩 개요
