@@ -8,7 +8,7 @@
 
 ## 목차
 - [개요](https://github.com/nscv/lotte-kurly#-개요)
-- [실행 방법](https://github.com/nscv/lotte-kurly#-실행-방법)
+- [프로젝트 설계](https://github.com/nscv/lotte-kurly#-프로젝트-설계)
 - [핵심 기능](https://github.com/nscv/lotte-kurly#-핵심-기능)
 - [기술 스택](https://github.com/nscv/lotte-kurly#-기술-스택)
 - [시스템 구조도](https://github.com/nscv/lotte-kurly#-시스템-구조도)
@@ -19,7 +19,7 @@
 최근 물가 상승률이 가파르게 높아지면서 국민들에게 더 저렴하게 식재료를 제공하고자 버티컬 플랫폼인 마켓컬리를 카피캣으로 사용하여 구현했습니다.
 ![lotte-kurly-gif](https://user-images.githubusercontent.com/43202607/180718435-0a26dcac-5019-4254-a33d-5a74047a73d9.gif)
 
-## 설계
+## 프로젝트 설계
 ### ERD
   <img width="1252" alt="erd" src="https://user-images.githubusercontent.com/43202607/180723548-6c14ee81-b528-4d03-aa95-91295b5125cd.png">
 
