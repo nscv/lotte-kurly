@@ -1,8 +1,8 @@
 <h1 align='center'> <img src='https://user-images.githubusercontent.com/21255149/180385609-b0ff770e-470c-4734-bf8c-b0952268b279.png' style='width: 30px; height: 30px;'>&nbsp;내일의 장보기, Lotte Kurly</h1>
 <div align='center'>
-  <h3></h3>
-  <img src='https://user-images.githubusercontent.com/21255149/180385615-741a8077-97fc-46e4-8662-ba29513f2ee7.png' style='width: 200px;'><br/>
-  <h3><a href="https://ecshin.notion.site/b90348bc2cc7477682686093e03fc2ef"> 📘기능 </a> | <a href="[https://www.notion.so/ecshin/dc03002ea964433da73578cf9a4cebde](https://ecshin.notion.site/dc03002ea964433da73578cf9a4cebde)"> 📑데이터베이스 구조 </a> | <a href="https://www.figma.com/file/NRqHTD39KUEqH5hZrN9Kkl/LOTTE-Kerly?node-id=0%3A1"> ✏️UI </a></h3>
+  <h3>
+    <a href="https://ecshin.notion.site/New-Super-Cucumber-Voucher-36e58840891743068035620afef729cb"> ✏️Notion </a>
+  </h3>
 </div>
 <br/><br/>
 
