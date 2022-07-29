@@ -26,6 +26,9 @@
 ### UI &nbsp; 🔗 [Figma Link](https://www.figma.com/file/NRqHTD39KUEqH5hZrN9Kkl/LOTTE-Kerly)
 <img width="1527" alt="ui" src="https://user-images.githubusercontent.com/43202607/180723848-90899ee7-5def-4eef-9b98-e84f968b5994.png">
 
+### 기획 &nbsp; 📖 [Miro Link](https://miro.com/app/board/uXjVOniqPe4=/?share_link_id=397641256967)
+<img width="1527" alt="miro" src="https://user-images.githubusercontent.com/21255149/181729277-0e40bab5-a03b-4b7b-96fe-ca4060795f2c.PNG">
+
 ## 💻핵심 기능
 #### 상품
 - 상품 정렬(판매 많은 순, 리뷰 많은 순, 가격 내림차순/오름차순, 카테고리)
