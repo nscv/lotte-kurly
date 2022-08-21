@@ -8,18 +8,32 @@
 
 ## 목차
 - [개요](https://github.com/nscv/lotte-kurly#-개요)
-- [프로젝트 설계](https://github.com/nscv/lotte-kurly#-프로젝트-설계)
-- [핵심 기능](https://github.com/nscv/lotte-kurly#-핵심-기능)
 - [기술 스택](https://github.com/nscv/lotte-kurly#-기술-스택)
 - [시스템 구조도](https://github.com/nscv/lotte-kurly#-시스템-구조도)
+- [프로젝트 설계](https://github.com/nscv/lotte-kurly#-프로젝트-설계)
+- [핵심 기능](https://github.com/nscv/lotte-kurly#-핵심-기능)
 - [주요기능 실행화면](https://github.com/nscv/lotte-kurly#-주요기능-실행화면)
 - [팀 정보](https://github.com/nscv/lotte-kurly#-팀-정보)
 
-## 🚩개요
+## 🚩 개요
 최근 물가 상승률이 가파르게 높아지면서 국민들에게 더 저렴하게 식재료를 제공하고자 버티컬 플랫폼인 마켓컬리를 카피캣으로 사용하여 구현했습니다.
 ![lotte-kurly-gif](https://user-images.githubusercontent.com/43202607/180718435-0a26dcac-5019-4254-a33d-5a74047a73d9.gif)
 
-## 프로젝트 설계
+## 🔧 기술 스택
+- Language : `Java` `JavaScript`
+- Library & Framework : `Spring`
+- Database : `Mysql`
+- Target : `Web Browser`
+- Tool : `Intellij`
+- Infra : `EC2` `RDS`
+- Etc : `Notion`, `Git`
+
+## 📐 시스템 구조도
+
+![systemstruccture](https://user-images.githubusercontent.com/58438267/180413144-8b1182a0-25c8-4a73-a9b2-ba63b8048710.png)
+
+
+## 👾 프로젝트 설계
 ### ERD
   <img width="1252" alt="erd" src="https://user-images.githubusercontent.com/43202607/180723548-6c14ee81-b528-4d03-aa95-91295b5125cd.png">
 
@@ -72,19 +86,7 @@
 #### 크롤링
 - 상품 정보 크롤링
 
-## 🔧기술 스택
- - Language : `Java` `JavaScript`
- - Library & Framework : `Spring`
- - Database : `Mysql`
- - Target : `Web Browser`
- - Tool : `Intellij`
- - Infra : `EC2` `RDS`
- - Etc : `Notion`, `Git`
-
-## 📐시스템 구조도
-
-![systemstruccture](https://user-images.githubusercontent.com/58438267/180413144-8b1182a0-25c8-4a73-a9b2-ba63b8048710.png)
-
+ 
 ## 🎇 주요기능 실행화면
 
 <details>
