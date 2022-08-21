@@ -43,7 +43,7 @@
 ### 기획 &nbsp; 📖 [Miro Link](https://miro.com/app/board/uXjVOniqPe4=/?share_link_id=397641256967)
 <img width="1527" alt="miro" src="https://user-images.githubusercontent.com/21255149/181729277-0e40bab5-a03b-4b7b-96fe-ca4060795f2c.PNG">
 
-## 💻핵심 기능
+## 💻 핵심 기능
 #### 상품
 - 상품 정렬(판매 많은 순, 리뷰 많은 순, 가격 내림차순/오름차순, 카테고리)
 - 페이징
@@ -174,7 +174,7 @@
 
 </details>
 
-## 🌄팀 정보
+## 🌄 팀 정보
 |  강예나  |  권나연  |  신은총  |  오재곤 | 이석원  |  최형준  |
 | :----------: |  :--------:  |  :---------: |  :---------: | :---------: | :---------: |
 | [<img src="https://user-images.githubusercontent.com/62419355/178489222-02bfae9d-d535-4186-ae6c-737e6bfc86ad.png" width="100px" height="100px"><br/>Github](https://github.com/KangYena)| [<img src="https://user-images.githubusercontent.com/43202607/180716695-1dc782eb-1ae2-4896-af89-5df5ca6657da.png" width="100px" height="100px"><br/>Github](https://github.com/hellonayeon/lotte-kurly) | [<img src="https://user-images.githubusercontent.com/21255149/178379443-7ead27aa-ec24-4e15-8935-750b1cafa08c.jpg" width="100px" height="100px"><br/>Github](https://github.com/chd830) | [<img src="https://user-images.githubusercontent.com/21255149/180393004-2220f426-35c8-42e6-8492-6f75c5916879.jpg" width="100px" height="100px"><br/>Github](https://github.com/gon-pick)| [<img src="https://user-images.githubusercontent.com/21255149/180430654-6be52b0d-9453-42e7-9d0c-32770969a966.jpg" width="100px" height="100px"><br/>Github](https://github.com/clalsw) | [<img src="https://user-images.githubusercontent.com/21255149/180430646-fd162fef-602d-4919-9a0c-7bd66ef6f236.jpg" width="100px" height="100px"><br/>Github](https://github.com/choihyeongjun) |
