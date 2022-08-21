@@ -1,19 +1,19 @@
 <h1 align='center'> <img src='https://user-images.githubusercontent.com/21255149/180385609-b0ff770e-470c-4734-bf8c-b0952268b279.png' style='width: 30px; height: 30px;'>&nbsp;내일의 장보기, Lotte Kurly</h1>
 <div align='center'>
-  <h3></h3>
-  <img src='https://user-images.githubusercontent.com/21255149/180385615-741a8077-97fc-46e4-8662-ba29513f2ee7.png' style='width: 200px;'><br/>
-  <h3><a href="https://ecshin.notion.site/b90348bc2cc7477682686093e03fc2ef"> 📘기능 </a> | <a href="[https://www.notion.so/ecshin/dc03002ea964433da73578cf9a4cebde](https://ecshin.notion.site/dc03002ea964433da73578cf9a4cebde)"> 📑데이터베이스 구조 </a> | <a href="https://www.figma.com/file/NRqHTD39KUEqH5hZrN9Kkl/LOTTE-Kerly?node-id=0%3A1"> ✏️UI </a></h3>
+  <h3>
+    <a href="https://ecshin.notion.site/New-Super-Cucumber-Voucher-36e58840891743068035620afef729cb"> ✏️Notion </a>
+  </h3>
 </div>
 <br/><br/>
 
 ## 목차
-- [개요](https://github.com/nscv/lotte-kurly#개요)
-- [기술 스택](https://github.com/nscv/lotte-kurly#기술-스택)
-- [시스템 구조도](https://github.com/nscv/lotte-kurly#시스템-구조도)
-- [프로젝트 설계](https://github.com/nscv/lotte-kurly#프로젝트-설계)
-- [핵심 기능](https://github.com/nscv/lotte-kurly#핵심-기능)
+- [개요](https://github.com/nscv/lotte-kurly#-개요)
+- [기술 스택](https://github.com/nscv/lotte-kurly#-기술-스택)
+- [시스템 구조도](https://github.com/nscv/lotte-kurly#-시스템-구조도)
+- [프로젝트 설계](https://github.com/nscv/lotte-kurly#-프로젝트-설계)
+- [핵심 기능](https://github.com/nscv/lotte-kurly#-핵심-기능)
 - [주요기능 실행화면](https://github.com/nscv/lotte-kurly#-주요기능-실행화면)
-- [팀 정보](https://github.com/nscv/lotte-kurly#팀-정보)
+- [팀 정보](https://github.com/nscv/lotte-kurly#-팀-정보)
 
 ## 🚩 개요
 최근 물가 상승률이 가파르게 높아지면서 국민들에게 더 저렴하게 식재료를 제공하고자 버티컬 플랫폼인 마켓컬리를 카피캣으로 사용하여 구현했습니다.
@@ -40,7 +40,10 @@
 ### UI &nbsp; 🔗 [Figma Link](https://www.figma.com/file/NRqHTD39KUEqH5hZrN9Kkl/LOTTE-Kerly)
 <img width="1527" alt="ui" src="https://user-images.githubusercontent.com/43202607/180723848-90899ee7-5def-4eef-9b98-e84f968b5994.png">
 
-## 💻 핵심 기능
+### 기획 &nbsp; 📖 [Miro Link](https://miro.com/app/board/uXjVOniqPe4=/?share_link_id=397641256967)
+<img width="1527" alt="miro" src="https://user-images.githubusercontent.com/21255149/181729277-0e40bab5-a03b-4b7b-96fe-ca4060795f2c.PNG">
+
+## 💻핵심 기능
 #### 상품
 - 상품 정렬(판매 많은 순, 리뷰 많은 순, 가격 내림차순/오름차순, 카테고리)
 - 페이징
